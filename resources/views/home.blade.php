@@ -91,9 +91,6 @@
 
 												</select>
 											</div>
-                                            <span>
-                                                Bénéfice par semaine: 3%
-                                            </span>                    
 										</div>
 									</div>
                                     <br>

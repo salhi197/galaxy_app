@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="page-header">
+					<div class="page-header">
 						<h4 class="page-title">{{trans('recharger_comtpe')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -29,7 +29,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group overflow-hidden">
                                                     <label>Entrez le montant de la recharge, €:</label>
-                                                    <input  name="montant" class="form-control" min="500" id="montant" min="0"/>
+                                                    <input  required name="montant" class="form-control" min="500" id="montant" min="0"/>
                                                     </select>
                                                 </div>
                                             </div>
@@ -37,12 +37,10 @@
                                                 <div class="form-group overflow-hidden">
                                                     <label>Entrez la méthode de recharge:</label>
                                                         <select name="methode" class="form-control select2 w-100" >
-                                                        <option selected="selected">BTC</option>
-                                                        <option selected="selected">ETH</option>
-                                                        <option selected="selected">USDT</option>
-                                                        <option selected="selected">Payer</option>
-                                                        <option selected="selected">BTC</option>
-                                                        <option selected="selected">BTC</option>
+                                                        <option value="btc">BTC</option>
+                                                        <option value="prefectmoney">Perfect Money</option>
+                                                        <option value="usdt_trc20">USDT TRC20</option>
+                                                        <option value="usdt_erc20">USDT ERC20</option>
                                                     </select>
                                                 </div>       
                                             </div>

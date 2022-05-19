@@ -29,6 +29,4 @@ class SettingController extends Controller
     {      
         return view('setting');
     }
-
-    //
 }

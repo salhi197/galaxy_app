@@ -34,7 +34,7 @@
 		<link href="{{asset('assets/css/icons.css')}}" rel="stylesheet"/>
 
 		<!-- Skin css-->
-		<link href="{{asset('assets/skins/skins-modes/color1.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
+		<link href="{{asset('assets/skins/skins-modes/color22.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
 
 	</head>
 
@@ -52,7 +52,7 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 						   <a class="header-brand" href="/home" class="text-white">
-                                Galaxy
+                                <img src="{{asset('logo-galaxy.png')}}" width="40px"/>
 							</a><!-- LOGO -->
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="fa fa-search"></i></a>
@@ -75,8 +75,8 @@
 									</div>
 								</div><!-- NOTIFICATIONS -->
 								<div class="">
-									<h3 class="breadcrumb-item text-white">
-										{{Auth::user()->solde ?? ''}} DA
+									<h3 class="breadcrumb-item text-white" style="padding:15px;">
+										{{Auth::user()->solde ?? ''}} $
 									</h3>
 								</div><!-- NOTIFICATIONS -->
 
@@ -174,9 +174,19 @@
 						<li>
 							<a class="side-menu__item" href=""><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('actif')}}</span></a>
 						</li>
-						<li>
-							<a class="side-menu__item" href="{{route('setting')}}"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label">{{trans('setting')}}</span></a>
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label">{{trans('setting')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="{{route('methode.index')}}" class="slide-item">{{trans('methode de paiment')}} </a>
+								</li>	
+								<li>
+									<a href="#" class="slide-item">{{trans('analytique')}} </a>
+								</li>
+
+							</ul>
 						</li>
+
 
 
 						<li>
@@ -184,7 +194,7 @@
 						</li>
 
 						<li>
-							<a class="side-menu__item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door-open"></i><span class="side-menu__label">{{trans('logout')}}</span></a>
+							<a class="side-menu__item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door"></i><span class="side-menu__label">{{trans('Déconnexion')}}</span></a>
 						</li>
 
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

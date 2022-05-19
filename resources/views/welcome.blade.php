@@ -31,7 +31,7 @@
 <link href="{{asset('assets/css/icons.css')}}" rel="stylesheet"/>
 <!-- SELECT2 CSS -->
 <!-- Skin css-->
-<link href="{{asset('assets/skins/skins-modes/color1.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
+<link href="{{asset('assets/skins/skins-modes/color22.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
 <!-- SIDEBAR CSS -->
 
 <!-- Switcher CSS -->
@@ -107,7 +107,7 @@
 <!-- CUSTOM JS-->
 <script src="{{asset('js/toastr.min.js')}}"></script>	
 
-<script src="https://app.bibanfret.com/assets/js/custom.js"></script>	
+<script src="{{asset('assets/js/custom.js')}}"></script>	
 <script>
         @if($errors->any())
         $(function(){

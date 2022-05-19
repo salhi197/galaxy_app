@@ -34,7 +34,7 @@
 		<link href="<?php echo e(asset('assets/css/icons.css')); ?>" rel="stylesheet"/>
 
 		<!-- Skin css-->
-		<link href="<?php echo e(asset('assets/skins/skins-modes/color1.css')); ?>"  id="theme" rel="stylesheet" type="text/css" media="all" />
+		<link href="<?php echo e(asset('assets/skins/skins-modes/color22.css')); ?>"  id="theme" rel="stylesheet" type="text/css" media="all" />
 
 	</head>
 
@@ -52,7 +52,7 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 						   <a class="header-brand" href="/home" class="text-white">
-                                Galaxy
+                                <img src="<?php echo e(asset('logo-galaxy.png')); ?>" width="40px"/>
 							</a><!-- LOGO -->
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="fa fa-search"></i></a>
@@ -75,8 +75,8 @@
 									</div>
 								</div><!-- NOTIFICATIONS -->
 								<div class="">
-									<h3 class="breadcrumb-item text-white">
-										<?php echo e(Auth::user()->solde ?? ''); ?> DA
+									<h3 class="breadcrumb-item text-white" style="padding:15px;">
+										<?php echo e(Auth::user()->solde ?? ''); ?> $
 									</h3>
 								</div><!-- NOTIFICATIONS -->
 
@@ -174,9 +174,19 @@
 						<li>
 							<a class="side-menu__item" href=""><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label"><?php echo e(trans('actif')); ?></span></a>
 						</li>
-						<li>
-							<a class="side-menu__item" href="<?php echo e(route('setting')); ?>"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('setting')); ?></span></a>
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('setting')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo e(route('methode.index')); ?>" class="slide-item"><?php echo e(trans('methode de paiment')); ?> </a>
+								</li>	
+								<li>
+									<a href="#" class="slide-item"><?php echo e(trans('analytique')); ?> </a>
+								</li>
+
+							</ul>
 						</li>
+
 
 
 						<li>
@@ -184,7 +194,7 @@
 						</li>
 
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door-open"></i><span class="side-menu__label"><?php echo e(trans('logout')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door"></i><span class="side-menu__label"><?php echo e(trans('Déconnexion')); ?></span></a>
 						</li>
 
 						<form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">

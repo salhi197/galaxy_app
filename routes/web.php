@@ -102,3 +102,12 @@ Route::get('/setting', ['as' => 'setting', 'uses' => 'SettingController@index'])
 
 Route::get('/fichier', ['as' => 'fichier.index', 'uses' => 'HomeController@fichiers']);
 Route::get('/fichier/download/{fichier}', ['as' => 'fichier.download', 'uses' => 'HomeController@downloadFile']);
+
+Route::group(['prefix' => 'methode', 'as' => 'methode'], function () {
+    Route::get('/', ['as' => '.index', 'uses' => 'MethodeController@index']);
+    Route::get('/show/create',['as'=>'.show.create', 'uses' => 'MethodeController@create']);
+    Route::post('/create', ['as' => '.create', 'uses' => 'MethodeController@store']);
+    Route::post('/update/{id_methode}', ['as' => '.update', 'uses' => 'MethodeController@update']);
+    Route::get('/destroy/{id_methode}', ['as' => '.destroy', 'uses' => 'MethodeController@destroy']);
+    Route::get('/edit/{id_methode}', ['as' => '.edit', 'uses' => 'MethodeController@edit']);
+});
