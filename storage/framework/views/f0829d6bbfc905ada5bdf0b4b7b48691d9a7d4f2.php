@@ -46,6 +46,7 @@
 				<div class="">
 					<div class="col col-login mx-auto">
 						<div class="text-center">
+							<img src="<?php echo e(asset('logo-galaxy.png')); ?>" width="120px"/>
 						</div>
 					</div>
 					<div class="container-login100">

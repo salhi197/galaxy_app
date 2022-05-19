@@ -46,12 +46,13 @@
 				<div class="">
 					<div class="col col-login mx-auto">
 						<div class="text-center">
+							<img src="{{asset('logo-galaxy.png')}}" width="120px"/>
 						</div>
 					</div>
 					<div class="container-login100">
 						<div class="wrap-login100 p-6">
 							
-                            <form class="login100-form validate-form" method="POST" action="/login" aria-label="Login">
+                            <form class="login100-form validate-form" method="POST" action="{{route('login')}}" aria-label="Login">
                                 @csrf
                                 <input type="hidden" name="_token" value="GnPinh22Yif9GsIWbgLW4r49uxQq3MniIG3y4TQo">
                                 <span class="login100-form-title">
@@ -103,7 +104,6 @@
 <!-- SELECT2 JS -->
 <!-- INPUT MASK PLUGIN-->
 <!-- CUSTOM SCROLL BAR JS-->
-<script src="{{asset('assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <!-- CUSTOM JS-->
 <script src="{{asset('js/toastr.min.js')}}"></script>	
 

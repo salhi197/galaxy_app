@@ -88,22 +88,19 @@
 													<option value="3">3 Mois</option>
 													<option value="6">6 Mois</option>
 													<option value="12">12 Mois</option>
-
 												</select>
 											</div>
 										</div>
 									</div>
+
                                     <br>
+									
 									<div class="row">
 										<div class="col-md-8">
                                             <div class="form-group overflow-hidden">
 												<label>Entrez le montant de l'investissement:</label>
 												<input name="montant" class="form-control" min="500" id="montant" min="0"/>
-											</div>       
-                                            <span>
-                                                Bénéfice par semaine: 3%
-                                            </span>                    
-                                       
+											</div>                                              
 										</div>
 									</div>
 									<button class="btn btn-primary">Calculer</button>

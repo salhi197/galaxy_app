@@ -31,7 +31,7 @@
 <link href="<?php echo e(asset('assets/css/icons.css')); ?>" rel="stylesheet"/>
 <!-- SELECT2 CSS -->
 <!-- Skin css-->
-<link href="<?php echo e(asset('assets/skins/skins-modes/color1.css')); ?>"  id="theme" rel="stylesheet" type="text/css" media="all" />
+<link href="<?php echo e(asset('assets/skins/skins-modes/color22.css')); ?>"  id="theme" rel="stylesheet" type="text/css" media="all" />
 <!-- SIDEBAR CSS -->
 
 <!-- Switcher CSS -->
@@ -46,6 +46,7 @@
 				<div class="">
 					<div class="col col-login mx-auto">
 						<div class="text-center">
+                            <img src="<?php echo e(asset('logo-galaxy.png')); ?>" width="150px"/>
 						</div>
 					</div>
 					<div class="container-login100">

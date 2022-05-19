@@ -11,8 +11,8 @@
 		<meta content="Spruko Technologies Private Limited"  name="author">
 		<meta name="keywords" content="html5 template, admin panel html template,  html5 admin template, admin panel html, admin panel html template, html css admin templates, dashboard html5, html dashboard template, simple dashboard html template, html5 dashboard template, dashboard html5,  simple dashboard html, dashboard design template, bootstrap 4 admin template,  bootstrap admin template,  admin, premium admin templates, best bootstrap admin template, bootstrap dashboard template,   admin ui templates, modern admin template, admin panel template bootstrap 4 "  />
 		<!--favicon -->
-<link rel="icon" href="{{asset('assets/images/brand/favicon.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="{{asset('assets/images/brand/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="{{asset('assets/images/brand/favicon.ico')}}" type="image/x-icon"/>
+<link rel="shortcut icon" href="{{asset('assets/images/brand/favicon.ico')}}" type="image/x-icon"/>
 <!-- TITLE -->
 <title>Galaxy App– Register </title>
 <!-- DASHBOARD CSS -->
@@ -33,7 +33,7 @@
 <!-- SELECT2 CSS -->
 <link href="{{asset('assets/plugins/select2/select2.min.css')}}" rel="stylesheet"/>
 <!-- Skin css-->
-<link href="{{asset('assets/skins/skins-modes/color1.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
+<link href="{{asset('assets/skins/skins-modes/color22.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
 <!-- SIDEBAR CSS -->
 <link href="{{asset('assets/plugins/sidebar/sidebar.css')}}" rel="stylesheet">
 
@@ -56,6 +56,7 @@
 				    <!-- CONTAINER OPEN -->
 					<div class="col col-login mx-auto">
 						<div class="text-center">
+                            <img src="{{asset('logo-galaxy.png')}}" width="120px"/>
 						</div>
 					</div>
 					<div class="container-login100">

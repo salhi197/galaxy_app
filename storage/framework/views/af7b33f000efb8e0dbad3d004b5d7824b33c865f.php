@@ -120,11 +120,6 @@
 							</div>
 							<div class="sidebar-navs mt-2">
 								<ul class="nav nav-pills nav-pills-circle" id="tabs_3" role="tablist">
-									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
-										<a class="nav-link border h-6  m-2">
-											<i class="fe fe-instagram"></i>
-										</a>
-									</li>
 								</ul>
 							</div>							
 						</div>
