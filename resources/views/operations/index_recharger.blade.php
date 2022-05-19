@@ -36,7 +36,12 @@
                                                 <td>{{$operation->id}}</td>
                                                 <td>{{$operation->montant}}</td>
                                                 <td>{{$operation->methode}}</td>
-                                                <td>{{$operation->etat}}</td>
+												@if($operation->etat == 1)
+                                                <td >Confirmé</td>
+												@else
+                                                <td >Non Confirmé</td>
+
+												@endif
 											</tr>                                            
                                             @endforeach
 										</tbody>

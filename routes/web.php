@@ -64,19 +64,29 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
 
 Route::group(['prefix' => 'operation', 'as' => 'operation'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'OperationController@index']);
+
     Route::get('/rechargement', ['as' => '.recharger.index', 'uses' => 'OperationController@indexRechargement']);
     Route::get('/recharger',['as'=>'.recharger.show', 'uses' => 'OperationController@rechargerShow']);
     Route::post('/recharger',['as'=>'.recharger.action', 'uses' => 'OperationController@rechargerAction']);
+
+
+
+    Route::get('/transfert', ['as' => '.transferer.index', 'uses' => 'OperationController@indexRechargement']);
+    Route::get('/transferer',['as'=>'.transferer.show', 'uses' => 'OperationController@transfererShow']);
+    Route::post('/transferer',['as'=>'.transferer.action', 'uses' => 'OperationController@transfererAction']);
+
+
 });
 
 
-Route::group(['prefix' => 'client', 'as' => 'client'], function () {
-    Route::get('/', ['as' => '.index', 'uses' => 'ClientController@index']);
-    Route::get('/create',['as'=>'.create', 'uses' => 'ClientController@create']);
-    Route::post('/create', ['as' => '.store', 'uses' => 'ClientController@store']);
-    Route::get('/destroy/{id_demande}', ['as' => '.destroy', 'uses' => 'ClientController@destroy']); 
-    Route::get('/edit/{id_demande}', ['as' => '.edit', 'uses' => 'ClientController@edit']);
-    Route::post('/update/{client}', ['as' => '.update', 'uses' => 'ClientController@update']);        
+
+Route::group(['prefix' => 'partenaire', 'as' => 'partenaire'], function () {
+    Route::get('/', ['as' => '.index', 'uses' => 'PartenaireController@index']);
+    Route::get('/rechercher',['as'=>'.rechercher', 'uses' => 'PartenaireController@rechercher']);
+    Route::post('/create', ['as' => '.store', 'uses' => 'PartenaireController@store']);
+    Route::get('/destroy/{id_demande}', ['as' => '.destroy', 'uses' => 'PartenaireController@destroy']); 
+    Route::get('/edit/{id_demande}', ['as' => '.edit', 'uses' => 'PartenaireController@edit']);
+    Route::post('/update/{partenaire}', ['as' => '.update', 'uses' => 'PartenaireController@update']);        
 });
 
 

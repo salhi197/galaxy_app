@@ -14,7 +14,7 @@
 <link rel="icon" href="https://app.bibanfret.com/assets/images/brand/favicon.ico" type="image/x-icon"/>
 <link rel="shortcut icon" href="https://app.bibanfret.com/assets/images/brand/favicon.ico" type="image/x-icon"/>
 <!-- TITLE -->
-<title>Galaxy App– Connexion </title>
+<title>Galaxy App– Register </title>
 <!-- DASHBOARD CSS -->
 <link href="https://app.bibanfret.com/assets/css/dashboard.css" rel="stylesheet"/>
 <link href="https://app.bibanfret.com/assets/css/dashboard-dark.css" rel="stylesheet"/>
@@ -171,6 +171,12 @@
                                         <i class="fa fa-door-open"></i>Connexion
 									</button>
 								</div>
+								<p>
+									Vous avez encore un comtpe ?
+									<a href="{{route('login')}}"> Se Connecter .</a>
+
+								</p>
+
 							</form>
 						</div>
 					</div>

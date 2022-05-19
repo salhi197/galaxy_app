@@ -11,49 +11,39 @@
 		<meta content="Spruko Technologies Private Limited" name="author">
 		<meta name="keywords" content="html5 template, admin panel html template,  html5 admin template, admin panel html, admin panel html template, html css admin templates, dashboard html5, html dashboard template, simple dashboard html template, html5 dashboard template, dashboard html5,  simple dashboard html, dashboard design template, bootstrap 4 admin template,  bootstrap admin template,  admin, premium admin templates, best bootstrap admin template, bootstrap dashboard template,   admin ui templates, modern admin template, admin panel template bootstrap 4 "  />
 		<!--favicon -->
-<link rel="icon" href="https://app.bibanfret.com/assets/images/brand/favicon.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="https://app.bibanfret.com/assets/images/brand/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="" type="image/x-icon"/>
+<link rel="shortcut icon" href="" type="image/x-icon"/>
 <!-- TITLE -->
-<title>BibanFret – Connexion </title>
+<title>Galaxy App  - Connexion</title>
 <!-- DASHBOARD CSS -->
-<link href="https://app.bibanfret.com/assets/css/dashboard.css" rel="stylesheet"/>
-<link href="https://app.bibanfret.com/assets/css/dashboard-dark.css" rel="stylesheet"/>
-<link href="https://app.bibanfret.com/assets/css/style-modes.css" rel="stylesheet"/>
+<link href="{{asset('assets/css/dashboard.css')}}" rel="stylesheet"/>
+<link href="{{asset('assets/css/dashboard-dark.css')}}" rel="stylesheet"/>
+<link href="{{asset('assets/css/style-modes.css')}}" rel="stylesheet"/>
 <!-- HORIZONTAL-MENU CSS -->
-<link href="https://app.bibanfret.com/assets/plugins/horizontal-menu/dropdown-effects/fade-down.css" rel="stylesheet">
-<link href="https://app.bibanfret.com/assets/plugins/horizontal-menu/horizontal-menu.css" rel="stylesheet">
+<link href="{{asset('assets/plugins/horizontal-menu/dropdown-effects/fade-down.css')}}" rel="stylesheet">
 <!--C3.JS CHARTS PLUGIN -->
-<link href="https://app.bibanfret.com/assets/plugins/charts-c3/c3-chart.css" rel="stylesheet"/>
+<link href="{{asset('assets/plugins/charts-c3/c3-chart.css')}}" rel="stylesheet"/>
 <!-- SINGLE-PAGE CSS -->
-<link href="https://app.bibanfret.com/assets/plugins/single-page/css/main.css" rel="stylesheet" type="text/css">
+<link href="{{asset('assets/plugins/single-page/css/main.css')}}" rel="stylesheet" type="text/css">
 <!-- PERFECT SCROLL BAR CSS-->
-<link href="https://app.bibanfret.com/assets/plugins/pscrollbar/perfect-scrollbar.css" rel="stylesheet" />
+<link href="{{asset('assets/plugins/pscrollbar/perfect-scrollbar.css')}}" rel="stylesheet" />
 <!--- FONT-ICONS CSS -->
-<link href="https://app.bibanfret.com/assets/css/icons.css" rel="stylesheet"/>
+<link href="{{asset('assets/css/icons.css')}}" rel="stylesheet"/>
 <!-- SELECT2 CSS -->
-<link href="https://app.bibanfret.com/assets/plugins/select2/select2.min.css" rel="stylesheet"/>
 <!-- Skin css-->
-<link href="https://app.bibanfret.com/assets/skins/skins-modes/color1.css"  id="theme" rel="stylesheet" type="text/css" media="all" />
+<link href="{{asset('assets/skins/skins-modes/color1.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
 <!-- SIDEBAR CSS -->
-<link href="https://app.bibanfret.com/assets/plugins/sidebar/sidebar.css" rel="stylesheet">
 
 <!-- Switcher CSS -->
-<link href="https://app.bibanfret.com/assets/switcher/css/switcher.css" rel="stylesheet">
-<link href="https://app.bibanfret.com/assets/switcher/demo.css" rel="stylesheet">	</head>
+</head>
 <link href="{{asset('css/toastr.css')}}" rel="stylesheet"/>
 
 		
 	<body class="default-header">	    
-				<!-- BACKGROUND-IMAGE -->
 		<div class="login-img">
-
-			<!-- GLOABAL LOADER -->
-			<div id="global-loader">
-			</div>
-
+			<div id="global-loader"></div>
 			<div class="page">
 				<div class="">
-				    <!-- CONTAINER OPEN -->
 					<div class="col col-login mx-auto">
 						<div class="text-center">
 						</div>
@@ -65,7 +55,7 @@
                                 @csrf
                                 <input type="hidden" name="_token" value="GnPinh22Yif9GsIWbgLW4r49uxQq3MniIG3y4TQo">
                                 <span class="login100-form-title">
-									Portail BibanFret
+									Connexion 
 								</span>
 
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -87,6 +77,11 @@
                                         <i class="fa fa-door-open"></i>Connexion
 									</button>
 								</div>
+								<p>
+									Vous n'avez pas encore un comtpe ?
+									<a href="{{route('register')}}"> S'enregistrer .</a>
+
+								</p>
 							</form>
 						</div>
 					</div>
@@ -97,26 +92,22 @@
 		<!-- BACKGROUND-IMAGE CLOSED -->
 		
 		<!-- JQUERY SCRIPTS -->
-<script src="https://app.bibanfret.com/assets/js/vendors/jquery-3.2.1.min.js"></script>
+<script src="{{asset('assets/js/vendors/jquery-3.2.1.min.js')}}"></script>
 <!-- BOOTSTRAP SCRIPTS -->
-<script src="https://app.bibanfret.com/assets/js/vendors/bootstrap.bundle.min.js"></script>
+<script src="{{asset('assets/js/vendors/bootstrap.bundle.min.js')}}"></script>
 <!-- SPARKLINE -->
-<script src="https://app.bibanfret.com/assets/js/vendors/jquery.sparkline.min.js"></script>
+<script src="{{asset('assets/js/vendors/jquery.sparkline.min.js')}}"></script>
 <!-- CHART-CIRCLE -->
-<script src="https://app.bibanfret.com/assets/js/vendors/circle-progress.min.js"></script>
+<script src="{{asset('assets/js/vendors/circle-progress.min.js')}}"></script>
 <!-- RATING STAR -->
-<script src="https://app.bibanfret.com/assets/plugins/rating/jquery.rating-stars.js"></script>
 <!-- SELECT2 JS -->
-<script src="https://app.bibanfret.com/assets/plugins/select2/select2.full.min.js"></script>
-<script src="https://app.bibanfret.com/assets/js/select2.js"></script>
 <!-- INPUT MASK PLUGIN-->
-<script src="https://app.bibanfret.com/assets/plugins/input-mask/jquery.mask.min.js"></script>
 <!-- CUSTOM SCROLL BAR JS-->
-<script src="https://app.bibanfret.com/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="{{asset('assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <!-- CUSTOM JS-->
 <script src="{{asset('js/toastr.min.js')}}"></script>	
 
-<script src="https://app.bibanfret.com/assets/js/custom.js"></script>	
+<script src="{{asset('assets/js/custom.js')}}"></script>	
 <script>
         @if($errors->any())
         $(function(){

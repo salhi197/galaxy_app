@@ -4,7 +4,7 @@
 
 
                     <div class="page-header">
-						<h4 class="page-title">{{trans('liste_recharger')}}</h4>
+						<h4 class="page-title">{{trans('liste de tout les sommes investé')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>
@@ -25,42 +25,25 @@
 										<thead >
 											<tr>
 												<th>ID</th>
-												<th>Name</th>
-												<th>Position</th>
-												<th>Salary</th>
+												<th>Montant</th>
+												<th>Méthode</th>
+												<th>Etat</th>
 											</tr>
 										</thead>
 										<tbody>
+                                            @foreach($operations as $operation)
 											<tr>
-												<th scope="row">1</th>
-												<td>Joan Powell</td>
-												<td>Associate Developer</td>
-												<td>$450,870</td>
-											</tr>
-											<tr>
-												<th scope="row">2</th>
-												<td>Gavin Gibson</td>
-												<td>Account manager</td>
-												<td>$230,540</td>
-											</tr>
-											<tr>
-												<th scope="row">3</th>
-												<td>Julian Kerr</td>
-												<td>Senior Javascript Developer</td>
-												<td>$55,300</td>
-											</tr>
-											<tr>
-												<th scope="row">4</th>
-												<td>Cedric Kelly</td>
-												<td>Accountant</td>
-												<td>$234,100</td>
-											</tr>
-											<tr>
-												<th scope="row">5</th>
-												<td>Samantha May</td>
-												<td>Junior Technical Author</td>
-												<td>$43,198</td>
-											</tr>
+                                                <td>{{$operation->id}}</td>
+                                                <td>{{$operation->montant}}</td>
+                                                <td>{{$operation->methode}}</td>
+												@if($operation->etat == 1)
+                                                <td >Confirmé</td>
+												@else
+                                                <td >Non Confirmé</td>
+
+												@endif
+											</tr>                                            
+                                            @endforeach
 										</tbody>
 									</table>
 								</div>
