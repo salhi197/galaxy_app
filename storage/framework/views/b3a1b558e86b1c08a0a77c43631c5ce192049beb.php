@@ -20,7 +20,11 @@
 										<div class="card-body text-center">
 											<h6 class="mb-3">Bénéfice total</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#564ec1">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">0%</h6></div>
+												<div class="chart-circle-value text-center "><h6 class="mb-0">
+													<i class="fa fa-money" style="font-size:20px;">
+
+													</i>
+												</h6></div>
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
@@ -32,7 +36,13 @@
 											Vos partenaires
 											</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#04cad0">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">0%</h6></div>
+												<div class="chart-circle-value text-center "><h6 class="mb-0">
+
+												<i class="fa fa-users" style="font-size:20px;">
+
+</i>													
+
+												</h6></div>
 											</div>
 											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark">$0</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
@@ -44,7 +54,13 @@
 												Votre actif
 											</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f5334f">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">0%</h6></div>
+												<div class="chart-circle-value text-center ">
+													<h6 class="mb-0">
+													<i class="fa fa-line-chart" style="font-size:20px;">
+
+													</i>													
+													</h6>
+											</div>
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
@@ -54,7 +70,9 @@
 										<div class="card-body text-center">
 											<h6 class="mb-3">Votre rang</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">0%</h6></div>
+												<div class="chart-circle-value text-center "><h6 class="mb-0">
+													<i class="fa fa-tasks" style="font-size:20px;"></i>													
+												</h6></div>
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">397</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
@@ -116,6 +134,18 @@
                                     </ul>                                    
 								</div>
 							</div>
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Lien De Réference</h3>
+								</div>
+								<div class="card-body">
+									<a href="#">
+									https://app.mygalaxy.world/<?php echo e(Auth::user()->code); ?>
+
+									</a>
+								</div>
+							</div>
+
 						</div>
 					</div>
 

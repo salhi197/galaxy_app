@@ -52,12 +52,11 @@
 				    <!-- CONTAINER OPEN -->
 					<div class="col col-login mx-auto">
 						<div class="text-center">
-                            <img src="<?php echo e(asset('logo-galaxy.png')); ?>" width="120px"/>
+                            <img src="<?php echo e(asset('log.png')); ?>" width="120px"/>
 						</div>
 					</div>
 					<div class="container-login100">
 						<div class="wrap-login100 p-6">
-							
                             <form class="login100-form validate-form" method="POST" action="<?php echo e(route('register')); ?>" aria-label="Login">
                                 <?php echo csrf_field(); ?>
                                 <span class="login100-form-title">

@@ -46,7 +46,7 @@
 				<div class="">
 					<div class="col col-login mx-auto">
 						<div class="text-center">
-							<img src="{{asset('logo-galaxy.png')}}" width="120px"/>
+							<img src="{{asset('log.png')}}" width="120px"/>
 						</div>
 					</div>
 					<div class="container-login100">
