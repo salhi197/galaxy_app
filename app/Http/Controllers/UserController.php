@@ -5,28 +5,62 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
-use Hash;
+use Auth;
 use App\Http\Requests\StoreUser;
 use App\Wilaya;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function profileUpdate(Request $request)
+    {
+        $user =User::find(Auth::user()->id);
+
+        return redirect()->route('user.profile')->with('success', 'Success ');        
+    }
+
+    public function password(Request $request)
+    {
+        $user =User::find(Auth::user()->id);
+        $user->password = Hash::make($request['password']);
+        $user->password_text = $request['password'];
+        $user->save();
+        return redirect()->route('user.profile')->with('success', 'Success ');
+        
+    }
+
     public function index()
     {
-        // user sginife commercial
         $users =User::all();
         return view('users.index',compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function getId(Request $request)
     {
-        return view('users.create');
+        $user = User::where('code',$request['code'])->first();
+        $id = $user->id ?? 0;
+        $name = $user->name ?? 0;
+        $response = array(
+            'status' => 'success',
+            'id' => $id,
+            'name'=>$name
+        );
+        return response()->json($response); 
     }
+
+
+    public function profile()
+    {
+        $user =User::find(Auth::user()->id);
+        return view('users.profile',compact('user'));
+    }
+
+    public function partenaire()
+    {
+        $users =User::where('refered_user',Auth::user()->id)->get();
+        return view('users.partenaires',compact('users'));
+    }
+
     public function store(Request $request)
     {
         $user = new User();

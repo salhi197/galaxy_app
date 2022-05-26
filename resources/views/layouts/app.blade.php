@@ -53,27 +53,18 @@
 						<div class="d-flex">
 						   <a class="header-brand" href="/home" class="text-white">
                                 <img src="{{asset('logo-galaxy.png')}}" width="40px"/>
-							</a><!-- LOGO -->
+							</a>
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="fa fa-search"></i></a>
-								<div class="">
-									<form class="form-inline">
-										<div class="search-element">
-											<input type="search" class="form-control header-search" placeholder="Search…" aria-label="Search" tabindex="1">
-											<button class="btn btn-primary-color" type="submit"><i class="fa fa-search"></i></button>
-										</div>
-									</form>
-								</div><!-- SEARCH -->
-								<div class="dropdown d-md-flex notifications">
-									<a class="nav-link icon" data-toggle="dropdown">
-										<i class="fe fe-bell"></i>
-										<span class="pulse bg-warning"></span>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-										<div class="dropdown-divider mt-0"></div>
-										<div class="dropdown-divider mb-0"></div>
-									</div>
-								</div><!-- NOTIFICATIONS -->
+								<div class="text-white " style="font-size:20px;padding:8px;">
+										<p id="date-part">
+										
+										</p>
+								</div>
+								<div class="text-white " style="font-size:20px;padding:8px;">
+										<p id="time-part"></p>
+								</div>
+								<div class="dropdown d-md-flex notifications"></div>
 								<div class="">
 									<h3 class="breadcrumb-item text-white" style="padding:15px;">
 										{{Auth::user()->solde ?? ''}} $
@@ -86,8 +77,9 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading  text-center border-bottom pb-3">
-											<h5 class="text-dark mb-1">{{Auth::user()->name}}</h5>
+											<h5 class="text-dark mb-1">{{Auth::user()->name ?? ''}}</h5>
 											<small class="text-muted">Investor</small>
+
 										</div>
 										<a class="dropdown-item" href="#"><i class="mdi mdi-account-outline mr-2"></i> <span>profile</span></a>
 										<a class="dropdown-item" href="#"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
@@ -115,8 +107,12 @@
 								<img src="{{asset('assets/images/users/male/32.jpg')}}" alt="user-img" class="avatar avatar-lg brround">
 							</div>
 							<div class="user-info">
-								<h2>{{Auth::user()->name}}</h2>
-								<span>{{Auth::user()->telephone ?? 'Investor'}}<span>
+								<h2>{{Auth::user()->name ?? ''}}</h2>
+								<!-- <span>{{Auth::user()->telephone ?? 'Investor'}}<span> -->
+								@auth
+								<img width="20px" class="flag-img" src="{{asset('flags/1x1/'.Auth::user()->pays.'.svg')}}" alt="Flag of Uruguay">
+								@endif
+
 							</div>
 							<div class="sidebar-navs mt-2">
 								<ul class="nav nav-pills nav-pills-circle" id="tabs_3" role="tablist">
@@ -126,6 +122,27 @@
 					</div>
 					<ul class="side-menu">
 						<li class="border-0"><h3>Personal</h3><li>
+						@auth('admin')
+							<li>
+								<a class="side-menu__item" href="{{route('user.index')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('liste utilisateurs')}}</span></a>
+							</li>
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('finance')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="{{route('operation.recharger.index')}}" class="slide-item">{{trans('rechargements')}} </a>
+								</li>
+								<li>
+									<a href="{{route('operation.retrait.index')}}" class="slide-item">{{trans('retrait')}} </a>
+								</li>
+
+
+							</ul>
+						</li>
+
+						@endif
+
+						@auth
 						<li>
 							<a class="side-menu__item" href="{{route('home')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('acceuil')}}</span></a>
 						</li>
@@ -136,8 +153,9 @@
 									<a href="{{route('operation.recharger.show')}}" class="slide-item">{{trans('recharger')}} </a>
 								</li>
 								<li>
-									<a href="#" class="slide-item">{{trans('retirer')}} </a>
+									<a href="{{route('operation.retirer.show')}}" class="slide-item">{{trans('retirer')}} </a>
 								</li>
+
 								<li>
 									<a href="{{route('operation.transferer.show')}}" class="slide-item">{{trans('transfert')}} </a>
 								</li>
@@ -153,11 +171,8 @@
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label">{{trans('partenaires')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="{{route('partenaire.rechercher')}}" class="slide-item">{{trans('partenaires')}} </a>
+									<a href="{{route('user.partenaire')}}" class="slide-item">{{trans('partenaires')}} </a>
 								</li>	
-								<li>
-									<a href="#" class="slide-item">{{trans('analytique')}} </a>
-								</li>
 
 							</ul>
 						</li>
@@ -167,26 +182,28 @@
 							<a class="side-menu__item" href="{{route('faq')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('Faq')}}</span></a>
 						</li>
 						<li>
-							<a class="side-menu__item" href=""><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('actif')}}</span></a>
+							<a class="side-menu__item" href="{{route('operation.recharger.index.actif')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('actif')}}</span></a>
 						</li>
-						<li class="slide">
+						<li>
+							<a class="side-menu__item" href="{{route('user.profile')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('profile')}}</span></a>
+						</li>
+
+						<!-- <li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label">{{trans('setting')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="{{route('methode.index')}}" class="slide-item">{{trans('methode de paiment')}} </a>
 								</li>	
-								<li>
-									<a href="#" class="slide-item">{{trans('analytique')}} </a>
-								</li>
 
 							</ul>
-						</li>
+						</li> -->
 
 
 
 						<li>
 							<a class="side-menu__item" href="{{route('home')}}"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label">{{trans('support')}}</span></a>
 						</li>
+						@endif
 
 						<li>
 							<a class="side-menu__item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door"></i><span class="side-menu__label">{{trans('Déconnexion')}}</span></a>
@@ -271,8 +288,21 @@
 		<!-- INDEX-SCRIPTS  -->
 		<script src="{{asset('assets/js/index.js')}}"></script>
 
+		
 		<!-- CUSTOM JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
 		<script src="{{asset('assets/js/custom.js')}}"></script>
+<script>
+$(document).ready(function() {
+    var interval = setInterval(function() {
+        var momentNow = moment();
+        $('#date-part').html(momentNow.format('YYYY MMMM DD') + ' '
+                            + momentNow.format('dddd')
+                             .substring(0,3).toUpperCase());
+        $('#time-part').html(momentNow.format('A hh:mm:ss'));
+    }, 100);
+});
+</script>
 		@yield('scripts')
 	</body>
 </html>

@@ -12,6 +12,10 @@
 */
 
 
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::post('/login/admin', 'Auth\LoginController@adminLogin')->name('login.admin');
+
+
 
 Route::get('/cleareverything', function () {
     $clearcache = Artisan::call('cache:clear');
@@ -35,6 +39,8 @@ Route::get('/recharger-compte', function () {
     return view('recharger-compte');
 })->middleware('lang')->name('recharger-compte');
 
+Route::get('/admin', 'AdminController@admin')->name('admin');
+
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
@@ -52,6 +58,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['prefix' => 'user', 'as' => 'user'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'UserController@index']);
+    Route::get('/partenaire', ['as' => '.partenaire', 'uses' => 'UserController@partenaire']);
+    Route::get('/profile', ['as' => '.profile', 'uses' => 'UserController@profile']);
+    Route::get('/profile/update', ['as' => '.update.profile', 'uses' => 'UserController@profileUpdate']);
+    
+    Route::get('/detail/{user}', ['as' => '.detail', 'uses' => 'UserController@detail']);
+    
     Route::get('/show/create',['as'=>'.show.create', 'uses' => 'UserController@create']);
     Route::post('/create', ['as' => '.create', 'uses' => 'UserController@store']);
     Route::get('/destroy/{id_user}', ['as' => '.destroy', 'uses' => 'UserController@destroy']);    
@@ -59,6 +71,8 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
     Route::get('/edit/{id_user}', ['as' => '.edit', 'uses' => 'UserController@edit']);
     Route::get('/show/{id_user}', ['as' => '.show', 'uses' => 'UserController@show']);
     Route::post('/update/{id_user}', ['as' => '.update', 'uses' => 'UserController@update']);    
+    Route::post('/password', ['as' => '.password', 'uses' => 'UserController@password']);    
+    Route::post('/get_id', ['as' => '.get_id', 'uses' => 'UserController@getId']);    
 });
 
 
@@ -66,8 +80,18 @@ Route::group(['prefix' => 'operation', 'as' => 'operation'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'OperationController@index']);
 
     Route::get('/rechargement', ['as' => '.recharger.index', 'uses' => 'OperationController@indexRechargement']);
+    Route::get('/rechargement/actif', ['as' => '.recharger.index.actif', 'uses' => 'OperationController@indexRechargementActif']);
     Route::get('/recharger',['as'=>'.recharger.show', 'uses' => 'OperationController@rechargerShow']);
+    Route::get('/recharger/valider/{operation}',['as'=>'.recharger.valider', 'uses' => 'OperationController@rechargerValider']);
+    Route::get('/recharger/annuler/{operation}',['as'=>'.recharger.annuler', 'uses' => 'OperationController@rechargerAnnuler']);
     Route::post('/recharger',['as'=>'.recharger.action', 'uses' => 'OperationController@rechargerAction']);
+
+
+
+    Route::get('/retrait', ['as' => '.retrait.index', 'uses' => 'OperationController@indexRetrait']);
+    Route::get('/retrait/actif', ['as' => '.retirer.index.actif', 'uses' => 'OperationController@indexRetraitActif']);
+    Route::get('/retirer',['as'=>'.retirer.show', 'uses' => 'OperationController@retirerShow']);
+    Route::post('/retirer',['as'=>'.retirer.action', 'uses' => 'OperationController@retirerAction']);
 
 
 

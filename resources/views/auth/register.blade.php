@@ -11,6 +11,8 @@
 		<meta content="Spruko Technologies Private Limited"  name="author">
 		<meta name="keywords" content="html5 template, admin panel html template,  html5 admin template, admin panel html, admin panel html template, html css admin templates, dashboard html5, html dashboard template, simple dashboard html template, html5 dashboard template, dashboard html5,  simple dashboard html, dashboard design template, bootstrap 4 admin template,  bootstrap admin template,  admin, premium admin templates, best bootstrap admin template, bootstrap dashboard template,   admin ui templates, modern admin template, admin panel template bootstrap 4 "  />
 		<!--favicon -->
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 <link rel="icon" href="{{asset('assets/images/brand/favicon.ico')}}" type="image/x-icon"/>
 <link rel="shortcut icon" href="{{asset('assets/images/brand/favicon.ico')}}" type="image/x-icon"/>
 <!-- TITLE -->
@@ -20,8 +22,6 @@
 <link href="{{asset('assets/css/dashboard-dark.css')}}" rel="stylesheet"/>
 <link href="{{asset('assets/css/style-modes.css')}}" rel="stylesheet"/>
 <!-- HORIZONTAL-MENU CSS -->
-<link href="{{asset('assets/plugins/horizontal-menu/dropdown-effects/fade-down.css')}}" rel="stylesheet">
-<link href="{{asset('assets/plugins/horizontal-menu/horizontal-menu.css')}}" rel="stylesheet">
 <!--C3.JS CHARTS PLUGIN -->
 <link href="{{asset('assets/plugins/charts-c3/c3-chart.css')}}" rel="stylesheet"/>
 <!-- SINGLE-PAGE CSS -->
@@ -31,15 +31,11 @@
 <!--- FONT-ICONS CSS -->
 <link href="{{asset('assets/css/icons.css')}}" rel="stylesheet"/>
 <!-- SELECT2 CSS -->
-<link href="{{asset('assets/plugins/select2/select2.min.css')}}" rel="stylesheet"/>
 <!-- Skin css-->
 <link href="{{asset('assets/skins/skins-modes/color22.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
 <!-- SIDEBAR CSS -->
-<link href="{{asset('assets/plugins/sidebar/sidebar.css')}}" rel="stylesheet">
 
 <!-- Switcher CSS -->
-<link href="{{asset('assets/switcher/css/switcher.css')}}" rel="stylesheet">
-<link href="{{asset('assets/switcher/demo.css')}}" rel="stylesheet">	</head>
 <link href="{{asset('css/toastr.css')}}" rel="stylesheet"/>
 
 		
@@ -62,7 +58,7 @@
 					<div class="container-login100">
 						<div class="wrap-login100 p-6">
 							
-                            <form class="login100-form validate-form" method="POST" action="/register" aria-label="Login">
+                            <form class="login100-form validate-form" method="POST" action="{{route('register')}}" aria-label="Login">
                                 @csrf
                                 <span class="login100-form-title">
 									Galaxay App Register
@@ -79,9 +75,11 @@
 
                                     
                                     <select id="country" value="{{old('pays')}}" name="pays" class="form-control" >
-                                        <option value="Algeria">Algeria</option>
-                                        <option value="Hawaii">Hawaii</option>
-                                        <option value="Honduras">Honduras</option>
+                                        <option value="dz">Algeria</option>
+                                        <option value="de">Germany</option>
+                                        <option value="fr">france</option>
+                                        <option value="es">spain</option>
+                                        <option value="us">United State</option>
                                         <option value="Hong Kong">Hong Kong</option>
                                         <option value="Hungary">Hungary</option>
                                         <option value="Iceland">Iceland</option>
@@ -154,13 +152,26 @@
 
 
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                                <label>Email : </label>
-                                <input id="email"  type="text" class="form-control" value="{{old('email')}}" name="email"  required autofocus>
+                                    <label>Email : </label>
+                                    <input id="email"  type="text" class="form-control" value="{{old('email')}}" name="email"  required autofocus>
 								</div>
+                                <hr>
+                                
+								<div class="wrap-input100 validate-input">
+
+                                    <label>Code de sponsor: </label>
+                                    <input id="code_sponsor" type="text" class="form-control"  name="code_sponsor">
+                                    <input id="refered_user" type="hidden"  class="form-control"  name="refered_user">
+                                    <a href="#" id="user_name"  >
+                                        
+                                    </a>
+                                </div>
+
+
 								<div class="wrap-input100 validate-input" data-validate = "Password is required">
-                                <label>Mot de passe: </label>
-                                <input id="password" type="password" class="form-control"  name="password" required>
-									</div>
+                                    <label>Mot de passe: </label>
+                                    <input id="password" type="password" class="form-control"  name="password" required>
+                                </div>
 
 								<div class="wrap-input100 validate-input" data-validate = "Password is required">
                                 <label>Confirmer Mot de passe: </label>
@@ -198,8 +209,6 @@
 <!-- RATING STAR -->
 <script src="{{asset('assets/plugins/rating/jquery.rating-stars.js')}}"></script>
 <!-- SELECT2 JS -->
-<script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
-<script src="{{asset('assets/js/select2.js')}}"></script>
 <!-- INPUT MASK PLUGIN-->
 <script src="{{asset('assets/plugins/input-mask/jquery.mask.min.js')}}"></script>
 <!-- CUSTOM SCROLL BAR JS-->
@@ -208,6 +217,28 @@
 <script src="{{asset('js/toastr.min.js')}}"></script>	
 
 <script src="{{asset('assets/js/custom.js')}}"></script>	
+<script>
+$(document).ready(function() {
+    $('#code_sponsor').on('change',function(){
+        console.log('sa')
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url: '{{route('user.get_id')}}',
+            type: 'POST',
+            data: {_token: CSRF_TOKEN, code:$("#code_sponsor").val()},
+            dataType: 'JSON',
+            success: function (data) {  
+                console.log(data)
+                $('#refered_user').val(data.id)
+                $('#user_name').html(data.name)
+            },error:function(err){
+                console.log(err)
+            }
+        }); 
+    })
+})
+
+</script>
 <script>
         @if($errors->any())
         $(function(){

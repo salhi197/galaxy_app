@@ -54,7 +54,6 @@
 							
                             <form class="login100-form validate-form" method="POST" action="{{route('login')}}" aria-label="Login">
                                 @csrf
-                                <input type="hidden" name="_token" value="GnPinh22Yif9GsIWbgLW4r49uxQq3MniIG3y4TQo">
                                 <span class="login100-form-title">
 									Connexion 
 								</span>

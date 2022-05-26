@@ -41,6 +41,8 @@
                                                         <option value="prefectmoney">Perfect Money</option>
                                                         <option value="usdt_trc20">USDT TRC20</option>
                                                         <option value="usdt_erc20">USDT ERC20</option>
+														<option value="usdt_erc20">Transfert Banquaire</option>
+														
                                                     </select>
                                                 </div>       
                                             </div>

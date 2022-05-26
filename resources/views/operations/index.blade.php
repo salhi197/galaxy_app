@@ -40,8 +40,28 @@
                                                 <td >Confirmé</td>
 												@else
                                                 <td >Non Confirmé</td>
+												@endif
+												@auth('admin')
+                                                            <td >
+                                                                <div class="table-action">  
+                                                                        <a class="btn btn-outline btn-danger text-danger text-gradient px-3 mb-0" 
+                                                                        href="{{route('operation.approuver',['operation'=>$operation->id])}}"
+                                                                        onclick="return confirm('etes vous sure  ?')" >
+                                                                            <i class="far fa-trash-alt me-2"></i>
+                                                                            Approuver
+                                                                        </a>
+
+                                                                        <a class="btn btn-outline btn-danger text-danger text-gradient px-3 mb-0" 
+                                                                        href="{{route('operation.annuler',['operation'=>$operation->id])}}"
+                                                                        onclick="return confirm('etes vous sure  ?')" >
+                                                                            <i class="far fa-trash-alt me-2"></i>
+                                                                            Annuler
+                                                                        </a>
+                                                                </div>
+                                                            </td>
 
 												@endif
+
 											</tr>                                            
                                             @endforeach
 										</tbody>

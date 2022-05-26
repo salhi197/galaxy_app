@@ -25,23 +25,65 @@
 										<thead >
 											<tr>
 												<th>ID</th>
+												<th>User</th>
 												<th>Montant</th>
 												<th>Méthode</th>
 												<th>Etat</th>
+												@auth('admin')
+												<th>Action</th>
+												@endif
+
 											</tr>
 										</thead>
 										<tbody>
                                             @foreach($operations as $operation)
 											<tr>
-                                                <td>{{$operation->id}}</td>
+												<td>{{$operation->id}}</td>
+												<td>
+													<a href="{{route('user.detail',['user'=>$operation->user()['id']])}}">
+														{{$operation->user()['name']}}
+													</a>
+												</td>
                                                 <td>{{$operation->montant}}</td>
                                                 <td>{{$operation->methode}}</td>
 												@if($operation->etat == 1)
-                                                <td >Confirmé</td>
-												@else
-                                                <td >Non Confirmé</td>
+                                                <td class="badge badge-success">
+													<span class="">Confirmé</span>
+												</td>
+												@endif
+												@if($operation->etat == -1)
+                                                <td >
+													<span class="badge badge-anger">Annulé</span>
+												</td>
+												@endif
+												@if($operation->etat == 0)
+                                                <td >
+													<span class="badge badge-anger">Non Confirmé (en attente)</span>
+												</td>
+												@endif
+
+												@auth('admin')
+                                                            <td >
+                                                                <div class="table-action">  
+                                                                        <a class="btn btn-outline btn-danger px-3 mb-0" 
+                                                                        href="{{route('operation.recharger.valider',['operation'=>$operation->id])}}"
+                                                                        onclick="return confirm('etes vous sure  ?')" >
+                                                                            <i class="far fa-trash-alt me-2"></i>
+                                                                            Approuver
+                                                                        </a>
+
+                                                                        <a class="btn btn-outline btn-danger px-3 mb-0" 
+                                                                        href="{{route('operation.recharger.annuler',['operation'=>$operation->id])}}"
+                                                                        onclick="return confirm('etes vous sure  ?')" >
+                                                                            <i class="far fa-trash-alt me-2"></i>
+                                                                            Annuler
+                                                                        </a>
+                                                                </div>
+                                                            </td>
 
 												@endif
+
+
 											</tr>                                            
                                             @endforeach
 										</tbody>
