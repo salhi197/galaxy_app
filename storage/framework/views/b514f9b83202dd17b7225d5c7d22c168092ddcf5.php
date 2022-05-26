@@ -1,10 +1,8 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 					<div class="page-header">
-						<h4 class="page-title">{{trans('creer profile')}}</h4>
+						<h4 class="page-title"><?php echo e(trans('creer profile')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">GalaxyApp</a></li>
 							<li class="breadcrumb-item active" aria-current="page">setting</li>
@@ -13,7 +11,7 @@
 
                     <div class="row">
                     <div class="col-lg-12">
-							<form class="card" action="{{route('user.store')}}">
+							<form class="card" action="<?php echo e(route('user.store')); ?>">
 								<div class="card-header">
 									<h3 class="card-title">Modifer Porfile :</h3>
 								</div>
@@ -66,7 +64,7 @@
 										<div class="col-md-5">
 											<div class="form-group">
 												<label class="form-label">Country</label>
-                                                <select id="country" value="{{old('pays')}}" name="pays" class="form-control" >
+                                                <select id="country" value="<?php echo e(old('pays')); ?>" name="pays" class="form-control" >
                                                     <option value="Algeria">Algeria</option>
                                                     <option value="Hawaii">Hawaii</option>
                                                     <option value="Honduras">Honduras</option>
@@ -149,12 +147,14 @@
                         </div>
                     </div>
             
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('modals')
-
-
-
-@endsection
+<?php $__env->startSection('modals'); ?>
 
 
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

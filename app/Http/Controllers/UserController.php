@@ -6,15 +6,29 @@ use Illuminate\Http\Request;
 
 use App\User;
 use Auth;
+use App\MethodeUser;
+use App\Methode;
 use App\Http\Requests\StoreUser;
 use App\Wilaya;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function profileUpdate(Request $request)
+    public function profileUpdate(Request $request,$user_id)
     {
-        $user =User::find(Auth::user()->id);
+        $user =User::find($user_id);
+        $user->pays = $request['pays']; 
+        $user->email = $request['email']; 
+        $user->adress = $request['adress']; 
+        $user->telephone = $request['telephone']; 
+        if($request->hasFile('identite')) {
+            $path = $request->file('identite')->store('/users/identite');
+            $produit->image = $path;
+        }
+        if($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('/users/photo');
+            $produit->image = $path;
+        }
 
         return redirect()->route('user.profile')->with('success', 'Success ');        
     }
@@ -79,10 +93,9 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('user.index')->with('success', 'Inséré avec succés ');
     }  
-    public function edit($id_user)
+    public function create()
     {
-        $user = User::find($id_user);
-        return view('users.edit',compact('user'));
+        return view('users.create');
     }
 
     public function update(Request $request,$id_user)
@@ -105,12 +118,49 @@ class UserController extends Controller
 
     }
 
-    
-    public function destroy($id_user)
+    /**
+     * 
+     * 
+     * 
+     * GESTION DES METHODES DE PAIEMRNT
+     * 
+     */
+
+    public function methodes()
     {
-        $user = User::find($id_user);
-        $user->delete();    
-        return redirect()->route('user.index')->with('success', 'Suppresion Terminé ');
+        $methodes = MethodeUser::where('user',Auth::user()->id)->get();
+        $_methodes = Methode::all();
+        
+        return view('users.methodes',compact('methodes','_methodes'));
+    }
+    public function methodeUserCreate(Request $request)
+    {
+        $methodeUser = new MethodeUser();
+        $methodeUser->user = Auth::user()->id;        
+        $methodeUser->methode = $request['methode'];        
+        $methodeUser->value = $request['value'];
+        $methodeUser->save(); 
+        
+        return redirect()->route('user.methodes')->with('success', 'Suppresion Terminé ');
+    
+    }
+    
+    public function updateUserMethode(Request $request,$methode)
+    {
+        $methodeUser = MethodeUser::find($methode);
+        $methodeUser->methode = $request['methode'];        
+        $methodeUser->value = $request['value'];
+        $methodeUser->save(); 
+        
+        return redirect()->route('user.methodes')->with('success', 'Suppresion Terminé ');
+
+    }
+
+    public function destroyUserMethode($methode)
+    {
+        $methodeUser = MethodeUser::find($methode);
+        $methodeUser->delete();    
+        return redirect()->route('user.methodes')->with('success', 'Suppresion Terminé ');
     }
 
 }

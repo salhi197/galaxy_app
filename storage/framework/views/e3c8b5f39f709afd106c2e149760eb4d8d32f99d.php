@@ -13,7 +13,7 @@
                     <div class="row">
 
                             <div class="card-header">
-                                <a class="btn btn-primary text-white">
+                                <a class="btn btn-primary text-white" href="<?php echo e(route('user.show.create')); ?>">
                                     <i class="fa fa-plus">
 
                                     </i>
@@ -40,9 +40,10 @@
                                                         <tr>
                                                             <td><?php echo e($user->id ?? ''); ?></td>
                                                             <td>
-                                                                <?php echo e($user->nom ?? ''); ?>
+                                                                <a href="<?php echo e(route('user.detail',['user'=>$user->id])); ?>">
+                                                                    <?php echo e($user->name ?? ''); ?>
 
-                                                                <?php echo e($user->prenom ?? ''); ?>                                                            
+                                                                </a>
                                                             </td>
                                                             <td>
                                                                 <?php echo e($user->email ?? ''); ?>                                                            

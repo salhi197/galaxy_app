@@ -17,7 +17,7 @@
                     <div class="row">
 
                             <div class="card-header">
-                                <a class="btn btn-primary text-white" >
+                                <a class="btn btn-primary text-white" href="{{route('user.show.create')}}">
                                     <i class="fa fa-plus">
 
                                     </i>
@@ -44,8 +44,9 @@
                                                         <tr>
                                                             <td>{{$user->id ?? ''}}</td>
                                                             <td>
-                                                                {{$user->nom ?? ''}}
-                                                                {{$user->prenom ?? ''}}                                                            
+                                                                <a href="{{route('user.detail',['user'=>$user->id])}}">
+                                                                    {{$user->name ?? ''}}
+                                                                </a>
                                                             </td>
                                                             <td>
                                                                 {{$user->email ?? ''}}                                                            

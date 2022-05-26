@@ -5,7 +5,7 @@
 @section('content')
 
 					<div class="page-header">
-						<h4 class="page-title">{{trans('recharger_comtpe')}}</h4>
+						<h4 class="page-title">{{trans('methodes')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>
@@ -16,7 +16,7 @@
                     <div class="row">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    <i class="fa fa-plus"></i> Add methode
+                                    <i class="fa fa-plus"></i> Ajouter methode De paiment
                                 </button>
                             </div>
 
@@ -26,8 +26,9 @@
                                             <table class="table">
                                                 <thead class=" text-primary">
                                                     <tr>
-                                                        <th>ID methode</th>
-                                                        <th>label</th>
+                                                        <th>ID </th>
+                                                        <th>Méthode</th>
+                                                        <th>Adress</th>
                                                         <th>actions</th>
                                                     </tr>
                                                 </thead>
@@ -35,11 +36,11 @@
                                                     @foreach($methodes as $methode)
                                                         <tr>
                                                             <td>{{$methode->id ?? ''}}</td>
-                                                            <td>{{$methode->nom ?? ''}}</td>
+                                                            <td>{{$methode->methode()['nom'] ?? ''}}</td>
+                                                            <td>{{$methode->value ?? ''}}</td>
                                                             <td >
-                                                                <div class="table-action">  
-                                                                        <a class="btn btn-outline btn-danger text-white text-gradient px-3 mb-0" 
-                                                                        href="{{route('methode.destroy',['methode'=>$methode->id])}}"
+                                                            <a class="btn btn-outline btn-danger text-white text-gradient px-3 mb-0" 
+                                                                        href="{{route('user.methode.destroy',['methode'=>$methode->id])}}"
                                                                         onclick="return confirm('etes vous sure  ?')" >
                                                                             <i class="far fa-trash-alt me-2"></i>
                                                                             Delete
@@ -59,25 +60,35 @@
                                                                                 </div>
 
                                                                                 <div class="modal-body">
-                                                                                    <form id="methodeFform" action="{{route('methode.update',['methode'=>$methode->id])}}" method="post" enctype="multipart/form-data">
+                                                                                        <form id="methodeFform" action="{{route('user.methode.update',['methode'=>$methode])}}" method="post" enctype="multipart/form-data">
                                                                                         @csrf
-                                                                                        <div class="form-group">
-                                                                                            <label class="small mb-1" for="inputFirstName">methode: </label>
-                                                                                            <input type="text" value="{{$methode->nom}}" name="nom"  class="form-control"/>
-                                                                                        </div>
+                                                                                            <div class="form-group">
+                                                                                                <label class="small mb-1" for="inputFirstName">methode: </label>
+                                                                                                <select name="methode" class="form-control">
+                                                                                                    @foreach($_methodes as $_methode)
+                                                                                                        <option 
+                                                                                                        @if($methode->methode==$_methode->id ) selected @endif
+                                                                                                        value="{{$_methode->id}}">
+                                                                                                            {{$_methode->nom}}
+                                                                                                        </option>
+                                                                                                    @endforeach
+                                                                                                </select>
+                                                                                            </div>
 
-                                                                                        <div class="form-group">
-                                                                                            <label class="small mb-1" for="inputFirstName">Réference : </label>
-                                                                                            <input type="text" value="{{$methode->reference}}" name="reference"  class="form-control"/>
-                                                                                        </div>
-                                                                                        <button class="btn btn-primary btn-block" type="submit" id="ajax_methode">Modifier methode</button>
-                                                                                    </form>
+                                                                                            <div class="form-group">
+                                                                                                <label class="small mb-1" for="inputFirstName">Votre Adress : </label>
+                                                                                                <input type="text" name="value" value="{{$methode->value}}" class="form-control"/>
+                                                                                            </div>
+
+
+
+
+                                                                                            <button class="btn btn-primary btn-block" type="submit" id="ajax_methode">Enregistrer</button>
+                                                                                        </form>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
-                                                                </div>
                                                             </td>
                                                         </tr>
 
@@ -103,16 +114,22 @@
       </div>
       
       <div class="modal-body">
-            <form id="methodeFform" action="{{route('methode.create')}}" method="post" enctype="multipart/form-data">
+            <form id="methodeFform" action="{{route('user.methode.create')}}" method="post" enctype="multipart/form-data">
             @csrf
                 <div class="form-group">
                     <label class="small mb-1" for="inputFirstName">methode: </label>
-                    <input type="text" name="nom"  class="form-control"/>
+                    <select name="methode" class="form-control">
+                        @foreach($_methodes as $methode)
+                            <option value="{{$methode->id}}">
+                                {{$methode->nom}}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="small mb-1" for="inputFirstName">Réference : </label>
-                    <input type="text" name="reference"  class="form-control"/>
+                    <label class="small mb-1" for="inputFirstName">Votre Adress : </label>
+                    <input type="text" name="value"  class="form-control"/>
                 </div>
 
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Operation;
 use Auth;
+use App\User;
+
 use App\Remorque;
 use Illuminate\Http\Request;
 
@@ -96,6 +98,11 @@ class OperationController extends Controller
     public function rechargerValider($operation)
     {
         $operation = Operation::find($operation);
+        $user = User::find($operation->user);
+        $montant = $user->solde+$operation->montant;
+        $user->solde = $montant;
+        $user->save();
+
         $operation->etat = 1;
         $operation->save();
         return redirect()->back()->with('success', 'Valider Avec succés ');        

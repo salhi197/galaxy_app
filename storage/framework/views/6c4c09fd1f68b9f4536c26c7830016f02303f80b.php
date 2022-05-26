@@ -19,7 +19,7 @@
 									<h3 class="card-title">Basic Table</h3>
 								</div>
 								<div class="table-responsive">
-									<table class="table card-table table-vcenter text-nowrap">
+									<table class="table card-table table-vcenter ">
 										<thead >
 											<tr>
 												<th>ID</th>
@@ -27,6 +27,7 @@
 												<th>Montant</th>
 												<th>Méthode</th>
 												<th>Etat</th>
+												<th>Crée le </th>
 												<?php if(auth()->guard('admin')->check()): ?>
 												<th>Action</th>
 												<?php endif; ?>
@@ -46,21 +47,22 @@
                                                 <td><?php echo e($operation->montant); ?></td>
                                                 <td><?php echo e($operation->methode); ?></td>
 												<?php if($operation->etat == 1): ?>
-                                                <td class="badge badge-success">
-													<span class="">Confirmé</span>
+                                                <td>
+													Confirmé
 												</td>
 												<?php endif; ?>
 												<?php if($operation->etat == -1): ?>
                                                 <td >
-													<span class="badge badge-anger">Annulé</span>
+													Annulé
 												</td>
 												<?php endif; ?>
+												
 												<?php if($operation->etat == 0): ?>
                                                 <td >
-													<span class="badge badge-anger">Non Confirmé (en attente)</span>
+													Non Confirmé (en attente)
 												</td>
 												<?php endif; ?>
-
+                                                <td><?php echo e($operation->created_at); ?></td>
 												<?php if(auth()->guard('admin')->check()): ?>
                                                             <td >
                                                                 <div class="table-action">  

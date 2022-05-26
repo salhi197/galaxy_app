@@ -24,7 +24,6 @@
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
-											<a href="#" class="btn btn-primary btn-sm">View more <i class="fe fe-arrow-right"></i></a>
 										</div>
 									</div>
 									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
@@ -37,7 +36,6 @@
 											</div>
 											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark">$0</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
-											<a href="#" class="btn btn-secondary btn-sm">View more <i class="fe fe-arrow-right"></i></a>
 										</div>
 									</div>
 									<div class="col-xl-3 col-lg-6 col-sm-6 border-right">
@@ -50,7 +48,6 @@
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
-											<a href="#" class="btn btn-danger btn-sm">View more <i class="fe fe-arrow-right"></i></a>
 										</div>
 									</div>
 									<div class="col-xl-3 col-lg-6  col-sm-6">
@@ -61,7 +58,6 @@
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">397</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
-											<a href="#" class="btn btn-warning btn-sm">View more <i class="fe fe-arrow-right"></i></a>
 										</div>
 									</div>
 								</div>

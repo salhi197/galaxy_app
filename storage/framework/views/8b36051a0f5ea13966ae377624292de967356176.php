@@ -1,14 +1,10 @@
-@extends('layouts.app')
-
-
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 					<div class="page-header">
-						<h4 class="page-title">{{trans('recharger_comtpe')}}</h4>
+						<h4 class="page-title"><?php echo e(trans('recharger_comtpe')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>
+							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('dashboard')); ?></li>
 						</ol>
 					</div>
 
@@ -32,23 +28,23 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($methodes as $methode)
+                                                    <?php $__currentLoopData = $methodes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $methode): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                         <tr>
-                                                            <td>{{$methode->id ?? ''}}</td>
-                                                            <td>{{$methode->nom ?? ''}}</td>
+                                                            <td><?php echo e($methode->id ?? ''); ?></td>
+                                                            <td><?php echo e($methode->nom ?? ''); ?></td>
                                                             <td >
                                                                 <div class="table-action">  
                                                                         <a class="btn btn-outline btn-danger text-white text-gradient px-3 mb-0" 
-                                                                        href="{{route('methode.destroy',['methode'=>$methode->id])}}"
+                                                                        href="<?php echo e(route('methode.destroy',['methode'=>$methode->id])); ?>"
                                                                         onclick="return confirm('etes vous sure  ?')" >
                                                                             <i class="far fa-trash-alt me-2"></i>
                                                                             Delete
                                                                         </a>
-                                                                        <button data-toggle="modal" data-target="#exampleModaledit{{$methode->id}}" class="btn btn-outline btn-outlinez text-dark px-3 mb-0">
+                                                                        <button data-toggle="modal" data-target="#exampleModaledit<?php echo e($methode->id); ?>" class="btn btn-outline btn-outlinez text-dark px-3 mb-0">
                                                                             Modifer
                                                                         </button>       
 
-                                                                    <div class="modal fade" id="exampleModaledit{{$methode->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal fade" id="exampleModaledit<?php echo e($methode->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
@@ -59,16 +55,16 @@
                                                                                 </div>
 
                                                                                 <div class="modal-body">
-                                                                                    <form id="methodeFform" action="{{route('methode.update',['methode'=>$methode->id])}}" method="post" enctype="multipart/form-data">
-                                                                                        @csrf
+                                                                                    <form id="methodeFform" action="<?php echo e(route('methode.update',['methode'=>$methode->id])); ?>" method="post" enctype="multipart/form-data">
+                                                                                        <?php echo csrf_field(); ?>
                                                                                         <div class="form-group">
                                                                                             <label class="small mb-1" for="inputFirstName">methode: </label>
-                                                                                            <input type="text" value="{{$methode->nom}}" name="nom"  class="form-control"/>
+                                                                                            <input type="text" value="<?php echo e($methode->nom); ?>" name="nom"  class="form-control"/>
                                                                                         </div>
 
                                                                                         <div class="form-group">
                                                                                             <label class="small mb-1" for="inputFirstName">Réference : </label>
-                                                                                            <input type="text" value="{{$methode->reference}}" name="reference"  class="form-control"/>
+                                                                                            <input type="text" value="<?php echo e($methode->reference); ?>" name="reference"  class="form-control"/>
                                                                                         </div>
                                                                                         <button class="btn btn-primary btn-block" type="submit" id="ajax_methode">Modifier methode</button>
                                                                                     </form>
@@ -81,7 +77,7 @@
                                                             </td>
                                                         </tr>
 
-                                                    @endforeach
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -103,8 +99,8 @@
       </div>
       
       <div class="modal-body">
-            <form id="methodeFform" action="{{route('methode.create')}}" method="post" enctype="multipart/form-data">
-            @csrf
+            <form id="methodeFform" action="<?php echo e(route('methode.create')); ?>" method="post" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
                 <div class="form-group">
                     <label class="small mb-1" for="inputFirstName">methode: </label>
                     <input type="text" name="nom"  class="form-control"/>
@@ -127,10 +123,10 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 
 <script>
         $(document).ready(function() {
@@ -160,4 +156,6 @@
 
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

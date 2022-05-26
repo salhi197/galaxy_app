@@ -66,10 +66,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        do {
+            $code= mt_rand( 100000, 999999 );
+        } while ( DB::table( 'users' )->where( 'code', $code )->exists() );
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'pays' => $data['pays'],
+            'code'=>$code,
             'telephone' => $data['telephone'],
             'refered_user'=>$data['refered_user'],
             'password' => Hash::make($data['password']),

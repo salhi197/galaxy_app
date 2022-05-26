@@ -6,11 +6,10 @@
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
 		<meta content="Solic – Bootstrap Responsive Modern Simple Dashboard Clean HTML Premium Admin Template" name="description">
 		<meta content="Spruko Technologies Private Limited" name="author">
-		<meta name="keywords" content="admin dashboard template, admin panel template, bootstrap 4 admin template, bootstrap 4 dashboard, bootstrap admin, bootstrap admin panel, admin template, bootstrap admin template, dashboard template, bootstrap admin template, premium admin templates, html admin template, ecommerce dashboard, admin panel template, bootstrap admin theme, bootstrap admin panel"  />
 
 		<!--favicon -->
-		<link rel="icon" href="<?php echo e(asset('assets/images/brand/favicon.ico')); ?>" type="image/x-icon"/>
-		<link rel="shortcut icon" href="<?php echo e(asset('assets/images/brand/favicon.ico')); ?>" type="image/x-icon"/>
+		<link rel="icon" href="<?php echo e(asset('img/logos.ico')); ?>" type="image/x-icon"/>
+		<link rel="shortcut icon" href="<?php echo e(asset('img/logos.ico')); ?>" type="image/x-icon"/>
 
 		<!-- TITLE -->
 		<title>Galaxy App</title>
@@ -42,34 +41,98 @@
 
 	    <!-- GLOBAL-LOADER -->
 		<div id="global-loader">
-			<img src="<?php echo e(asset('assets/images/svgs/loader.svg')); ?>" class="loader-img" alt="Loader">
 		</div>
 
 		<div class="page">
 			<div class="page-main">
 				<!-- HEADER -->
-				<div class="header app-header">
+				<div class="header app-header" style="background-color:#41413f;">
 					<div class="container-fluid">
 						<div class="d-flex">
-						   <a class="header-brand" href="/home" class="text-white">
-                                <img src="<?php echo e(asset('logo-galaxy.png')); ?>" width="40px"/>
-							</a>
+						   <a class="header-brand" href="index.html">
+							   <img src="<?php echo e(asset('img/logoh.png')); ?>" width="140px"/>
+							</a><!-- LOGO -->
+							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="fa fa-search"></i></a>
-								<div class="text-white " style="font-size:20px;padding:8px;">
-										<p id="date-part">
-										
-										</p>
-								</div>
-								<div class="text-white " style="font-size:20px;padding:8px;">
-										<p id="time-part"></p>
-								</div>
-								<div class="dropdown d-md-flex notifications"></div>
 								<div class="">
-									<h3 class="breadcrumb-item text-white" style="padding:15px;">
+									<p id="date-part" class="text-white" style="padding:15px;">
+
+									</p>
+								</div><!-- SEARCH -->
+								<div class="">
+									<a class="text-white active" style="padding:15px;" href="#">
 										<?php echo e(Auth::user()->solde ?? ''); ?> $
-									</h3>
-								</div><!-- NOTIFICATIONS -->
+									</a>
+								</div><!-- SEARCH -->
+
+								<div class="dropdown d-md-flex">
+									<a class="nav-link icon full-screen-link nav-link-bg" id="fullscreen-button">
+										<i class="fe fe-maximize-2" ></i>
+									</a>
+								</div><!-- FULL-SCREEN -->
+								<div class="dropdown d-md-flex notifications">
+									<a class="nav-link icon" data-toggle="dropdown">
+										<i class="fe fe-bell"></i>
+										<span class="pulse bg-warning"></span>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+										<div class="drop-heading">
+											<div class="d-flex">
+												<h5 class="mb-0 text-dark">Notifications</h5>
+												<span class="badge badge-danger ml-auto  brround">4</span>
+											</div>
+										</div>
+										<div class="dropdown-divider mt-0"></div>
+									    <a href="#" class="dropdown-item mt-2 d-flex pb-3">
+											<div class="notifyimg bg-success-transparent">
+												<i class="fa fa-thumbs-o-up text-success"></i>
+											</div>
+											<div>
+												<strong>Someone likes our posts.</strong>
+												<div class="small text-muted">3 hours ago</div>
+											</div>
+										</a>
+										<a href="#" class="dropdown-item d-flex pb-3">
+											<div class="notifyimg bg-primary-transparent">
+												<i class="fa fa-exclamation-triangle text-primary"></i>
+											</div>
+											<div>
+												<strong> Issues Fixed</strong>
+												<div class="small text-muted">30 mins ago</div>
+											</div>
+										</a>
+										<a href="#" class="dropdown-item d-flex pb-3">
+											<div class="notifyimg bg-warning-transparent">
+												<i class="fa fa-commenting-o text-warning"></i>
+											</div>
+											<div>
+												<strong> 3 New Comments</strong>
+												<div class="small text-muted">5  hour ago</div>
+											</div>
+										</a>
+										<a href="#" class="dropdown-item d-flex pb-3">
+											<div class="notifyimg bg-danger-transparent">
+												<i class="fa fa-cogs text-danger"></i>
+											</div>
+											<div>
+												<strong> Server Rebooted.</strong>
+												<div class="small text-muted">45 mintues ago</div>
+											</div>
+										</a>
+										<div class="dropdown-divider mb-0"></div>
+										<div class=" text-center p-2">
+											<a href="#" class="text-dark pt-0">View All Notifications</a>
+										</div>
+									</div>
+								</div>
+								<div class="dropdown d-md-flex message">
+									<a class="nav-link icon text-center" data-toggle="dropdown">
+										<span class="badge badge-danger">
+											
+										</span>
+									</a>
+								</div>
 
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
@@ -78,24 +141,37 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading  text-center border-bottom pb-3">
 											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?></h5>
-											<small class="text-muted">Investor</small>
-
+											<small class="text-muted">
+												Investor
+											</small>
 										</div>
-										<a class="dropdown-item" href="#"><i class="mdi mdi-account-outline mr-2"></i> <span>profile</span></a>
-										<a class="dropdown-item" href="#"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
-										<a class="dropdown-item" href="#"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
-										<a class="dropdown-item" href="login.html"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Déconnexion</span></a>
+										<a class="dropdown-item" href="<?php echo e(route('user.profile')); ?>"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
+										<a class="dropdown-item" href="<?php echo e(route('setting')); ?>"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
+										<a class="dropdown-item" href="<?php echo e(route('operation.recharger.index.actif')); ?>"><i class="fe fe-list mr-2"></i> <span>Activity</span></a>
+										<a class="dropdown-item" href="<?php echo e(route('faq')); ?>"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
 									</div>
-								</div><!-- SIDE-MENU -->
-								<div class="sidebar-link">
-									<a href="#" class="nav-link icon" data-toggle="sidebar-right" data-target=".sidebar-right">
-										<i class="fe fe-align-right" ></i>
+								</div>
+								<div class="dropdown d-md-flex header-settings">
+									<a href="#" class="nav-link " data-toggle="dropdown">
+										<span>
+										</span>
 									</a>
-								</div><!-- FULL-SCREEN -->
+									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+										<div class="drop-heading  text-center border-bottom pb-3">
+											<h5 class="text-dark mb-1">Jonathan	Mills</h5>
+											<small class="text-muted">App Developer</small>
+										</div>
+										<a class="dropdown-item" href="profile.html"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
+										<a class="dropdown-item" href="#"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
+										<a class="dropdown-item" href="#"><i class="fe fe-calendar mr-2"></i> <span>Activity</span></a>
+										<a class="dropdown-item" href="#"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
+										<a class="dropdown-item" href="login.html"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Logout</span></a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>				
 				<!-- HEADER END -->
 
 				<!-- Sidebar menu-->
@@ -103,92 +179,63 @@
 				<aside class="app-sidebar left-menu2">
 					<div class="app-sidebar__user clearfix">
 						<div class="dropdown user-pro-body text-center">
+							<br>
 							<div class="user-pic">
 								<img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="user-img" class="avatar avatar-lg brround">
 							</div>
+							
+
 							<div class="user-info">
 								<h2><?php echo e(Auth::user()->name ?? ''); ?></h2>
 								<!-- <span><?php echo e(Auth::user()->telephone ?? 'Investor'); ?><span> -->
-								<?php if(auth()->guard()->check()): ?>
-								<img width="20px" class="flag-img" src="<?php echo e(asset('flags/1x1/'.Auth::user()->pays.'.svg')); ?>" alt="Flag of Uruguay">
-								<?php endif; ?>
-
 							</div>
-							<div class="sidebar-navs mt-2">
-								<ul class="nav nav-pills nav-pills-circle" id="tabs_3" role="tablist">
+							<br>
+							<div class="sidebar-navs text-center">
+								<ul class="nav nav-pills nav-pills-circle text-center" id="tabs_3" role="tablist">
+									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+										<a class="nav-link border text-center m-2">
+											<i class="fe fe-facebook"></i>
+										</a>
+									</li>
+									<!-- <li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+										<a class="nav-link border  m-2">
+											<i class="fe fe-twitter"></i>
+										</a>
+									</li> -->
+									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+										<a class="nav-link border  m-2" >
+											<i class="fe fe-linkedin"></i>
+										</a>
+									</li>
+									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
+										<a class="nav-link border  m-2">
+											<i class="fe fe-instagram"></i>
+										</a>
+									</li>
 								</ul>
-							</div>							
+							</div>
+
 						</div>
 					</div>
 					<ul class="side-menu">
-						<li class="border-0"><h3>Personal</h3><li>
 						<?php if(auth()->guard('admin')->check()): ?>
 							<li>
 								<a class="side-menu__item" href="<?php echo e(route('user.index')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('liste utilisateurs')); ?></span></a>
 							</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('Finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('rechargements')); ?> </a>
+									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('Rechargements')); ?> </a>
 								</li>
 								<li>
-									<a href="<?php echo e(route('operation.retrait.index')); ?>" class="slide-item"><?php echo e(trans('retrait')); ?> </a>
+									<a href="<?php echo e(route('operation.retrait.index')); ?>" class="slide-item"><?php echo e(trans('Retrait')); ?> </a>
 								</li>
 
 
 							</ul>
-						</li>
-
-						<?php endif; ?>
-
-						<?php if(auth()->guard()->check()): ?>
-						<li>
-							<a class="side-menu__item" href="<?php echo e(route('home')); ?>"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label"><?php echo e(trans('acceuil')); ?></span></a>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
-							<ul class="slide-menu">
-								<li>
-									<a href="<?php echo e(route('operation.recharger.show')); ?>" class="slide-item"><?php echo e(trans('recharger')); ?> </a>
-								</li>
-								<li>
-									<a href="<?php echo e(route('operation.retirer.show')); ?>" class="slide-item"><?php echo e(trans('retirer')); ?> </a>
-								</li>
-
-								<li>
-									<a href="<?php echo e(route('operation.transferer.show')); ?>" class="slide-item"><?php echo e(trans('transfert')); ?> </a>
-								</li>
-								<li>
-									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('opérations')); ?> </a>
-								</li>
-
-							</ul>
-						</li>
-
-
-						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label"><?php echo e(trans('partenaires')); ?></span><i class="angle fa fa-angle-right"></i></a>
-							<ul class="slide-menu">
-								<li>
-									<a href="<?php echo e(route('user.partenaire')); ?>" class="slide-item"><?php echo e(trans('partenaires')); ?> </a>
-								</li>	
-
-							</ul>
-						</li>
-
-
-						<li>
-							<a class="side-menu__item" href="<?php echo e(route('faq')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('Faq')); ?></span></a>
-						</li>
-						<li>
-							<a class="side-menu__item" href="<?php echo e(route('operation.recharger.index.actif')); ?>"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label"><?php echo e(trans('actif')); ?></span></a>
-						</li>
-						<li>
-							<a class="side-menu__item" href="<?php echo e(route('user.profile')); ?>"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label"><?php echo e(trans('profile')); ?></span></a>
-						</li>
-
-						<!-- <li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('setting')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
@@ -196,8 +243,67 @@
 								</li>	
 
 							</ul>
-						</li> -->
+						</li>
 
+
+						<?php endif; ?>
+
+						<?php if(auth()->guard()->check()): ?>
+						<li>
+							<a class="side-menu__item" href="<?php echo e(route('home')); ?>"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label"><?php echo e(trans('Tableau de bord')); ?></span></a>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('Finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo e(route('operation.recharger.show')); ?>" class="slide-item"><?php echo e(trans('Recharger')); ?> </a>
+								</li>
+								<li>
+									<a href="<?php echo e(route('operation.retirer.show')); ?>" class="slide-item"><?php echo e(trans('Retirer')); ?> </a>
+								</li>
+
+								<li>
+									<a href="<?php echo e(route('operation.transferer.show')); ?>" class="slide-item"><?php echo e(trans('Transfert')); ?> </a>
+								</li>
+								<li>
+									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('Opérations')); ?> </a>
+								</li>
+
+							</ul>
+						</li>
+
+
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-users"></i><span class="side-menu__label"><?php echo e(trans('Partenaires')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo e(route('user.partenaire')); ?>" class="slide-item"><?php echo e(trans('Partenaires')); ?> </a>
+								</li>	
+
+							</ul>
+						</li>
+
+
+						<li>
+							<a class="side-menu__item" href="<?php echo e(route('operation.recharger.index.actif')); ?>"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label"><?php echo e(trans('Actif')); ?></span></a>
+						</li>
+						<li>
+							<a class="side-menu__item" href="<?php echo e(route('user.profile')); ?>"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label"><?php echo e(trans('Profile')); ?></span></a>
+						</li>
+
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('Setting')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo e(route('user.methodes')); ?>" class="slide-item"><?php echo e(trans('Methode de Paiment')); ?> </a>
+								</li>	
+
+							</ul>
+						</li>
+
+						<li>
+							<a class="side-menu__item" href="<?php echo e(route('faq')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('Faq')); ?></span></a>
+						</li>
 
 
 						<li>
@@ -297,9 +403,7 @@
 $(document).ready(function() {
     var interval = setInterval(function() {
         var momentNow = moment();
-        $('#date-part').html(momentNow.format('YYYY MMMM DD') + ' '
-                            + momentNow.format('dddd')
-                             .substring(0,3).toUpperCase());
+        $('#date-part').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
         $('#time-part').html(momentNow.format('A hh:mm:ss'));
     }, 100);
 });

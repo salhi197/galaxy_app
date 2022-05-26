@@ -60,12 +60,12 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'UserController@index']);
     Route::get('/partenaire', ['as' => '.partenaire', 'uses' => 'UserController@partenaire']);
     Route::get('/profile', ['as' => '.profile', 'uses' => 'UserController@profile']);
-    Route::get('/profile/update', ['as' => '.update.profile', 'uses' => 'UserController@profileUpdate']);
+    Route::get('/profile/update/{user_id}', ['as' => '.update.profile', 'uses' => 'UserController@profileUpdate']);
     
     Route::get('/detail/{user}', ['as' => '.detail', 'uses' => 'UserController@detail']);
     
     Route::get('/show/create',['as'=>'.show.create', 'uses' => 'UserController@create']);
-    Route::post('/create', ['as' => '.create', 'uses' => 'UserController@store']);
+    Route::post('/store', ['as' => '.store', 'uses' => 'UserController@store']);
     Route::get('/destroy/{id_user}', ['as' => '.destroy', 'uses' => 'UserController@destroy']);    
     Route::get('/remise/{id_user}', ['as' => '.destroy', 'uses' => 'UserController@destroy']);    
     Route::get('/edit/{id_user}', ['as' => '.edit', 'uses' => 'UserController@edit']);
@@ -73,6 +73,15 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
     Route::post('/update/{id_user}', ['as' => '.update', 'uses' => 'UserController@update']);    
     Route::post('/password', ['as' => '.password', 'uses' => 'UserController@password']);    
     Route::post('/get_id', ['as' => '.get_id', 'uses' => 'UserController@getId']);    
+
+    Route::get('/methodes', ['as' => '.methodes', 'uses' => 'UserController@methodes']);
+    Route::post('/methode/create', ['as' => '.methode.create', 'uses' => 'UserController@methodeUserCreate']);
+    Route::post('/methode/update/{methode_user}', ['as' => '.methode.update', 'uses' => 'UserController@updateUserMethode']);
+    Route::get('/methode/destroy/{methode_user}', ['as' => '.methode.destroy', 'uses' => 'UserController@destroyUserMethode']);
+
+
+    
+
 });
 
 

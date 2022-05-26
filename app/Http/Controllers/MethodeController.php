@@ -23,7 +23,7 @@ class MethodeController extends Controller
         $methode = new Methode();   
         $methode->nom = $request['nom'];
         $methode->reference = $request['reference'];
-        $methode->description = $request['description'] ?? '';
+        // $methode->description = $request['description'] ?? '';
         $methode->save();
         return redirect()->route('methode.index')->with('success', 'inserted successfuly ! ');
     }
@@ -36,10 +36,10 @@ class MethodeController extends Controller
 
     public function update(Request $request)
     {
-        $methode = Methode::find($request['id_methoe']);
+        $methode = Methode::find($request['id_methode']);
         $methode->nom = $request['nom'];
         $methode->reference = $request['reference'];
-        $methode->description = $request['description'] ?? '';
+        // $methode->description = $request['description'] ?? '';
         $methode->save();
         return redirect()->route('methode.index')->with('success', 'Methode Modifié ! ');
     }

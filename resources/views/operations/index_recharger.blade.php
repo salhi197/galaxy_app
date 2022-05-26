@@ -21,7 +21,7 @@
 									<h3 class="card-title">Basic Table</h3>
 								</div>
 								<div class="table-responsive">
-									<table class="table card-table table-vcenter text-nowrap">
+									<table class="table card-table table-vcenter ">
 										<thead >
 											<tr>
 												<th>ID</th>
@@ -29,6 +29,7 @@
 												<th>Montant</th>
 												<th>Méthode</th>
 												<th>Etat</th>
+												<th>Crée le </th>
 												@auth('admin')
 												<th>Action</th>
 												@endif
@@ -47,21 +48,22 @@
                                                 <td>{{$operation->montant}}</td>
                                                 <td>{{$operation->methode}}</td>
 												@if($operation->etat == 1)
-                                                <td class="badge badge-success">
-													<span class="">Confirmé</span>
+                                                <td>
+													Confirmé
 												</td>
 												@endif
 												@if($operation->etat == -1)
                                                 <td >
-													<span class="badge badge-anger">Annulé</span>
+													Annulé
 												</td>
 												@endif
+												
 												@if($operation->etat == 0)
                                                 <td >
-													<span class="badge badge-anger">Non Confirmé (en attente)</span>
+													Non Confirmé (en attente)
 												</td>
 												@endif
-
+                                                <td>{{$operation->created_at}}</td>
 												@auth('admin')
                                                             <td >
                                                                 <div class="table-action">  
