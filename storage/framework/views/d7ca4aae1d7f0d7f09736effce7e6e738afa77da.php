@@ -10,9 +10,6 @@
 							<li class="breadcrumb-item active" aria-current="page">Support</li>
 						</ol>
 					</div>
-					<!-- PAGE-HEADER END -->
-
-					<!-- ROW-1 OPEN -->
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">

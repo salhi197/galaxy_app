@@ -71,63 +71,12 @@
 
 								<div class="dropdown d-md-flex">
 								</div><!-- FULL-SCREEN -->
-								<?php if(auth()->guard('admin')->check()): ?>
 								<div class="dropdown d-md-flex notifications">
 									<a class="nav-link icon" data-toggle="dropdown">
 										<i class="fe fe-bell"></i>
 										<span class="pulse bg-warning"></span>
 									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-										<div class="drop-heading">
-											<div class="d-flex">
-												<h5 class="mb-0 text-dark">Notifications</h5>
-												<span class="badge badge-danger ml-auto  brround">4</span>
-											</div>
-										</div>
-										<div class="dropdown-divider mt-0"></div>
-									    <a href="#" class="dropdown-item mt-2 d-flex pb-3">
-											<div class="notifyimg bg-success-transparent">
-												<i class="fa fa-thumbs-o-up text-success"></i>
-											</div>
-											<div>
-												<strong>Someone likes our posts.</strong>
-												<div class="small text-muted">3 hours ago</div>
-											</div>
-										</a>
-										<a href="#" class="dropdown-item d-flex pb-3">
-											<div class="notifyimg bg-primary-transparent">
-												<i class="fa fa-exclamation-triangle text-primary"></i>
-											</div>
-											<div>
-												<strong> Issues Fixed</strong>
-												<div class="small text-muted">30 mins ago</div>
-											</div>
-										</a>
-										<a href="#" class="dropdown-item d-flex pb-3">
-											<div class="notifyimg bg-warning-transparent">
-												<i class="fa fa-commenting-o text-warning"></i>
-											</div>
-											<div>
-												<strong> 3 New Comments</strong>
-												<div class="small text-muted">5  hour ago</div>
-											</div>
-										</a>
-										<a href="#" class="dropdown-item d-flex pb-3">
-											<div class="notifyimg bg-danger-transparent">
-												<i class="fa fa-cogs text-danger"></i>
-											</div>
-											<div>
-												<strong> Server Rebooted.</strong>
-												<div class="small text-muted">45 mintues ago</div>
-											</div>
-										</a>
-										<div class="dropdown-divider mb-0"></div>
-										<div class=" text-center p-2">
-											<a href="#" class="text-dark pt-0">View All Notifications</a>
-										</div>
-									</div>
 								</div>
-								<?php endif; ?>
 								<div class="dropdown d-md-flex message">
 									<a class="nav-link icon text-center" data-toggle="dropdown">
 										<span class="badge badge-danger">
