@@ -55,7 +55,7 @@
                                                                 {{$user->telephone ?? ''}}                                                            
                                                             </td>
                                                             <td>
-                                                                {{$user->balance ?? ''}}
+                                                                {{$user->solde ?? ''}} $
                                                             </td>
 
                                                             <td>

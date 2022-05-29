@@ -52,8 +52,7 @@
                                                                 <?php echo e($user->telephone ?? ''); ?>                                                            
                                                             </td>
                                                             <td>
-                                                                <?php echo e($user->balance ?? ''); ?>
-
+                                                                <?php echo e($user->solde ?? ''); ?> $
                                                             </td>
 
                                                             <td>

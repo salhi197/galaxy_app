@@ -26,6 +26,8 @@
 												<th>Montant</th>
 												<th>Méthode</th>
 												<th>Etat</th>
+												<th>Crée le </th>
+
 												@auth('admin')
 												<th>Action</th>
 												@endif
@@ -58,6 +60,7 @@
 													<span class="badge badge-anger">Non Confirmé (en attente)</span>
 												</td>
 												@endif
+                                                <td>{{$operation->created_at}}</td>
 
 												@auth('admin')
                                                             <td >
@@ -65,15 +68,15 @@
                                                                         <a class="btn btn-outline btn-danger px-3 mb-0" 
                                                                         href="{{route('operation.recharger.valider',['operation'=>$operation->id])}}"
                                                                         onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="far fa-trash-alt me-2"></i>
-                                                                            Approuver
+                                                                            <i class="fe fe-check"></i>
+                                                                            
                                                                         </a>
 
                                                                         <a class="btn btn-outline btn-danger px-3 mb-0" 
                                                                         href="{{route('operation.recharger.annuler',['operation'=>$operation->id])}}"
                                                                         onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="far fa-trash-alt me-2"></i>
-                                                                            Annuler
+                                                                            <i class="fe fe-trash"></i>
+                                                                            
                                                                         </a>
                                                                 </div>
                                                             </td>

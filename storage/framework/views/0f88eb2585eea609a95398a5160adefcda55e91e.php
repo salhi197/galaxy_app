@@ -71,12 +71,27 @@
 					</div>
 
 
+					<div class="row">
+						<div class="col-xl-6 col-md-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Graphe de Partenaire</h3>
+								</div>
+								<div class="card-body">
+									<canvas id="myChart" width="600" height="250"  ></canvas>	
+								</div>
+							</div>
+						</div>
+					</div>
+
 
 
 
 
 <?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('scripts'); ?>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
 <script>
 $('#duree ,#montant').on('change',function(){
 
@@ -120,8 +135,68 @@ $('#duree ,#montant').on('change',function(){
 
 	}
 			
-
 })
+
+
+	aDatasets1 = [
+		<?php $__currentLoopData = $userArr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			<?php echo e($u); ?>,
+		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+	];  
+	var ctx = document.getElementById("myChart");
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ["Jan", "Fev", "Mars", "Avril", "Mail", "Juin","Juillet","Aout","Septembre","Octobre","Nov","Dec"],
+			
+			datasets: [ {
+				label: 'Nombre Des Inscriptions Par Mois',
+				fill:false,
+				data: aDatasets1,
+				backgroundColor: '#E91E63',
+				borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)',
+				],
+				borderWidth: 1
+			}			
+			]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			title: {
+				display: true,
+				text: 'Nishi IT Institute'
+			},
+			responsive: true,
+			
+		tooltips: {
+				callbacks: {
+					labelColor: function(tooltipItem, chart) {
+						return {
+							borderColor: 'rgb(255, 0, 20)',
+							backgroundColor: 'rgb(255,20, 0)'
+						}
+					}
+				}
+			},
+			legend: {
+				labels: {
+					fontColor: 'red',				
+				}
+			}
+		}
+	});
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

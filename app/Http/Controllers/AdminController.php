@@ -22,14 +22,35 @@ use App\Attachement;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use App\Chauffeur;
+use App\User;
 use Carbon\Carbon;
 class AdminController extends Controller
 {
     
     public function admin()
-    {       
-        return view('admin');
+    { 
+        $users = User::select('id', 'created_at')
+        ->get()
+        ->groupBy(function($date) {
+            //return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+            return Carbon::parse($date->created_at)->format('m'); // grouping by months
+        });
+        $usermcount = [];
+        $userArr = [];
+        
+        foreach ($users as $key => $value) {
+            $usermcount[(int)$key] = count($value);
+        }
+        
+        for($i = 1; $i <= 12; $i++){
+            if(!empty($usermcount[$i])){
+                $userArr[$i] = $usermcount[$i];    
+            }else{
+                $userArr[$i] = 0;    
+            }
+        }
+        // dd($userArr);
+        return view('admin',compact('userArr'));
     }
 
     public function saisir_frais(Request $request)

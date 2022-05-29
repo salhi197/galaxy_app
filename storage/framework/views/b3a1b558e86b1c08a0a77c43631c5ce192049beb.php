@@ -150,8 +150,31 @@
 					</div>
 
 
+					<div class="row">
+						<div class="col-xl-12 col-md-12 col-lg-12">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Graphe de Partenaire</h3>
+								</div>
+								<div class="card-body">
+									<div id="map"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('styles'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('css/leaflet.css')); ?>"  />
+<script src="<?php echo e(asset('js/leaflet.js')); ?>"></script>
+<style>
+#map { height: 480px; }	
+</style>
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('scripts'); ?>
 <script>
 $('#duree ,#montant').on('change',function(){
@@ -195,9 +218,17 @@ $('#duree ,#montant').on('change',function(){
 		$('#gain12max').html(gain12max)
 
 	}
-			
-
+		
 })
+</script>
+<script>
+	var map = L.map('map', {
+    center: [51.505, -0.09],
+    zoom: 13
+});
+	var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+	var positron = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', ).addTo(map);
+	map.setView([0, 0], 0);
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

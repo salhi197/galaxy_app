@@ -34,7 +34,7 @@
 
 		<!-- Skin css-->
 		<link href="<?php echo e(asset('assets/skins/skins-modes/color22.css')); ?>"  id="theme" rel="stylesheet" type="text/css" media="all" />
-
+		<?php echo $__env->yieldContent('styles'); ?>
 	</head>
 
 	<body class="app sidebar-mini default-header">
@@ -71,6 +71,7 @@
 										<i class="fe fe-maximize-2" ></i>
 									</a>
 								</div><!-- FULL-SCREEN -->
+								<?php if(auth()->guard('admin')->check()): ?>
 								<div class="dropdown d-md-flex notifications">
 									<a class="nav-link icon" data-toggle="dropdown">
 										<i class="fe fe-bell"></i>
@@ -126,6 +127,7 @@
 										</div>
 									</div>
 								</div>
+								<?php endif; ?>
 								<div class="dropdown d-md-flex message">
 									<a class="nav-link icon text-center" data-toggle="dropdown">
 										<span class="badge badge-danger">
@@ -141,6 +143,7 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading  text-center border-bottom pb-3">
 											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?></h5>
+											
 											<small class="text-muted">
 												Investor
 											</small>
@@ -187,6 +190,9 @@
 
 							<div class="user-info">
 								<h2><?php echo e(Auth::user()->name ?? ''); ?></h2>
+								<?php if(auth()->guard()->check()): ?>
+								<img src="<?php echo e(asset('flags/1x1/'.Auth::user()->pays.'.svg')); ?>" height="10px"/>
+								<?php endif; ?>
 								<!-- <span><?php echo e(Auth::user()->telephone ?? 'Investor'); ?><span> -->
 							</div>
 							<br>
@@ -219,9 +225,13 @@
 					</div>
 					<ul class="side-menu">
 						<?php if(auth()->guard('admin')->check()): ?>
-							<li>
-								<a class="side-menu__item" href="<?php echo e(route('user.index')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('liste utilisateurs')); ?></span></a>
-							</li>
+						<li>
+							<a class="side-menu__item" href="<?php echo e(route('admin')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('Admin')); ?></span></a>
+						</li>
+
+						<li>
+							<a class="side-menu__item" href="<?php echo e(route('user.index')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('liste utilisateurs')); ?></span></a>
+						</li>
 						<li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('Finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
@@ -235,6 +245,11 @@
 
 							</ul>
 						</li>
+
+						<li>
+							<a class="side-menu__item" href="<?php echo e(route('operation.index')); ?>"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label"><?php echo e(trans('Transactions')); ?></span></a>
+						</li>
+
 						<li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('setting')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
@@ -361,7 +376,6 @@
 		<script src="<?php echo e(asset('assets/js/vendors/jquery.sparkline.min.js')); ?>"></script>
 
 		<!-- CHART-CIRCLE -->
-		<script src="<?php echo e(asset('assets/js/vendors/circle-progress.min.js')); ?>"></script>
 
 		<!-- RATING STAR -->
 		<script src="<?php echo e(asset('assets/plugins/rating/jquery.rating-stars.js')); ?>"></script>
@@ -371,33 +385,26 @@
 		<script src="<?php echo e(asset('assets/js/select2.js')); ?>"></script>
 
 		<!-- CHARTJS CHART -->
-		<script src="<?php echo e(asset('assets/plugins/chart/Chart.bundle.js')); ?>"></script>
-		<script src="<?php echo e(asset('assets/plugins/chart/utils.js')); ?>"></script>
 
 		<!-- PIETY CHART -->
-		<script src="<?php echo e(asset('assets/plugins/peitychart/jquery.peity.min.js')); ?>"></script>
-		<script src="<?php echo e(asset('assets/plugins/peitychart/peitychart.init.js')); ?>"></script>
-
 		<!-- LEFT-MENU -->
 		<script src="<?php echo e(asset('assets/plugins/sidemenu-toggle/sidemenu-toggle.js')); ?>"></script>
 
 		<!-- PERFECT SCROLL BAR JS-->
-		<script src="<?php echo e(asset('assets/plugins/pscrollbar/perfect-scrollbar.js')); ?>"></script>
-		<script src="<?php echo e(asset('assets/plugins/pscrollbar/pscroll-leftmenu.js')); ?>"></script>
 
 		<!-- SIDEBAR JS -->
 		<script src="<?php echo e(asset('assets/plugins/sidebar/sidebar.js')); ?>"></script>
 
 		<!-- APEX-CHARTS JS -->
-		<script src="<?php echo e(asset('assets/plugins/apexcharts/apexcharts.js')); ?>"></script>
-		<script src="<?php echo e(asset('assets/plugins/apexcharts/irregular-data-series.js')); ?>"></script>
 
 		<!-- INDEX-SCRIPTS  -->
 		<script src="<?php echo e(asset('assets/js/index.js')); ?>"></script>
 
 		
 		<!-- CUSTOM JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+		<script src="<?php echo e(asset('js/chart.min.js')); ?>"></script>
+		<script src="<?php echo e(asset('js/moment.min.js')); ?>"></script>
+				
 		<script src="<?php echo e(asset('assets/js/custom.js')); ?>"></script>
 <script>
 $(document).ready(function() {

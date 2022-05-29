@@ -24,6 +24,8 @@
 												<th>Montant</th>
 												<th>Méthode</th>
 												<th>Etat</th>
+												<th>Crée le </th>
+
 												<?php if(auth()->guard('admin')->check()): ?>
 												<th>Action</th>
 												<?php endif; ?>
@@ -57,6 +59,7 @@
 													<span class="badge badge-anger">Non Confirmé (en attente)</span>
 												</td>
 												<?php endif; ?>
+                                                <td><?php echo e($operation->created_at); ?></td>
 
 												<?php if(auth()->guard('admin')->check()): ?>
                                                             <td >
@@ -64,14 +67,14 @@
                                                                         <a class="btn btn-outline btn-danger px-3 mb-0" 
                                                                         href="<?php echo e(route('operation.recharger.valider',['operation'=>$operation->id])); ?>"
                                                                         onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="far fa-trash-alt me-2"></i>
+                                                                            <i class="fe fe-check"></i>
                                                                             Approuver
                                                                         </a>
 
                                                                         <a class="btn btn-outline btn-danger px-3 mb-0" 
                                                                         href="<?php echo e(route('operation.recharger.annuler',['operation'=>$operation->id])); ?>"
                                                                         onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="far fa-trash-alt me-2"></i>
+                                                                            <i class="fe fe-trash"></i>
                                                                             Annuler
                                                                         </a>
                                                                 </div>

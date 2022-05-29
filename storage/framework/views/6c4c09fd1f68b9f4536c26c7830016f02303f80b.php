@@ -16,7 +16,7 @@
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Basic Table</h3>
+									<h3 class="card-title">Liste Rechargements</h3>
 								</div>
 								<div class="table-responsive">
 									<table class="table card-table table-vcenter ">
@@ -69,16 +69,17 @@
                                                                         <a class="btn btn-outline btn-danger px-3 mb-0" 
                                                                         href="<?php echo e(route('operation.recharger.valider',['operation'=>$operation->id])); ?>"
                                                                         onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="far fa-trash-alt me-2"></i>
-                                                                            Approuver
+                                                                            <i class="fe fe-check"></i>
+                                                                            
                                                                         </a>
 
                                                                         <a class="btn btn-outline btn-danger px-3 mb-0" 
                                                                         href="<?php echo e(route('operation.recharger.annuler',['operation'=>$operation->id])); ?>"
                                                                         onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="far fa-trash-alt me-2"></i>
-                                                                            Annuler
+                                                                            <i class="fe fe-trash"></i>
+                                                                            
                                                                         </a>
+
                                                                 </div>
                                                             </td>
 

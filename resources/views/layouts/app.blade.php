@@ -34,7 +34,7 @@
 
 		<!-- Skin css-->
 		<link href="{{asset('assets/skins/skins-modes/color22.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
-
+		@yield('styles')
 	</head>
 
 	<body class="app sidebar-mini default-header">
@@ -71,6 +71,7 @@
 										<i class="fe fe-maximize-2" ></i>
 									</a>
 								</div><!-- FULL-SCREEN -->
+								@auth('admin')
 								<div class="dropdown d-md-flex notifications">
 									<a class="nav-link icon" data-toggle="dropdown">
 										<i class="fe fe-bell"></i>
@@ -126,6 +127,7 @@
 										</div>
 									</div>
 								</div>
+								@endif
 								<div class="dropdown d-md-flex message">
 									<a class="nav-link icon text-center" data-toggle="dropdown">
 										<span class="badge badge-danger">
@@ -141,6 +143,7 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading  text-center border-bottom pb-3">
 											<h5 class="text-dark mb-1">{{Auth::user()->name ?? ''}}</h5>
+											
 											<small class="text-muted">
 												Investor
 											</small>
@@ -187,6 +190,9 @@
 
 							<div class="user-info">
 								<h2>{{Auth::user()->name ?? ''}}</h2>
+								@auth
+								<img src="{{asset('flags/1x1/'.Auth::user()->pays.'.svg')}}" height="10px"/>
+								@endif
 								<!-- <span>{{Auth::user()->telephone ?? 'Investor'}}<span> -->
 							</div>
 							<br>
@@ -219,9 +225,13 @@
 					</div>
 					<ul class="side-menu">
 						@auth('admin')
-							<li>
-								<a class="side-menu__item" href="{{route('user.index')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('liste utilisateurs')}}</span></a>
-							</li>
+						<li>
+							<a class="side-menu__item" href="{{route('admin')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('Admin')}}</span></a>
+						</li>
+
+						<li>
+							<a class="side-menu__item" href="{{route('user.index')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('liste utilisateurs')}}</span></a>
+						</li>
 						<li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('Finance')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
@@ -235,6 +245,11 @@
 
 							</ul>
 						</li>
+
+						<li>
+							<a class="side-menu__item" href="{{route('operation.index')}}"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label">{{trans('Transactions')}}</span></a>
+						</li>
+
 						<li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label">{{trans('setting')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
@@ -360,7 +375,6 @@
 		<script src="{{asset('assets/js/vendors/jquery.sparkline.min.js')}}"></script>
 
 		<!-- CHART-CIRCLE -->
-		<script src="{{asset('assets/js/vendors/circle-progress.min.js')}}"></script>
 
 		<!-- RATING STAR -->
 		<script src="{{asset('assets/plugins/rating/jquery.rating-stars.js')}}"></script>
@@ -370,33 +384,26 @@
 		<script src="{{asset('assets/js/select2.js')}}"></script>
 
 		<!-- CHARTJS CHART -->
-		<script src="{{asset('assets/plugins/chart/Chart.bundle.js')}}"></script>
-		<script src="{{asset('assets/plugins/chart/utils.js')}}"></script>
 
 		<!-- PIETY CHART -->
-		<script src="{{asset('assets/plugins/peitychart/jquery.peity.min.js')}}"></script>
-		<script src="{{asset('assets/plugins/peitychart/peitychart.init.js')}}"></script>
-
 		<!-- LEFT-MENU -->
 		<script src="{{asset('assets/plugins/sidemenu-toggle/sidemenu-toggle.js')}}"></script>
 
 		<!-- PERFECT SCROLL BAR JS-->
-		<script src="{{asset('assets/plugins/pscrollbar/perfect-scrollbar.js')}}"></script>
-		<script src="{{asset('assets/plugins/pscrollbar/pscroll-leftmenu.js')}}"></script>
 
 		<!-- SIDEBAR JS -->
 		<script src="{{asset('assets/plugins/sidebar/sidebar.js')}}"></script>
 
 		<!-- APEX-CHARTS JS -->
-		<script src="{{asset('assets/plugins/apexcharts/apexcharts.js')}}"></script>
-		<script src="{{asset('assets/plugins/apexcharts/irregular-data-series.js')}}"></script>
 
 		<!-- INDEX-SCRIPTS  -->
 		<script src="{{asset('assets/js/index.js')}}"></script>
 
 		
 		<!-- CUSTOM JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+		<script src="{{asset('js/chart.min.js')}}"></script>
+		<script src="{{asset('js/moment.min.js')}}"></script>
+				
 		<script src="{{asset('assets/js/custom.js')}}"></script>
 <script>
 $(document).ready(function() {

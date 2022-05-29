@@ -46,7 +46,7 @@
 				<div class="">
 					<div class="col col-login mx-auto">
 						<div class="text-center">
-                            <img src="<?php echo e(asset('logo-galaxy.png')); ?>" width="150px"/>
+                            <img src="<?php echo e(asset('log.png')); ?>" width="150px"/>
 						</div>
 					</div>
 					<div class="container-login100">
@@ -54,7 +54,6 @@
 							
                             <form class="login100-form validate-form" method="POST" action="<?php echo e(route('login')); ?>" aria-label="Login">
                                 <?php echo csrf_field(); ?>
-                                <input type="hidden" name="_token" value="GnPinh22Yif9GsIWbgLW4r49uxQq3MniIG3y4TQo">
                                 <span class="login100-form-title">
 									Connexion 
 								</span>
