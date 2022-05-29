@@ -4,28 +4,36 @@
 
 
                     <div class="page-header">
-						<h4 class="page-title">{{trans('liste_retirer')}}</h4>
+						<h4 class="page-title">{{trans('liste_trnasfert')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">{{trans('retirer')}}</li>
+							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>
 						</ol>
 					</div>
+					<!-- PAGE-HEADER END -->
+
+					<!-- ROW-1 -->
 
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Liste</h3>
+                                    <a class="btn btn-primary text-white" href="{{route('operation.transferer.show')}}">
+                                        <i class="fa fa-plus">
+
+                                        </i>
+                                        Ajouter Transfert
+                                    </a>
+                                    
 								</div>
 								<div class="table-responsive">
-									<table class="table card-table table-vcenter text-nowrap">
+									<table class="table card-table table-vcenter ">
 										<thead >
 											<tr>
 												<th>ID</th>
-												<th>User</th>
+												<th>Récepteur</th>
 												<th>Montant</th>
-												<th>Méthode</th>
-												<th>Etat</th>
+												<!-- <th>Méthode</th> -->
 												<th>Crée le </th>
 												@auth('admin')
 												<th>Action</th>
@@ -39,28 +47,28 @@
 												<td>{{$operation->id}}</td>
 												<td>
 													<a href="{{route('user.detail',['user'=>$operation->user()['id']])}}">
-														{{$operation->user()['name']}}
+														{{$operation->receiver()['name']}}
 													</a>
 												</td>
                                                 <td>{{$operation->montant}}</td>
-                                                <td>{{$operation->methode}}</td>
-												@if($operation->etat == 1)
-                                                <td class="badge badge-success">
-													<span class="">Confirmé</span>
+                                                <!-- <td>{{$operation->methode}}</td> -->
+												<!-- @if($operation->etat == 1)
+                                                <td>
+													Confirmé
 												</td>
 												@endif
 												@if($operation->etat == -1)
                                                 <td >
-													<span class="badge badge-anger">Annulé</span>
+													Annulé
 												</td>
 												@endif
+												
 												@if($operation->etat == 0)
                                                 <td >
-													<span class="badge badge-anger">Non Confirmé (en attente)</span>
+													Non Confirmé (en attente)
 												</td>
-												@endif
+												@endif -->
                                                 <td>{{$operation->created_at}}</td>
-
 												@auth('admin')
                                                             <td >
                                                                 <div class="table-action">  
@@ -77,6 +85,7 @@
                                                                             <i class="fe fe-trash"></i>
                                                                             
                                                                         </a>
+
                                                                 </div>
                                                             </td>
 

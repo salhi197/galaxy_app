@@ -34,10 +34,16 @@
 <!-- Skin css-->
 <link href="{{asset('assets/skins/skins-modes/color22.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
 <!-- SIDEBAR CSS -->
+<link rel="stylesheet" href="{{asset('build/css/intlTelInput.css')}}">
+<link rel="stylesheet" href="{{asset('build/css/demo.css')}}">
 
 <!-- Switcher CSS -->
 <link href="{{asset('css/toastr.css')}}" rel="stylesheet"/>
-
+<style>
+    .iti__country-list{
+        z-index: 1;
+    }
+</style>
 		
 	<body class="default-header">	    
 				<!-- BACKGROUND-IMAGE -->
@@ -145,8 +151,8 @@
 								</div>
 
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                                <label>Téléphone : </label>
-                                <input id="telephone"  type="text" class="form-control" value="{{old('telephone')}}" name="telephone" required>
+                                    <label>Téléphone : </label>
+                                    <input id="phone" name="telephone"  class="form-control" type="tel">
 								</div>
 
 
@@ -199,7 +205,7 @@
 		
 		<!-- JQUERY SCRIPTS -->
 <script src="{{asset('assets/js/vendors/jquery-3.2.1.min.js')}}"></script>
-<!-- BOOTSTRAP SCRIPTS -->
+<script src="{{asset('build/js/intlTelInput.js')}}"></script>
 <script src="{{asset('assets/js/vendors/bootstrap.bundle.min.js')}}"></script>
 <!-- SPARKLINE -->
 <script src="{{asset('assets/js/vendors/jquery.sparkline.min.js')}}"></script>
@@ -216,6 +222,13 @@
 <script src="{{asset('js/toastr.min.js')}}"></script>	
 
 <script src="{{asset('assets/js/custom.js')}}"></script>	
+<script src="{{asset('build/js/intlTelInput.js')}}"></script>
+<script>
+  var input = document.querySelector("#phone");
+  window.intlTelInput(input, {
+  });
+</script>
+
 <script>
 $(document).ready(function() {
     $('#code_sponsor').on('change',function(){

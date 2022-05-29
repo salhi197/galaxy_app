@@ -34,6 +34,8 @@
 
 		<!-- Skin css-->
 		<link href="{{asset('assets/skins/skins-modes/color22.css')}}"  id="theme" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{asset('css/toastr.css')}}" rel="stylesheet"/>
+		<link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
 		@yield('styles')
 	</head>
 
@@ -51,25 +53,23 @@
 						<div class="d-flex">
 						   <a class="header-brand" href="index.html">
 							   <img src="{{asset('img/logoh.png')}}" width="140px"/>
+							   <img src="{{asset('img/logoh.png')}}" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
 							</a><!-- LOGO -->
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
-							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="fa fa-search"></i></a>
+							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
 								<div class="">
-									<p id="date-part" class="text-white" style="padding:15px;">
+									<p id="date-part" class="text-white" style="padding:15px;font-size:2vh">
 
 									</p>
 								</div><!-- SEARCH -->
 								<div class="">
-									<a class="text-white active" style="padding:15px;" href="#">
+									<a class="text-white active" style="padding:15px;font-size:2vh" href="#">
 										{{Auth::user()->solde ?? ''}} $
 									</a>
 								</div><!-- SEARCH -->
 
 								<div class="dropdown d-md-flex">
-									<a class="nav-link icon full-screen-link nav-link-bg" id="fullscreen-button">
-										<i class="fe fe-maximize-2" ></i>
-									</a>
 								</div><!-- FULL-SCREEN -->
 								@auth('admin')
 								<div class="dropdown d-md-flex notifications">
@@ -151,7 +151,7 @@
 										<a class="dropdown-item" href="{{route('user.profile')}}"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
 										<a class="dropdown-item" href="{{route('setting')}}"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
 										<a class="dropdown-item" href="{{route('operation.recharger.index.actif')}}"><i class="fe fe-list mr-2"></i> <span>Activity</span></a>
-										<a class="dropdown-item" href="{{route('faq')}}"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
+										<a class="dropdown-item" href="{{route('support')}}"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
 									</div>
 								</div>
 								<div class="dropdown d-md-flex header-settings">
@@ -278,7 +278,7 @@
 								</li>
 
 								<li>
-									<a href="{{route('operation.transferer.show')}}" class="slide-item">{{trans('Transfert')}} </a>
+									<a href="{{route('operation.transferer.index')}}" class="slide-item">{{trans('Transfert')}} </a>
 								</li>
 								<li>
 									<a href="{{route('operation.index')}}" class="slide-item">{{trans('Opérations')}} </a>
@@ -322,7 +322,7 @@
 
 
 						<li>
-							<a class="side-menu__item" href="{{route('home')}}"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label">{{trans('support')}}</span></a>
+							<a class="side-menu__item" href="{{route('support')}}"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label">{{trans('support')}}</span></a>
 						</li>
 						@endif
 
@@ -380,8 +380,8 @@
 		<script src="{{asset('assets/plugins/rating/jquery.rating-stars.js')}}"></script>
 
 		<!-- SELECT2 JS -->
-		<script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
-		<script src="{{asset('assets/js/select2.js')}}"></script>
+		<!-- <script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script> -->
+		<!-- <script src="{{asset('assets/js/select2.js')}}"></script> -->
 
 		<!-- CHARTJS CHART -->
 
@@ -405,6 +405,25 @@
 		<script src="{{asset('js/moment.min.js')}}"></script>
 				
 		<script src="{{asset('assets/js/custom.js')}}"></script>
+        <script src="{{asset('js/toastr.min.js')}}"></script>	
+		<script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
+		<script src="{{asset('assets/js/sweet-alert.js')}}"></script>
+
+        <script>
+        @if(session('error'))
+        	$(function(){
+                toastr.error('{{Session::get("error")}}')
+            })
+
+        @endif
+        @if(session('success'))
+            toastr.success('{{Session::get("success")}}')
+        @endif
+            
+
+        </script>
+
+
 <script>
 $(document).ready(function() {
     var interval = setInterval(function() {

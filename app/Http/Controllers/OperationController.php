@@ -51,10 +51,10 @@ class OperationController extends Controller
             return view('operations.index_recharger',compact('operations'));    
         }
         if(Auth::check()){
-            $operations = Operation::where([
+            $operations = Operation::where(
                 ['type'=>1],
                 ['user'=>Auth::user()->id]
-                ]
+                
             )->get();
             return view('operations.index_recharger',compact('operations'));    
         }
@@ -124,8 +124,8 @@ class OperationController extends Controller
 
     public function indexTransfert()
     {
-        $operations = Operation::where('type',1)->get();
-        return view('operations.index_recharger',compact('operations'));
+        $operations = Operation::where('type',2)->get();
+        return view('operations.index_transfert',compact('operations'));
 
     }
     public function transfererShow()
@@ -134,13 +134,42 @@ class OperationController extends Controller
     }    
     public function transfererAction(Request $request)
     {
+        $sender_user = User::find(Auth::user()->id);
+
+        if($request['identifiant'] == "telephone"){
+            $received_user  = User::where("telephone",$request['email_or_telephone'])->first();
+        }elseif($request['identifiant'] == "email"){
+            $received_user  = User::where("email",$request['email_or_telephone'])->first();
+        }else{
+            return redirect()->back()->with('error', 'Erreur Inconnu ');        
+        }
+        if(is_null($received_user)){
+            return redirect()->back()->with('error', 'Reveiver not found ');        
+        }
+        if($received_user->id == Auth::user()->id){
+            return redirect()->back()->with('error', 'Ereur 209');        
+        }
+        if($sender_user->solde<$request['montant']){
+            return redirect()->back()->with('error', 'Motant Dépassé');        
+        }
         $operation = new Operation();
         $operation->montant =$request['montant']; 
-        $operation->methode =$request['methode']; 
-        $operation->type=1;
+        // $operation->methode =$request['methode']; 
+        $operation->type=2;
         $operation->etat=0;
         $operation->user=Auth::user()->id;
+        $operation->user_2=$received_user->id;//Auth::user()->id;
         $operation->save();
+        /**
+         * Incrementer le solde de user 1
+         */
+        $sender_user->solde = $sender_user->solde - $request['montant'];
+        $sender_user->save(); 
+        /**
+         * décrementer le solde de user 2
+        */
+        $received_user->solde = $received_user->solde + $request['montant'];
+        $received_user->save(); 
 
         return redirect()->route('operation.transferer.index')->with('success', 'Inséré avec succés ');        
     }    
@@ -170,10 +199,20 @@ class OperationController extends Controller
 
     public function retirerShow()
     {
-        return view('operations.retirer');
+        $operations = Operation::where(
+            ['type'=>-1],
+            ['user'=>Auth::user()->id]
+        )->get();
+        $countOperations = count($operations);
+        return view('operations.retirer',compact('countOperations'));
     }    
     public function retirerAction(Request $request)
     {
+
+        $user = User::find(Auth::user()->id);
+        if($request['montant']>$user->solde){
+            return redirect()->route('operation.recharger.index')->with('success', 'Vous pouvez pas retirer une tel montant ');        
+        }
         $operation = new Operation();
         $operation->montant =$request['montant']; 
         $operation->methode =$request['methode']; 

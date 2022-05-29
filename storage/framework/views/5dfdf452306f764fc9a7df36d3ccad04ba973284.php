@@ -34,6 +34,8 @@
 
 		<!-- Skin css-->
 		<link href="<?php echo e(asset('assets/skins/skins-modes/color22.css')); ?>"  id="theme" rel="stylesheet" type="text/css" media="all" />
+        <link href="<?php echo e(asset('css/toastr.css')); ?>" rel="stylesheet"/>
+		<link href="<?php echo e(asset('assets/plugins/sweet-alert/sweetalert.css')); ?>" rel="stylesheet" />
 		<?php echo $__env->yieldContent('styles'); ?>
 	</head>
 
@@ -51,25 +53,23 @@
 						<div class="d-flex">
 						   <a class="header-brand" href="index.html">
 							   <img src="<?php echo e(asset('img/logoh.png')); ?>" width="140px"/>
+							   <img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
 							</a><!-- LOGO -->
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
-							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="fa fa-search"></i></a>
+							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
 								<div class="">
-									<p id="date-part" class="text-white" style="padding:15px;">
+									<p id="date-part" class="text-white" style="padding:15px;font-size:2vh">
 
 									</p>
 								</div><!-- SEARCH -->
 								<div class="">
-									<a class="text-white active" style="padding:15px;" href="#">
+									<a class="text-white active" style="padding:15px;font-size:2vh" href="#">
 										<?php echo e(Auth::user()->solde ?? ''); ?> $
 									</a>
 								</div><!-- SEARCH -->
 
 								<div class="dropdown d-md-flex">
-									<a class="nav-link icon full-screen-link nav-link-bg" id="fullscreen-button">
-										<i class="fe fe-maximize-2" ></i>
-									</a>
 								</div><!-- FULL-SCREEN -->
 								<?php if(auth()->guard('admin')->check()): ?>
 								<div class="dropdown d-md-flex notifications">
@@ -151,7 +151,7 @@
 										<a class="dropdown-item" href="<?php echo e(route('user.profile')); ?>"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
 										<a class="dropdown-item" href="<?php echo e(route('setting')); ?>"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
 										<a class="dropdown-item" href="<?php echo e(route('operation.recharger.index.actif')); ?>"><i class="fe fe-list mr-2"></i> <span>Activity</span></a>
-										<a class="dropdown-item" href="<?php echo e(route('faq')); ?>"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
+										<a class="dropdown-item" href="<?php echo e(route('support')); ?>"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
 									</div>
 								</div>
 								<div class="dropdown d-md-flex header-settings">
@@ -278,7 +278,7 @@
 								</li>
 
 								<li>
-									<a href="<?php echo e(route('operation.transferer.show')); ?>" class="slide-item"><?php echo e(trans('Transfert')); ?> </a>
+									<a href="<?php echo e(route('operation.transferer.index')); ?>" class="slide-item"><?php echo e(trans('Transfert')); ?> </a>
 								</li>
 								<li>
 									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('Opérations')); ?> </a>
@@ -322,7 +322,7 @@
 
 
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('home')); ?>"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label"><?php echo e(trans('support')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('support')); ?>"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label"><?php echo e(trans('support')); ?></span></a>
 						</li>
 						<?php endif; ?>
 
@@ -381,8 +381,8 @@
 		<script src="<?php echo e(asset('assets/plugins/rating/jquery.rating-stars.js')); ?>"></script>
 
 		<!-- SELECT2 JS -->
-		<script src="<?php echo e(asset('assets/plugins/select2/select2.full.min.js')); ?>"></script>
-		<script src="<?php echo e(asset('assets/js/select2.js')); ?>"></script>
+		<!-- <script src="<?php echo e(asset('assets/plugins/select2/select2.full.min.js')); ?>"></script> -->
+		<!-- <script src="<?php echo e(asset('assets/js/select2.js')); ?>"></script> -->
 
 		<!-- CHARTJS CHART -->
 
@@ -406,6 +406,25 @@
 		<script src="<?php echo e(asset('js/moment.min.js')); ?>"></script>
 				
 		<script src="<?php echo e(asset('assets/js/custom.js')); ?>"></script>
+        <script src="<?php echo e(asset('js/toastr.min.js')); ?>"></script>	
+		<script src="<?php echo e(asset('assets/plugins/sweet-alert/sweetalert.min.js')); ?>"></script>
+		<script src="<?php echo e(asset('assets/js/sweet-alert.js')); ?>"></script>
+
+        <script>
+        <?php if(session('error')): ?>
+        	$(function(){
+                toastr.error('<?php echo e(Session::get("error")); ?>')
+            })
+
+        <?php endif; ?>
+        <?php if(session('success')): ?>
+            toastr.success('<?php echo e(Session::get("success")); ?>')
+        <?php endif; ?>
+            
+
+        </script>
+
+
 <script>
 $(document).ready(function() {
     var interval = setInterval(function() {

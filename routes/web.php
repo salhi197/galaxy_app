@@ -33,6 +33,7 @@ Route::get('/cleareverything', function () {
 
 Route::get('/', function () {return view('welcome');})->middleware('lang');
 Route::get('/faq', function () {return view('faq');})->name('faq');
+Route::get('/support', function () {return view('support');})->name('support');
 
 
 Route::get('/recharger-compte', function () {
@@ -104,7 +105,7 @@ Route::group(['prefix' => 'operation', 'as' => 'operation'], function () {
 
 
 
-    Route::get('/transfert', ['as' => '.transferer.index', 'uses' => 'OperationController@indexRechargement']);
+    Route::get('/transfert', ['as' => '.transferer.index', 'uses' => 'OperationController@indexTransfert']);
     Route::get('/transferer',['as'=>'.transferer.show', 'uses' => 'OperationController@transfererShow']);
     Route::post('/transferer',['as'=>'.transferer.action', 'uses' => 'OperationController@transfererAction']);
 

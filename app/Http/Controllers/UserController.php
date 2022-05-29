@@ -43,6 +43,12 @@ class UserController extends Controller
         
     }
 
+    public function detail($user_id)
+    {
+        $user =User::find($user_id);
+        return view('users.detail',compact('user'));
+    }
+
     public function index()
     {
         $users =User::all();

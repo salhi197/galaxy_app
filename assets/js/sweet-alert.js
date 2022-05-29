@@ -77,17 +77,6 @@ $(function(e) {
 			}
 		});
 	});
-	// Confirm
-	$("#confirm").on("click", function(e) {
-		swal({
-			title: "Alert",
-			text: "Are you really want to exit",
-			type: "warning",
-			showCancelButton: true,
-			confirmButtonText: 'Exit',
-			cancelButtonText: 'Stay on the page'
-		});
-	});
 	$("#click").on("click", function(e) {
 		swal('Congratulations!', 'Your message has been succesfully sent', 'success');
 	});

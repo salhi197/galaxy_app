@@ -28,8 +28,8 @@
                             <div class="card mb-4">
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class=" text-primary">
+    										<table id="datable-1" class="table card-table table-striped table-bordered text-nowrap w-100">
+                                                <thead class="text-primary">
                                                     <tr>
                                                         <th>ID User</th>
                                                         <th>Nom Penom</th>
@@ -37,6 +37,8 @@
                                                         <th>telephone</th>
                                                         <th>Balance</th>
                                                         <th>Date Entré</th>
+                                                        <th>Action</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -86,6 +88,12 @@
 @endsection
 
 
+@section('styles')
+<link href="{{asset('assets/plugins/datatable/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
+@endsecion
 @section('scripts')
+<script src="{{asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
+<script src="{{asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
 
 @endsection

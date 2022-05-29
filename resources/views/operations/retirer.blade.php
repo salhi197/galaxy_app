@@ -23,12 +23,23 @@
 									<h3 class="card-title">RETIRER LE COMPTE</h3>
 								</div>
 								<div class="card-body">
+									@if($countOperations>0)
+									<div class="row">
+										<div class="col-md-12">
+											<h4>
+												Vous avez Déja une demande de retrait , vous devriez attendre jusqu'à sa validation
+											</h4>
+										</div>
+									</div>
+
+
+									@else
 
                                     <form action="{{route('operation.retirer.action')}}" method="post">
     									<div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group overflow-hidden">
-                                                    <label>Entrez le montant que vous voulez retirer, €:</label>
+                                                    <label>Entrez le montant que vous voulez retirer:</label>
                                                     <input  required name="montant" class="form-control" min="500" id="montant" min="0"/>
                                                     </select>
                                                 </div>
@@ -52,7 +63,7 @@
                                         </button>
 
                                     </form>
-
+									@endif
 
 								</div>
 							</div>

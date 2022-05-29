@@ -224,7 +224,7 @@ $('#duree ,#montant').on('change',function(){
 <script>
 	var map = L.map('map', {
     center: [51.505, -0.09],
-    zoom: 13
+    zoom: 18
 });
 	var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
 	var positron = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', ).addTo(map);

@@ -2,30 +2,37 @@
 
 
                     <div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('liste_retirer')); ?></h4>
+						<h4 class="page-title"><?php echo e(trans('liste_trnasfert')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('retirer')); ?></li>
+							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('dashboard')); ?></li>
 						</ol>
 					</div>
+					<!-- PAGE-HEADER END -->
+
+					<!-- ROW-1 -->
 
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Liste</h3>
+                                    <a class="btn btn-primary text-white" href="<?php echo e(route('operation.transferer.show')); ?>">
+                                        <i class="fa fa-plus">
+
+                                        </i>
+                                        Ajouter Transfert
+                                    </a>
+                                    
 								</div>
 								<div class="table-responsive">
-									<table class="table card-table table-vcenter text-nowrap">
+									<table class="table card-table table-vcenter ">
 										<thead >
 											<tr>
 												<th>ID</th>
-												<th>User</th>
+												<th>Récepteur</th>
 												<th>Montant</th>
-												<th>Méthode</th>
-												<th>Etat</th>
+												<!-- <th>Méthode</th> -->
 												<th>Crée le </th>
-
 												<?php if(auth()->guard('admin')->check()): ?>
 												<th>Action</th>
 												<?php endif; ?>
@@ -38,29 +45,29 @@
 												<td><?php echo e($operation->id); ?></td>
 												<td>
 													<a href="<?php echo e(route('user.detail',['user'=>$operation->user()['id']])); ?>">
-														<?php echo e($operation->user()['name']); ?>
+														<?php echo e($operation->receiver()['name']); ?>
 
 													</a>
 												</td>
                                                 <td><?php echo e($operation->montant); ?></td>
-                                                <td><?php echo e($operation->methode); ?></td>
-												<?php if($operation->etat == 1): ?>
-                                                <td class="badge badge-success">
-													<span class="">Confirmé</span>
+                                                <!-- <td><?php echo e($operation->methode); ?></td> -->
+												<!-- <?php if($operation->etat == 1): ?>
+                                                <td>
+													Confirmé
 												</td>
 												<?php endif; ?>
 												<?php if($operation->etat == -1): ?>
                                                 <td >
-													<span class="badge badge-anger">Annulé</span>
+													Annulé
 												</td>
 												<?php endif; ?>
+												
 												<?php if($operation->etat == 0): ?>
                                                 <td >
-													<span class="badge badge-anger">Non Confirmé (en attente)</span>
+													Non Confirmé (en attente)
 												</td>
-												<?php endif; ?>
+												<?php endif; ?> -->
                                                 <td><?php echo e($operation->created_at); ?></td>
-
 												<?php if(auth()->guard('admin')->check()): ?>
                                                             <td >
                                                                 <div class="table-action">  
@@ -77,6 +84,7 @@
                                                                             <i class="fe fe-trash"></i>
                                                                             
                                                                         </a>
+
                                                                 </div>
                                                             </td>
 
