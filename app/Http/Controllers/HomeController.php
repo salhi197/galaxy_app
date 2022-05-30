@@ -40,8 +40,8 @@ class HomeController extends Controller
         $solde = $user->solde;
         $usersSumSolde =User::where('refered_user',Auth::user()->id)->get()->sum('solde');
         $soldeTotal = $solde+$usersSumSolde;
-        $users = DB::select("select pays, count(*) from users u where refered_user=$user_id group by pays");       
-        return view('home',compact('soldeTotal'));
+        $partenaires = DB::select("select pays, count(*) as nbr from users u where refered_user=$user_id group by pays");       
+        return view('home',compact('soldeTotal','partenaires'));
     }
 
     public function forgetPassword()

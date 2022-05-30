@@ -192,31 +192,14 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr>
-															<td><img src="<?php echo e(asset('assets/images/flags/us.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block" alt=""></td>
-															<td>USA</td>
-															<td>176</td>
-														</tr>
-														<tr>
-															<td><img src="<?php echo e(asset('assets/images/flags/in.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block" alt=""></td>
-															<td>India</td>
-															<td>012</td>
-														</tr>
-														<tr>
-															<td><img src="<?php echo e(asset('assets/images/flags/ru.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block" alt=""></td>
-															<td>Russia</td>
-															<td>056</td>
-														</tr>
-														<tr>
-															<td><img src="<?php echo e(asset('assets/images/flags/ca.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block" alt=""></td>
-															<td>Canada</td>
-															<td>102</td>
-														</tr>
-														<tr>
-															<td><img src="<?php echo e(asset('assets/images/flags/ge.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block border p-0" alt=""></td>
-															<td>Germany</td>
-															<td>089</td>
-														</tr>
+														<?php $__currentLoopData = $partenaires; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partenaire): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+															<tr>
+																<td><img src="<?php echo e(asset('assets/images/flags/'.$partenaire->pays.'.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block border p-0" alt=""></td>
+																<td><?php echo e($partenaire->pays); ?></td>
+																<td><?php echo e($partenaire->nbr); ?></td>
+															</tr>
+														
+														<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 													</tbody>
 												</table>
 											</div>
