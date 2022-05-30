@@ -64,7 +64,7 @@
 									</p>
 								</div><!-- SEARCH -->
 								<div class="">
-									<a class="text-white active" style="padding:15px;font-size:1vh" href="#">
+									<a class="text-white active" style="padding:15px;font-size:30px" href="#">
 										{{Auth::user()->solde ?? ''}} $
 									</a>
 								</div><!-- SEARCH -->
