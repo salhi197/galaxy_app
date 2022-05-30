@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mygawgrz/app.mygalaxy.world
+    - /bin/cp -r * $DEPLOYPATH
