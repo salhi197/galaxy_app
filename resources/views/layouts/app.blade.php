@@ -119,7 +119,13 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading  text-center border-bottom pb-3">
-											<h5 class="text-dark mb-1">{{Auth::user()->name}}</h5>
+											@auth('admin')
+											<h5 class="text-dark mb-1">Admin</h5>
+											@endif
+											@auth
+											<h5 class="text-dark mb-1">{{Auth::user()->name ?? ''}}</h5>
+											@endif
+
 											<small class="text-muted">Investor</small>
 										</div>
 										<a class="dropdown-item" href="profile.html"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
