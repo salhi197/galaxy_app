@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Wilaya;
 use App\Fichier;
 use App\Telephone;
+use Mail;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,29 @@ class HomeController extends Controller
         return view('auth.forget-password');
     }
 
+    public function forgetPasswordAction(Request $request)
+    {
+        $code= mt_rand( 100000, 999999 );
+        $data = [
+            'subject' => 'Ticket de Reservation',
+            'email' => $request['email'], //à remplacer par user email
+            'content' => "Hi there Hhhh",
+            'code'=>$code
+        ];
+        $logo = [
+            'path' => ''
+        ];
+
+        Mail::send('email', ['data' => $data, 'css' => '', 'logo' => $logo, 'unsubscribe' => ''], function ($message) use ($data) {
+            $message->to($data['email'])
+                ->subject('Nouveau Code de connexion');
+        });                
+        return redirect()->route('login')->with('success', 'Un Email a été envoyé');        
+    }
+
+    public function email()
+    {
+    }
 
     //
 }

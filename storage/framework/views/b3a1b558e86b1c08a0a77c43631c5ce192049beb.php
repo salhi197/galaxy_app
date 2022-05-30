@@ -59,7 +59,7 @@
 													<i class="fa fa-tasks" style="font-size:20px;"></i>													
 												</h6></div>
 											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">397</h2>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">0</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
 										</div>
 									</div>

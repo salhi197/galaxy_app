@@ -84,11 +84,12 @@
 
                                     
                                     <select id="country" value="{{old('pays')}}" name="pays" class="form-control" >
+                                        <option value="us">United State</option>
+
                                         <option value="dz">Algeria</option>
                                         <option value="de">Germany</option>
                                         <option value="fr">france</option>
                                         <option value="es">spain</option>
-                                        <option value="us">United State</option>
                                         <option value="Hong Kong">Hong Kong</option>
                                         <option value="Hungary">Hungary</option>
                                         <option value="Iceland">Iceland</option>
