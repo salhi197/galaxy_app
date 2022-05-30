@@ -52,16 +52,13 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 						   <a class="header-brand" href="index.html">
-							   <img src="{{asset('img/logoh.png')}}" width="140px"/>
+							   <img src="{{asset('img/logoh.png')}}" class="header-brand-img desktop-logo" width="140px"/>
 							   <img src="{{asset('img/logoh.png')}}" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
 							</a><!-- LOGO -->
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
 								<div class="">
-									<p id="date-part" class="text-white" style="padding:15px;font-size:1vh">
-
-									</p>
 								</div><!-- SEARCH -->
 								<div class="">
 									<a class="text-white active" style="padding:15px;font-size:1vh" href="#">
