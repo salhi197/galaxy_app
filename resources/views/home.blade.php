@@ -41,8 +41,7 @@
 												<div class="chart-circle-value text-center "><h6 class="mb-0">
 
 												<i class="fa fa-users" style="font-size:20px;">
-
-</i>													
+												</i>													
 
 												</h6></div>
 											</div>
@@ -151,7 +150,7 @@
 					</div>
 
 
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-xl-12 col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
@@ -162,8 +161,64 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">Analytics De Partenaire Par Region</div>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+											<div id="world-map-markers" class="worldh h-270" ></div>
+										</div>
+										<div class="col-lg-6">
+											<div class="table-responsive">
+												<table class="table border table-bordered text-nowrap border-0 mb-0">
+													<thead>
+														<tr>
+															<th>Country</th>
+															<th scope="col">Regions</th>
+															<th scope="col">Nomrbe </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><img src="{{asset('assets/images/flags/us.svg')}}" class="w-5 h-5 text-center mx-auto d-block" alt=""></td>
+															<td>USA</td>
+															<td>176</td>
+														</tr>
+														<tr>
+															<td><img src="{{asset('assets/images/flags/in.svg')}}" class="w-5 h-5 text-center mx-auto d-block" alt=""></td>
+															<td>India</td>
+															<td>012</td>
+														</tr>
+														<tr>
+															<td><img src="{{asset('assets/images/flags/ru.svg')}}" class="w-5 h-5 text-center mx-auto d-block" alt=""></td>
+															<td>Russia</td>
+															<td>056</td>
+														</tr>
+														<tr>
+															<td><img src="{{asset('assets/images/flags/ca.svg')}}" class="w-5 h-5 text-center mx-auto d-block" alt=""></td>
+															<td>Canada</td>
+															<td>102</td>
+														</tr>
+														<tr>
+															<td><img src="{{asset('assets/images/flags/ge.svg')}}" class="w-5 h-5 text-center mx-auto d-block border p-0" alt=""></td>
+															<td>Germany</td>
+															<td>089</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
 
 @endsection
@@ -171,12 +226,21 @@
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/leaflet.css')}}"  />
 <script src="{{asset('js/leaflet.js')}}"></script>
-<style>
-#map { height: 480px; }	
-</style>
+<style>#map { height: 480px; }	</style>
+<link href="../../assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+
 @endsection
 
 @section('scripts')
+	<script src="{{asset('assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+	<script src="{{asset('assets/plugins/jvectormap/gdp-data.js')}}"></script>
+	<script src="{{asset('assets/plugins/jvectormap/jquery-jvectormap-us-aea-en.js')}}"></script>
+	<script src="{{asset('assets/plugins/jvectormap/jquery-jvectormap-uk-mill-en.js')}}"></script>
+	<script src="{{asset('assets/plugins/jvectormap/jquery-jvectormap-au-mill.js')}}"></script>
+	<script src="{{asset('assets/plugins/jvectormap/jquery-jvectormap-ca-lcc.js')}}"></script>
+	<script src="{{asset('assets/js/jvectormap.js')}}"></script>
+
 <script>
 $('#duree ,#montant').on('change',function(){
 

@@ -142,7 +142,7 @@
 							<div class="user-info">
 								<h2>{{Auth::user()->name ?? ''}}</h2>
 								@auth
-								<img src="{{asset('flags/1x1/'.Auth::user()->pays.'.svg')}}" height="10px"/>
+								<img src="{{asset('assets/images/flags/'.Auth::user()->pays.'.svg')}}" class="w-5 h-5 text-center mx-auto d-block"/>
 								@endif
 								<!-- <span>{{Auth::user()->telephone ?? 'Investor'}}<span> -->
 							</div>
