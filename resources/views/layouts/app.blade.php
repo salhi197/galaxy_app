@@ -59,12 +59,12 @@
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
 								<div class="">
-									<p id="date-part" class="text-white" style="padding:15px;font-size:2vh">
+									<p id="date-part" class="text-white" style="padding:15px;font-size:1vh">
 
 									</p>
 								</div><!-- SEARCH -->
 								<div class="">
-									<a class="text-white active" style="padding:15px;font-size:2vh" href="#">
+									<a class="text-white active" style="padding:15px;font-size:1vh" href="#">
 										{{Auth::user()->solde ?? ''}} $
 									</a>
 								</div><!-- SEARCH -->
