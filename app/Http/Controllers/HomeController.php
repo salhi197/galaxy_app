@@ -36,10 +36,12 @@ class HomeController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $users = DB::select("select pays, count(*) from users u where refered_user=$user_id group by pays");
-        // dd($users[0]);
-       
-        return view('home');
+        $user = User::find($user_id);
+        $solde = $user->solde;
+        $usersSumSolde =User::where('refered_user',Auth::user()->id)->get()->sum('solde');
+        $soldeTotal = $solde+$usersSumSolde;
+        $users = DB::select("select pays, count(*) from users u where refered_user=$user_id group by pays");       
+        return view('home',compact('soldeTotal'));
     }
 
     public function forgetPassword()

@@ -27,13 +27,12 @@
                                     
 								</div>
 								<div class="table-responsive">
-									<table class="table card-table table-vcenter ">
+									<!-- <table class="table card-table table-vcenter ">
 										<thead >
 											<tr>
 												<th>ID</th>
-												<th>Récepteur</th>
+												<th class="text-center">Récepteur</th>
 												<th>Montant</th>
-												<!-- <th>Méthode</th> -->
 												<th>Crée le </th>
 												@auth('admin')
 												<th>Action</th>
@@ -45,29 +44,16 @@
                                             @foreach($operations as $operation)
 											<tr>
 												<td>{{$operation->id}}</td>
-												<td>
+												<td class="text-center">
 													<a href="{{route('user.detail',['user'=>$operation->user()['id']])}}">
-														{{$operation->receiver()['name']}}
+													{{$operation->receiver()['name']}}
+													{{$operation->receiver()['nom']}}
+													<br>
+													{{$operation->receiver()['email']}}
+													
 													</a>
 												</td>
                                                 <td>{{$operation->montant}}</td>
-                                                <!-- <td>{{$operation->methode}}</td> -->
-												<!-- @if($operation->etat == 1)
-                                                <td>
-													Confirmé
-												</td>
-												@endif
-												@if($operation->etat == -1)
-                                                <td >
-													Annulé
-												</td>
-												@endif
-												
-												@if($operation->etat == 0)
-                                                <td >
-													Non Confirmé (en attente)
-												</td>
-												@endif -->
                                                 <td>{{$operation->created_at}}</td>
 												@auth('admin')
                                                             <td >
@@ -95,7 +81,7 @@
 											</tr>                                            
                                             @endforeach
 										</tbody>
-									</table>
+									</table> -->
 								</div>
 								<!-- table-responsive -->
 							</div>

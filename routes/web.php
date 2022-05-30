@@ -108,6 +108,8 @@ Route::group(['prefix' => 'operation', 'as' => 'operation'], function () {
     Route::get('/transfert', ['as' => '.transferer.index', 'uses' => 'OperationController@indexTransfert']);
     Route::get('/transferer',['as'=>'.transferer.show', 'uses' => 'OperationController@transfererShow']);
     Route::post('/transferer',['as'=>'.transferer.action', 'uses' => 'OperationController@transfererAction']);
+    Route::get('/transfert/confirmer/{operation}',['as'=>'.confirmer', 'uses' => 'OperationController@transfererConfirmer']);
+    Route::post('/transfert/confirmer/{operation}',['as'=>'.transferer.confirmer.action', 'uses' => 'OperationController@transfererConfirmerAction']);
 
 
 });

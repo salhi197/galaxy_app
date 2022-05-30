@@ -61,8 +61,8 @@
 													<i class="fa fa-tasks" style="font-size:20px;"></i>													
 												</h6></div>
 											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">0</h2>
-											<p class="mb-3 text-muted"> For Last month</p>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">{{$soldeTotal*100/10000}}%</h2>
+											<p class="mb-3 text-muted"> Il Vous reste : {{10000-$soldeTotal}}$</p>
 										</div>
 									</div>
 									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
@@ -144,9 +144,13 @@
 									<h3 class="card-title">Lien De Réference</h3>
 								</div>
 								<div class="card-body">
-									<a href="#">
-									https://app.mygalaxy.world/{{Auth::user()->code}}
+									<a href="#" id="mylink">
+
+									https://app.mygalaxy.world/register?code={{Auth::user()->code}}
 									</a>
+									
+									<button onclick="myFunction()" class="btn btn-primary btn-sm">Copy text</button>
+
 								</div>
 							</div>
 
@@ -289,6 +293,17 @@ $('#duree ,#montant').on('change',function(){
 	}
 		
 })
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("mylink");
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.text);
+  
+  /* Alert the copied text */
+  toastr.success('Lien Copié')
+}
+
 </script>
 <script>
 	var map = L.map('map', {

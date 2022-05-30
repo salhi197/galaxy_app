@@ -18,11 +18,16 @@
 								<div class="card-header">
 									<h3 class="card-title">Basic Table</h3>
 								</div>
+								<div class="card-body">
 								<div class="table-responsive">
-									<table class="table card-table table-vcenter text-nowrap">
+							    	<table id="datable-1" class="table card-table table-striped table-bordered text-nowrap w-100">
 										<thead >
 											<tr>
 												<th>ID</th>
+												<th>Type Opétation</th>
+												<th>Actionnaire</th>
+												<th>Récepteur</th>
+												
 												<th>Montant</th>
 												<th>Méthode</th>
 												<th>Etat</th>
@@ -31,39 +36,51 @@
 										<tbody>
                                             <?php $__currentLoopData = $operations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $operation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<tr>
-                                                <td><?php echo e($operation->id); ?></td>
-                                                <td><?php echo e($operation->montant); ?></td>
+												<td><?php echo e($operation->id); ?></td>
+												<td>
+
+												<?php if($operation->type==-1): ?>
+													Retrait
+												<?php endif; ?>
+
+												<?php if($operation->type==1): ?>
+													Rechargement
+												<?php endif; ?>
+
+												<?php if($operation->type==2): ?>
+													Transfert
+												<?php endif; ?>
+												</td>
+                                                <td>
+													<?php echo e($operation->user()['name'] ?? ''); ?>
+
+													<?php echo e($operation->user()['nom'] ?? ''); ?>
+
+													
+												</td>
+                                                <td>
+												<?php echo e($operation->receiver()['name'] ?? ''); ?>
+
+												<?php echo e($operation->receiver()['nom'] ?? ''); ?>
+
+												</td>
+                                                <td><?php echo e($operation->montant); ?> $ </td>
                                                 <td><?php echo e($operation->methode); ?></td>
-												<?php if($operation->etat == 1): ?>
-                                                <td >Confirmé</td>
-												<?php else: ?>
-                                                <td >Non Confirmé</td>
-												<?php endif; ?>
-												<?php if(auth()->guard('admin')->check()): ?>
-                                                            <td >
-                                                                <div class="table-action">  
-                                                                        <a class="btn btn-outline btn-danger text-danger text-gradient px-3 mb-0" 
-                                                                        href="<?php echo e(route('operation.approuver',['operation'=>$operation->id])); ?>"
-                                                                        onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="far fa-trash-alt me-2"></i>
-                                                                            Approuver
-                                                                        </a>
+                                                <td >
+													<?php if($operation->etat == 1): ?>
+														Confirmé
+													<?php else: ?>
+														Non Confirmé
+													<?php endif; ?>
+												</td>
 
-                                                                        <a class="btn btn-outline btn-danger text-danger text-gradient px-3 mb-0" 
-                                                                        href="<?php echo e(route('operation.annuler',['operation'=>$operation->id])); ?>"
-                                                                        onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="far fa-trash-alt me-2"></i>
-                                                                            Annuler
-                                                                        </a>
-                                                                </div>
-                                                            </td>
-
-												<?php endif; ?>
 
 											</tr>                                            
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 										</tbody>
 									</table>
+								</div>
+
 								</div>
 								<!-- table-responsive -->
 							</div>
@@ -73,4 +90,14 @@
 
 
 <?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
+<link href="<?php echo e(asset('assets/plugins/datatable/responsive.bootstrap4.min.css')); ?>" rel="stylesheet" />
+@endsecion
+<?php $__env->startSection('scripts'); ?>
+<script src="<?php echo e(asset('assets/plugins/datatable/js/jquery.dataTables.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/plugins/datatable/datatable.js')); ?>"></script>
+
+<?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

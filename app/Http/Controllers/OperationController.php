@@ -15,6 +15,8 @@ class OperationController extends Controller
     public function index()
     {
         if(Auth::guard('admin')->check()){
+            $operations = Operation::all();
+            return view('operations.index',compact('operations'));    
         }
         if(Auth::check()){
             $operations = Operation::where('user',Auth::user()->id)->get();
@@ -135,10 +137,10 @@ class OperationController extends Controller
     public function transfererAction(Request $request)
     {
         $sender_user = User::find(Auth::user()->id);
-
         if($request['identifiant'] == "telephone"){
             $received_user  = User::where("telephone",$request['email_or_telephone'])->first();
-        }elseif($request['identifiant'] == "email"){
+        }
+        if($request['identifiant'] == "email"){
             $received_user  = User::where("email",$request['email_or_telephone'])->first();
         }else{
             return redirect()->back()->with('error', 'Erreur Inconnu ');        
@@ -152,27 +154,77 @@ class OperationController extends Controller
         if($sender_user->solde<$request['montant']){
             return redirect()->back()->with('error', 'Motant Dépassé');        
         }
+        $code= mt_rand( 100000, 999999 );
+
         $operation = new Operation();
         $operation->montant =$request['montant']; 
-        // $operation->methode =$request['methode']; 
         $operation->type=2;
         $operation->etat=0;
+        $operation->code_confirmation=$code;
         $operation->user=Auth::user()->id;
         $operation->user_2=$received_user->id;//Auth::user()->id;
         $operation->save();
-        /**
-         * Incrementer le solde de user 1
-         */
-        $sender_user->solde = $sender_user->solde - $request['montant'];
+
+        // $sender_user->solde = $sender_user->solde - $request['montant'];
         $sender_user->save(); 
         /**
          * décrementer le solde de user 2
         */
-        $received_user->solde = $received_user->solde + $request['montant'];
+        // $received_user->solde = $received_user->solde + $request['montant'];
         $received_user->save(); 
+        /**
+         * SEND MAIL
+         */
+        $data = [
+            'subject' => 'Code de confirmation',
+            'email' => $sender_user->email, //à remplacer par user email
+            'content' => "",
+            'code'=>$code
+        ];
+        $logo = [
+            'path' => ''
+        ];
 
-        return redirect()->route('operation.transferer.index')->with('success', 'Inséré avec succés ');        
+        Mail::send('email', ['data' => $data, 'css' => '', 'logo' => $logo, 'unsubscribe' => ''], function ($message) use ($data) {
+            $message->to($data['email'])
+                ->subject('Nouveau Code de connexion');
+        });                
+
+        return redirect()->route('operation.confirmer',['operation'=>$operation->id])->with('success', 'Inséré avec succés ');        
     }    
+    public function transfererConfirmer($operation)
+    {
+        $operation = Operation::find($operation);
+        return view('operations.transfert_confirmer',compact('operation'));    
+
+    }
+
+    public function transfererConfirmerAction(Request $request,$operation)
+    {
+        $operation = Operation::find($operation);
+        /**
+         * check if it is not confirmed 
+        */
+        if($operation->code_confirmation!=$request['code_confirmation']){
+            return redirect()->back()->with('error', 'Code de confirmation incorrecte !');        
+        }else{
+            $sender_user = User::find(Auth::user()->id);
+
+            $operation->etat=1;
+            $operation->save();    
+            $sender_user->solde = $sender_user->solde - $request['montant'];
+            $sender_user->save(); 
+            $received_user  = User::find($operation->user_2);
+
+            /**
+             * décrementer le solde de user 2
+            */
+            $received_user->solde = $received_user->solde + $request['montant'];
+            $received_user->save(); 
+                
+        }
+
+    }
 
     /**
      * 

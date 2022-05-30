@@ -23,7 +23,6 @@
 <link href="<?php echo e(asset('assets/css/style-modes.css')); ?>" rel="stylesheet"/>
 <!-- HORIZONTAL-MENU CSS -->
 <!--C3.JS CHARTS PLUGIN -->
-<link href="<?php echo e(asset('assets/plugins/charts-c3/c3-chart.css')); ?>" rel="stylesheet"/>
 <!-- SINGLE-PAGE CSS -->
 <link href="<?php echo e(asset('assets/plugins/single-page/css/main.css')); ?>" rel="stylesheet" type="text/css">
 <!-- PERFECT SCROLL BAR CSS-->
@@ -71,7 +70,7 @@
 
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                                 <label>Nom : </label>
-                                <input id="nom"  type="text" class="form-control" value="<?php echo e(old('nom')); ?>" name="nom"  required autofocus>
+                                <input id="nom"  type="text" class="form-control" value="<?php echo e(old('nom')); ?>" name="nom"  required>
 								</div>
 
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -170,7 +169,8 @@
 								<div class="wrap-input100 validate-input">
 
                                     <label>Code de sponsor: </label>
-                                    <input id="code_sponsor" type="text" class="form-control"  name="code_sponsor">
+
+                                    <input id="code_sponsor" type="text" class="form-control" name="code_sponsor" value="<?php echo e($_GET['code'] ?? ''); ?>">
                                     <input id="refered_user" type="hidden"  class="form-control"  name="refered_user">
                                     <a href="#" id="user_name"  >
                                         
@@ -215,7 +215,6 @@
 <!-- SPARKLINE -->
 <script src="<?php echo e(asset('assets/js/vendors/jquery.sparkline.min.js')); ?>"></script>
 <!-- CHART-CIRCLE -->
-<script src="<?php echo e(asset('assets/js/vendors/circle-progress.min.js')); ?>"></script>
 <!-- RATING STAR -->
 <script src="<?php echo e(asset('assets/plugins/rating/jquery.rating-stars.js')); ?>"></script>
 <!-- SELECT2 JS -->

@@ -17,12 +17,9 @@
 <title>Galaxy App  - Connexion</title>
 <!-- DASHBOARD CSS -->
 <link href="<?php echo e(asset('assets/css/dashboard.css')); ?>" rel="stylesheet"/>
-<link href="<?php echo e(asset('assets/css/dashboard-dark.css')); ?>" rel="stylesheet"/>
-<link href="<?php echo e(asset('assets/css/style-modes.css')); ?>" rel="stylesheet"/>
 <!-- HORIZONTAL-MENU CSS -->
 <link href="<?php echo e(asset('assets/plugins/horizontal-menu/dropdown-effects/fade-down.css')); ?>" rel="stylesheet">
 <!--C3.JS CHARTS PLUGIN -->
-<link href="<?php echo e(asset('assets/plugins/charts-c3/c3-chart.css')); ?>" rel="stylesheet"/>
 <!-- SINGLE-PAGE CSS -->
 <link href="<?php echo e(asset('assets/plugins/single-page/css/main.css')); ?>" rel="stylesheet" type="text/css">
 <!-- PERFECT SCROLL BAR CSS-->
@@ -101,9 +98,7 @@
 <!-- BOOTSTRAP SCRIPTS -->
 <script src="<?php echo e(asset('assets/js/vendors/bootstrap.bundle.min.js')); ?>"></script>
 <!-- SPARKLINE -->
-<script src="<?php echo e(asset('assets/js/vendors/jquery.sparkline.min.js')); ?>"></script>
 <!-- CHART-CIRCLE -->
-<script src="<?php echo e(asset('assets/js/vendors/circle-progress.min.js')); ?>"></script>
 <!-- RATING STAR -->
 <!-- SELECT2 JS -->
 <!-- INPUT MASK PLUGIN-->

@@ -25,13 +25,12 @@
                                     
 								</div>
 								<div class="table-responsive">
-									<table class="table card-table table-vcenter ">
+									<!-- <table class="table card-table table-vcenter ">
 										<thead >
 											<tr>
 												<th>ID</th>
-												<th>Récepteur</th>
+												<th class="text-center">Récepteur</th>
 												<th>Montant</th>
-												<!-- <th>Méthode</th> -->
 												<th>Crée le </th>
 												<?php if(auth()->guard('admin')->check()): ?>
 												<th>Action</th>
@@ -43,30 +42,19 @@
                                             <?php $__currentLoopData = $operations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $operation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<tr>
 												<td><?php echo e($operation->id); ?></td>
-												<td>
+												<td class="text-center">
 													<a href="<?php echo e(route('user.detail',['user'=>$operation->user()['id']])); ?>">
-														<?php echo e($operation->receiver()['name']); ?>
+													<?php echo e($operation->receiver()['name']); ?>
 
+													<?php echo e($operation->receiver()['nom']); ?>
+
+													<br>
+													<?php echo e($operation->receiver()['email']); ?>
+
+													
 													</a>
 												</td>
                                                 <td><?php echo e($operation->montant); ?></td>
-                                                <!-- <td><?php echo e($operation->methode); ?></td> -->
-												<!-- <?php if($operation->etat == 1): ?>
-                                                <td>
-													Confirmé
-												</td>
-												<?php endif; ?>
-												<?php if($operation->etat == -1): ?>
-                                                <td >
-													Annulé
-												</td>
-												<?php endif; ?>
-												
-												<?php if($operation->etat == 0): ?>
-                                                <td >
-													Non Confirmé (en attente)
-												</td>
-												<?php endif; ?> -->
                                                 <td><?php echo e($operation->created_at); ?></td>
 												<?php if(auth()->guard('admin')->check()): ?>
                                                             <td >
@@ -94,7 +82,7 @@
 											</tr>                                            
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 										</tbody>
-									</table>
+									</table> -->
 								</div>
 								<!-- table-responsive -->
 							</div>

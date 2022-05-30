@@ -28,7 +28,6 @@
                                                 <div class="form-group overflow-hidden">
                                                     <label>Entrez le montant de la recharge, €:</label>
                                                     <input  required name="montant" class="form-control" min="500" id="montant" min="0"/>
-                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

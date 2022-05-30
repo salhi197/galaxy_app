@@ -21,6 +21,8 @@ class User extends Authenticatable
         'pays',
         'solde',
         'refered_user',
+        'nom',
+        'code',
         'password',
     ];
 

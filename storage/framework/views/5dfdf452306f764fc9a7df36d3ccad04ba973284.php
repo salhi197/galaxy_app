@@ -160,6 +160,7 @@
 							</div>
 							<br>
 							<div class="sidebar-navs text-center">
+								<?php if(auth()->guard()->check()): ?>
 								<ul class="nav nav-pills nav-pills-circle text-center" id="tabs_3" role="tablist">
 									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
 										<a class="nav-link border text-center m-2">
@@ -182,6 +183,7 @@
 										</a>
 									</li>
 								</ul>
+								<?php endif; ?>
 							</div>
 
 						</div>
@@ -203,6 +205,9 @@
 								</li>
 								<li>
 									<a href="<?php echo e(route('operation.retrait.index')); ?>" class="slide-item"><?php echo e(trans('Retrait')); ?> </a>
+								</li>
+								<li>
+									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('Operations')); ?> </a>
 								</li>
 
 
@@ -241,7 +246,7 @@
 								</li>
 
 								<li>
-									<a href="<?php echo e(route('operation.transferer.index')); ?>" class="slide-item"><?php echo e(trans('Transfert')); ?> </a>
+									<a href="<?php echo e(route('operation.transferer.index')); ?>" class="slide-item"><?php echo e(trans('Transférer')); ?> </a>
 								</li>
 								<li>
 									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('Opérations')); ?> </a>
