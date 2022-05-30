@@ -52,22 +52,23 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 						   <a class="header-brand" href="index.html">
-							   <img src="<?php echo e(asset('img/logoh.png')); ?>" width="140px"/>
+							   <img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img desktop-logo" width="140px"/>
 							   <img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
 							</a><!-- LOGO -->
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
-								<div class="">
-									<p id="date-part" class="text-white" style="padding:15px;font-size:2vh">
+								<div class="desktop-logo">
+									<!-- <p id="date-part" class="desktop-logo" style="padding:15px;font-size:1vh">
 
-									</p>
+									</p> -->
 								</div><!-- SEARCH -->
-								<div class="">
-									<a class="text-white active" style="padding:15px;font-size:2vh" href="#">
-										<?php echo e(Auth::user()->solde ?? ''); ?> $
+								<div class="desktop-logo">
+									<a class="" style="padding:12px" href="#">
+										<?php echo e(Auth::user()->solde ?? ''); ?>$
 									</a>
-								</div><!-- SEARCH -->
+								</div>
+								<!-- SEARCH -->
 
 								<div class="dropdown d-md-flex">
 								</div><!-- FULL-SCREEN -->

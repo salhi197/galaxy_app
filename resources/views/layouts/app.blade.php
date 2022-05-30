@@ -63,11 +63,11 @@
 
 									</p> -->
 								</div><!-- SEARCH -->
-								<!-- <div class="">
-									<a class="text-white active" style="padding:15px;font-size:5%" href="#">
-										{{Auth::user()->solde ?? ''}} $
+								<div class="desktop-logo">
+									<a class="" style="padding:12px" href="#">
+										{{Auth::user()->solde ?? ''}}$
 									</a>
-								</div> -->
+								</div>
 								<!-- SEARCH -->
 
 								<div class="dropdown d-md-flex">
