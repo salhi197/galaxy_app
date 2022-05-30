@@ -82,6 +82,11 @@
 									<a href="<?php echo e(route('register')); ?>"> S'enregistrer .</a>
 
 								</p>
+								<br>
+								<a href="<?php echo e(route('forget.password')); ?>">
+									Mot de passe Oublié ?
+								</a>
+
 							</form>
 						</div>
 					</div>
@@ -96,13 +101,6 @@
 <!-- BOOTSTRAP SCRIPTS -->
 <script src="<?php echo e(asset('assets/js/vendors/bootstrap.bundle.min.js')); ?>"></script>
 <!-- SPARKLINE -->
-<script src="<?php echo e(asset('assets/js/vendors/jquery.sparkline.min.js')); ?>"></script>
-<!-- CHART-CIRCLE -->
-<script src="<?php echo e(asset('assets/js/vendors/circle-progress.min.js')); ?>"></script>
-<!-- RATING STAR -->
-<!-- SELECT2 JS -->
-<!-- INPUT MASK PLUGIN-->
-<!-- CUSTOM SCROLL BAR JS-->
 <script src="<?php echo e(asset('assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js')); ?>"></script>
 <!-- CUSTOM JS-->
 <script src="<?php echo e(asset('js/toastr.min.js')); ?>"></script>	

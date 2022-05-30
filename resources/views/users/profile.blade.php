@@ -78,6 +78,36 @@
 											</div>
 										</div>
 									</div>
+
+
+
+									<div class="row">
+										<div class="col-md-3">
+											<div class="form-group">
+												<label class="form-label">Facebook</label>
+												<input type="text" class="form-control" name="facebook"   >
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-3">
+											<div class="form-group">
+												<label class="form-label">Telegram</label>
+												<input type="text" class="form-control" name="telegram"  >
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group">
+												<label class="form-label">Linkedin</label>
+												<input type="email" class="form-control" name="linkedin" >
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-6">
+											<div class="form-group">
+												<label class="form-label">Instagram</label>
+												<input type="text" class="form-control" name="instagram" >
+											</div>
+										</div>
+									</div>
+
 								</div>
 								<div class="card-footer text-right">
 									<button type="submit" class="btn btn-primary">Update Profile</button>

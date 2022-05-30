@@ -52,7 +52,7 @@
 					<div class="container-login100">
 						<div class="wrap-login100 p-6">
 							
-                            <form class="login100-form validate-form" method="POST" action="{{route('login')}}" aria-label="Login">
+                            <form class="login100-form validate-form" method="POST" action="{{route('forget.password.action')}}" aria-label="Login">
                                 @csrf
                                 <span class="login100-form-title">
 									Connexion 
@@ -65,16 +65,9 @@
 									<span class="symbol-input100">
 									</span>
 								</div>
-								<div class="wrap-input100 validate-input" data-validate = "Password is required">
-                                <label>Mot de passe: </label>
-                                <input id="password" type="password" class="form-control" name="password" required>
-										<span class="focus-input100"></span>
-									<span class="symbol-input100">
-									</span>
-								</div>
 								<div class="container-login100-form-btn">
 									<button type="submit" href="#" class="login100-form-btn btn-primary">
-                                        <i class="fa fa-door-open"></i>Connexion
+                                        <i class="fa fa-door-open"></i>Envoyer Email
 									</button>
 								</div>
 								<p>
@@ -83,8 +76,8 @@
 
 								</p>
 								<br>
-								<a href="{{route('forget.password')}}">
-									Mot de passe Oublié ?
+								<a href="{{route('login')}}">
+                                    Se Connecter ?
 								</a>
 
 							</form>
@@ -101,6 +94,13 @@
 <!-- BOOTSTRAP SCRIPTS -->
 <script src="{{asset('assets/js/vendors/bootstrap.bundle.min.js')}}"></script>
 <!-- SPARKLINE -->
+<script src="{{asset('assets/js/vendors/jquery.sparkline.min.js')}}"></script>
+<!-- CHART-CIRCLE -->
+<script src="{{asset('assets/js/vendors/circle-progress.min.js')}}"></script>
+<!-- RATING STAR -->
+<!-- SELECT2 JS -->
+<!-- INPUT MASK PLUGIN-->
+<!-- CUSTOM SCROLL BAR JS-->
 <script src="{{asset('assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <!-- CUSTOM JS-->
 <script src="{{asset('js/toastr.min.js')}}"></script>	

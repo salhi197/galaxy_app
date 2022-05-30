@@ -46,7 +46,7 @@
 				<div class="">
 					<div class="col col-login mx-auto">
 						<div class="text-center">
-							<img src="<?php echo e(asset('log.png')); ?>" width="120px"/>
+                            <img src="<?php echo e(asset('log.png')); ?>" width="150px"/>
 						</div>
 					</div>
 					<div class="container-login100">
@@ -82,6 +82,11 @@
 									<a href="<?php echo e(route('register')); ?>"> S'enregistrer .</a>
 
 								</p>
+								<br>
+								<a href="<?php echo e(route('forget.password')); ?>">
+									Mot de passe Oublié ?
+								</a>
+
 							</form>
 						</div>
 					</div>
@@ -103,6 +108,7 @@
 <!-- SELECT2 JS -->
 <!-- INPUT MASK PLUGIN-->
 <!-- CUSTOM SCROLL BAR JS-->
+<script src="<?php echo e(asset('assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js')); ?>"></script>
 <!-- CUSTOM JS-->
 <script src="<?php echo e(asset('js/toastr.min.js')); ?>"></script>	
 

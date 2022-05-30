@@ -135,6 +135,9 @@ Route::get('/setting', ['as' => 'setting', 'uses' => 'SettingController@index'])
 
 
 Route::get('/fichier', ['as' => 'fichier.index', 'uses' => 'HomeController@fichiers']);
+Route::get('/forget/password', ['as' => 'forget.password', 'uses' => 'HomeController@forgetPassword']);
+Route::post('/forget/password', ['as' => 'forget.password.action', 'uses' => 'HomeController@forgetPasswordAction']);
+
 Route::get('/fichier/download/{fichier}', ['as' => 'fichier.download', 'uses' => 'HomeController@downloadFile']);
 
 Route::group(['prefix' => 'methode', 'as' => 'methode'], function () {

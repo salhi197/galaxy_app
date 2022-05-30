@@ -66,9 +66,13 @@
                             <form class="login100-form validate-form" method="POST" action="{{route('register')}}" aria-label="Login">
                                 @csrf
                                 <span class="login100-form-title">
-									Galaxay App Register
+									Galaxay Invest
 								</span>
 
+								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                                <label>Nom : </label>
+                                <input id="nom"  type="text" class="form-control" value="{{old('nom')}}" name="nom"  required autofocus>
+								</div>
 
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                                 <label>Prénom : </label>

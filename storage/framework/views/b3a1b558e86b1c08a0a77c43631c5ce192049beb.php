@@ -18,6 +18,26 @@
 								<div class="row">
 									<div class="col-xl-3 col-lg-6 col-sm-6 border-right">
 										<div class="card-body text-center">
+											<h6 class="mb-3"> 
+												Votre actif
+											</h6>
+											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f5334f">
+												<div class="chart-circle-value text-center ">
+													<h6 class="mb-0">
+													<i class="fa fa-line-chart" style="font-size:20px;">
+
+													</i>													
+													</h6>
+											</div>
+											</div>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
+											<p class="mb-3 text-muted"> For Last month</p>
+										</div>
+									</div>
+
+									
+									<div class="col-xl-3 col-lg-6 col-sm-6 border-right">
+										<div class="card-body text-center">
 											<h6 class="mb-3">Bénéfice total</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#564ec1">
 												<div class="chart-circle-value text-center "><h6 class="mb-0">
@@ -27,6 +47,19 @@
 												</h6></div>
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
+											<p class="mb-3 text-muted"> For Last month</p>
+										</div>
+									</div>
+
+									<div class="col-xl-3 col-lg-6  col-sm-6">
+										<div class="card-body text-center">
+											<h6 class="mb-3">Votre rang</h6>
+											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
+												<div class="chart-circle-value text-center "><h6 class="mb-0">
+													<i class="fa fa-tasks" style="font-size:20px;"></i>													
+												</h6></div>
+											</div>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">397</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
 										</div>
 									</div>
@@ -47,36 +80,7 @@
 											<p class="mb-3 text-muted"> For Last month</p>
 										</div>
 									</div>
-									<div class="col-xl-3 col-lg-6 col-sm-6 border-right">
-										<div class="card-body text-center">
-											<h6 class="mb-3"> 
-												Votre actif
-											</h6>
-											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f5334f">
-												<div class="chart-circle-value text-center ">
-													<h6 class="mb-0">
-													<i class="fa fa-line-chart" style="font-size:20px;">
 
-													</i>													
-													</h6>
-											</div>
-											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
-											<p class="mb-3 text-muted"> For Last month</p>
-										</div>
-									</div>
-									<div class="col-xl-3 col-lg-6  col-sm-6">
-										<div class="card-body text-center">
-											<h6 class="mb-3">Votre rang</h6>
-											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">
-													<i class="fa fa-tasks" style="font-size:20px;"></i>													
-												</h6></div>
-											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">397</h2>
-											<p class="mb-3 text-muted"> For Last month</p>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>

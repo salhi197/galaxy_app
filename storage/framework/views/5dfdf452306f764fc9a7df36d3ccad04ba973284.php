@@ -92,7 +92,13 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading  text-center border-bottom pb-3">
+											<?php if(auth()->guard('admin')->check()): ?>
+											<h5 class="text-dark mb-1">Admin</h5>
+											<?php endif; ?>
+											<?php if(auth()->guard()->check()): ?>
 											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?></h5>
+											<?php endif; ?>
+
 											
 											<small class="text-muted">
 												Investor
@@ -113,7 +119,13 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading  text-center border-bottom pb-3">
-											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name); ?></h5>
+											<?php if(auth()->guard('admin')->check()): ?>
+											<h5 class="text-dark mb-1">Admin</h5>
+											<?php endif; ?>
+											<?php if(auth()->guard()->check()): ?>
+											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?></h5>
+											<?php endif; ?>
+
 											<small class="text-muted">Investor</small>
 										</div>
 										<a class="dropdown-item" href="profile.html"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
@@ -151,22 +163,22 @@
 								<ul class="nav nav-pills nav-pills-circle text-center" id="tabs_3" role="tablist">
 									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
 										<a class="nav-link border text-center m-2">
-											<i class="fe fe-facebook"></i>
+											<i class="fa fa-facebook" style="color:blue;"></i>
 										</a>
 									</li>
-									<!-- <li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
 										<a class="nav-link border  m-2">
-											<i class="fe fe-twitter"></i>
+											<i class="fa fa-telegram"></i>
 										</a>
-									</li> -->
+									</li>
 									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
-										<a class="nav-link border  m-2" >
-											<i class="fe fe-linkedin"></i>
+										<a class="nav-link border text-center m-2">
+											<i class="fa fa-linkedin" style="color:#0072b1;"></i>
 										</a>
 									</li>
 									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
-										<a class="nav-link border  m-2">
-											<i class="fe fe-instagram"></i>
+										<a class="nav-link border text-center m-2">
+											<i class="fa fa-instagram" style="color:#8a3ab9;"></i>
 										</a>
 									</li>
 								</ul>

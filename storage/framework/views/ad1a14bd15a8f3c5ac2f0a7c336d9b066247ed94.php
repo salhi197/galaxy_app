@@ -66,9 +66,13 @@
                             <form class="login100-form validate-form" method="POST" action="<?php echo e(route('register')); ?>" aria-label="Login">
                                 <?php echo csrf_field(); ?>
                                 <span class="login100-form-title">
-									Galaxay App Register
+									Galaxay Invest
 								</span>
 
+								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                                <label>Nom : </label>
+                                <input id="nom"  type="text" class="form-control" value="<?php echo e(old('nom')); ?>" name="nom"  required autofocus>
+								</div>
 
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                                 <label>Prénom : </label>

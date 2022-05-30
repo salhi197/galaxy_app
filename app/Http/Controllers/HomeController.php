@@ -41,15 +41,11 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function saisir_frais(Request $request)
-    {
-
-        DB::update("update ecoles set frais = '$request->frais' ");
-
-        return back();
-
-        // code...
+    public function forgetPassword()
+    {       
+        return view('auth.forget-password');
     }
+
 
     //
 }
