@@ -58,7 +58,7 @@
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
-								<div class="desktop-logo">
+								<div class="header-brand-img desktop-logo">
 									<p id="date-part" class="text-white desktop-logo" style="padding:15px;font-size:100%">
 
 									</p>
