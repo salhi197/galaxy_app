@@ -59,9 +59,9 @@
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
 								<div class="desktop-logo">
-									<!-- <p id="date-part" class="desktop-logo" style="padding:15px;font-size:1vh">
+									<p id="date-part" class="text-white desktop-logo" style="padding:15px;font-size:100%">
 
-									</p> -->
+									</p>
 								</div><!-- SEARCH -->
 								<div class="desktop-logo">
 									<a class="" style="padding:12px" href="#">
