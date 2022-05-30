@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -48,7 +49,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        dd($data['telephone']);
 
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
@@ -68,7 +68,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd($data['telephone']);
         do {
             $code= mt_rand( 100000, 999999 );
         } while ( DB::table( 'users' )->where( 'code', $code )->exists() );

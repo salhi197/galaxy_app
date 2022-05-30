@@ -86,7 +86,7 @@
                         <div class="col-lg-4">
 							<form class="card" method="post" action="<?php echo e(route('user.password')); ?>">
 								<div class="card-header">
-									<div class="card-title">Login to your account</div>
+									<div class="card-title">Changer le mot de passe</div>
 								</div>
 								<div class="card-body">
 									<div class="form-group">
@@ -111,29 +111,6 @@
 									</div>
 								</div>
 							</form>
-							<div class="card">
-								<div class="card-body">
-									<div class="text-center text-muted">
-										Don't have account yet? <a href="register.html">Sign up</a>
-									</div>
-									<form class="" method="post">
-										<div class="mt-4">
-											<div class="card-title">Forgot password</div>
-											<p class="text-muted">Enter your email address and your password will be reset and emailed to you.</p>
-											<div class="form-group">
-												<label class="form-label" for="exampleInputEmail1">Email address</label>
-												<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-											</div>
-											<div class="form-footer">
-												<button type="submit" class="btn btn-primary btn-block">Send me new password</button>
-											</div>
-										</div>
-									</form>
-									<div class="text-center text-muted mt-3 ">
-										Forget it, <a href="login.html">send me back</a> to the sign in screen.
-									</div>
-								</div>
-							</div>
 						</div><!-- COL END -->
 
                     </div>

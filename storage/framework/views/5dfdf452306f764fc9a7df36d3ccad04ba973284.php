@@ -110,8 +110,8 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading  text-center border-bottom pb-3">
-											<h5 class="text-dark mb-1">Jonathan	Mills</h5>
-											<small class="text-muted">App Developer</small>
+											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name); ?></h5>
+											<small class="text-muted">Investor</small>
 										</div>
 										<a class="dropdown-item" href="profile.html"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
 										<a class="dropdown-item" href="#"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
