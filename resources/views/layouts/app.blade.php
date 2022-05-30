@@ -63,11 +63,12 @@
 
 									</p> -->
 								</div><!-- SEARCH -->
-								<div class="">
+								<!-- <div class="">
 									<a class="text-white active" style="padding:15px;font-size:5%" href="#">
 										{{Auth::user()->solde ?? ''}} $
 									</a>
-								</div><!-- SEARCH -->
+								</div> -->
+								<!-- SEARCH -->
 
 								<div class="dropdown d-md-flex">
 								</div><!-- FULL-SCREEN -->
