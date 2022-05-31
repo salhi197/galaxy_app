@@ -20,6 +20,7 @@ class UserController extends Controller
         if(is_null($user)){
             return redirect()->route('home')->with('success', 'Success ');        
         }else{
+            dd('saz');
             Auth::logout();
             $user->email_verified = 1;
             $user->save();
