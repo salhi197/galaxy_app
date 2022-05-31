@@ -178,7 +178,7 @@ class OperationController extends Controller
             'code'=>$code
         ];
 
-        Mail::send('email', ['data' => $data], function ($message) use ($data) {
+        Mail::send('confirmation_transfert', ['data' => $data], function ($message) use ($data) {
             $message->to($data['email'])
                 ->subject('Confirmation de Transfert');
         });                

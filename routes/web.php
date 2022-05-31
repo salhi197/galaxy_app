@@ -81,7 +81,7 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
     Route::post('/methode/update/{methode_user}', ['as' => '.methode.update', 'uses' => 'UserController@updateUserMethode']);
     Route::get('/methode/destroy/{methode_user}', ['as' => '.methode.destroy', 'uses' => 'UserController@destroyUserMethode']);
     Route::get('/demande/{user}', ['as' => '.demande', 'uses' => 'UserController@demande']);
-    Route::get('/user/email/{code_email}', ['as' => '.user.code.email', 'uses' => 'UserController@verifyEmail']);
+    Route::get('/email/{code_email}', ['as' => '.user.code.email', 'uses' => 'UserController@verifyEmail']);
 
     
     

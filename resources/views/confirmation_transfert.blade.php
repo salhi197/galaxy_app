@@ -1,0 +1,1 @@
+Code De Confirmation de transfert: {{$data['code']}}
