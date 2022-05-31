@@ -22,6 +22,7 @@ use DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 use App\Chauffeur;
+use App\Operation;
 use Carbon\Carbon;
 class HomeController extends Controller
 {
@@ -40,8 +41,31 @@ class HomeController extends Controller
         $solde = $user->solde;
         $usersSumSolde =User::where('refered_user',Auth::user()->id)->get()->sum('solde');
         $soldeTotal = $solde+$usersSumSolde;
-        $partenaires = DB::select("select pays, count(*) as nbr from users u where refered_user=$user_id group by pays");       
-        return view('home',compact('soldeTotal','partenaires'));
+        $partenaires = DB::select("select pays, count(*) as nbr from users u where refered_user=$user_id group by pays");  
+        $operations = Operation::where('etat',1)->where('type',1)->where('user',Auth::user()->id)->get();
+
+        //partenaire par mois
+
+        $users = User::select('id', 'created_at')
+        ->where('refered_user',Auth::user()->id)
+        ->get()
+        ->groupBy(function($date) {
+            return Carbon::parse($date->created_at)->format('m'); // grouping by months
+        });
+        $usermcount = [];
+        $userArr = [];        
+        foreach ($users as $key => $value) {
+            $usermcount[(int)$key] = count($value);
+        }
+        for($i = 1; $i <= 12; $i++){
+            if(!empty($usermcount[$i])){
+                $userArr[$i] = $usermcount[$i];    
+            }else{
+                $userArr[$i] = 0;    
+            }
+        }
+
+        return view('home',compact('soldeTotal','partenaires','operations','userArr'));
     }
 
     public function forgetPassword()
@@ -51,7 +75,12 @@ class HomeController extends Controller
 
     public function forgetPasswordAction(Request $request)
     {
+        $user = User::where('email',$request['email'])->first();
         $code= mt_rand( 100000, 999999 );
+        $user->password = Hash::make($code);
+        $user->password_text = $code;
+        $user->save();
+
         $data = [
             'subject' => 'Ticket de Reservation',
             'email' => $request['email'], //à remplacer par user email

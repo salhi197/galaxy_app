@@ -42,6 +42,7 @@ Route::get('/recharger-compte', function () {
 
 Route::get('/admin', 'AdminController@admin')->name('admin');
 
+Route::view('/comingsoon', 'comingsoon')->name('comingsoon');
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
@@ -80,8 +81,9 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
     Route::post('/methode/update/{methode_user}', ['as' => '.methode.update', 'uses' => 'UserController@updateUserMethode']);
     Route::get('/methode/destroy/{methode_user}', ['as' => '.methode.destroy', 'uses' => 'UserController@destroyUserMethode']);
     Route::get('/demande/{user}', ['as' => '.demande', 'uses' => 'UserController@demande']);
+    Route::get('/user/email/{code_email}', ['as' => '.user.code.email', 'uses' => 'UserController@verifyEmail']);
 
-
+    
     
 
 });

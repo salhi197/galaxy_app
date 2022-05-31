@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function verifyEmail($code_email)
+    {
+        $user = User::where('code_email',$code_email)->first();
+        if(is_null($user)){
+            return redirect()->route('home')->with('success', 'Success ');        
+        }else{
+            $user->email_verified = 1;
+            $user->save();
+            return redirect()->route('login')->with('success', 'Success ');        
+        }
+    }
+
     public function demande($user_id)
     {
         $user = User::find($user_id);

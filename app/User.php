@@ -19,6 +19,7 @@ class User extends Authenticatable
         'email',
         'telephone',
         'pays',
+        'code_email',
         'solde',
         'refered_user',
         'nom',

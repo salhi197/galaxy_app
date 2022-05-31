@@ -34,12 +34,13 @@
 
 		<!-- Skin css-->
 		<link href="<?php echo e(asset('assets/skins/skins-modes/color22.css')); ?>"  id="theme" rel="stylesheet" type="text/css" media="all" />
+		<link href="<?php echo e(asset('assets/skins/skins-modes/color19.css')); ?>"  id="theme" rel="stylesheet" type="text/css" media="all" />
         <link href="<?php echo e(asset('css/toastr.css')); ?>" rel="stylesheet"/>
 		<link href="<?php echo e(asset('assets/plugins/sweet-alert/sweetalert.css')); ?>" rel="stylesheet" />
 		<?php echo $__env->yieldContent('styles'); ?>
 	</head>
 
-	<body class="app sidebar-mini default-header">
+	<body class="app sidebar-mini dark-mode default-header">
 
 	    <!-- GLOBAL-LOADER -->
 		<div id="global-loader">
@@ -52,7 +53,7 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 						   <a class="header-brand" href="index.html">
-							   <img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img desktop-logo" width="140px"/>
+								<img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img desktop-logo" width="200px"/>
 							   <img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
 							</a><!-- LOGO -->
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
@@ -64,8 +65,9 @@
 									</p>
 								</div><!-- SEARCH -->
 								<div class="desktop-logo">
-									<a class="" style="padding:12px" href="#">
-										<?php echo e(Auth::user()->solde ?? ''); ?>$
+									<a class="text-white" style="padding:12px" href="#">
+									<h4 class="alert alert-primary" role="alert"><?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
+										
 									</a>
 								</div>
 								<!-- SEARCH -->
@@ -96,7 +98,7 @@
 											<h5 class="text-dark mb-1">Admin</h5>
 											<?php endif; ?>
 											<?php if(auth()->guard()->check()): ?>
-											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?></h5>
+											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?>   </h5>
 											<?php endif; ?>
 
 											
@@ -123,7 +125,7 @@
 											<h5 class="text-dark mb-1">Admin</h5>
 											<?php endif; ?>
 											<?php if(auth()->guard()->check()): ?>
-											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?></h5>
+											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?>   </h5>
 											<?php endif; ?>
 
 											<small class="text-muted">Investor</small>
@@ -152,9 +154,14 @@
 							
 
 							<div class="user-info">
-								<h2><?php echo e(Auth::user()->name ?? ''); ?></h2>
+								<h2><?php echo e(Auth::user()->name ?? ''); ?>    </h2>
+								<!-- <?php if(Auth::user()->email_verified ==0): ?>
+								<h4 class="alert alert-danger" role="alert">Email Non Vérifié</h4>
+								<?php endif; ?> -->
+								
+
 								<?php if(auth()->guard()->check()): ?>
-								<img src="<?php echo e(asset('assets/images/flags/'.Auth::user()->pays.'.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block"/>
+								<img src="<?php echo e(asset('assets/images/flags/'.strtolower(Auth::user()->pays).'.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block"/>
 								<?php endif; ?>
 								<!-- <span><?php echo e(Auth::user()->telephone ?? 'Investor'); ?><span> -->
 							</div>
@@ -261,7 +268,7 @@
 								</li>
 
 								<li>
-									<a href="<?php echo e(route('operation.transferer.index')); ?>" class="slide-item"><?php echo e(trans('Transférer')); ?> </a>
+									<a href="<?php echo e(route('operation.transferer.show')); ?>" class="slide-item"><?php echo e(trans('Transférer')); ?> </a>
 								</li>
 								<li>
 									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('Opérations')); ?> </a>
@@ -269,6 +276,11 @@
 								<li>
 									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('Rechargements')); ?> </a>
 								</li>
+								<li>
+									<a href="<?php echo e(route('user.methodes')); ?>" class="slide-item"><?php echo e(trans('Méthode de Paiment')); ?> </a>
+								</li>
+
+								
 
 																
 							</ul>
@@ -292,10 +304,16 @@
 							<a class="side-menu__item" href="<?php echo e(route('user.profile')); ?>"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label"><?php echo e(trans('Profile')); ?></span></a>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('Setting')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('Acedémie')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="<?php echo e(route('user.methodes')); ?>" class="slide-item"><?php echo e(trans('Methode de Paiment')); ?> </a>
+									<a href="<?php echo e(route('comingsoon')); ?>" class="slide-item"><?php echo e(trans('video')); ?> </a>
+								</li>	
+								<li>
+									<a href="<?php echo e(route('comingsoon')); ?>" class="slide-item"><?php echo e(trans('livre')); ?> </a>
+								</li>	
+								<li>
+									<a href="<?php echo e(route('comingsoon')); ?>" class="slide-item"><?php echo e(trans('documentation')); ?> </a>
 								</li>	
 							</ul>
 						</li>

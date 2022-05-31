@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use DB;
+use Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -72,7 +73,24 @@ class RegisterController extends Controller
         do {
             $code= mt_rand( 100000, 999999 );
         } while ( DB::table( 'users' )->where( 'code', $code )->exists() );
+
+        $random = substr(md5(mt_rand()), 0, 35);
+        // dd($random);
+        $dataEmail = [
+            'subject' => 'Ticket de Reservation',
+            'email' => $data['email'],
+            'content' => "Hi there Hhhh",
+            'code'=>$random
+        ];
+        $email_code = substr(md5(mt_rand()), 0, 7);
+
+        Mail::send('email_confirmation', ['dataEmail' => $dataEmail], function ($message) use ($dataEmail) {
+            $message->to($dataEmail['email'])
+                ->subject('Vérification Par Mail');
+        });                
+
         return User::create([
+            'code_email'=>$email_code,
             'name' => $data['name'],
             'nom' => $data['nom'],
             'email' => $data['email'],

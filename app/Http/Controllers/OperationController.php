@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Operation;
+use Mail;
 use Auth;
 use App\User;
 use Carbon\Carbon;
@@ -171,18 +172,15 @@ class OperationController extends Controller
          * SEND MAIL
          */
         $data = [
-            'subject' => 'Code de confirmation',
-            'email' => $sender_user->email, //à remplacer par user email
+            'subject' => 'Code de confirmation de transfert',
+            'email' => $sender_user->email,
             'content' => "",
             'code'=>$code
         ];
-        $logo = [
-            'path' => ''
-        ];
 
-        Mail::send('email', ['data' => $data, 'css' => '', 'logo' => $logo, 'unsubscribe' => ''], function ($message) use ($data) {
+        Mail::send('email', ['data' => $data], function ($message) use ($data) {
             $message->to($data['email'])
-                ->subject('Nouveau Code de connexion');
+                ->subject('Confirmation de Transfert');
         });                
 
         return redirect()->route('operation.confirmer',['operation'=>$operation->id])->with('success', 'Inséré avec succés ');        
@@ -190,6 +188,7 @@ class OperationController extends Controller
     public function transfererConfirmer($operation)
     {
         $operation = Operation::find($operation);
+
         return view('operations.transfert_confirmer',compact('operation'));    
 
     }
@@ -210,12 +209,12 @@ class OperationController extends Controller
             $sender_user->solde = $sender_user->solde - $request['montant'];
             $sender_user->save(); 
             $received_user  = User::find($operation->user_2);
-
             /**
              * décrementer le solde de user 2
             */
             $received_user->solde = $received_user->solde + $request['montant'];
             $received_user->save(); 
+            return redirect()->route("home")->with('success', 'Transfert Confirmé  !');        
                 
         }
 

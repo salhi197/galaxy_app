@@ -210,6 +210,116 @@
 						</div>
 					</div>
 
+					<div class="row">
+						<div class="col-md-12 col-lg-12">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Liste Rechargements : </h3>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="datable-1" class="table  card-table table-striped table-bordered text-nowrap w-100">
+											<thead >
+												<tr>
+													<th>ID</th>
+													<th>User</th>
+													<th>Montant</th>
+													<th>Payé</th>
+													<th>Etat</th>
+													<th>Crée le </th>
+													<th>Certificat</th>
+													<?php if(auth()->guard('admin')->check()): ?>
+													<th>Action</th>
+													<?php endif; ?>
+
+												</tr>
+											</thead>
+											<tbody>
+												<?php $__currentLoopData = $operations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $operation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+												<tr>
+													<td><?php echo e($operation->id); ?></td>
+													<td>
+														<a href="<?php echo e(route('user.detail',['user'=>$operation->user()['id']])); ?>">
+															<?php echo e($operation->user()['name']); ?>
+
+														</a>
+													</td>
+													<td class="text-center"><?php echo e($operation->montant); ?> $ </td>
+													<td>
+														<?php echo e($operation->created_at->format('m')-date('m')); ?>/12 <br>	
+														Prochain Payment : <?php echo e($operation->next_payment_date); ?>
+
+													</td>
+													<?php if($operation->etat == 1): ?>
+													<td>
+														Confirmé
+													</td>
+													<?php endif; ?>
+													<?php if($operation->etat == -1): ?>
+													<td >
+														Annulé
+													</td>
+													<?php endif; ?>
+													
+													<?php if($operation->etat == 0): ?>
+													<td >
+														Non Confirmé (en attente)
+													</td>
+													<?php endif; ?>
+													<td><?php echo e($operation->created_at); ?></td>
+													<td>
+														<button class="btn btn-primary">
+															Télécharger
+														</button>
+													</td>
+													<?php if(auth()->guard('admin')->check()): ?>
+																<td >
+																	<div class="table-action">  
+																			<a class="btn btn-outline btn-danger px-3 mb-0" 
+																			href="<?php echo e(route('operation.recharger.valider',['operation'=>$operation->id])); ?>"
+																			onclick="return confirm('etes vous sure  ?')" >
+																				<i class="fe fe-check"></i>
+																				
+																			</a>
+
+																			<a class="btn btn-outline btn-danger px-3 mb-0" 
+																			href="<?php echo e(route('operation.recharger.annuler',['operation'=>$operation->id])); ?>"
+																			onclick="return confirm('etes vous sure  ?')" >
+																				<i class="fe fe-trash"></i>
+																				
+																			</a>
+
+																	</div>
+																</td>
+
+													<?php endif; ?>
+
+
+												</tr>                                            
+												<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+								<!-- table-responsive -->
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-6 col-md-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Graphe des Inscriptions</h3>
+								</div>
+								<div class="card-body">
+									<canvas id="myChart" width="600" height="250"  ></canvas>	
+								</div>
+							</div>
+						</div>
+					</div>
+
 
 <?php $__env->stopSection(); ?>
 
@@ -232,6 +342,40 @@
 	<script src="<?php echo e(asset('assets/js/jvectormap.js')); ?>"></script>
 
 <script>
+
+
+
+var options = {
+  type: 'line',
+  data: {
+	labels: ["Jan", "Fev", "Mars", "Avril", "Mail", "Juin","Juillet","Aout","Septembre","Octobre","Nov","Dec"],
+	datasets: [
+			{
+				label: 'Nombre Des Inscrits Par Mois',
+				data: [
+					<?php $__currentLoopData = $userArr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+						<?php echo e($u); ?>,
+					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>			  
+				],
+				borderColor: 'rgb(75, 192, 192)',		
+				borderWidth: 1
+			}
+		]
+  },
+  options: {
+  	scales: {
+    	yAxes: [{
+        ticks: {
+					reverse: false
+        }
+      }]
+    }
+  }
+}
+
+var ctx = document.getElementById('myChart').getContext('2d');
+new Chart(ctx, options);
+
 $('#duree ,#montant').on('change',function(){
 
 	var selectedValue = $("#duree").val();
