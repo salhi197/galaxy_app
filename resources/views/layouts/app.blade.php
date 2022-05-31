@@ -225,6 +225,11 @@
 						</li>
 
 						<li>
+							<a class="side-menu__item" href="{{route('operation.index')}}"><i class="side-menu__icon fe fe-cash"></i><span class="side-menu__label">{{trans('payment')}}</span></a>
+						</li>
+
+
+						<li>
 							<a class="side-menu__item" href="{{route('operation.index')}}"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label">{{trans('Transactions')}}</span></a>
 						</li>
 
@@ -261,7 +266,11 @@
 								<li>
 									<a href="{{route('operation.index')}}" class="slide-item">{{trans('Opérations')}} </a>
 								</li>
+								<li>
+									<a href="{{route('operation.recharger.index')}}" class="slide-item">{{trans('Rechargements')}} </a>
+								</li>
 
+																
 							</ul>
 						</li>
 
@@ -272,7 +281,6 @@
 								<li>
 									<a href="{{route('user.partenaire')}}" class="slide-item">{{trans('Partenaires')}} </a>
 								</li>	
-
 							</ul>
 						</li>
 
@@ -283,22 +291,17 @@
 						<li>
 							<a class="side-menu__item" href="{{route('user.profile')}}"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label">{{trans('Profile')}}</span></a>
 						</li>
-
 						<li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label">{{trans('Setting')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="{{route('user.methodes')}}" class="slide-item">{{trans('Methode de Paiment')}} </a>
 								</li>	
-
 							</ul>
 						</li>
-
 						<li>
 							<a class="side-menu__item" href="{{route('faq')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('Faq')}}</span></a>
 						</li>
-
-
 						<li>
 							<a class="side-menu__item" href="{{route('support')}}"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label">{{trans('support')}}</span></a>
 						</li>

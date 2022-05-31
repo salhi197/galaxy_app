@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Operation;
 use Auth;
 use App\User;
-
+use Carbon\Carbon;
 use App\Remorque;
 use Illuminate\Http\Request;
 
@@ -95,6 +95,8 @@ class OperationController extends Controller
         $operation = Operation::find($operation);
         $user = User::find($operation->user);
         $montant = $user->solde+$operation->montant;
+        $operation->validated_date = Carbon::now();
+        $operation->next_payment_date = Carbon::now()->addMonths(1);
         $user->solde = $montant;
         $user->save();
 

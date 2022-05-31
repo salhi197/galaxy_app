@@ -225,6 +225,11 @@
 						</li>
 
 						<li>
+							<a class="side-menu__item" href="<?php echo e(route('operation.index')); ?>"><i class="side-menu__icon fe fe-cash"></i><span class="side-menu__label"><?php echo e(trans('payment')); ?></span></a>
+						</li>
+
+
+						<li>
 							<a class="side-menu__item" href="<?php echo e(route('operation.index')); ?>"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label"><?php echo e(trans('Transactions')); ?></span></a>
 						</li>
 
@@ -261,7 +266,11 @@
 								<li>
 									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('Opérations')); ?> </a>
 								</li>
+								<li>
+									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('Rechargements')); ?> </a>
+								</li>
 
+																
 							</ul>
 						</li>
 
@@ -272,7 +281,6 @@
 								<li>
 									<a href="<?php echo e(route('user.partenaire')); ?>" class="slide-item"><?php echo e(trans('Partenaires')); ?> </a>
 								</li>	
-
 							</ul>
 						</li>
 
@@ -283,22 +291,17 @@
 						<li>
 							<a class="side-menu__item" href="<?php echo e(route('user.profile')); ?>"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label"><?php echo e(trans('Profile')); ?></span></a>
 						</li>
-
 						<li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('Setting')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="<?php echo e(route('user.methodes')); ?>" class="slide-item"><?php echo e(trans('Methode de Paiment')); ?> </a>
 								</li>	
-
 							</ul>
 						</li>
-
 						<li>
 							<a class="side-menu__item" href="<?php echo e(route('faq')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('Faq')); ?></span></a>
 						</li>
-
-
 						<li>
 							<a class="side-menu__item" href="<?php echo e(route('support')); ?>"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label"><?php echo e(trans('support')); ?></span></a>
 						</li>
