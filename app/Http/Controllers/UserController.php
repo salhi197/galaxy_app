@@ -17,11 +17,9 @@ class UserController extends Controller
     public function verifyEmail($code_email)
     {
         $user = User::where('code_email',$code_email)->first();
-        dd($user);
         if(is_null($user)){
             return redirect()->route('home')->with('success', 'Success ');        
         }else{
-            dd('saz');  
             Auth::logout();
             $user->email_verified = 1;
             $user->save();
