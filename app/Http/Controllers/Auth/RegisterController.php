@@ -90,7 +90,7 @@ class RegisterController extends Controller
         });                
 
         return User::create([
-            'code_email'=>$email_code,
+            'code_email'=>$random,
             'name' => $data['name'],
             'nom' => $data['nom'],
             'email' => $data['email'],
