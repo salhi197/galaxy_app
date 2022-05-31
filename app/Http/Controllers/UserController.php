@@ -23,7 +23,7 @@ class UserController extends Controller
             Auth::logout();
             $user->email_verified = 1;
             $user->save();
-            return redirect()->route('login')->with('success', 'Success ');        
+            return redirect()->route('login')->with('success', 'Votre Email a été confirmé ');        
         }
     }
 
