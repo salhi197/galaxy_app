@@ -14,21 +14,36 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function demande($user_id)
+    {
+        $user = User::find($user_id);
+        $user->verified = 2;
+        $user->save();
+        return redirect()->route('user.profile')->with('success', 'Success ');        
+        
+    }
     public function profileUpdate(Request $request,$user_id)
     {
         $user =User::find($user_id);
         $user->pays = $request['pays']; 
+        $user->nom = $request['nom']; 
+        $user->name = $request['name']; 
         $user->email = $request['email']; 
-        $user->adress = $request['adress']; 
+        // $user->adress = $request['adress']; 
         $user->telephone = $request['telephone']; 
+
+        $user->facebook = $request['facebook']; 
+        $user->linkedin = $request['linkedin']; 
+        $user->telegram = $request['telegram']; 
         if($request->hasFile('identite')) {
             $path = $request->file('identite')->store('/users/identite');
-            $produit->image = $path;
+            $user->image = $path;
         }
-        if($request->hasFile('photo')) {
+        if($request->file('photo')) {
             $path = $request->file('photo')->store('/users/photo');
-            $produit->image = $path;
+            $user->image = $path;
         }
+        $user->save();
 
         return redirect()->route('user.profile')->with('success', 'Success ');        
     }
@@ -60,10 +75,13 @@ class UserController extends Controller
         $user = User::where('code',$request['code'])->first();
         $id = $user->id ?? 0;
         $name = $user->name ?? 0;
+        $nom = $user->nom ?? 0;
+        
         $response = array(
             'status' => 'success',
             'id' => $id,
-            'name'=>$name
+            'name'=>$name,
+            'nom'=>$nom
         );
         return response()->json($response); 
     }

@@ -33,7 +33,19 @@
 									</div>
 
 
-									@else
+									@endif
+									@if(Auth::user()->solde == 0)
+									<div class="row">
+										<div class="col-md-12">
+											<div class="alert alert-success" role="alert">
+												<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+												Vous ne pouvez pas effectuer cette action avec votre Solde . 
+											</div>
+											
+										</div>
+									</div>
+									@endif
+									@if(Auth::user()->solde > 0 and $countOperations==0)
 
                                     <form action="{{route('operation.retirer.action')}}" method="post">
     									<div class="row">

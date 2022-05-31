@@ -177,11 +177,11 @@
 											<i class="fa fa-linkedin" style="color:#0072b1;"></i>
 										</a>
 									</li>
-									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
+									<!-- <li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
 										<a class="nav-link border text-center m-2">
 											<i class="fa fa-instagram" style="color:#8a3ab9;"></i>
 										</a>
-									</li>
+									</li> -->
 								</ul>
 								<?php endif; ?>
 							</div>
@@ -194,9 +194,19 @@
 							<a class="side-menu__item" href="<?php echo e(route('admin')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('Admin')); ?></span></a>
 						</li>
 
-						<li>
-							<a class="side-menu__item" href="<?php echo e(route('user.index')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('liste utilisateurs')); ?></span></a>
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('Utilisateur')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo e(route('user.index')); ?>" class="slide-item"><?php echo e(trans('Tous les utilisateur')); ?> </a>
+								</li>
+								<li>
+									<a href="#" class="slide-item"><?php echo e(trans('En Attente de vérification')); ?> </a>
+								</li>
+
+							</ul>
 						</li>
+
 						<li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('Finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">

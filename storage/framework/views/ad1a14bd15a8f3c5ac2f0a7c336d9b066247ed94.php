@@ -235,6 +235,23 @@
 
 <script>
 $(document).ready(function() {
+    <?php if(isset($_GET['code'])): ?>
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url: '<?php echo e(route('user.get_id')); ?>',
+            type: 'POST',
+            data: {_token: CSRF_TOKEN, code:$("#code_sponsor").val()},
+            dataType: 'JSON',
+            success: function (data) {  
+                console.log(data)
+                $('#refered_user').val(data.id)
+                $('#user_name').html("votre Sponsor est : "+data.name+' '+data.nom)
+            },error:function(err){
+                console.log(err)
+            }
+        }); 
+
+    <?php endif; ?>
     $('#code_sponsor').on('change',function(){
         console.log('sa')
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');

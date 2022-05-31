@@ -72,7 +72,6 @@ class RegisterController extends Controller
         do {
             $code= mt_rand( 100000, 999999 );
         } while ( DB::table( 'users' )->where( 'code', $code )->exists() );
-        dd($code);
         return User::create([
             'name' => $data['name'],
             'nom' => $data['nom'],

@@ -16,7 +16,7 @@
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Liste Rechargements</h3>
+									<h3 class="card-title">Liste Rechargements : </h3>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
@@ -29,6 +29,7 @@
 													<th>Méthode</th>
 													<th>Etat</th>
 													<th>Crée le </th>
+													<th>Certificat</th>
 													<?php if(auth()->guard('admin')->check()): ?>
 													<th>Action</th>
 													<?php endif; ?>
@@ -45,7 +46,7 @@
 
 														</a>
 													</td>
-													<td><?php echo e($operation->montant); ?></td>
+													<td class="text-center"><?php echo e($operation->montant); ?> $ </td>
 													<td><?php echo e($operation->methode); ?></td>
 													<?php if($operation->etat == 1): ?>
 													<td>
@@ -64,6 +65,11 @@
 													</td>
 													<?php endif; ?>
 													<td><?php echo e($operation->created_at); ?></td>
+													<td>
+														<button class="btn btn-primary">
+															Télécharger
+														</button>
+													</td>
 													<?php if(auth()->guard('admin')->check()): ?>
 																<td >
 																	<div class="table-action">  

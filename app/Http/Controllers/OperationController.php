@@ -37,11 +37,7 @@ class OperationController extends Controller
             return view('operations.index_recharger',compact('operations'));    
         }
         if(Auth::check()){
-            $operations = Operation::where(
-                ['etat'=>1],
-                ['user'=>Auth::user()->id]
-
-            )->get();
+            $operations = Operation::where('etat',1)->where('type',1)->where('user',Auth::user()->id)->get();
             return view('operations.index_recharger',compact('operations'));    
         }
     }
@@ -53,11 +49,8 @@ class OperationController extends Controller
             return view('operations.index_recharger',compact('operations'));    
         }
         if(Auth::check()){
-            $operations = Operation::where(
-                ['type'=>1],
-                ['user'=>Auth::user()->id]
-                
-            )->get();
+            $operations = Operation::where('type',1)->where('user',Auth::user()->id)->get();
+
             return view('operations.index_recharger',compact('operations'));    
         }
     }
@@ -251,10 +244,8 @@ class OperationController extends Controller
 
     public function retirerShow()
     {
-        $operations = Operation::where(
-            ['type'=>-1],
-            ['user'=>Auth::user()->id]
-        )->get();
+        $operations = Operation::where('type',-1)->where('user',Auth::user()->id)->get();
+
         $countOperations = count($operations);
         return view('operations.retirer',compact('countOperations'));
     }    

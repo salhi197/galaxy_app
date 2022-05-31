@@ -18,7 +18,7 @@
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Liste Rechargements</h3>
+									<h3 class="card-title">Liste Rechargements : </h3>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
@@ -31,6 +31,7 @@
 													<th>Méthode</th>
 													<th>Etat</th>
 													<th>Crée le </th>
+													<th>Certificat</th>
 													@auth('admin')
 													<th>Action</th>
 													@endif
@@ -46,7 +47,7 @@
 															{{$operation->user()['name']}}
 														</a>
 													</td>
-													<td>{{$operation->montant}}</td>
+													<td class="text-center">{{$operation->montant}} $ </td>
 													<td>{{$operation->methode}}</td>
 													@if($operation->etat == 1)
 													<td>
@@ -65,6 +66,11 @@
 													</td>
 													@endif
 													<td>{{$operation->created_at}}</td>
+													<td>
+														<button class="btn btn-primary">
+															Télécharger
+														</button>
+													</td>
 													@auth('admin')
 																<td >
 																	<div class="table-action">  

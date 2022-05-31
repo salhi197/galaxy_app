@@ -18,9 +18,11 @@
                                                 <thead class=" text-primary">
                                                     <tr>
                                                         <th>ID User</th>
-                                                        <th>Nom Penom</th>
+                                                        <th>Utilisateur</th>
                                                         <th>Date Entré</th>
-                                                        <th>Solde Entrée</th>
+                                                        <th>identité</th>
+                                                        
+                                                        <th>Solde D'Entrée</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -29,14 +31,28 @@
                                                             <td><?php echo e($user->id ?? ''); ?></td>
                                                             <td>
                                                                 <a href="<?php echo e(route('user.detail',['user'=>$user['id']])); ?>">
-                                                                    <?php echo e($user['name']); ?>
+                                                                    <?php echo e($user['name']); ?> <?php echo e($user['nom']); ?>
+
+                                                                    
+                                                                </a>
+                                                                <br>
+                                                                <a href="#">                                                                                                                                        <br>
+                                                                    <?php echo e($user['email']); ?>
 
                                                                 </a>
+
                                                             </td>
 
                                                             <td>
                                                                 <?php echo e($user->created_at ?? ''); ?>
 
+                                                            </td>
+                                                            <td class="">
+                                                                <?php if($user->verified == 1): ?>
+                                                                    <i class="fa fa-check"></i>
+                                                                <?php else: ?>
+                                                                    <i class="fa fa-close"> </i>
+                                                                <?php endif; ?>
                                                             </td>
                                                             <td>
                                                             NON SPECIFIE

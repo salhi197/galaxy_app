@@ -177,11 +177,11 @@
 											<i class="fa fa-linkedin" style="color:#0072b1;"></i>
 										</a>
 									</li>
-									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
+									<!-- <li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
 										<a class="nav-link border text-center m-2">
 											<i class="fa fa-instagram" style="color:#8a3ab9;"></i>
 										</a>
-									</li>
+									</li> -->
 								</ul>
 								@endif
 							</div>
@@ -194,9 +194,19 @@
 							<a class="side-menu__item" href="{{route('admin')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('Admin')}}</span></a>
 						</li>
 
-						<li>
-							<a class="side-menu__item" href="{{route('user.index')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('liste utilisateurs')}}</span></a>
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('Utilisateur')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="{{route('user.index')}}" class="slide-item">{{trans('Tous les utilisateur')}} </a>
+								</li>
+								<li>
+									<a href="#" class="slide-item">{{trans('En Attente de vérification')}} </a>
+								</li>
+
+							</ul>
 						</li>
+
 						<li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('Finance')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">

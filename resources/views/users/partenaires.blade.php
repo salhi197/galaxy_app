@@ -22,9 +22,11 @@
                                                 <thead class=" text-primary">
                                                     <tr>
                                                         <th>ID User</th>
-                                                        <th>Nom Penom</th>
+                                                        <th>Utilisateur</th>
                                                         <th>Date Entré</th>
-                                                        <th>Solde Entrée</th>
+                                                        <th>identité</th>
+                                                        
+                                                        <th>Solde D'Entrée</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -33,12 +35,25 @@
                                                             <td>{{$user->id ?? ''}}</td>
                                                             <td>
                                                                 <a href="{{route('user.detail',['user'=>$user['id']])}}">
-                                                                    {{$user['name']}}
+                                                                    {{$user['name']}} {{$user['nom']}}
+                                                                    
                                                                 </a>
+                                                                <br>
+                                                                <a href="#">                                                                                                                                        <br>
+                                                                    {{$user['email']}}
+                                                                </a>
+
                                                             </td>
 
                                                             <td>
                                                                 {{$user->created_at ?? ''}}
+                                                            </td>
+                                                            <td class="">
+                                                                @if($user->verified == 1)
+                                                                    <i class="fa fa-check"></i>
+                                                                @else
+                                                                    <i class="fa fa-close"> </i>
+                                                                @endif
                                                             </td>
                                                             <td>
                                                             NON SPECIFIE
