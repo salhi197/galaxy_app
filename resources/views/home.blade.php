@@ -211,11 +211,26 @@
 						</div>
 					</div>
 
+
+					<div class="row">
+						<div class="col-xl-6 col-md-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Graphe des Inscriptions</h3>
+								</div>
+								<div class="card-body">
+									<canvas id="myChart" width="600" height="250"  ></canvas>	
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Liste Rechargements : </h3>
+									<h3 class="card-title">Liste Des Partenarie : </h3>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
@@ -306,18 +321,6 @@
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-xl-6 col-md-12 col-lg-6">
-							<div class="card">
-								<div class="card-header">
-									<h3 class="card-title">Graphe des Inscriptions</h3>
-								</div>
-								<div class="card-body">
-									<canvas id="myChart" width="600" height="250"  ></canvas>	
-								</div>
-							</div>
-						</div>
-					</div>
 
 
 @endsection
