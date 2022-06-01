@@ -215,7 +215,7 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Graphe des Inscriptions</h3>
+									<h3 class="card-title">Graphe des Partenaires</h3>
 								</div>
 								<div class="card-body">
 									<canvas id="myChart" width="600" height="250"  ></canvas>	
@@ -354,7 +354,7 @@ var options = {
 	labels: ["Jan", "Fev", "Mars", "Avril", "Mail", "Juin","Juillet","Aout","Septembre","Octobre","Nov","Dec"],
 	datasets: [
 			{
-				label: 'Nombre Des Inscrits Par Mois',
+				label: 'Nombre Des Partenaires Par Mois',
 				data: [
 					<?php $__currentLoopData = $userArr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 						<?php echo e($u); ?>,
