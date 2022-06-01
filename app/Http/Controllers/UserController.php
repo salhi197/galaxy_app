@@ -79,8 +79,17 @@ class UserController extends Controller
         return view('users.detail',compact('user'));
     }
 
+    public function pending()
+    {
+            
+        $users =User::where('verified',2)->get();
+        return view('users.pending',compact('users'));
+    }
+
+
     public function index()
     {
+
         $users =User::all();
         return view('users.index',compact('users'));
     }
@@ -99,6 +108,15 @@ class UserController extends Controller
             'nom'=>$nom
         );
         return response()->json($response); 
+    }
+
+
+    public function valider($user_id)
+    {
+        $user =User::find($user_id);
+        $user->verified = 1;
+        $user->save();
+        return redirect()->route('user.index')->with('success', 'Utilisateur Validé ');
     }
 
 

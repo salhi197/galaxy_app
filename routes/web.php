@@ -63,11 +63,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['prefix' => 'user', 'as' => 'user'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'UserController@index']);
+    Route::get('/pending', ['as' => '.pending', 'uses' => 'UserController@pending']);
     Route::get('/partenaire', ['as' => '.partenaire', 'uses' => 'UserController@partenaire']);
     Route::get('/profile', ['as' => '.profile', 'uses' => 'UserController@profile']);
     Route::post('/profile/update/{user_id}', ['as' => '.update.profile', 'uses' => 'UserController@profileUpdate']);
     
     Route::get('/detail/{user}', ['as' => '.detail', 'uses' => 'UserController@detail']);
+    Route::get('/valider/{user}', ['as' => '.valider', 'uses' => 'UserController@valider']);
     
     Route::get('/show/create',['as'=>'.show.create', 'uses' => 'UserController@create']);
     Route::post('/store', ['as' => '.store', 'uses' => 'UserController@store']);

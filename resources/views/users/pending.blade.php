@@ -1,10 +1,14 @@
-<?php $__env->startSection('content'); ?>
+@extends('layouts.app')
+
+
+
+@section('content')
 
 					<div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('liste des utilisateurs')); ?></h4>
+						<h4 class="page-title">{{trans('liste des utilisateurs en attente')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('users')); ?></li>
+							<li class="breadcrumb-item active" aria-current="page">{{trans('users')}}</li>
 						</ol>
 
 					</div>
@@ -13,12 +17,6 @@
                     <div class="row">
 
                             <div class="card-header">
-                                <a class="btn btn-primary text-white" href="<?php echo e(route('user.show.create')); ?>">
-                                    <i class="fa fa-plus">
-
-                                    </i>
-                                    Ajouter utilisateur
-                                </a>
 
                             </div>
                             <div class="card mb-4">
@@ -38,39 +36,37 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    @foreach($users as $user)
                                                         <tr>
-                                                            <td><?php echo e($user->id ?? ''); ?></td>
+                                                            <td>{{$user->id ?? ''}}</td>
                                                             <td>
-                                                                <a href="<?php echo e(route('user.detail',['user'=>$user->id])); ?>">
-                                                                    <?php echo e($user->name ?? ''); ?>
-
+                                                                <a href="{{route('user.detail',['user'=>$user->id])}}">
+                                                                    {{$user->name ?? ''}}
                                                                 </a>
                                                             </td>
                                                             <td>
-                                                                <?php echo e($user->email ?? ''); ?>                                                            
+                                                                {{$user->email ?? ''}}                                                            
                                                             </td>
                                                             <td>
-                                                                <?php echo e($user->telephone ?? ''); ?>                                                            
+                                                                {{$user->telephone ?? ''}}                                                            
                                                             </td>
                                                             <td>
-                                                                <?php echo e($user->solde ?? ''); ?> $
+                                                                {{$user->solde ?? ''}} $
                                                             </td>
 
                                                             <td>
-                                                                <?php echo e($user->created_at ?? ''); ?>
-
+                                                                {{$user->created_at ?? ''}}
                                                             </td>
 
                                                             <td >
                                                                 <div class="table-action">  
-
+                                                                    <a href="{{route('user.detail',['user'=>$user->id])}}"  class="btn btn-secondary mt-1 mb-1" ><i class="fa fa-check"></i> Profil</a>
 
                                                                 </div>
                                                             </td>
                                                         </tr>
 
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -83,17 +79,15 @@
 
 
 
-<?php $__env->stopSection(); ?>
+@endsection
 
 
-<?php $__env->startSection('styles'); ?>
-<link href="<?php echo e(asset('assets/plugins/datatable/responsive.bootstrap4.min.css')); ?>" rel="stylesheet" />
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('scripts'); ?>
-<script src="<?php echo e(asset('assets/plugins/datatable/js/jquery.dataTables.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/plugins/datatable/datatable.js')); ?>"></script>
+@section('styles')
+<link href="{{asset('assets/plugins/datatable/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
+@endsection
+@section('scripts')
+<script src="{{asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
+<script src="{{asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
 
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@endsection

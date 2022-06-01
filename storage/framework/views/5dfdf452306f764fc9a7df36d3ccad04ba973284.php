@@ -85,10 +85,13 @@
 
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
-										<?php if(strlen(Auth::user()->photo)>0): ?>
-										<span><img src="<?php echo e(asset('storage/app/'.Auth::user()->photo)); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
-										<?php else: ?>
-										<span><img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+										<?php if(auth()->guard()->check()): ?>
+											<?php if(strlen(Auth::user()->photo)>0): ?>
+											<span><img src="<?php echo e(asset('storage/app/'.Auth::user()->photo)); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+											<?php else: ?>
+											<span><img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+											<?php endif; ?>
+
 										<?php endif; ?>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
@@ -162,10 +165,14 @@
 						<div class="dropdown user-pro-body text-center">
 							<br>
 							<div class="user-pic">
-										<?php if(strlen(Auth::user()->photo)>0): ?>
-										<img src="<?php echo e(asset('storage/app/'.Auth::user()->photo)); ?>" alt="user-img" class="avatar avatar-lg brround">
-										<?php else: ?>
-										<img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="user-img" class="avatar avatar-lg brround">
+										<?php if(auth()->guard()->check()): ?>
+											<?php if(strlen(Auth::user()->photo)>0): ?>
+											<img src="<?php echo e(asset('storage/app/'.Auth::user()->photo)); ?>" alt="user-img" class="avatar avatar-lg brround">
+											<?php else: ?>
+											<img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="user-img" class="avatar avatar-lg brround">
+											<?php endif; ?>
+
+
 										<?php endif; ?>
 
 							</div>
@@ -173,9 +180,6 @@
 
 							<div class="user-info">
 								<h2><?php echo e(Auth::user()->name ?? ''); ?>    </h2>
-								<!-- <?php if(Auth::user()->email_verified ==0): ?>
-								<h4 class="alert alert-danger" role="alert">Email Non Vérifié</h4>
-								<?php endif; ?> -->
 								
 
 								<?php if(auth()->guard()->check()): ?>
@@ -224,7 +228,7 @@
 									<a href="<?php echo e(route('user.index')); ?>" class="slide-item"><?php echo e(trans('Tous les utilisateur')); ?> </a>
 								</li>
 								<li>
-									<a href="#" class="slide-item"><?php echo e(trans('En Attente de vérification')); ?> </a>
+									<a href="<?php echo e(route('user.pending')); ?>" class="slide-item"><?php echo e(trans('En Attente de vérification')); ?> </a>
 								</li>
 
 							</ul>
@@ -355,17 +359,18 @@
 
 				<!-- CONTAINER -->
 				<div class="app-content">
-					<?php if(Auth::user()->email_verified==0): ?>
-					<div class="page-header">
-						<div class="col-md-12">
-							<div class="alert alert-success" role="alert">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-								Vous devez Confirmer Votre Email , on cliquant sur le lien envoyé à votre boite .
+					<?php if(auth()->guard()->check()): ?>
+						<?php if(Auth::user()->email_verified==0): ?>
+						<div class="page-header">
+							<div class="col-md-12">
+								<div class="alert alert-success" role="alert">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+									Vous devez Confirmer Votre Email , on cliquant sur le lien envoyé à votre boite .
+								</div>
 							</div>
-							
 						</div>
-					</div>
-					
+						<?php endif; ?>
+
 					<?php endif; ?>
 
                     <?php echo $__env->yieldContent('content'); ?>
@@ -455,58 +460,56 @@
 
         </script>
 
+	<script>	
+		$(document).ready(function() {
 
-<script>
-	
-	$(document).ready(function() {
+			var theme = localStorage.getItem('theme');
+			console.log(theme)
+			if(theme==null){
+				console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
 
-		var theme = localStorage.getItem('theme');
-		console.log(theme)
-		if(theme==null){
-			console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+				localStorage.setItem('theme', 'dark');
+			}
+			if(theme=="dark"){
+				console.log("sssssssssssss")
+				$('#someSwitchOptionDefault').prop( "checked", true );
+				$('#someSwitchOptionDefault2').prop( "checked", false );
+				$("body").removeClass("light-mode");
+				$("body").addClass("dark-mode");
+			}
+			if(theme=="light"){
+				console.log("zzzzzzzzzzzzz")
 
+				$('#someSwitchOptionDefault2').prop( "checked", true );
+				$('#someSwitchOptionDefault').prop( "checked", false );
+
+				$("body").addClass("light-mode");
+				$("body").removeClass("dark-mode");
+			}
+			var interval = setInterval(function() {
+				var momentNow = moment();
+				$('#date-part').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
+				$('#time-part').html(momentNow.format('A hh:mm:ss'));
+			}, 100);
+		});
+
+		function DarkMode()
+		{
 			localStorage.setItem('theme', 'dark');
-		}
-		if(theme=="dark"){
-			console.log("sssssssssssss")
-			$('#someSwitchOptionDefault').prop( "checked", true );
-			$('#someSwitchOptionDefault2').prop( "checked", false );
-			$("body").removeClass("light-mode");
 			$("body").addClass("dark-mode");
+			window.location.reload();
+
 		}
-		if(theme=="light"){
-			console.log("zzzzzzzzzzzzz")
-
-			$('#someSwitchOptionDefault2').prop( "checked", true );
-			$('#someSwitchOptionDefault').prop( "checked", false );
-
-			$("body").addClass("light-mode");
+		function LightMode()
+		{
+			localStorage.setItem('theme', 'light');
 			$("body").removeClass("dark-mode");
+			window.location.reload();
+
 		}
-		var interval = setInterval(function() {
-			var momentNow = moment();
-			$('#date-part').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
-			$('#time-part').html(momentNow.format('A hh:mm:ss'));
-		}, 100);
-	});
-
-	function DarkMode()
-	{
-		localStorage.setItem('theme', 'dark');
-		$("body").addClass("dark-mode");
-		window.location.reload();
-
-	}
-	function LightMode()
-	{
-		localStorage.setItem('theme', 'light');
-		$("body").removeClass("dark-mode");
-		window.location.reload();
-
-	}
 
 
-</script>
-		<?php echo $__env->yieldContent('scripts'); ?>
+	</script>
+	<?php echo $__env->yieldContent('scripts'); ?>
 	</body>
 </html>

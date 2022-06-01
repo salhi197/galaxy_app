@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 
 					<div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('liste des utilisateurs')); ?></h4>
+						<h4 class="page-title"><?php echo e(trans('liste des utilisateurs en attente')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('users')); ?></li>
@@ -13,12 +13,6 @@
                     <div class="row">
 
                             <div class="card-header">
-                                <a class="btn btn-primary text-white" href="<?php echo e(route('user.show.create')); ?>">
-                                    <i class="fa fa-plus">
-
-                                    </i>
-                                    Ajouter utilisateur
-                                </a>
 
                             </div>
                             <div class="card mb-4">
@@ -64,7 +58,7 @@
 
                                                             <td >
                                                                 <div class="table-action">  
-
+                                                                    <a href="<?php echo e(route('user.detail',['user'=>$user->id])); ?>"  class="btn btn-secondary mt-1 mb-1" ><i class="fa fa-check"></i> Profil</a>
 
                                                                 </div>
                                                             </td>

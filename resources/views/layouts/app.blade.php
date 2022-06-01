@@ -228,7 +228,7 @@
 									<a href="{{route('user.index')}}" class="slide-item">{{trans('Tous les utilisateur')}} </a>
 								</li>
 								<li>
-									<a href="#" class="slide-item">{{trans('En Attente de vérification')}} </a>
+									<a href="{{route('user.pending')}}" class="slide-item">{{trans('En Attente de vérification')}} </a>
 								</li>
 
 							</ul>
@@ -459,58 +459,56 @@
 
         </script>
 
+	<script>	
+		$(document).ready(function() {
 
-<script>
-	
-	$(document).ready(function() {
+			var theme = localStorage.getItem('theme');
+			console.log(theme)
+			if(theme==null){
+				console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
 
-		var theme = localStorage.getItem('theme');
-		console.log(theme)
-		if(theme==null){
-			console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+				localStorage.setItem('theme', 'dark');
+			}
+			if(theme=="dark"){
+				console.log("sssssssssssss")
+				$('#someSwitchOptionDefault').prop( "checked", true );
+				$('#someSwitchOptionDefault2').prop( "checked", false );
+				$("body").removeClass("light-mode");
+				$("body").addClass("dark-mode");
+			}
+			if(theme=="light"){
+				console.log("zzzzzzzzzzzzz")
 
+				$('#someSwitchOptionDefault2').prop( "checked", true );
+				$('#someSwitchOptionDefault').prop( "checked", false );
+
+				$("body").addClass("light-mode");
+				$("body").removeClass("dark-mode");
+			}
+			var interval = setInterval(function() {
+				var momentNow = moment();
+				$('#date-part').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
+				$('#time-part').html(momentNow.format('A hh:mm:ss'));
+			}, 100);
+		});
+
+		function DarkMode()
+		{
 			localStorage.setItem('theme', 'dark');
-		}
-		if(theme=="dark"){
-			console.log("sssssssssssss")
-			$('#someSwitchOptionDefault').prop( "checked", true );
-			$('#someSwitchOptionDefault2').prop( "checked", false );
-			$("body").removeClass("light-mode");
 			$("body").addClass("dark-mode");
+			window.location.reload();
+
 		}
-		if(theme=="light"){
-			console.log("zzzzzzzzzzzzz")
-
-			$('#someSwitchOptionDefault2').prop( "checked", true );
-			$('#someSwitchOptionDefault').prop( "checked", false );
-
-			$("body").addClass("light-mode");
+		function LightMode()
+		{
+			localStorage.setItem('theme', 'light');
 			$("body").removeClass("dark-mode");
+			window.location.reload();
+
 		}
-		var interval = setInterval(function() {
-			var momentNow = moment();
-			$('#date-part').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
-			$('#time-part').html(momentNow.format('A hh:mm:ss'));
-		}, 100);
-	});
-
-	function DarkMode()
-	{
-		localStorage.setItem('theme', 'dark');
-		$("body").addClass("dark-mode");
-		window.location.reload();
-
-	}
-	function LightMode()
-	{
-		localStorage.setItem('theme', 'light');
-		$("body").removeClass("dark-mode");
-		window.location.reload();
-
-	}
 
 
-</script>
-		@yield('scripts')
+	</script>
+	@yield('scripts')
 	</body>
 </html>

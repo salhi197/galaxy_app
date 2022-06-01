@@ -183,11 +183,3 @@
 					@endif
             
 @endsection
-
-@section('modals')
-
-
-
-@endsection
-
-
