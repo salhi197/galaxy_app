@@ -11,12 +11,12 @@
 					<?php if($user->verified == 0): ?>
                     <div class="row">
 	                    <div class="col-lg-8">
-							<form class="card" action="<?php echo e(route('user.update.profile',['user'=>$user->id])); ?>" enctype="multipart/form-data">
+							<form class="card" action="<?php echo e(route('user.update.profile',['user'=>$user->id])); ?>" method="post" enctype="multipart/form-data">
 								<div class="card-header">
 									<h3 class="card-title">Modifer Porfile </h3>
 									<a href="<?php echo e(route('user.demande',['user'=>$user->id])); ?>" class="btn btn-primary" onclick="return confirm('Are you sure?')">
 										Envoyer Pour verification
-									</a >
+									</a>
 
 								</div>
 								<div class="card-body">

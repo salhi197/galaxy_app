@@ -10,17 +10,14 @@
 		<!--favicon -->
 		<link rel="icon" href="{{asset('img/logos.ico')}}" type="image/x-icon"/>
 		<link rel="shortcut icon" href="{{asset('img/logos.ico')}}" type="image/x-icon"/>
-
 		<!-- TITLE -->
 		<title>Galaxy App</title>
 
 		<!-- DASHBOARD CSS -->
 		<link href="{{asset('assets/css/style.css')}}" rel="stylesheet"/>
 		<link href="{{asset('assets/css/style-modes.css')}}" rel="stylesheet"/>
-
 		<!-- LEFT-MENU CSS -->
 		<link href="{{asset('assets/css/sidemenu/closed-sidemenu.css')}}" rel="stylesheet">
-
 		<!--C3.JS CHARTS PLUGIN -->
 
 		<!-- TABS CSS -->
@@ -89,7 +86,7 @@
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
 										@if(strlen(Auth::user()->photo)>0)
-										<span><img src="{{asset(Auth::user()->photo)}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+										<span><img src="{{asset('storage/app/'.Auth::user()->photo)}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 										@else
 										<span><img src="{{asset('assets/images/users/male/32.jpg')}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 										@endif
@@ -165,7 +162,12 @@
 						<div class="dropdown user-pro-body text-center">
 							<br>
 							<div class="user-pic">
-								<img src="{{asset('assets/images/users/male/32.jpg')}}" alt="user-img" class="avatar avatar-lg brround">
+										@if(strlen(Auth::user()->photo)>0)
+										<img src="{{asset('storage/app/'.Auth::user()->photo)}}" alt="user-img" class="avatar avatar-lg brround">
+										@else
+										<img src="{{asset('assets/images/users/male/32.jpg')}}" alt="user-img" class="avatar avatar-lg brround">
+										@endif
+
 							</div>
 							
 

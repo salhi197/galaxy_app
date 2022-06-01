@@ -37,13 +37,6 @@ class UserController extends Controller
     }
     public function profileUpdate(Request $request,$user_id)
     {
-        dd($request);
-        dd($request->file('photo'));
-        if($request->file('photo')) {
-            dd('ssssssssss');
-            $path = $request->file('photo')->store('/users/photo');
-            $user->image = $path;
-        }
 
         $user =User::find($user_id);
         $user->pays = $request['pays']; 
@@ -58,12 +51,13 @@ class UserController extends Controller
         $user->telegram = $request['telegram']; 
         if($request->hasFile('identite')) {
             $path = $request->file('identite')->store('/users/identite');
-            $user->image = $path;
+            $user->identite = $path;
         }
         if($request->file('photo')) {
             $path = $request->file('photo')->store('/users/photo');
-            $user->image = $path;
+            $user->photo = $path;
         }
+
         $user->save();
 
         return redirect()->route('user.profile')->with('success', 'Success ');        

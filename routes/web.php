@@ -62,7 +62,7 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'UserController@index']);
     Route::get('/partenaire', ['as' => '.partenaire', 'uses' => 'UserController@partenaire']);
     Route::get('/profile', ['as' => '.profile', 'uses' => 'UserController@profile']);
-    Route::get('/profile/update/{user_id}', ['as' => '.update.profile', 'uses' => 'UserController@profileUpdate']);
+    Route::post('/profile/update/{user_id}', ['as' => '.update.profile', 'uses' => 'UserController@profileUpdate']);
     
     Route::get('/detail/{user}', ['as' => '.detail', 'uses' => 'UserController@detail']);
     

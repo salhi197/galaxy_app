@@ -10,17 +10,14 @@
 		<!--favicon -->
 		<link rel="icon" href="<?php echo e(asset('img/logos.ico')); ?>" type="image/x-icon"/>
 		<link rel="shortcut icon" href="<?php echo e(asset('img/logos.ico')); ?>" type="image/x-icon"/>
-
 		<!-- TITLE -->
 		<title>Galaxy App</title>
 
 		<!-- DASHBOARD CSS -->
 		<link href="<?php echo e(asset('assets/css/style.css')); ?>" rel="stylesheet"/>
 		<link href="<?php echo e(asset('assets/css/style-modes.css')); ?>" rel="stylesheet"/>
-
 		<!-- LEFT-MENU CSS -->
 		<link href="<?php echo e(asset('assets/css/sidemenu/closed-sidemenu.css')); ?>" rel="stylesheet">
-
 		<!--C3.JS CHARTS PLUGIN -->
 
 		<!-- TABS CSS -->
@@ -89,7 +86,7 @@
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
 										<?php if(strlen(Auth::user()->photo)>0): ?>
-										<span><img src="<?php echo e(asset(Auth::user()->photo)); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+										<span><img src="<?php echo e(asset('storage/app/'.Auth::user()->photo)); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 										<?php else: ?>
 										<span><img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 										<?php endif; ?>
@@ -165,7 +162,12 @@
 						<div class="dropdown user-pro-body text-center">
 							<br>
 							<div class="user-pic">
-								<img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="user-img" class="avatar avatar-lg brround">
+										<?php if(strlen(Auth::user()->photo)>0): ?>
+										<img src="<?php echo e(asset('storage/app/'.Auth::user()->photo)); ?>" alt="user-img" class="avatar avatar-lg brround">
+										<?php else: ?>
+										<img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="user-img" class="avatar avatar-lg brround">
+										<?php endif; ?>
+
 							</div>
 							
 
