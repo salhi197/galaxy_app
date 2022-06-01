@@ -366,10 +366,8 @@
 									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 									Vous devez Confirmer Votre Email , on cliquant sur le lien envoyé à votre boite .
 								</div>
-								
 							</div>
 						</div>
-						
 						@endif
 
 					@endif
