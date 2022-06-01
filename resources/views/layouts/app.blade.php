@@ -180,9 +180,6 @@
 
 							<div class="user-info">
 								<h2>{{Auth::user()->name ?? ''}}    </h2>
-								<!-- @if(Auth::user()->email_verified ==0)
-								<h4 class="alert alert-danger" role="alert">Email Non Vérifié</h4>
-								@endif -->
 								
 
 								@auth
@@ -361,17 +358,20 @@
 
 				<!-- CONTAINER -->
 				<div class="app-content">
-					@if(Auth::user()->email_verified==0)
-					<div class="page-header">
-						<div class="col-md-12">
-							<div class="alert alert-success" role="alert">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-								Vous devez Confirmer Votre Email , on cliquant sur le lien envoyé à votre boite .
+					@auth
+						@if(Auth::user()->email_verified==0)
+						<div class="page-header">
+							<div class="col-md-12">
+								<div class="alert alert-success" role="alert">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+									Vous devez Confirmer Votre Email , on cliquant sur le lien envoyé à votre boite .
+								</div>
+								
 							</div>
-							
 						</div>
-					</div>
-					
+						
+						@endif
+
 					@endif
 
                     @yield('content')
