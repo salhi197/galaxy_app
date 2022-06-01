@@ -354,6 +354,19 @@
 
 				<!-- CONTAINER -->
 				<div class="app-content">
+					@if(Auth::user()->email_verified==0)
+					<div class="page-header">
+						<div class="col-md-12">
+							<div class="alert alert-success" role="alert">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+								Vous devez Confirmer Votre Email , on cliquant sur le lien envoyé à votre boite .
+							</div>
+							
+						</div>
+					</div>
+					
+					@endif
+
                     @yield('content')
 					<!-- PAGE-HEADER -->
 
