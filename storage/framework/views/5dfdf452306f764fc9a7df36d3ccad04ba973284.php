@@ -37,6 +37,7 @@
 		<link href="<?php echo e(asset('assets/skins/skins-modes/color19.css')); ?>"  id="theme" rel="stylesheet" type="text/css" media="all" />
         <link href="<?php echo e(asset('css/toastr.css')); ?>" rel="stylesheet"/>
 		<link href="<?php echo e(asset('assets/plugins/sweet-alert/sweetalert.css')); ?>" rel="stylesheet" />
+		<link href="<?php echo e(asset('assets/css/dashboard-dark.css')); ?>" rel="stylesheet">		
 		<?php echo $__env->yieldContent('styles'); ?>
 	</head>
 
@@ -53,20 +54,17 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 						   <a class="header-brand" href="index.html">
-								<img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img desktop-logo" width="200px"/>
+								<img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img desktop-logo" width=""/>
 							   <img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
 							</a><!-- LOGO -->
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
 								<div class="header-brand-img desktop-logo">
-									<p id="date-part" class="text-white desktop-logo" style="padding:15px;font-size:100%">
-
-									</p>
 								</div><!-- SEARCH -->
 								<div class="desktop-logo">
-									<a class="text-white" style="padding:12px" href="#">
-									<h4 class="alert alert-primary" role="alert"><?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
+									<a class="text-white"  href="#">
+									<h4 class="alert alert-info" role="alert"><?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
 										
 									</a>
 								</div>
@@ -90,7 +88,11 @@
 
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
+										<?php if(strlen(Auth::user()->photo)>0): ?>
+										<span><img src="<?php echo e(asset(Auth::user()->photo)); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+										<?php else: ?>
 										<span><img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+										<?php endif; ?>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading  text-center border-bottom pb-3">
@@ -111,6 +113,20 @@
 										<a class="dropdown-item" href="<?php echo e(route('operation.recharger.index.actif')); ?>"><i class="fe fe-list mr-2"></i> <span>Activity</span></a>
 										<a class="dropdown-item" href="<?php echo e(route('support')); ?>"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
 										<a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Logout</span></a>
+										<a class="dropdown-item" >
+											Dark Mode
+											<div class="material-switch pull-right">
+												<input id="someSwitchOptionDefault" onchange="DarkMode()" name="someSwitchOption001" type="checkbox">
+												<label for="someSwitchOptionDefault" class="label-default"></label>
+											</div>
+										</a>
+										<a class="dropdown-item" >
+											Light Mode
+											<div class="material-switch pull-right">
+												<input id="someSwitchOptionDefault2" onchange="LightMode()" name="someSwitchOption002" type="checkbox">
+												<label for="someSwitchOptionDefault2" class="label-default"></label>
+											</div>
+										</a>
 
 									</div>
 								</div>
@@ -354,7 +370,10 @@
 				<div class="container">
 					<div class="row align-items-center flex-row-reverse">
 						<div class="col-md-12 col-sm-12 text-center">
-							Copyright © <?php echo e(date('Y')); ?> <a href="#">#</a>. Designed by 
+							Copyright © <?php echo e(date('Y')); ?> ||  
+							
+							<span id="time-part"></span>
+							<span id="date-part"></span>
 						</div>
 					</div>
 				</div>
@@ -425,13 +444,55 @@
 
 
 <script>
-$(document).ready(function() {
-    var interval = setInterval(function() {
-        var momentNow = moment();
-        $('#date-part').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
-        $('#time-part').html(momentNow.format('A hh:mm:ss'));
-    }, 100);
-});
+	
+	$(document).ready(function() {
+
+		var theme = localStorage.getItem('theme');
+		console.log(theme)
+		if(theme==null){
+			console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+
+			localStorage.setItem('theme', 'dark');
+		}
+		if(theme=="dark"){
+			console.log("sssssssssssss")
+			$('#someSwitchOptionDefault').prop( "checked", true );
+			$('#someSwitchOptionDefault2').prop( "checked", false );
+			$("body").removeClass("light-mode");
+			$("body").addClass("dark-mode");
+		}
+		if(theme=="light"){
+			console.log("zzzzzzzzzzzzz")
+
+			$('#someSwitchOptionDefault2').prop( "checked", true );
+			$('#someSwitchOptionDefault').prop( "checked", false );
+
+			$("body").addClass("light-mode");
+			$("body").removeClass("dark-mode");
+		}
+		var interval = setInterval(function() {
+			var momentNow = moment();
+			$('#date-part').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
+			$('#time-part').html(momentNow.format('A hh:mm:ss'));
+		}, 100);
+	});
+
+	function DarkMode()
+	{
+		localStorage.setItem('theme', 'dark');
+		$("body").addClass("dark-mode");
+		window.location.reload();
+
+	}
+	function LightMode()
+	{
+		localStorage.setItem('theme', 'light');
+		$("body").removeClass("dark-mode");
+		window.location.reload();
+
+	}
+
+
 </script>
 		<?php echo $__env->yieldContent('scripts'); ?>
 	</body>

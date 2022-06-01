@@ -130,10 +130,10 @@
 								</div>
 								<div class="card-body">
                                     <ul class="list-group list-group-flush">
-										<li class="list-group-item">Bénéfice par 1 Mois (min/max) :<span id="gain1min"></span> / <span id="gain1max"></span></li>
+										<li class="list-group-item">Bénéfice par 1 Mois (min/max) :<span id="gain1min"></span> / <span id="gain1max"></span> $ </li>
 										<!-- <li class="list-group-item">Bénéfice par 3 Mois :</li>
                                         <li class="list-group-item">Bénéfice par 6 Mois :</li> -->
-										<li class="list-group-item">Bénéfice par 12 Mois (min/max) :<span id="gain12min"></span> / <span id="gain12max"></span></li>
+										<li class="list-group-item">Bénéfice par 12 Mois (min/max) :<span id="gain12min"></span> / <span id="gain12max"></span> $ </li>
                                     </ul>                                    
 								</div>
 							</div>
@@ -210,11 +210,26 @@
 						</div>
 					</div>
 
+
+					<div class="row">
+						<div class="col-xl-6 col-md-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Graphe des Inscriptions</h3>
+								</div>
+								<div class="card-body">
+									<canvas id="myChart" width="600" height="250"  ></canvas>	
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Liste Rechargements : </h3>
+									<h3 class="card-title">Liste Des Partenarie : </h3>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
@@ -307,18 +322,6 @@
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-xl-6 col-md-12 col-lg-6">
-							<div class="card">
-								<div class="card-header">
-									<h3 class="card-title">Graphe des Inscriptions</h3>
-								</div>
-								<div class="card-body">
-									<canvas id="myChart" width="600" height="250"  ></canvas>	
-								</div>
-							</div>
-						</div>
-					</div>
 
 
 <?php $__env->stopSection(); ?>
@@ -429,16 +432,6 @@ function myFunction() {
   /* Alert the copied text */
   toastr.success('Lien Copié')
 }
-
-</script>
-<script>
-	var map = L.map('map', {
-    center: [51.505, -0.09],
-    zoom: 18
-});
-	var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
-	var positron = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', ).addTo(map);
-	map.setView([0, 0], 0);
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -65,13 +65,13 @@
 										<div class="col-sm-6 col-md-6">
 											<div class="form-group">
 												<label class="form-label">Pièce d'identité / passport: </label>
-												<input type="file" class="form-control" value="<?php echo e($user->identite); ?>" name="identite" >
+												<input type="file" class="form-file"  name="identite" >
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="form-group mb-0">
 												<label class="form-label">Photo</label>
-												<input class="form-control" type="file" name="photo"/>
+												<input class="form-file" type="file" name="photo"/>
 											</div>
 										</div>
 									</div>
@@ -79,22 +79,22 @@
 
 
 									<div class="row">
-										<div class="col-md-3">
+										<div class="col-md-4">
 											<div class="form-group">
 												<label class="form-label">Facebook</label>
-												<input type="text" class="form-control" value="<?php echo e($user->facebook); ?>" name="facebook"   >
+												<input type="text" class="form-control" value="<?php echo e($user->facebook); ?>" placeholder="Lien Vers Votre Profile facebook" name="facebook"   >
 											</div>
 										</div>
-										<div class="col-sm-6 col-md-3">
+										<div class="col-sm-6 col-md-4">
 											<div class="form-group">
 												<label class="form-label">Telegram</label>
-												<input type="text" class="form-control" value="<?php echo e($user->telegram); ?>" name="telegram"  >
+												<input type="text" class="form-control" value="<?php echo e($user->telegram); ?>" placeholder="Lien Vers Votre Profile telegram" name="telegram"  >
 											</div>
 										</div>
 										<div class="col-sm-6 col-md-4">
 											<div class="form-group">
 												<label class="form-label">Linkedin</label>
-												<input type="text" class="form-control" value="<?php echo e($user->linkedin); ?>" name="linkedin" >
+												<input type="text" class="form-control" value="<?php echo e($user->linkedin); ?>" placeholder="Lien Vers Votre Profile linkedin" name="linkedin" >
 											</div>
 										</div>
 									</div>
@@ -106,8 +106,8 @@
 							</form>
                         </div>
 
-                        <div class="col-lg-4">
-							<form class="card" method="post" action="<?php echo e(route('user.password')); ?>">
+                        <!-- <div class="col-lg-4">
+							<form class="card" method="post" action="<?php echo e(route('user.password')); ?>" enctype="multipart/form-data">
 								<div class="card-header">
 									<div class="card-title">Changer le mot de passe</div>
 								</div>
@@ -119,22 +119,17 @@
 									<div class="form-group">
 										<label class="form-label">
 										Nouveau Mot de passe
-										<!-- <a href="forgot-password.html" class="float-right small">I forgot password</a> -->
 										</label>
 										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 									</div>
-									<!-- <div class="form-group">
-										<label class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" />
-											<span class="custom-control-label">Remember me</span>
-										</label>
-									</div> -->
+									
 									<div class="form-footer">
 										<button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
 									</div>
 								</div>
 							</form>
-						</div><!-- COL END -->
+						</div> -->
+						<!-- COL END -->
 
                     </div>
 					<?php endif; ?>
