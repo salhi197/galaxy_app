@@ -31,7 +31,6 @@ Route::get('/cleareverything', function () {
     echo "Debug Bar cleared<br>";
 });
 
-Route::get('/', function () {return view('welcome');})->middleware('lang');
 Route::get('/faq', function () {return view('faq');})->name('faq');
 Route::get('/support', function () {return view('support');})->name('support');
 
@@ -47,7 +46,10 @@ Route::view('/comingsoon', 'comingsoon')->name('comingsoon');
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/', function () {return view('welcome');})->middleware('lang');
+    Route::get('/', function () {
+        return redirect()->route("login")->with('success', 'Valider Avec succés ');        
+
+    });
 
     Route::get('/lang/{lang}', 'LangController@setLang');
 
