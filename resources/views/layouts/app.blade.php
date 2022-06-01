@@ -85,10 +85,13 @@
 
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
-										@if(strlen(Auth::user()->photo)>0)
-										<span><img src="{{asset('storage/app/'.Auth::user()->photo)}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
-										@else
-										<span><img src="{{asset('assets/images/users/male/32.jpg')}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+										@auth
+											@if(strlen(Auth::user()->photo)>0)
+											<span><img src="{{asset('storage/app/'.Auth::user()->photo)}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+											@else
+											<span><img src="{{asset('assets/images/users/male/32.jpg')}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+											@endif
+
 										@endif
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
@@ -162,10 +165,14 @@
 						<div class="dropdown user-pro-body text-center">
 							<br>
 							<div class="user-pic">
-										@if(strlen(Auth::user()->photo)>0)
-										<img src="{{asset('storage/app/'.Auth::user()->photo)}}" alt="user-img" class="avatar avatar-lg brround">
-										@else
-										<img src="{{asset('assets/images/users/male/32.jpg')}}" alt="user-img" class="avatar avatar-lg brround">
+										@auth
+											@if(strlen(Auth::user()->photo)>0)
+											<img src="{{asset('storage/app/'.Auth::user()->photo)}}" alt="user-img" class="avatar avatar-lg brround">
+											@else
+											<img src="{{asset('assets/images/users/male/32.jpg')}}" alt="user-img" class="avatar avatar-lg brround">
+											@endif
+
+
 										@endif
 
 							</div>
