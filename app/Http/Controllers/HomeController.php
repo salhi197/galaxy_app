@@ -36,6 +36,10 @@ class HomeController extends Controller
     
     public function index()
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+  
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
         $solde = $user->solde;

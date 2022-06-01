@@ -16,7 +16,7 @@
 							<form class="card" action="{{route('user.update.profile',['user'=>$user->id])}}" method="post" enctype="multipart/form-data">
 								<div class="card-header">
 									<h3 class="card-title">Modifer Porfile </h3>
-									<a href="{{route('user.demande',['user'=>$user->id])}}" class="btn btn-primary" onclick="return confirm('Are you sure?')">
+									<a href="{{route('user.demande',['user'=>$user->id])}}" class="btn btn-primary" onclick="return confirm('Etes Vous sure ?')">
 										Envoyer Pour verification
 									</a>
 
