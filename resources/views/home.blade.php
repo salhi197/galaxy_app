@@ -53,7 +53,7 @@
 										</div>
 									</div>
 
-									<div class="col-xl-3 col-lg-6  col-sm-6">
+									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
 										<div class="card-body text-center">
 											<h6 class="mb-3">Votre rang</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">

@@ -186,27 +186,25 @@
 							<br>
 							<div class="sidebar-navs text-center">
 								@auth
-								<ul class="nav nav-pills nav-pills-circle text-center" id="tabs_3" role="tablist">
-									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+								<ul class="nav nav-pills nav-pills-circle text-center"
+								style="justify-content: center;"
+								id="tabs_2" role="tablist">
+									<li class="nav-item">
 										<a class="nav-link border text-center m-2">
 											<i class="fa fa-facebook" style="color:blue;"></i>
 										</a>
 									</li>
-									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+									<li class="nav-item">
 										<a class="nav-link border  m-2">
 											<i class="fa fa-telegram"></i>
 										</a>
 									</li>
-									<li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+									<li class="nav-item">
 										<a class="nav-link border text-center m-2">
 											<i class="fa fa-linkedin" style="color:#0072b1;"></i>
 										</a>
 									</li>
-									<!-- <li class="nav-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
-										<a class="nav-link border text-center m-2">
-											<i class="fa fa-instagram" style="color:#8a3ab9;"></i>
-										</a>
-									</li> -->
+
 								</ul>
 								@endif
 							</div>
