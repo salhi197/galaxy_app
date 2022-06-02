@@ -28,6 +28,9 @@ class PaymentController extends Controller
     public function filter(Request $request)
     {
         $interval = $request['interval'];
+        if($interval==0){
+            return redirect()->back()->with('Error', 'Séléctionner un interval ');        
+        }
         if($interval==1){
             $operations = Operation::where('type',1)->where('etat',1)
             ->whereDay('validated_date', '>=', 1)
