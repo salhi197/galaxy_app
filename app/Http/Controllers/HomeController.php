@@ -49,7 +49,7 @@ class HomeController extends Controller
         $operations = Operation::where('etat',1)->where('type',1)->where('user',Auth::user()->id)->get();
 
         //partenaire par mois
-        $rang = User::rang($user);
+        $rang = $user->rang();
         $users = User::select('id', 'created_at')
         ->where('refered_user',Auth::user()->id)
         ->get()

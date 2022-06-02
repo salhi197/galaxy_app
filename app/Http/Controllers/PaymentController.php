@@ -84,7 +84,7 @@ class PaymentController extends Controller
         $operation->next_payment_date = Carbon::now()->addMonths(1);
         $operation->save();
         $user = User::find($operation->user);
-        $rang = User::rang($user);
+        $rang = $user->rang();
         $pourcentage = $request['pourcentage'];
         $solde_retrait = $user->solde*$pourcentage/100;
         $user->solde_retrait = $solde_retrait;
