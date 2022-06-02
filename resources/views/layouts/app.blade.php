@@ -91,7 +91,9 @@
 											@else
 											<span><img src="{{asset('assets/images/users/male/32.jpg')}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 											@endif
-
+										@endif
+										@auth('admin')
+											<span><img src="{{asset('assets/images/users/male/32.jpg')}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 										@endif
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
