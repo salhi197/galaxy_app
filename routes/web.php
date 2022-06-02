@@ -86,11 +86,18 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
     Route::post('/methode/update/{methode_user}', ['as' => '.methode.update', 'uses' => 'UserController@updateUserMethode']);
     Route::get('/methode/destroy/{methode_user}', ['as' => '.methode.destroy', 'uses' => 'UserController@destroyUserMethode']);
     Route::get('/demande/{user}', ['as' => '.demande', 'uses' => 'UserController@demande']);
-    Route::get('/email/{code_email}', ['as' => '.user.code.email', 'uses' => 'UserController@verifyEmail']);
+    Route::get('/email/{code_email}', ['as' => '.user.code.email', 'uses' => 'UserController@verifyEmail']);    
+});
 
-    
-    
 
+
+Route::group(['prefix' => 'payment', 'as' => 'payment'], function () {
+    Route::get('/rechargements', ['as' => '.rechargements', 'uses' => 'PaymentController@rechargements']);
+    Route::post('/filter', ['as' => '.filter', 'uses' => 'PaymentController@filter']);
+    Route::post('/store/{operation}', ['as' => '.store', 'uses' => 'PaymentController@store']);
+    // Route::get('/partenaire', ['as' => '.partenaire', 'uses' => 'PaymentController@partenaire']);
+    // Route::get('/profile', ['as' => '.profile', 'uses' => 'PaymentController@profile']);
+    Route::post('/profile/update/{payment_id}', ['as' => '.update.profile', 'uses' => 'PaymentController@profileUpdate']);   
 });
 
 

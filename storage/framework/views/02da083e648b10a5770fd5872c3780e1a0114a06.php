@@ -8,16 +8,32 @@
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('dashboard')); ?></li>
 						</ol>
 					</div>
-					<!-- PAGE-HEADER END -->
-
-					<!-- ROW-1 -->
 
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
-								<div class="card-header">
-									<h3 class="card-title">Liste Rechargements : </h3>
-								</div>
+									<form class="card-header" method="post" action="<?php echo e(route('payment.filter')); ?>">
+											<div class="col-md-4">
+                                                <div class="form-group overflow-hidden">
+													<select class="form-control" name="interval">
+														<option value=""> Séléctionner L'interval </option>
+														<option value="1"> Entre le 1-9</option>
+														<option value="2"> Entre le 11-20</option>
+														<option value="3"> Entre le 21-31</option>
+													</select>
+                                                </div>
+                                            </div>
+											<div class="col-md-4">
+                                                <div class="form-group overflow-hidden">
+													<button class="btn btn-primary btn-lg" type="submit">
+														Filtrer
+													</button>													
+                                                </div>
+											</div>
+
+
+									</form>
+
 								<div class="card-body">
 									<div class="table-responsive">
 										<table id="datable-1" class="table  card-table table-striped table-bordered text-nowrap w-100">
@@ -26,10 +42,9 @@
 													<th>ID</th>
 													<th>User</th>
 													<th>Montant</th>
-													<th>Payé</th>
 													<th>Etat</th>
 													<th>Crée le </th>
-													<th>Certificat</th>
+													<th>Validé le </th>
 													<?php if(auth()->guard('admin')->check()): ?>
 													<th>Action</th>
 													<?php endif; ?>
@@ -47,11 +62,11 @@
 														</a>
 													</td>
 													<td class="text-center"><?php echo e($operation->montant); ?> $ </td>
-													<td>
+													<!-- <td>
 														<?php echo e($operation->created_at->format('m')-date('m')); ?>/12 <br>	
 														Prochain Payment : <?php echo e($operation->next_payment_date); ?>
 
-													</td>
+													</td> -->
 													<?php if($operation->etat == 1): ?>
 													<td>
 														Confirmé
@@ -69,27 +84,44 @@
 													</td>
 													<?php endif; ?>
 													<td><?php echo e($operation->created_at); ?></td>
-													<td>
-														<button class="btn btn-primary">
-															Télécharger
-														</button>
-													</td>
+													<td><?php echo e($operation->validated_date); ?></td>
 													<?php if(auth()->guard('admin')->check()): ?>
 																<td >
 																	<div class="table-action">  
-																			<a class="btn btn-outline btn-danger px-3 mb-0" 
-																			href="<?php echo e(route('operation.recharger.valider',['operation'=>$operation->id])); ?>"
-																			onclick="return confirm('etes vous sure  ?')" >
-																				<i class="fe fe-check"></i>
-																				
-																			</a>
+																		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo e($operation->id); ?>">
+																			Payer
+																		</button>
 
-																			<a class="btn btn-outline btn-danger px-3 mb-0" 
-																			href="<?php echo e(route('operation.recharger.annuler',['operation'=>$operation->id])); ?>"
-																			onclick="return confirm('etes vous sure  ?')" >
-																				<i class="fe fe-trash"></i>
-																				
-																			</a>
+																		<div class="modal fade" id="exampleModal<?php echo e($operation->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																			<div class="modal-dialog" role="document">
+																				<div class="modal-content">
+																				<div class="modal-header">
+																					<h5 class="modal-title" id="exampleModalLabel">Payer</h5>
+																					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																					<span aria-hidden="true">&times;</span>
+																					</button>
+																				</div>
+																				<div class="modal-body">
+																					<form method="post" action="<?php echo e(route('payment.store',['operation'=>$operation->id])); ?>">
+																						<div class="col-md-12">
+																							<div class="form-group overflow-hidden">
+																								<label>Entrez le pourcentage :</label>
+																								<input  required name="pourcentage" class="form-control" max="100" min="10" id="montant" min="0"/>
+																							</div>
+																						</div>
+																						<div class="col-md-4">
+																							<div class="form-group overflow-hidden">
+																							</div>
+																						</div>
+
+																					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																					<button type="submit" class="btn btn-primary">Enregistrer</button>
+
+																					</form>
+																				</div>
+																				</div>
+																			</div>
+																		</div>
 
 																	</div>
 																</td>

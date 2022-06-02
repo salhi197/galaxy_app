@@ -114,7 +114,7 @@
 @endsection
 @section('styles')
 <link href="{{asset('assets/plugins/datatable/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
-@endsecion
+@endsection
 @section('scripts')
 <script src="{{asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>

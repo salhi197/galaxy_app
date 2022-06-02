@@ -61,8 +61,9 @@
 								</div><!-- SEARCH -->
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
+									@auth
 									<h4 class="alert alert-info" role="alert">{{Auth::user()->solde ?? ''}}$</h4>
-										
+									@endif	
 									</a>
 								</div>
 								<!-- SEARCH -->
@@ -252,12 +253,9 @@
 
 							</ul>
 						</li>
-
 						<li>
-							<a class="side-menu__item" href="{{route('operation.index')}}"><i class="side-menu__icon fe fe-cash"></i><span class="side-menu__label">{{trans('payment')}}</span></a>
+							<a class="side-menu__item" href="{{route('payment.rechargements')}}"><i class="side-menu__icon fa fa-cash"></i><span class="side-menu__label">{{trans('paiements')}}</span></a>
 						</li>
-
-
 						<li>
 							<a class="side-menu__item" href="{{route('operation.index')}}"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label">{{trans('Transactions')}}</span></a>
 						</li>

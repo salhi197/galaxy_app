@@ -61,8 +61,9 @@
 								</div><!-- SEARCH -->
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
+									<?php if(auth()->guard()->check()): ?>
 									<h4 class="alert alert-info" role="alert"><?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
-										
+									<?php endif; ?>	
 									</a>
 								</div>
 								<!-- SEARCH -->
@@ -91,7 +92,9 @@
 											<?php else: ?>
 											<span><img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 											<?php endif; ?>
-
+										<?php endif; ?>
+										<?php if(auth()->guard('admin')->check()): ?>
+											<span><img src="<?php echo e(asset('assets/images/users/male/32.jpg')); ?>" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 										<?php endif; ?>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
@@ -250,12 +253,9 @@
 
 							</ul>
 						</li>
-
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('operation.index')); ?>"><i class="side-menu__icon fe fe-cash"></i><span class="side-menu__label"><?php echo e(trans('payment')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('payment.rechargements')); ?>"><i class="side-menu__icon fa fa-cash"></i><span class="side-menu__label"><?php echo e(trans('paiements')); ?></span></a>
 						</li>
-
-
 						<li>
 							<a class="side-menu__item" href="<?php echo e(route('operation.index')); ?>"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label"><?php echo e(trans('Transactions')); ?></span></a>
 						</li>
