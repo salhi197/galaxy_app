@@ -16,12 +16,13 @@ class PaymentController extends Controller
 {
     public function rechargements()
     {
+        $interval = "";
         if(Auth::guard('admin')->check()){
             $operations = Operation::where('type',1)
             ->where('etat',1)
             ->whereMonth('next_payment_date',date('m'))
             ->get();
-            return view('payments.rechargements',compact('operations'));    
+            return view('payments.rechargements',compact('operations','interval'));    
         }
     }
 
@@ -53,7 +54,7 @@ class PaymentController extends Controller
             ->whereMonth('next_payment_date',date('m'))
             ->get();
         }
-        return view('payments.rechargements',compact('operations'));    
+        return view('payments.rechargements',compact('operations','interval'));    
 
     }
 

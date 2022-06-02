@@ -19,9 +19,9 @@
                                                 <div class="form-group overflow-hidden">
 													<select class="form-control" name="interval">
 														<option value=""> Séléctionner L'interval </option>
-														<option value="1"> Entre le 1-9</option>
-														<option value="2"> Entre le 11-20</option>
-														<option value="3"> Entre le 21-31</option>
+														<option @if($interval==1) selected @endifvalue="1"> Entre le 1-9</option>
+														<option @if($interval==2) selected @endifvalue="2"> Entre le 11-20</option>
+														<option @if($interval==3) selected @endifvalue="3"> Entre le 21-31</option>
 													</select>
                                                 </div>
                                             </div>
