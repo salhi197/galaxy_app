@@ -93,11 +93,11 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
 
 Route::group(['prefix' => 'payment', 'as' => 'payment'], function () {
     Route::get('/rechargements', ['as' => '.rechargements', 'uses' => 'PaymentController@rechargements']);
+    Route::get('/rechargements/month', ['as' => '.rechargements.month', 'uses' => 'PaymentController@RechargementsMonth']);
+    Route::get('/rechargements/paye', ['as' => '.rechargements.paye', 'uses' => 'PaymentController@RechargementsPaye']);
+
     Route::post('/filter', ['as' => '.filter', 'uses' => 'PaymentController@filter']);
     Route::post('/store/{operation}', ['as' => '.store', 'uses' => 'PaymentController@store']);
-    // Route::get('/partenaire', ['as' => '.partenaire', 'uses' => 'PaymentController@partenaire']);
-    // Route::get('/profile', ['as' => '.profile', 'uses' => 'PaymentController@profile']);
-    Route::post('/profile/update/{payment_id}', ['as' => '.update.profile', 'uses' => 'PaymentController@profileUpdate']);   
 });
 
 
@@ -166,4 +166,12 @@ Route::group(['prefix' => 'methode', 'as' => 'methode'], function () {
     Route::post('/update/{id_methode}', ['as' => '.update', 'uses' => 'MethodeController@update']);
     Route::get('/destroy/{id_methode}', ['as' => '.destroy', 'uses' => 'MethodeController@destroy']);
     Route::get('/edit/{id_methode}', ['as' => '.edit', 'uses' => 'MethodeController@edit']);
+});
+Route::group(['prefix' => 'notification', 'as' => 'notification'], function () {
+    Route::get('/', ['as' => '.index', 'uses' => 'NotificationController@index']);
+    Route::get('/show/create',['as'=>'.show.create', 'uses' => 'NotificationController@create']);
+    Route::post('/create', ['as' => '.create', 'uses' => 'NotificationController@store']);
+    Route::post('/update/{id_notification}', ['as' => '.update', 'uses' => 'NotificationController@update']);
+    Route::get('/destroy/{id_notification}', ['as' => '.destroy', 'uses' => 'NotificationController@destroy']);
+    Route::get('/edit/{id_notification}', ['as' => '.edit', 'uses' => 'NotificationController@edit']);
 });

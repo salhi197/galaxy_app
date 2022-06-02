@@ -46,9 +46,6 @@
 													<th>Crée le </th>
 													<th>Validé le </th>
 													<th>Prochain Date de Paiment</th>
-													<?php if(auth()->guard('admin')->check()): ?>
-													<th>Action</th>
-													<?php endif; ?>
 
 												</tr>
 											</thead>
@@ -88,48 +85,6 @@
 													<td><?php echo e($operation->validated_date); ?></td>
 													<td><?php echo e($operation->next_payment_date); ?></td>
 													
-													<?php if(auth()->guard('admin')->check()): ?>
-																<td >
-																	<div class="table-action">  
-																		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo e($operation->id); ?>">
-																			Payer
-																		</button>
-
-																		<div class="modal fade" id="exampleModal<?php echo e($operation->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-																			<div class="modal-dialog" role="document">
-																				<div class="modal-content">
-																				<div class="modal-header">
-																					<h5 class="modal-title" id="exampleModalLabel">Payer</h5>
-																					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																					<span aria-hidden="true">&times;</span>
-																					</button>
-																				</div>
-																				<div class="modal-body">
-																					<form method="post" action="<?php echo e(route('payment.store',['operation'=>$operation->id])); ?>">
-																						<div class="col-md-12">
-																							<div class="form-group overflow-hidden">
-																								<label>Entrez le pourcentage :</label>
-																								<input  required name="pourcentage" class="form-control" max="100" min="10" id="montant" min="0"/>
-																							</div>
-																						</div>
-																						<div class="col-md-4">
-																							<div class="form-group overflow-hidden">
-																							</div>
-																						</div>
-
-																					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-																					<button type="submit" class="btn btn-primary">Enregistrer</button>
-
-																					</form>
-																				</div>
-																				</div>
-																			</div>
-																		</div>
-
-																	</div>
-																</td>
-
-													<?php endif; ?>
 
 
 												</tr>                                            

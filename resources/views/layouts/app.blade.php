@@ -75,15 +75,31 @@
 										<i class="fe fe-bell"></i>
 										<span class="pulse bg-warning"></span>
 									</a>
-								</div>
-								<div class="dropdown d-md-flex message">
-									<a class="nav-link icon text-center" data-toggle="dropdown">
-										<span class="badge badge-danger">
-											
-										</span>
-									</a>
-								</div>
-
+									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+										<div class="drop-heading">
+											<div class="d-flex">
+												<h5 class="mb-0 text-dark">Notifications</h5>
+												<span class="badge badge-danger ml-auto  brround">4</span>
+											</div>
+										</div>
+										<div class="dropdown-divider mt-0"></div>
+										@foreach($notifications as $notification)
+											<a href="#" class="dropdown-item d-flex pb-3">
+												<div class="notifyimg bg-danger-transparent">
+													<i class="fa fa-cogs text-danger"></i>
+												</div>
+												<div>
+													<strong> Server Rebooted.</strong>
+													<div class="small text-muted">45 mintues ago</div>
+												</div>
+											</a>
+										@endforeach
+										<div class="dropdown-divider mb-0"></div>
+										<div class=" text-center p-2">
+											<a href="{{route('notifications.index')}}" class="text-dark pt-0">View All Notifications</a>
+										</div>
+									</div>
+								</div>	
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
 										@auth
@@ -253,9 +269,25 @@
 
 							</ul>
 						</li>
-						<li>
-							<a class="side-menu__item" href="{{route('payment.rechargements')}}"><i class="side-menu__icon fa fa-cash"></i><span class="side-menu__label">{{trans('paiements')}}</span></a>
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label">{{trans('Payment')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="{{route('payment.rechargements.month')}}" class="slide-item">{{trans('Payments De Ce Mois')}} </a>
+								</li>
+
+								<li>
+									<a href="{{route('payment.rechargements')}}" class="slide-item">{{trans('Prochain Payments')}} </a>
+								</li>
+								<li>
+									<a href="{{route('payment.rechargements.paye')}}" class="slide-item">{{trans('Payments Reglés')}} </a>
+								</li>
+							</ul>
 						</li>
+
+						<!-- <li>
+							<a class="side-menu__item" href="{{route('payment.rechargements')}}"><i class="side-menu__icon fa fa-cash"></i><span class="side-menu__label">{{trans('paiements')}}</span></a>
+						</li> -->
 						<li>
 							<a class="side-menu__item" href="{{route('operation.index')}}"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label">{{trans('Transactions')}}</span></a>
 						</li>

@@ -75,15 +75,31 @@
 										<i class="fe fe-bell"></i>
 										<span class="pulse bg-warning"></span>
 									</a>
-								</div>
-								<div class="dropdown d-md-flex message">
-									<a class="nav-link icon text-center" data-toggle="dropdown">
-										<span class="badge badge-danger">
-											
-										</span>
-									</a>
-								</div>
-
+									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+										<div class="drop-heading">
+											<div class="d-flex">
+												<h5 class="mb-0 text-dark">Notifications</h5>
+												<span class="badge badge-danger ml-auto  brround">4</span>
+											</div>
+										</div>
+										<div class="dropdown-divider mt-0"></div>
+										<?php $__currentLoopData = $notifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+											<a href="#" class="dropdown-item d-flex pb-3">
+												<div class="notifyimg bg-danger-transparent">
+													<i class="fa fa-cogs text-danger"></i>
+												</div>
+												<div>
+													<strong> Server Rebooted.</strong>
+													<div class="small text-muted">45 mintues ago</div>
+												</div>
+											</a>
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+										<div class="dropdown-divider mb-0"></div>
+										<div class=" text-center p-2">
+											<a href="<?php echo e(route('notifications.index')); ?>" class="text-dark pt-0">View All Notifications</a>
+										</div>
+									</div>
+								</div>	
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
 										<?php if(auth()->guard()->check()): ?>
@@ -253,9 +269,25 @@
 
 							</ul>
 						</li>
-						<li>
-							<a class="side-menu__item" href="<?php echo e(route('payment.rechargements')); ?>"><i class="side-menu__icon fa fa-cash"></i><span class="side-menu__label"><?php echo e(trans('paiements')); ?></span></a>
+						<li class="slide">
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label"><?php echo e(trans('Payment')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo e(route('payment.rechargements.month')); ?>" class="slide-item"><?php echo e(trans('Payments De Ce Mois')); ?> </a>
+								</li>
+
+								<li>
+									<a href="<?php echo e(route('payment.rechargements')); ?>" class="slide-item"><?php echo e(trans('Prochain Payments')); ?> </a>
+								</li>
+								<li>
+									<a href="<?php echo e(route('payment.rechargements.paye')); ?>" class="slide-item"><?php echo e(trans('Payments Reglés')); ?> </a>
+								</li>
+							</ul>
 						</li>
+
+						<!-- <li>
+							<a class="side-menu__item" href="<?php echo e(route('payment.rechargements')); ?>"><i class="side-menu__icon fa fa-cash"></i><span class="side-menu__label"><?php echo e(trans('paiements')); ?></span></a>
+						</li> -->
 						<li>
 							<a class="side-menu__item" href="<?php echo e(route('operation.index')); ?>"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label"><?php echo e(trans('Transactions')); ?></span></a>
 						</li>

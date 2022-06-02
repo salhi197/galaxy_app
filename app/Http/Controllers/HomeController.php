@@ -49,7 +49,7 @@ class HomeController extends Controller
         $operations = Operation::where('etat',1)->where('type',1)->where('user',Auth::user()->id)->get();
 
         //partenaire par mois
-
+        $rang = User::rang($user);
         $users = User::select('id', 'created_at')
         ->where('refered_user',Auth::user()->id)
         ->get()
@@ -69,7 +69,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('home',compact('soldeTotal','partenaires','operations','userArr'));
+        return view('home',compact('soldeTotal','partenaires','operations','userArr','rang'));
     }
 
     public function forgetPassword()

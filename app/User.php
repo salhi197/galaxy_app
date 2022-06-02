@@ -35,30 +35,29 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function rang()
+    public function partenaires()
     {
-        $solde = $this->solde;
-        $id = $this->refered_user;
-        if($id!==null){
-            do {
-                $user = User::find($id);
-                $solde = $solde+$user->solde;
-                $id = $user->refered_user;
-            } while ($id!==null);
-        }
+        $users =User::where('refered_user',$this->id)->get();
+        return $users;
+    }
+    public static function rang(User $user)
+    {
+        $solde = $user->solde;
+        // while($id!=null){
+        //     $user = User::find($id);
+        //     $solde = $solde+$user->solde;
+        //     $id = $user->refered_user;
+        // }
         if ($solde>500 and $solde<9999) {
             return 1;
         }
         if ($solde>10000 and $solde<24999) {
-            return 1;
+            return 2;
         }
-        // if ($solde>500 and $solde<9999) {
-        //     return 1;
-        // }
-        // if ($solde>500 and $solde<9999) {
-        //     return 1;
-        // }
-        return 0;
+        if ($solde>25000 and $solde<49999) {
+            return 3;
+        }
+        return 1;
     }
 
 }
