@@ -29,7 +29,7 @@ class PaymentController extends Controller
     {
         $interval = $request['interval'];
         if($interval==0){
-            return redirect()->back()->with('Error', 'Séléctionner un interval ');        
+            return redirect()->route("payment.rechargements")->with('Error', 'Séléctionner un interval ');        
         }
         if($interval==1){
             $operations = Operation::where('type',1)->where('etat',1)
