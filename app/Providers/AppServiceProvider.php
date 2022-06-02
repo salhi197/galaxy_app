@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         if(Auth::check()){
             $notifications = Notification::where('user',Auth::user()->id)->orderBy('created','desc')->get();            
+            Config::set('notifications', 'notifications');
+            dd(Config::get('notifications'));
         }
 
         app()->singleton('lang',function (){
