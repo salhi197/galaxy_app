@@ -210,9 +210,8 @@
 							
 
 							<div class="user-info">
-								<h2>{{Auth::user()->name ?? ''}}    </h2>
-								
-
+								<h2>{{Auth::user()->name ?? ''}} {{Auth::user()->nom ?? ''}}    </h2>
+							
 								@auth
 								<img src="{{asset('assets/images/flags/'.strtolower(Auth::user()->pays).'.svg')}}" class="w-5 h-5 text-center mx-auto d-block"/>
 								@endif
