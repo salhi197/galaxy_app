@@ -37,7 +37,7 @@ class OperationController extends Controller
         $customPaper = array(0,0,690,492);
         $dompdf->set_paper($customPaper);        
         $dompdf->render();        
-        $dompdf->stream("dompdf_out.pdf", array("Attachment" =>0));
+        $dompdf->stream("dompdf_out.pdf", array("Attachment" =>1));
     }
 
 
