@@ -70,9 +70,9 @@
 													<?php endif; ?>
 													<td><?php echo e($operation->created_at); ?></td>
 													<td>
-														<button class="btn btn-primary">
+														<a href="<?php echo e(route('operation.certificat',['operation'=>$operation])); ?>" class="btn btn-primary">
 															Télécharger
-														</button>
+														</a>
 													</td>
 													<?php if(auth()->guard('admin')->check()): ?>
 																<td >

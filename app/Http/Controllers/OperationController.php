@@ -5,13 +5,41 @@ namespace App\Http\Controllers;
 use App\Operation;
 use Mail;
 use Auth;
+use Dompdf\Dompdf;
 use App\User;
+use App\Template;
 use Carbon\Carbon;
 use App\Remorque;
 use Illuminate\Http\Request;
 
 class OperationController extends Controller
 {
+
+
+
+    public function certificat($operation)
+    {
+        $operation = Operation::find($operation);
+        $user = User::find($operation->user);
+        $dompdf = new Dompdf();
+        $html = Template::certificat($user,$operation);
+        $contxt = stream_context_create([
+            'ssl' => [
+            'verify_peer' => FALSE,
+            'verify_peer_name' => FALSE,
+            'allow_self_signed'=> TRUE
+            ]
+        ]);
+        $dompdf = $dompdf->set_options(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $dompdf->setHttpContext($contxt);        
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4');
+        $customPaper = array(0,0,690,492);
+        $dompdf->set_paper($customPaper);        
+        $dompdf->render();        
+        $dompdf->stream("dompdf_out.pdf", array("Attachment" =>0));
+    }
+
 
     public function index()
     {
@@ -23,8 +51,6 @@ class OperationController extends Controller
             $operations = Operation::where('user',Auth::user()->id)->get();
             return view('operations.index',compact('operations'));    
         }
-
-
     }
 
     /**

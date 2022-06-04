@@ -62,14 +62,23 @@
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
 								<div class="header-brand-img desktop-logo">
-								</div><!-- SEARCH -->
+								</div>
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-info" role="alert"><?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
+									<h4 class="alert alert-priamry" role="alert">Solde : <?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
 									<?php endif; ?>	
 									</a>
 								</div>
+
+								
+								<div class="desktop-logo">
+									<a class="text-white"  href="#">
+									<?php if(auth()->guard()->check()): ?>
+									<h4 class="alert alert-priamry" role="alert">Solde Retrait : <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$</h4>
+									<?php endif; ?>	
+									</a>
+								</div>								
 								<!-- SEARCH -->
 
 								<div class="dropdown d-md-flex">
@@ -163,7 +172,7 @@
 											<h5 class="text-dark mb-1">Admin</h5>
 											<?php endif; ?>
 											<?php if(auth()->guard()->check()): ?>
-											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?>   </h5>
+											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->nom ?? ''); ?> <?php echo e(Auth::user()->name ?? ''); ?>   </h5>
 											<?php endif; ?>
 
 											<small class="text-muted">Investor</small>
@@ -334,10 +343,6 @@
 								<li>
 									<a href="<?php echo e(route('user.methodes')); ?>" class="slide-item"><?php echo e(trans('Méthode de Paiment')); ?> </a>
 								</li>
-
-								
-
-																
 							</ul>
 						</li>
 

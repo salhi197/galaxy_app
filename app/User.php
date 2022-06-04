@@ -60,7 +60,6 @@ class User extends Authenticatable
         if ($solde>10000 and $solde<24999) {
             return 2;
         }
-        
         if ($solde>25000 and $solde<49999) {
             return 3;
         }

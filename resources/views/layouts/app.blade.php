@@ -62,14 +62,23 @@
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
 								<div class="header-brand-img desktop-logo">
-								</div><!-- SEARCH -->
+								</div>
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									@auth
-									<h4 class="alert alert-info" role="alert">{{Auth::user()->solde ?? ''}}$</h4>
+									<h4 class="alert alert-priamry" role="alert">Solde : {{Auth::user()->solde ?? ''}}$</h4>
 									@endif	
 									</a>
 								</div>
+
+								
+								<div class="desktop-logo">
+									<a class="text-white"  href="#">
+									@auth
+									<h4 class="alert alert-priamry" role="alert">Solde Retrait : {{Auth::user()->solde_retrait ?? ''}}$</h4>
+									@endif	
+									</a>
+								</div>								
 								<!-- SEARCH -->
 
 								<div class="dropdown d-md-flex">
@@ -163,7 +172,7 @@
 											<h5 class="text-dark mb-1">Admin</h5>
 											@endif
 											@auth
-											<h5 class="text-dark mb-1">{{Auth::user()->name ?? ''}}   </h5>
+											<h5 class="text-dark mb-1">{{Auth::user()->nom ?? ''}} {{Auth::user()->name ?? ''}}   </h5>
 											@endif
 
 											<small class="text-muted">Investor</small>
@@ -334,10 +343,6 @@
 								<li>
 									<a href="{{route('user.methodes')}}" class="slide-item">{{trans('Méthode de Paiment')}} </a>
 								</li>
-
-								
-
-																
 							</ul>
 						</li>
 

@@ -45,6 +45,7 @@ class LoginController extends Controller
         $this->validator($request);
         return Auth::guard($guard)->attempt(
             [
+                'email_verified'=>1,
                 'email' => $request->email,
                 'password' => $request->password
             ],

@@ -103,6 +103,7 @@ Route::group(['prefix' => 'payment', 'as' => 'payment'], function () {
 
 Route::group(['prefix' => 'operation', 'as' => 'operation'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'OperationController@index']);
+    Route::get('/certificat/{operation}',['as'=>'.certificat', 'uses' => 'OperationController@certificat']);
 
     Route::get('/rechargement', ['as' => '.recharger.index', 'uses' => 'OperationController@indexRechargement']);
     Route::get('/rechargement/actif', ['as' => '.recharger.index.actif', 'uses' => 'OperationController@indexRechargementActif']);

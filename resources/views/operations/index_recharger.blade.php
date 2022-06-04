@@ -70,9 +70,9 @@
 													@endif
 													<td>{{$operation->created_at}}</td>
 													<td>
-														<button class="btn btn-primary">
+														<a href="{{route('operation.certificat',['operation'=>$operation])}}" class="btn btn-primary">
 															Télécharger
-														</button>
+														</a>
 													</td>
 													@auth('admin')
 																<td >

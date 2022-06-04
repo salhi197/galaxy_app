@@ -4,7 +4,7 @@
 
 
 					<div class="page-header">
-						<h4 class="page-title">{{trans('dashboard')}}</h4>
+						<h4 class="page-title">{{trans('Dashboard')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">GalaxyApp</a></li>
 							<li class="breadcrumb-item active" aria-current="page">Acceuil</li>
@@ -33,7 +33,7 @@
 											</div>
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
-											<p class="mb-3 text-muted"> For Last month</p>
+											<p class="mb-3 text-muted"> </p>
 										</div>
 									</div>
 
@@ -49,7 +49,7 @@
 												</h6></div>
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
-											<p class="mb-3 text-muted"> For Last month</p>
+											<p class="mb-3 text-muted"> </p>
 										</div>
 									</div>
 
@@ -78,8 +78,8 @@
 
 												</h6></div>
 											</div>
-											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark">$0</h2>
-											<p class="mb-3 text-muted"> For Last month</p>
+											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark"> 0 </h2>
+											<p class="mb-3 text-muted"> </p>
 										</div>
 									</div>
 
