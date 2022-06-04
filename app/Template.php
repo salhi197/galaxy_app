@@ -42,7 +42,7 @@ class Template extends Authenticatable
 
 
         <div style="position:absolute;top:4.90in;left:0.83in;width:4.38in;line-height:0.27in;"><DIV style="position:relative; left:0.88in;"><span style="font-style:normal;font-weight:bold;font-size:15pt;font-family:Swis721 Ex BT;color:#e1cc8e">'.$user->nom.' </span></SPAN></DIV><br/></div>
-        <div style="position:absolute;top:4.90in;left:0.83in;width:4.38in;line-height:0.27in;"><DIV style="position:relative; left:1.55in;"><span style="font-style:normal;font-weight:bold;font-size:15pt;font-family:Swis721 Ex BT;color:#e1cc8e">'.$user->prenom.' </span></SPAN></DIV><br/></div>
+        <div style="position:absolute;top:4.90in;left:0.83in;width:4.38in;line-height:0.27in;"><DIV style="position:relative; left:1.55in;"><span style="font-style:normal;font-weight:bold;font-size:15pt;font-family:Swis721 Ex BT;color:#e1cc8e">'.$user->name.' </span></SPAN></DIV><br/></div>
 
         <img style="position:absolute;top:1.79in;left:0.56in;width:3.21in;height:1.34in" src="'.asset('img/pdf/ri_1.png').'" />
         <img style="position:absolute;top:4.26in;left:7.23in;width:0.45in;height:0.71in" src="'.asset('img/pdf/ri_2.png').'" />
