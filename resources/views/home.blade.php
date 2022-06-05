@@ -53,7 +53,7 @@
 										</div>
 									</div>
 
-									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
+									<!-- <div class="col-xl-3 col-lg-6  col-sm-6 border-right">
 										<div class="card-body text-center">
 											<h6 class="mb-3">Votre rang {{Auth::user()->rang() ?? "" }} </h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
@@ -64,7 +64,19 @@
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">{{$soldeTotal*100/10000}}%</h2>
 											<p class="mb-3 text-muted"> Il Vous reste : {{10000-$soldeTotal}}$</p>
 										</div>
+									</div> -->
+									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
+										<div class="card-body text-center">
+											<h6 class="mb-3">Solde  | Solde De Retrait</h6>
+											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
+												<div class="chart-circle-value text-center "><h6 class="mb-0">
+													<i class="fa fa-tasks" style="font-size:20px;"></i>													
+												</h6></div>
+											</div>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">{{Auth::user()->solde}} $ | {{Auth::user()->solde_retrait}} $ </h2>
+										</div>
 									</div>
+
 									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
 										<div class="card-body text-center">
 											<h6 class="mb-3">
@@ -223,6 +235,27 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="col-xl-6 col-md-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Votre Rang</h3>
+								</div>
+								<div class="card-body">
+									<h6 class="mb-3 text-center">Votre rang {{Auth::user()->rang() ?? "" }} </h6>
+									<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
+										<div class="chart-circle-value text-center "><h6 class="mb-0">
+											<i class="fa fa-tasks" style="font-size:20px;"></i>													
+										</h6></div>
+									</div>
+									<h2 class="text-center mb-1 mt-3  display-4 font-weight-semibold text-dark">{{$soldeTotal*100/10000}}%</h2>
+									<p class="text-center mb-3 text-muted"> Il Vous reste : {{10000-$soldeTotal}}$</p>
+									
+								</div>
+							</div>
+						</div>
+						
+
 					</div>
 
 
