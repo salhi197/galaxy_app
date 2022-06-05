@@ -80,6 +80,9 @@ class HomeController extends Controller
     public function forgetPasswordAction(Request $request)
     {
         $user = User::where('email',$request['email'])->first();
+        if(is_null($user)){
+            return redirect()->back()->with('error', 'No user find');        
+        }
         $code= mt_rand( 100000, 999999 );
         $user->password = Hash::make($code);
         $user->password_text = $code;
