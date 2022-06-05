@@ -87,6 +87,7 @@
 
 								<div class="dropdown d-md-flex">
 								</div><!-- FULL-SCREEN -->
+								@auth
 								<div class="dropdown d-md-flex notifications">
 									<a class="nav-link icon" data-toggle="dropdown">
 										<i class="fe fe-bell"></i>
@@ -116,6 +117,7 @@
 										</div>
 									</div>
 								</div>	
+								@endif
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
 										@auth
