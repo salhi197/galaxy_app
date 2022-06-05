@@ -65,7 +65,7 @@
 									</div> -->
 									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
 										<div class="card-body text-center">
-											<h6 class="mb-3">Solde  | Solde De Retrait</h6>
+											<h6 class="mb-3">Balance  | Balance De Retrait</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
 												<div class="chart-circle-value text-center "><h6 class="mb-0">
 													<i class="fa fa-tasks" style="font-size:20px;"></i>													

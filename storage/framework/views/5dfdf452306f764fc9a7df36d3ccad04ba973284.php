@@ -23,6 +23,7 @@
 		<!-- LEFT-MENU CSS -->
 		<link href="<?php echo e(asset('assets/css/sidemenu/closed-sidemenu.css')); ?>" rel="stylesheet">
 		<!--C3.JS CHARTS PLUGIN -->
+		<link href="<?php echo e(asset('assets/plugins/charts-c3/c3-chart.css')); ?>" rel="stylesheet"/>
 
 		<!-- TABS CSS -->
 		<link href="<?php echo e(asset('assets/plugins/tabs/style-2.css')); ?>" rel="stylesheet" type="text/css">
@@ -54,10 +55,11 @@
 				<div class="header app-header" style="background-color:#41413f;">
 					<div class="container-fluid">
 						<div class="d-flex">
-						   <a class="header-brand" href="index.html">
-								<img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img desktop-logo" width=""/>
-							   <img src="<?php echo e(asset('img/logoh.png')); ?>" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
-							</a><!-- LOGO -->
+						   <a class="header-brand" href="<?php echo e(route('home')); ?>">
+								<img src="<?php echo e(asset('img/logos/logo.png')); ?>" class="" width="220px"/>
+							   <img src="<?php echo e(asset('img/logos/logo2.png')); ?>" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
+							</a>
+							
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
 							<div class="d-flex order-lg-2 ml-auto header-right-icons header-search-icon">
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
@@ -66,7 +68,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry" role="alert">Solde : <?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert">Balance: <?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
 									<?php endif; ?>	
 									</a>
 								</div>
@@ -75,7 +77,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry" role="alert">Solde Retrait : <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert">Balance Retrait: <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$</h4>
 									<?php endif; ?>	
 									</a>
 								</div>								
@@ -108,7 +110,7 @@
 										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 										<div class="dropdown-divider mb-0"></div>
 										<div class=" text-center p-2">
-											<a href="<?php echo e(route('notification.index')); ?>" class="text-dark pt-0">View All Notifications</a>
+											<!-- <a href="<?php echo e(route('notification.index')); ?>" class="text-dark pt-0">View All Notifications</a> -->
 										</div>
 									</div>
 								</div>	
@@ -427,8 +429,7 @@
 				<div class="container">
 					<div class="row align-items-center flex-row-reverse">
 						<div class="col-md-12 col-sm-12 text-center">
-							Copyright © <?php echo e(date('Y')); ?> ||  
-							
+							Copyright © <?php echo e(date('Y')); ?> | Galaxy Investissement  
 							<span id="time-part"></span>
 							<span id="date-part"></span>
 						</div>
@@ -451,6 +452,7 @@
 		<script src="<?php echo e(asset('assets/js/vendors/jquery.sparkline.min.js')); ?>"></script>
 
 		<!-- CHART-CIRCLE -->
+		<script src="<?php echo e(asset('assets/js/vendors/circle-progress.min.js')); ?>"></script>
 
 		<!-- RATING STAR -->
 		<script src="<?php echo e(asset('assets/plugins/rating/jquery.rating-stars.js')); ?>"></script>
