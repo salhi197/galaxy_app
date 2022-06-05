@@ -1,6 +1,8 @@
 <?php 
 	use App\Notification;
-	$notifications = Notification::where('user',Auth::user()->id)->orderBy('created_at','desc')->get();            
+	if (Auth::check()) {
+		$notifications = Notification::where('user',Auth::user()->id)->orderBy('created_at','desc')->get();            
+	}
 ?>
 <!doctype html>
 <html lang="en" dir="ltr">
