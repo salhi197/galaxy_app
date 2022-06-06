@@ -25,12 +25,11 @@
 												<div class="chart-circle-value text-center ">
 													<h6 class="mb-0">
 													<i class="fa fa-line-chart" style="font-size:20px;">
-
 													</i>													
 													</h6>
 											</div>
 											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark"><?php echo e(Auth::user()->solde_actif); ?> $</h2>
 											<p class="mb-3 text-muted"> </p>
 										</div>
 									</div>

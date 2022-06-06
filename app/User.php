@@ -46,7 +46,7 @@ class User extends Authenticatable
         $partenaires = $this->partenaires();
         if(count($partenaires)>0){
             foreach($partenaires as $partenaire){
-                $solde = $solde + $partenaire->solde;
+                $solde = $solde + $partenaire->solde_actif;
             }
         }
         // while($id!=null){
