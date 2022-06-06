@@ -87,7 +87,7 @@ class HomeController extends Controller
         ];
 
         Mail::send('support_email', ['data' => $data], function ($message) use ($data) {
-            $message->to('salhiali197@gmail.com')
+            $message->to('contact@galaxy.world')
                 ->subject('Demande Du Support');
         });                
         return redirect()->route('login')->with('success', 'Un Email a été envoyé');        
