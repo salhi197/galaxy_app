@@ -76,6 +76,24 @@ class HomeController extends Controller
     {       
         return view('auth.forget-password');
     }
+    public function support(Request $request)
+    {
+        $data = [
+            'subject' => 'Demande Du Support',
+            'email' => $request['email'],
+            'nom'=>$request['nom'],
+            'prenom'=>$request['prenom'],
+            'message' => $request['message'],
+        ];
+
+        
+        Mail::send('support', ['data' => $data], function ($message) use ($data) {
+            $message->to('contact@galaxy.work')
+                ->subject('Demande Du Support');
+        });                
+        return redirect()->route('login')->with('success', 'Un Email a été envoyé');        
+
+    }
 
     public function forgetPasswordAction(Request $request)
     {

@@ -1,6 +1,8 @@
 <?php 
 	use App\Notification;
-	$notifications = Notification::where('user',Auth::user()->id)->orderBy('created_at','desc')->get();            
+	if (Auth::check()) {
+		$notifications = Notification::where('user',Auth::user()->id)->orderBy('created_at','desc')->get();            
+	}
 ?>
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -77,7 +79,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry text-center" role="alert">Balance Retrait: <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert">Revenus Mensuel : <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$</h4>
 									<?php endif; ?>	
 									</a>
 								</div>								
@@ -85,6 +87,7 @@
 
 								<div class="dropdown d-md-flex">
 								</div><!-- FULL-SCREEN -->
+								<?php if(auth()->guard()->check()): ?>
 								<div class="dropdown d-md-flex notifications">
 									<a class="nav-link icon" data-toggle="dropdown">
 										<i class="fe fe-bell"></i>
@@ -114,6 +117,7 @@
 										</div>
 									</div>
 								</div>	
+								<?php endif; ?>
 								<div class="dropdown d-md-flex header-settings">
 									<a href="#" class="nav-link " data-toggle="dropdown">
 										<?php if(auth()->guard()->check()): ?>
@@ -133,7 +137,7 @@
 											<h5 class="text-dark mb-1">Admin</h5>
 											<?php endif; ?>
 											<?php if(auth()->guard()->check()): ?>
-											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->name ?? ''); ?>   </h5>
+											<h5 class="text-dark mb-1"><?php echo e(Auth::user()->nom ?? ''); ?> <?php echo e(Auth::user()->name ?? ''); ?>   </h5>
 											<?php endif; ?>
 
 											
@@ -145,7 +149,7 @@
 										<a class="dropdown-item" href="<?php echo e(route('setting')); ?>"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
 										<a class="dropdown-item" href="<?php echo e(route('operation.recharger.index.actif')); ?>"><i class="fe fe-list mr-2"></i> <span>Activity</span></a>
 										<a class="dropdown-item" href="<?php echo e(route('support')); ?>"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
-										<a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Logout</span></a>
+										<a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Déconexion</span></a>
 										<a class="dropdown-item" >
 											Dark Mode
 											<div class="material-switch pull-right">
@@ -382,7 +386,7 @@
 							<a class="side-menu__item" href="<?php echo e(route('faq')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('Faq')); ?></span></a>
 						</li>
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('support')); ?>"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label"><?php echo e(trans('support')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('support')); ?>"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label"><?php echo e(trans('Support')); ?></span></a>
 						</li>
 						<?php endif; ?>
 
@@ -427,12 +431,15 @@
 			<!-- FOOTER -->
 			<footer class="footer">
 				<div class="container">
-					<div class="row align-items-center flex-row-reverse">
-						<div class="col-md-12 col-sm-12 text-center">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 text-center">
 							Copyright © <?php echo e(date('Y')); ?> | Galaxy Investissement  
-							<span id="time-part"></span>
 							<span id="date-part"></span>
 						</div>
+						<div class="col-md-6 col-sm-6 text-center">
+							<a href="https://t.me/GALAXY_Invest_Support" target="_blank"><i class="fa fa-telegram" style="font-size:20px;"></i></a>
+						</div>
+
 					</div>
 				</div>
 			</footer>

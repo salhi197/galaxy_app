@@ -2,7 +2,7 @@
 
 
 					<div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('Dashboard')); ?></h4>
+						<h4 class="page-title"><?php echo e(trans('Mon Espace')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">GalaxyApp</a></li>
 							<li class="breadcrumb-item active" aria-current="page">Acceuil</li>
@@ -65,13 +65,13 @@
 									</div> -->
 									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
 										<div class="card-body text-center">
-											<h6 class="mb-3">Balance  | Balance De Retrait</h6>
+											<h6 class="mb-3">Votre Balance </h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
 												<div class="chart-circle-value text-center "><h6 class="mb-0">
 													<i class="fa fa-tasks" style="font-size:20px;"></i>													
 												</h6></div>
 											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark"><?php echo e(Auth::user()->solde); ?> $ | <?php echo e(Auth::user()->solde_retrait); ?> $ </h2>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark"><?php echo e(Auth::user()->solde); ?> $  </h2>
 										</div>
 									</div>
 

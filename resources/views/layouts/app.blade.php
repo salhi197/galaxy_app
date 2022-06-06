@@ -79,7 +79,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									@auth
-									<h4 class="alert alert-priamry text-center" role="alert">Balance Retrait: {{Auth::user()->solde_retrait ?? ''}}$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert">Revenus Mensuel : {{Auth::user()->solde_retrait ?? ''}}$</h4>
 									@endif	
 									</a>
 								</div>								
@@ -137,7 +137,7 @@
 											<h5 class="text-dark mb-1">Admin</h5>
 											@endif
 											@auth
-											<h5 class="text-dark mb-1">{{Auth::user()->name ?? ''}}   </h5>
+											<h5 class="text-dark mb-1">{{Auth::user()->nom ?? ''}} {{Auth::user()->name ?? ''}}   </h5>
 											@endif
 
 											
@@ -149,7 +149,7 @@
 										<a class="dropdown-item" href="{{route('setting')}}"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
 										<a class="dropdown-item" href="{{route('operation.recharger.index.actif')}}"><i class="fe fe-list mr-2"></i> <span>Activity</span></a>
 										<a class="dropdown-item" href="{{route('support')}}"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
-										<a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Logout</span></a>
+										<a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Déconexion</span></a>
 										<a class="dropdown-item" >
 											Dark Mode
 											<div class="material-switch pull-right">
@@ -386,7 +386,7 @@
 							<a class="side-menu__item" href="{{route('faq')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('Faq')}}</span></a>
 						</li>
 						<li>
-							<a class="side-menu__item" href="{{route('support')}}"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label">{{trans('support')}}</span></a>
+							<a class="side-menu__item" href="{{route('support')}}"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label">{{trans('Support')}}</span></a>
 						</li>
 						@endif
 
@@ -430,12 +430,15 @@
 			<!-- FOOTER -->
 			<footer class="footer">
 				<div class="container">
-					<div class="row align-items-center flex-row-reverse">
-						<div class="col-md-12 col-sm-12 text-center">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 text-center">
 							Copyright © {{date('Y')}} | Galaxy Investissement  
-							<span id="time-part"></span>
 							<span id="date-part"></span>
 						</div>
+						<div class="col-md-6 col-sm-6 text-center">
+							<a href="https://t.me/GALAXY_Invest_Support" target="_blank"><i class="fa fa-telegram" style="font-size:20px;"></i></a>
+						</div>
+
 					</div>
 				</div>
 			</footer>
