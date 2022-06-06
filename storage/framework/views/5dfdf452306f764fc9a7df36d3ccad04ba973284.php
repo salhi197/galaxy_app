@@ -78,7 +78,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry text-center" role="alert">Revenus Mensuel : <?php echo e(Auth::user()->solde_actif ?? ''); ?>$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert">Solde Actif : <?php echo e(Auth::user()->solde_actif ?? ''); ?>$</h4>
 									<?php endif; ?>	
 									</a>
 								</div>								
@@ -531,12 +531,9 @@
 			var theme = localStorage.getItem('theme');
 			console.log(theme)
 			if(theme==null){
-				console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
-
 				localStorage.setItem('theme', 'dark');
 			}
 			if(theme=="dark"){
-				console.log("sssssssssssss")
 				$('#someSwitchOptionDefault').prop( "checked", true );
 				$('#someSwitchOptionDefault2').prop( "checked", false );
 				$("body").removeClass("light-mode");

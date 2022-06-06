@@ -35,50 +35,48 @@
             },
 			backgroundColor : 'transparent',
 			markers : [{
-				latLng : [41.90, 12.45],
+				latLng : [28.0289837,1.6666663],
 				name : 'Vatican City'
 			}]
 		});
 
-		$('#uk').vectorMap({
-			map : 'uk_mill_en',
-			backgroundColor : 'transparent',
-			regionStyle : {
-				initial : {
-					fill : '#f47b25'
-				}
-			}
-		});
+		// $('#uk').vectorMap({
+		// 	map : 'uk_mill_en',
+		// 	backgroundColor : 'transparent',
+		// 	regionStyle : {
+		// 		initial : {
+		// 			fill : '#f47b25'
+		// 		}
+		// 	}
+		// });
+		// $('#usa').vectorMap({
+		// 	map : 'us_aea_en',
+		// 	backgroundColor : 'transparent',
+		// 	regionStyle : {
+		// 		initial : {
+		// 			fill : '#7673e6'
+		// 		}
+		// 	}
+		// });
+		// $('#australia').vectorMap({
+		// 	map : 'au_mill',
+		// 	backgroundColor : 'transparent',
+		// 	regionStyle : {
+		// 		initial : {
+		// 			fill : '#3ebaef'
+		// 		}
+		// 	}
+		// });
 
-		$('#usa').vectorMap({
-			map : 'us_aea_en',
-			backgroundColor : 'transparent',
-			regionStyle : {
-				initial : {
-					fill : '#7673e6'
-				}
-			}
-		});
-
-		$('#australia').vectorMap({
-			map : 'au_mill',
-			backgroundColor : 'transparent',
-			regionStyle : {
-				initial : {
-					fill : '#3ebaef'
-				}
-			}
-		});
-
-		$('#canada').vectorMap({
-			map : 'ca_lcc',
-			backgroundColor : 'transparent',
-			regionStyle : {
-				initial : {
-					fill : '#31c92e'
-				}
-			}
-		});
+		// $('#canada').vectorMap({
+		// 	map : 'ca_lcc',
+		// 	backgroundColor : 'transparent',
+		// 	regionStyle : {
+		// 		initial : {
+		// 			fill : '#31c92e'
+		// 		}
+		// 	}
+		// });
 
 	},
 	//init

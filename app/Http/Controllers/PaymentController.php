@@ -86,7 +86,7 @@ class PaymentController extends Controller
         $user = User::find($operation->user);
         $rang = $user->rang();
         $pourcentage = $request['pourcentage'];
-        $solde_retrait = $user->solde*$pourcentage/100;
+        $solde_retrait = $operation->montant*$pourcentage/100;
         $user->solde_retrait = $solde_retrait;
         $user->save();
         $payment = new Payment();

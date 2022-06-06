@@ -89,17 +89,30 @@ class OperationController extends Controller
     public function activerAction(Request $request)
     {
         $operation = new Operation();
+        $user = User::find(Auth::user()->id);
+        if($request['montant']>$user->solde){
+            return redirect()->back()->with('error', 'Le montant a dépassé  ');                    
+        }
+
         $operation->montant =$request['montant']; 
         $operation->type=3;
         $operation->etat=1;
         $operation->user=Auth::user()->id;
-        $operation->save();
+        // $operation->save();
         /**
          * 
          */
 
-         
-        return redirect()->route('recharger.index.actif')->with('success', 'Valider Avec succés ');        
+        $newSolde = $user->solde-$operation->montant;
+        $newSoldeActif = $user->solde_actif+$operation->montant;
+        $operation->validated_date = Carbon::now();
+        $operation->next_payment_date = Carbon::now()->addMonths(1);
+        $user->solde = $newSolde;
+        $user->solde_actif = $newSoldeActif;
+        $user->save();
+        $operation->save();
+
+        return redirect()->route('operation.recharger.index.actif')->with('success', 'Valider Avec succés ');        
     }
 
     public function indexActif()
