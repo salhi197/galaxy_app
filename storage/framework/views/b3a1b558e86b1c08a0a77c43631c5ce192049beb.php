@@ -394,17 +394,18 @@ var options = {
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>			  
 				],
 				borderColor: 'rgb(75, 192, 192)',		
-				borderWidth: 1
+				borderWidth: 5
 			}
 		]
   },
   options: {
   	scales: {
     	yAxes: [{
-        ticks: {
-					reverse: false
-        }
-      }]
+			yAxisKey: 'net'
+      	}],
+    	xAxes: [{
+			xAxisKey: 'net',
+      	}]
     }
   }
 }

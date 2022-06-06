@@ -75,6 +75,14 @@
 									</a>
 								</div>
 
+								<div class="desktop-logo">
+									<a class="text-white"  href="#">
+									@auth
+									<h4 class="alert alert-priamry text-center" role="alert">Revenus Mensuel : {{Auth::user()->solde_actif ?? ''}}$</h4>
+									@endif	
+									</a>
+								</div>								
+
 								
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
@@ -277,6 +285,10 @@
 									<a href="{{route('operation.recharger.index')}}" class="slide-item">{{trans('Rechargements')}} </a>
 								</li>
 								<li>
+									<a href="{{route('operation.actif.index')}}" class="slide-item">{{trans('Actif')}} </a>
+								</li>
+
+								<li>
 									<a href="{{route('operation.retrait.index')}}" class="slide-item">{{trans('Retrait')}} </a>
 								</li>
 								<li>
@@ -337,6 +349,10 @@
 								</li>
 
 								<li>
+									<a href="{{route('operation.activer.show')}}" class="slide-item">{{trans('Actif')}} </a>
+								</li>
+
+								<li>
 									<a href="{{route('operation.transferer.show')}}" class="slide-item">{{trans('Transférer')}} </a>
 								</li>
 								<li>
@@ -345,6 +361,7 @@
 								<li>
 									<a href="{{route('operation.recharger.index')}}" class="slide-item">{{trans('Rechargements')}} </a>
 								</li>
+								
 								<li>
 									<a href="{{route('user.methodes')}}" class="slide-item">{{trans('Méthode de Paiment')}} </a>
 								</li>

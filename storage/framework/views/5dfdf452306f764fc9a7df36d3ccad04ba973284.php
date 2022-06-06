@@ -75,6 +75,14 @@
 									</a>
 								</div>
 
+								<div class="desktop-logo">
+									<a class="text-white"  href="#">
+									<?php if(auth()->guard()->check()): ?>
+									<h4 class="alert alert-priamry text-center" role="alert">Revenus Mensuel : <?php echo e(Auth::user()->solde_actif ?? ''); ?>$</h4>
+									<?php endif; ?>	
+									</a>
+								</div>								
+
 								
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
@@ -277,6 +285,10 @@
 									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('Rechargements')); ?> </a>
 								</li>
 								<li>
+									<a href="<?php echo e(route('operation.actif.index')); ?>" class="slide-item"><?php echo e(trans('Actif')); ?> </a>
+								</li>
+
+								<li>
 									<a href="<?php echo e(route('operation.retrait.index')); ?>" class="slide-item"><?php echo e(trans('Retrait')); ?> </a>
 								</li>
 								<li>
@@ -337,6 +349,10 @@
 								</li>
 
 								<li>
+									<a href="<?php echo e(route('operation.activer.show')); ?>" class="slide-item"><?php echo e(trans('Actif')); ?> </a>
+								</li>
+
+								<li>
 									<a href="<?php echo e(route('operation.transferer.show')); ?>" class="slide-item"><?php echo e(trans('Transférer')); ?> </a>
 								</li>
 								<li>
@@ -345,6 +361,7 @@
 								<li>
 									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('Rechargements')); ?> </a>
 								</li>
+								
 								<li>
 									<a href="<?php echo e(route('user.methodes')); ?>" class="slide-item"><?php echo e(trans('Méthode de Paiment')); ?> </a>
 								</li>

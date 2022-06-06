@@ -64,7 +64,7 @@ class OperationController extends Controller
             return view('operations.index_recharger',compact('operations'));    
         }
         if(Auth::check()){
-            $operations = Operation::where('etat',1)->where('type',1)->where('user',Auth::user()->id)->get();
+            $operations = Operation::where('etat',1)->where('type',3)->where('user',Auth::user()->id)->get();
             return view('operations.index_recharger',compact('operations'));    
         }
     }
@@ -79,6 +79,38 @@ class OperationController extends Controller
             $operations = Operation::where('type',1)->where('user',Auth::user()->id)->get();
 
             return view('operations.index_recharger',compact('operations'));    
+        }
+    }
+
+    public function activerShow()
+    {
+        return view('operations.activer');
+    }
+    public function activerAction(Request $request)
+    {
+        $operation = new Operation();
+        $operation->montant =$request['montant']; 
+        $operation->type=3;
+        $operation->etat=1;
+        $operation->user=Auth::user()->id;
+        $operation->save();
+        /**
+         * 
+         */
+
+         
+        return redirect()->route('recharger.index.actif')->with('success', 'Valider Avec succés ');        
+    }
+
+    public function indexActif()
+    {
+        if(Auth::guard('admin')->check()){
+            $operations = Operation::where('type',3)->get();
+            return view('operations.index_actif',compact('operations'));    
+        }
+        if(Auth::check()){
+            $operations = Operation::where('etat',1)->where('type',3)->where('user',Auth::user()->id)->get();
+            return view('operations.index_actif',compact('operations'));    
         }
     }
 

@@ -27,7 +27,7 @@ class PaymentController extends Controller
     {
         $interval = "";
         if(Auth::guard('admin')->check()){
-            $operations = Operation::where('type',1)
+            $operations = Operation::where('type',3)
             ->where('etat',1)
             ->whereMonth('next_payment_date',date('m'))
             ->get();
@@ -39,7 +39,7 @@ class PaymentController extends Controller
     {
         $interval = "";
         if(Auth::guard('admin')->check()){
-            $operations = Operation::where('type',1)
+            $operations = Operation::where('type',3)
             ->where('etat',1)
             ->get();
             return view('payments.rechargements',compact('operations','interval'));    
@@ -53,14 +53,14 @@ class PaymentController extends Controller
             return redirect()->route("payment.rechargements")->with('Error', 'Séléctionner un interval ');        
         }
         if($interval==1){
-            $operations = Operation::where('type',1)->where('etat',1)
+            $operations = Operation::where('type',3)->where('etat',1)
             ->whereDay('validated_date', '>=', 1)
             ->whereDay('validated_date', '<=', 9)            
             ->whereMonth('next_payment_date',date('m'))
             ->get();
         }
         if($interval==2){
-            $operations = Operation::where('type',1)->where('etat',1)
+            $operations = Operation::where('type',3)->where('etat',1)
             ->whereDay('validated_date', '>=', 10)
             ->whereDay('validated_date', '<=', 20)            
             ->whereMonth('next_payment_date',date('m'))
@@ -68,7 +68,7 @@ class PaymentController extends Controller
 
         }
         if($interval==3){
-            $operations = Operation::where('type',1)->where('etat',1)
+            $operations = Operation::where('type',3)->where('etat',1)
             ->whereDay('validated_date', '>=', 21)
             ->whereDay('validated_date', '<=', 31)            
             ->whereMonth('next_payment_date',date('m'))

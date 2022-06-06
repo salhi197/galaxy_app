@@ -393,17 +393,18 @@ var options = {
 					@endforeach			  
 				],
 				borderColor: 'rgb(75, 192, 192)',		
-				borderWidth: 1
+				borderWidth: 5
 			}
 		]
   },
   options: {
   	scales: {
     	yAxes: [{
-        ticks: {
-					reverse: false
-        }
-      }]
+			yAxisKey: 'net'
+      	}],
+    	xAxes: [{
+			xAxisKey: 'net',
+      	}]
     }
   }
 }
