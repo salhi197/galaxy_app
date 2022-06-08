@@ -108,7 +108,7 @@
 							</form>
                         </div>
 
-                        <!-- <div class="col-lg-4">
+                        <div class="col-lg-4">
 							<form class="card" method="post" action="{{route('user.password')}}" enctype="multipart/form-data">
 								<div class="card-header">
 									<div class="card-title">Changer le mot de passe</div>
@@ -116,13 +116,13 @@
 								<div class="card-body">
 									<div class="form-group">
 										<label class="form-label">Mot de passe Actuel</label>
-										<input type="password" class="form-control" >
+										<input name="password" type="password" class="form-control" >
 									</div>
 									<div class="form-group">
 										<label class="form-label">
 										Nouveau Mot de passe
 										</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+										<input type="password" class="form-control" id="exampleInputPassword1" name="new_password" required placeholder="Password">
 									</div>
 									
 									<div class="form-footer">
@@ -130,7 +130,7 @@
 									</div>
 								</div>
 							</form>
-						</div> -->
+						</div>
 						<!-- COL END -->
 
                     </div>

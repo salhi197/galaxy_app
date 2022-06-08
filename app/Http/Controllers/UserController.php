@@ -66,8 +66,11 @@ class UserController extends Controller
     public function password(Request $request)
     {
         $user =User::find(Auth::user()->id);
-        $user->password = Hash::make($request['password']);
-        $user->password_text = $request['password'];
+        if($request->password!=$user->password_text){
+            return redirect()->back()->with('error', 'Mot de passe n\'est pas correcte ');        
+        }
+        $user->password = Hash::make($request['new_password']);
+        $user->password_text = $request['new_password'];
         $user->save();
         return redirect()->route('user.profile')->with('success', 'Success ');
         
