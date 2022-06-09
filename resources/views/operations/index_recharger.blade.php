@@ -77,12 +77,13 @@
 													@auth('admin')
 																<td >
 																	<div class="table-action">  
-																			<a class="btn btn-outline btn-danger px-3 mb-0" 
-																			href="{{route('operation.recharger.valider',['operation'=>$operation->id])}}"
-																			onclick="return confirm('etes vous sure  ?')" >
-																				<i class="fe fe-check"></i>
-																				
-																			</a>
+																			@if($operation->confirmed == 0 and $operation->etat == 0)
+																				<a class="btn btn-outline btn-danger px-3 mb-0" 
+																				href="{{route('operation.recharger.valider',['operation'=>$operation->id])}}"
+																				onclick="return confirm('etes vous sure  ?')" >
+																					<i class="fe fe-check"></i>																				
+																				</a>
+																			@endif
 
 																			<a class="btn btn-outline btn-danger px-3 mb-0" 
 																			href="{{route('operation.recharger.annuler',['operation'=>$operation->id])}}"

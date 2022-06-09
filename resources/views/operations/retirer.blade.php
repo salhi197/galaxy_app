@@ -60,10 +60,10 @@
                                                 <div class="form-group overflow-hidden">
                                                     <label>Entrez la méthode de recharge:</label>
                                                         <select name="methode" class="form-control select2 w-100" >
-                                                        <option value="btc">BTC</option>
-                                                        <option value="prefectmoney">Perfect Money</option>
+                                                        <!-- <option value="btc">BTC</option> -->
+                                                        <!-- <option value="prefectmoney">Perfect Money</option> -->
                                                         <option value="usdt_trc20">USDT TRC20</option>
-                                                        <option value="usdt_erc20">USDT ERC20</option>
+                                                        <!-- <option value="usdt_erc20">USDT ERC20</option> -->
 														<option value="usdt_erc20">Transfert Banquaire</option>
 														
                                                     </select>

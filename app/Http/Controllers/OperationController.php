@@ -168,7 +168,8 @@ class OperationController extends Controller
         $user = User::find($operation->user);
         $montant = $user->solde+$operation->montant;
         $operation->validated_date = Carbon::now();
-        $operation->next_payment_date = Carbon::now()->addMonths(1);
+        $operation->confirmed = 1;//Carbon::now();
+        // $operation->next_payment_date = Carbon::now()->addMonths(1);
         $user->solde = $montant;
         $user->save();
 
