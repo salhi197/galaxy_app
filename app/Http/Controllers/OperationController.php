@@ -106,7 +106,7 @@ class OperationController extends Controller
         $newSolde = $user->solde-$operation->montant;
         $newSoldeActif = $user->solde_actif+$operation->montant;
         $operation->validated_date = Carbon::now();
-        $operation->next_payment_date = Carbon::now()->addMonths(1);
+        $operation->next_payment_date = Carbon::now()->addMonths(1)->addDays(1);
         $user->solde = $newSolde;
         $user->solde_actif = $newSoldeActif;
         $user->save();

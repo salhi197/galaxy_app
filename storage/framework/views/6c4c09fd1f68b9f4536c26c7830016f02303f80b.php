@@ -26,7 +26,7 @@
 													<th>ID</th>
 													<th>User</th>
 													<th>Montant</th>
-													<th>Payé</th>
+													
 													<th>Etat</th>
 													<th>Crée le </th>
 													<th>Certificat</th>
@@ -47,11 +47,6 @@
 														</a>
 													</td>
 													<td class="text-center"><?php echo e($operation->montant); ?> $ </td>
-													<td>
-														<?php echo e($operation->created_at->format('m')-date('m')); ?>/12 <br>	
-														Prochain Payment : <?php echo e($operation->next_payment_date); ?>
-
-													</td>
 													<?php if($operation->etat == 1): ?>
 													<td>
 														Confirmé

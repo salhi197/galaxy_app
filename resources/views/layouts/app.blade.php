@@ -380,7 +380,7 @@
 
 
 						<li>
-							<a class="side-menu__item" href="{{route('operation.recharger.index.actif')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('Actif')}}</span></a>
+							<a class="side-menu__item" href="{{route('operation.actif.index')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('Actif')}}</span></a>
 						</li>
 						<li>
 							<a class="side-menu__item" href="{{route('user.profile')}}"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label">{{trans('Profile')}}</span></a>
