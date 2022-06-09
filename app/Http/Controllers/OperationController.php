@@ -149,7 +149,7 @@ class OperationController extends Controller
             $adress = "P1066536669";
         }
         if($methode=="btc"){
-            $adress = "P1066536669";
+            $adress = "0x4dfa421259901c9a0d5f7f31d514f429d077deb4";
         }
         if($methode=="usdt_trc20"){
             $adress = "TUVoQDLiJS8ZNpeLpCg2JxsBAPiVtxVHUa";
@@ -249,10 +249,10 @@ class OperationController extends Controller
             'code'=>$code
         ];
 
-        Mail::send('confirmation_transfert', ['data' => $data], function ($message) use ($data) {
-            $message->to($data['email'])
-                ->subject('Confirmation de Transfert');
-        });                
+        // Mail::send('confirmation_transfert', ['data' => $data], function ($message) use ($data) {
+        //     $message->to($data['email'])
+        //         ->subject('Confirmation de Transfert');
+        // });                
 
         return redirect()->route('operation.confirmer',['operation'=>$operation->id])->with('success', 'Inséré avec succés ');        
     }    
@@ -267,6 +267,9 @@ class OperationController extends Controller
     public function transfererConfirmerAction(Request $request,$operation)
     {
         $operation = Operation::find($operation);
+        if($operation->confirmed){
+            return redirect()->route('home')->with('error', 'Transfert Déja efféctué ');        
+        }
         /**
          * check if it is not confirmed 
         */
@@ -274,16 +277,15 @@ class OperationController extends Controller
             return redirect()->back()->with('error', 'Code de confirmation incorrecte !');        
         }else{
             $sender_user = User::find(Auth::user()->id);
-
             $operation->etat=1;
             $operation->save();    
-            $sender_user->solde = $sender_user->solde - $request['montant'];
+            $sender_user->solde = $sender_user->solde - $operation->montant;
             $sender_user->save(); 
             $received_user  = User::find($operation->user_2);
             /**
              * décrementer le solde de user 2
             */
-            $received_user->solde = $received_user->solde + $request['montant'];
+            $received_user->solde = $received_user->solde + $operation->montant;
             $received_user->save(); 
             return redirect()->route("home")->with('success', 'Transfert Confirmé  !');        
                 
@@ -323,10 +325,9 @@ class OperationController extends Controller
     }    
     public function retirerAction(Request $request)
     {
-
         $user = User::find(Auth::user()->id);
-        if($request['montant']>$user->solde){
-            return redirect()->route('operation.recharger.index')->with('success', 'Vous pouvez pas retirer une tel montant ');        
+        if($request['montant']>$user->solde_actif){
+            return redirect()->back()->with('success', 'Vous pouvez pas retirer une tel montant ');        
         }
         $operation = new Operation();
         $operation->montant =$request['montant']; 
@@ -338,18 +339,6 @@ class OperationController extends Controller
         $montant =$request['montant']; 
         $methode =$request['methode']; 
         $adress = "";
-        if($methode=="prefectmoney"){
-            $adress = "P1066536669";
-        }
-        if($methode=="btc"){
-            $adress = "P1066536669";
-        }
-        if($methode=="usdt_trc20"){
-            $adress = "TUVoQDLiJS8ZNpeLpCg2JxsBAPiVtxVHUa";
-        }
-        if($methode=="usdt_erc20"){
-            $adress = "0x4dfa421259901c9a0d5f7f31d514f429d077deb4";
-        }
 
         return view('operations.retrait',compact('montant','methode','adress'));
 

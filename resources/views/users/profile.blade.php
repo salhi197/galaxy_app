@@ -10,7 +10,7 @@
 							<li class="breadcrumb-item active" aria-current="page">setting</li>
 						</ol>
 					</div>
-					@if($user->verified == 0)
+					@if($user->verified == 0 || $user->verified == 1)
                     <div class="row">
 	                    <div class="col-lg-8">
 							<form class="card" action="{{route('user.update.profile',['user'=>$user->id])}}" method="post" enctype="multipart/form-data">
@@ -135,7 +135,7 @@
 
                     </div>
 					@endif
-					@if($user->verified == 1)
+					<!-- @if($user->verified == 1)
                     <div class="row">
 	                    <div class="col-lg-8">
 							<form class="card" action="{{route('user.update.profile',['user'=>$user->id])}}">
@@ -157,7 +157,7 @@
 
                     </div>
 
-					@endif
+					@endif -->
 					@if($user->verified == 2)
                     <div class="row">
 	                    <div class="col-lg-8">

@@ -8,7 +8,7 @@
 							<li class="breadcrumb-item active" aria-current="page">setting</li>
 						</ol>
 					</div>
-					<?php if($user->verified == 0): ?>
+					<?php if($user->verified == 0 || $user->verified == 1): ?>
                     <div class="row">
 	                    <div class="col-lg-8">
 							<form class="card" action="<?php echo e(route('user.update.profile',['user'=>$user->id])); ?>" method="post" enctype="multipart/form-data">
@@ -133,7 +133,7 @@
 
                     </div>
 					<?php endif; ?>
-					<?php if($user->verified == 1): ?>
+					<!-- <?php if($user->verified == 1): ?>
                     <div class="row">
 	                    <div class="col-lg-8">
 							<form class="card" action="<?php echo e(route('user.update.profile',['user'=>$user->id])); ?>">
@@ -155,7 +155,7 @@
 
                     </div>
 
-					<?php endif; ?>
+					<?php endif; ?> -->
 					<?php if($user->verified == 2): ?>
                     <div class="row">
 	                    <div class="col-lg-8">

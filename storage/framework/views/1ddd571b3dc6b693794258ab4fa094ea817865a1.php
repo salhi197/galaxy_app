@@ -25,7 +25,6 @@
 												<th>Méthode</th>
 												<th>Etat</th>
 												<th>Crée le </th>
-
 												<?php if(auth()->guard('admin')->check()): ?>
 												<th>Action</th>
 												<?php endif; ?>

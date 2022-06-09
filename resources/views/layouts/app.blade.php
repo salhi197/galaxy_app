@@ -154,7 +154,7 @@
 											</small>
 										</div>
 										<a class="dropdown-item" href="{{route('user.profile')}}"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
-										<a class="dropdown-item" href="{{route('setting')}}"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a>
+										<!-- <a class="dropdown-item" href="{{route('setting')}}"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a> -->
 										<a class="dropdown-item" href="{{route('operation.recharger.index.actif')}}"><i class="fe fe-list mr-2"></i> <span>Activity</span></a>
 										<a class="dropdown-item" href="{{route('support')}}"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
 										<a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Déconexion</span></a>

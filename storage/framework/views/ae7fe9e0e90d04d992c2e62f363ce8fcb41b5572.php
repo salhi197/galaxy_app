@@ -1,0 +1,1 @@
+Code De Confirmation de transfert: <?php echo e($data['code']); ?>

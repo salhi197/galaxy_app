@@ -36,7 +36,7 @@
 			backgroundColor : 'transparent',
 			markers : [{
 				latLng : [28.0289837,1.6666663],
-				name : 'Vatican City'
+				name : 'Algeria'
 			}]
 		});
 

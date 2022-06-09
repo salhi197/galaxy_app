@@ -18,7 +18,7 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">RETIRER LE COMPTE</h3>
+									<h3 class="card-title">RETIRER DE COMPTE ACTIF : (<?php echo e(Auth::user()->solde_actif); ?> $ ) </h3>
 								</div>
 								<div class="card-body">
 									<?php if($countOperations>0): ?>
@@ -32,7 +32,7 @@
 
 
 									<?php endif; ?>
-									<?php if(Auth::user()->solde == 0): ?>
+									<?php if(Auth::user()->solde_actif == 0): ?>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="alert alert-success" role="alert">
@@ -43,7 +43,7 @@
 										</div>
 									</div>
 									<?php endif; ?>
-									<?php if(Auth::user()->solde > 0 and $countOperations==0): ?>
+									<?php if(Auth::user()->solde_actif > 0 and $countOperations==0): ?>
 
                                     <form action="<?php echo e(route('operation.retirer.action')); ?>" method="post">
     									<div class="row">
