@@ -28,7 +28,7 @@
 													<th>ID</th>
 													<th>User</th>
 													<th>Montant</th>
-													<th>Payé</th>
+													
 													<th>Etat</th>
 													<th>Crée le </th>
 													<th>Certificat</th>
@@ -48,10 +48,6 @@
 														</a>
 													</td>
 													<td class="text-center">{{$operation->montant}} $ </td>
-													<td>
-														{{$operation->created_at->format('m')-date('m')}}/12 <br>	
-														Prochain Payment : {{$operation->next_payment_date}}
-													</td>
 													@if($operation->etat == 1)
 													<td>
 														Confirmé
