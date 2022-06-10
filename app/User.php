@@ -42,7 +42,7 @@ class User extends Authenticatable
     }
     public function rang()
     {
-        $solde = $this->solde;
+        $solde = $this->solde_actif;
         $partenaires = $this->partenaires();
         if(count($partenaires)>0){
             foreach($partenaires as $partenaire){
