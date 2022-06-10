@@ -319,7 +319,7 @@ class OperationController extends Controller
                 ['user'=>Auth::user()->id]
                 ]
             )->get();
-            return view('operations.index_recharger',compact('operations'));    
+        return view('operations.index_recharger',compact('operations'));    
         }
     }
 
@@ -346,9 +346,24 @@ class OperationController extends Controller
         $montant =$request['montant']; 
         $methode =$request['methode']; 
         $adress = "";
-
         return view('operations.retrait',compact('montant','methode','adress'));
-
     }    
+
+    public function retirerValider($operation)
+    {
+        $operation = Operation::find($operation);
+        $user = User::find($operation->user);
+        $montant = $user->solde_retrait-$operation->montant;
+        $operation->validated_date = Carbon::now();
+        $operation->confirmed = 1;
+        $operation->etat = 1;        
+        $user->solde_retrait = $montant;
+        $user->save();
+
+        $operation->etat = 1;
+        $operation->save();
+        return redirect()->back()->with('success', 'Valider Avec succés ');        
+
+    }
 
 }

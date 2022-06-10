@@ -64,16 +64,9 @@
                                                             <td >
                                                                 <div class="table-action">  
                                                                         <a class="btn btn-outline btn-danger px-3 mb-0" 
-                                                                        href="<?php echo e(route('operation.recharger.valider',['operation'=>$operation->id])); ?>"
+                                                                        href="<?php echo e(route('operation.retirer.valider',['operation'=>$operation->id])); ?>"
                                                                         onclick="return confirm('etes vous sure  ?')" >
                                                                             <i class="fe fe-check"></i>
-                                                                            
-                                                                        </a>
-
-                                                                        <a class="btn btn-outline btn-danger px-3 mb-0" 
-                                                                        href="<?php echo e(route('operation.recharger.annuler',['operation'=>$operation->id])); ?>"
-                                                                        onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="fe fe-trash"></i>
                                                                             
                                                                         </a>
                                                                 </div>

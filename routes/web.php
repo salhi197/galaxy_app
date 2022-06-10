@@ -125,6 +125,7 @@ Route::group(['prefix' => 'operation', 'as' => 'operation'], function () {
     Route::get('/retrait/actif', ['as' => '.retirer.index.actif', 'uses' => 'OperationController@indexRetraitActif']);
     Route::get('/retirer',['as'=>'.retirer.show', 'uses' => 'OperationController@retirerShow']);
     Route::post('/retirer',['as'=>'.retirer.action', 'uses' => 'OperationController@retirerAction']);
+    Route::get('/retirer/valider/{operation}',['as'=>'.retirer.valider', 'uses' => 'OperationController@retirerValider']);
 
 
 
