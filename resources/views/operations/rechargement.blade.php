@@ -17,7 +17,7 @@
 
 
                     <div class="row">
-						<div class="col-xl-12    col-md-12 col-lg-1">
+						<div class="col-xl-12 col-sm-12  col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
 									<h3 class="card-title">RECHARGER LE COMPTE</h3>
@@ -25,9 +25,14 @@
 								<div class="card-body">
 
     									<div class="row">
-                                            <div class="col-md-12 text-center" >
-                                                
-                                                <img src="{{asset('img/qr.png')}}" />
+                                            <div class="col-md-12 col-lg-12 text-center" >    
+                                                @if($methode == "usdt_erc20")
+                                                <img src="{{asset('img/erc_20.jpeg')}}" />
+                                                @endif
+                                                @if($methode == "usdt_trc20")
+                                                <img src="{{asset('img/trc_20.jpeg')}}" />
+                                                @endif
+
                                             </div>
 	    								</div>
                                         <br>

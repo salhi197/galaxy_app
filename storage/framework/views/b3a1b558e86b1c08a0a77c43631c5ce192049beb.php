@@ -267,12 +267,12 @@
 									<div class="table-responsive">
 										<table id="datable-1" class="table  card-table table-striped table-bordered text-nowrap w-100">
 											<thead >
-                                                    <tr>
-                                                        <th>ID User</th>
-                                                        <th>Utilisateur</th>
-                                                        <th>Date Entré</th>
-                                                        <th>Solde Actif</th>
-                                                    </tr>
+												<tr>
+													<th>ID User</th>
+													<th>Utilisateur</th>
+													<th>Date Entré</th>
+													<th>Solde Actif</th>
+												</tr>
 											</thead>
 											<tbody>
 												<?php $__currentLoopData = $mesPartenaires; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partenaire): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -285,10 +285,11 @@
 
 															
 													</td>
-													<td class="text-center"><?php echo e($partenaire->solde_actif); ?> $ </td>
 													<td>
-														<?php echo e($partenaire->created_at->format('m')-date('m')); ?><br>	
+														<?php echo e($partenaire->created_at->format('Y-m-d')); ?><br>	
 													</td>													
+													<td class="text-center"><?php echo e($partenaire->solde_actif); ?> $ </td>
+
 												</tr>                                            
 												<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 											</tbody>

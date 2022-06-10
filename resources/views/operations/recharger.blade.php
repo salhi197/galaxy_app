@@ -40,7 +40,7 @@
                                                         <option value="payeer">Payeer</option>
                                                         <option value="usdt_trc20">USDT TRC20</option>
                                                         <option value="usdt_erc20">USDT ERC20</option>
-														<option value="usdt_erc20">Transfert Banquaire</option>
+														<option value="usdt_erc20">Transfert Bancaire</option>
 														
                                                     </select>
                                                 </div>       
