@@ -68,8 +68,8 @@ class HomeController extends Controller
                 $userArr[$i] = 0;    
             }
         }
-
-        return view('home',compact('soldeTotal','partenaires','operations','userArr','rang'));
+        $mesPartenaires = User::where('refered_user',Auth::user()->id)->get();
+        return view('home',compact('soldeTotal','partenaires','operations','userArr','rang','mesPartenaires'));
     }
 
     public function forgetPassword()
@@ -78,18 +78,25 @@ class HomeController extends Controller
     }
     public function support(Request $request)
     {
+        if($request->file('piece')) {
+            $path = $request->file('piece')->store('/support/fichiers');
+        }
+
         $data = [
             'subject' => 'Demande Du Support',
             'email' => $request['email'],
             'nom'=>$request['nom'],
             'prenom'=>$request['prenom'],
             'message' => $request['message'],
+            'path'=>$path
         ];
 
         Mail::send('support_email', ['data' => $data], function ($message) use ($data) {
             $message->to('contact@galaxy.world')
                 ->subject('Demande Du Support');
         });                
+
+        
         return redirect()->route('login')->with('success', 'Un Email a été envoyé');        
 
     }

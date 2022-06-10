@@ -14,6 +14,7 @@
 							<form class="card" action="<?php echo e(route('user.update.profile',['user'=>$user->id])); ?>" method="post" enctype="multipart/form-data">
 								<div class="card-header">
 									<h3 class="card-title">Modifer Porfile </h3>
+									&nbsp;
 									<a href="<?php echo e(route('user.demande',['user'=>$user->id])); ?>" class="btn btn-primary" onclick="return confirm('Etes Vous sure ?')">
 										Envoyer Pour verification
 									</a>
@@ -44,7 +45,8 @@
 										<div class="col-sm-6 col-md-4">
 											<div class="form-group">
 												<label class="form-label">Email address</label>
-												<input type="email" class="form-control" value="<?php echo e($user->email); ?>" name="email" placeholder="Email">
+
+												<input type="email" readonly class="form-control" value="<?php echo e($user->email); ?>" name="email" placeholder="Email">
 											</div>
 										</div>
 										<div class="col-md-5">

@@ -38,6 +38,12 @@
                                                     <input  required name="telephone" class="form-control" min="500" id="montant" min="0"/>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group overflow-hidden">
+                                                    <label>Piéce Jointe: </label>
+                                                    <input  required name="piece" class="form-control" type="file" accept="image/png, image/gif, image/jpeg" />
+                                                </div>
+                                            </div>
 
 	    								</div>
     									<div class="row">

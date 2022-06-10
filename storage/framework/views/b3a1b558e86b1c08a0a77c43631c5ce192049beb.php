@@ -267,81 +267,28 @@
 									<div class="table-responsive">
 										<table id="datable-1" class="table  card-table table-striped table-bordered text-nowrap w-100">
 											<thead >
-												<tr>
-													<th>ID</th>
-													<th>User</th>
-													<th>Montant</th>
-													<th>Payé</th>
-													<th>Etat</th>
-													<th>Crée le </th>
-													<th>Certificat</th>
-													<?php if(auth()->guard('admin')->check()): ?>
-													<th>Action</th>
-													<?php endif; ?>
-
-												</tr>
+                                                    <tr>
+                                                        <th>ID User</th>
+                                                        <th>Utilisateur</th>
+                                                        <th>Date Entré</th>
+                                                        <th>Solde Actif</th>
+                                                    </tr>
 											</thead>
 											<tbody>
-												<?php $__currentLoopData = $operations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $operation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+												<?php $__currentLoopData = $mesPartenaires; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partenaire): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 												<tr>
-													<td><?php echo e($operation->id); ?></td>
+													<td><?php echo e($partenaire->id); ?></td>
 													<td>
-														<a href="<?php echo e(route('user.detail',['user'=>$operation->user()['id']])); ?>">
-															<?php echo e($operation->user()['name']); ?>
+													<?php echo e($partenaire->name); ?> 
+													 
+ 													<?php echo e($partenaire->nom); ?>
 
-														</a>
+															
 													</td>
-													<td class="text-center"><?php echo e($operation->montant); ?> $ </td>
+													<td class="text-center"><?php echo e($partenaire->solde_actif); ?> $ </td>
 													<td>
-														<?php echo e($operation->created_at->format('m')-date('m')); ?>/12 <br>	
-														Prochain Payment : <?php echo e($operation->next_payment_date); ?>
-
-													</td>
-													<?php if($operation->etat == 1): ?>
-													<td>
-														Confirmé
-													</td>
-													<?php endif; ?>
-													<?php if($operation->etat == -1): ?>
-													<td >
-														Annulé
-													</td>
-													<?php endif; ?>
-													
-													<?php if($operation->etat == 0): ?>
-													<td >
-														Non Confirmé (en attente)
-													</td>
-													<?php endif; ?>
-													<td><?php echo e($operation->created_at); ?></td>
-													<td>
-														<button class="btn btn-primary">
-															Télécharger
-														</button>
-													</td>
-													<?php if(auth()->guard('admin')->check()): ?>
-																<td >
-																	<div class="table-action">  
-																			<a class="btn btn-outline btn-danger px-3 mb-0" 
-																			href="<?php echo e(route('operation.recharger.valider',['operation'=>$operation->id])); ?>"
-																			onclick="return confirm('etes vous sure  ?')" >
-																				<i class="fe fe-check"></i>
-																				
-																			</a>
-
-																			<a class="btn btn-outline btn-danger px-3 mb-0" 
-																			href="<?php echo e(route('operation.recharger.annuler',['operation'=>$operation->id])); ?>"
-																			onclick="return confirm('etes vous sure  ?')" >
-																				<i class="fe fe-trash"></i>
-																				
-																			</a>
-
-																	</div>
-																</td>
-
-													<?php endif; ?>
-
-
+														<?php echo e($partenaire->created_at->format('m')-date('m')); ?><br>	
+													</td>													
 												</tr>                                            
 												<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 											</tbody>

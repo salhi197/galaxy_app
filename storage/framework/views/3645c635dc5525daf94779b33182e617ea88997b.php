@@ -1,5 +1,5 @@
-Votre Nouveau Code de connexion est : 
+Clqiuer Sur le Lien ci-dessus pour confirmer Votre Compte  : 
 
-<a href="<?php echo e(config('app.url')); ?>/user/email/<?php echo e($dataEmail['code']); ?>">
+<a href="https://app.mygalaxy.world/user/email/<?php echo e($dataEmail['code']); ?>">
     confirmer votre email
 </a>

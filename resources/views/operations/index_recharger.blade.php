@@ -4,15 +4,12 @@
 
 
                     <div class="page-header">
-						<h4 class="page-title">{{trans('liste_recharger')}}</h4>
+						<h4 class="page-title">{{trans('Liste Rechargement')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>
 						</ol>
 					</div>
-					<!-- PAGE-HEADER END -->
-
-					<!-- ROW-1 -->
 
 					<div class="row">
 						<div class="col-md-12 col-lg-12">

@@ -22,7 +22,7 @@
                                                         <th>Date Entré</th>
                                                         <th>identité</th>
                                                         
-                                                        <th>Solde D'Entrée</th>
+                                                        <th>Solde Actif</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -30,11 +30,18 @@
                                                         <tr>
                                                             <td><?php echo e($user->id ?? ''); ?></td>
                                                             <td>
-                                                                <a href="<?php echo e(route('user.detail',['user'=>$user['id']])); ?>">
-                                                                    <?php echo e($user['name']); ?> <?php echo e($user['nom']); ?>
+                                                                <?php if(auth()->guard('admin')->check()): ?>
+                                                                    <a href="<?php echo e(route('user.detail',['user'=>$user['id']])); ?>">
+                                                                        <?php echo e($user['name']); ?> <?php echo e($user['nom']); ?>
 
-                                                                    
-                                                                </a>
+                                                                        
+                                                                    </a>
+                                                                <?php endif; ?>
+                                                                <?php if(auth()->guard()->check()): ?>
+                                                                    <a href="#">
+                                                                        <?php echo e($user['name']); ?> <?php echo e($user['nom']); ?>                                                                    
+                                                                    </a>
+                                                                <?php endif; ?>
                                                                 <br>
                                                                 <a href="#">                                                                                                                                        <br>
                                                                     <?php echo e($user['email']); ?>
@@ -55,7 +62,8 @@
                                                                 <?php endif; ?>
                                                             </td>
                                                             <td>
-                                                            NON SPECIFIE
+                                                                <?php echo e($user->solde_actif ?? ''); ?>
+
                                                             </td>
                                                         </tr>
 

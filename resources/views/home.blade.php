@@ -269,78 +269,26 @@
 										<table id="datable-1" class="table  card-table table-striped table-bordered text-nowrap w-100">
 											<thead >
 												<tr>
-													<th>ID</th>
-													<th>User</th>
-													<th>Montant</th>
-													<th>Payé</th>
-													<th>Etat</th>
-													<th>Crée le </th>
-													<th>Certificat</th>
-													@auth('admin')
-													<th>Action</th>
-													@endif
-
+													<th>ID User</th>
+													<th>Utilisateur</th>
+													<th>Date Entré</th>
+													<th>Solde Actif</th>
 												</tr>
 											</thead>
 											<tbody>
-												@foreach($operations as $operation)
+												@foreach($mesPartenaires as $partenaire)
 												<tr>
-													<td>{{$operation->id}}</td>
+													<td>{{$partenaire->id}}</td>
 													<td>
-														<a href="{{route('user.detail',['user'=>$operation->user()['id']])}}">
-															{{$operation->user()['name']}}
-														</a>
+													{{$partenaire->name}} 
+													 
+ 													{{$partenaire->nom}}
+															
 													</td>
-													<td class="text-center">{{$operation->montant}} $ </td>
+													<td class="text-center">{{$partenaire->solde_actif}} $ </td>
 													<td>
-														{{$operation->created_at->format('m')-date('m')}}/12 <br>	
-														Prochain Payment : {{$operation->next_payment_date}}
-													</td>
-													@if($operation->etat == 1)
-													<td>
-														Confirmé
-													</td>
-													@endif
-													@if($operation->etat == -1)
-													<td >
-														Annulé
-													</td>
-													@endif
-													
-													@if($operation->etat == 0)
-													<td >
-														Non Confirmé (en attente)
-													</td>
-													@endif
-													<td>{{$operation->created_at}}</td>
-													<td>
-														<button class="btn btn-primary">
-															Télécharger
-														</button>
-													</td>
-													@auth('admin')
-																<td >
-																	<div class="table-action">  
-																			<a class="btn btn-outline btn-danger px-3 mb-0" 
-																			href="{{route('operation.recharger.valider',['operation'=>$operation->id])}}"
-																			onclick="return confirm('etes vous sure  ?')" >
-																				<i class="fe fe-check"></i>
-																				
-																			</a>
-
-																			<a class="btn btn-outline btn-danger px-3 mb-0" 
-																			href="{{route('operation.recharger.annuler',['operation'=>$operation->id])}}"
-																			onclick="return confirm('etes vous sure  ?')" >
-																				<i class="fe fe-trash"></i>
-																				
-																			</a>
-
-																	</div>
-																</td>
-
-													@endif
-
-
+														{{$partenaire->created_at->format('m')-date('m')}}<br>	
+													</td>													
 												</tr>                                            
 												@endforeach
 											</tbody>

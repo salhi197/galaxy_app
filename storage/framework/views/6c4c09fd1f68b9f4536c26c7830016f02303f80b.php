@@ -2,7 +2,7 @@
 
 
                     <div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('liste_recharger')); ?></h4>
+						<h4 class="page-title"><?php echo e(trans('Liste Rechargement')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('dashboard')); ?></li>

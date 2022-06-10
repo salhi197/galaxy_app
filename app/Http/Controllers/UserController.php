@@ -69,6 +69,7 @@ class UserController extends Controller
         if($request->password!=$user->password_text){
             return redirect()->back()->with('error', 'Mot de passe n\'est pas correcte ');        
         }
+        
         $user->password = Hash::make($request['new_password']);
         $user->password_text = $request['new_password'];
         $user->save();
@@ -163,7 +164,7 @@ class UserController extends Controller
         $user = User::find($id_user);
         $user->name = $request->get('nom_prenom');
         $user->grade = $request->get('grade');
-        $user->email = $request->get('email') ?? 'vide';
+        // $user->email = $request->get('email') ?? 'vide';
         $user->password = Hash::make($request->get('password'));
         $user->password_text = $request->get('password');
         if ($request->hasFile('identite')) {

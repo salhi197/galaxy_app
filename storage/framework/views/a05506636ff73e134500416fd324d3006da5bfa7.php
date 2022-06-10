@@ -1,8 +1,8 @@
 <?php $__env->startSection('content'); ?>
 
 
-<div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('recharger_comtpe')); ?></h4>
+                    <div class="page-header">
+						<h4 class="page-title"><?php echo e(trans('Recharger Comtpe')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('dashboard')); ?></li>
@@ -24,6 +24,7 @@
 
     									<div class="row">
                                             <div class="col-md-12 text-center" >
+                                                
                                                 <img src="<?php echo e(asset('img/qr.png')); ?>" />
                                             </div>
 	    								</div>

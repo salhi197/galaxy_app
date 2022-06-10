@@ -26,7 +26,7 @@
                                                         <th>Date Entré</th>
                                                         <th>identité</th>
                                                         
-                                                        <th>Solde D'Entrée</th>
+                                                        <th>Solde Actif</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -34,10 +34,17 @@
                                                         <tr>
                                                             <td>{{$user->id ?? ''}}</td>
                                                             <td>
-                                                                <a href="{{route('user.detail',['user'=>$user['id']])}}">
-                                                                    {{$user['name']}} {{$user['nom']}}
-                                                                    
-                                                                </a>
+                                                                @auth('admin')
+                                                                    <a href="{{route('user.detail',['user'=>$user['id']])}}">
+                                                                        {{$user['name']}} {{$user['nom']}}
+                                                                        
+                                                                    </a>
+                                                                @endif
+                                                                @auth
+                                                                    <a href="#">
+                                                                        {{$user['name']}} {{$user['nom']}}                                                                    
+                                                                    </a>
+                                                                @endif
                                                                 <br>
                                                                 <a href="#">                                                                                                                                        <br>
                                                                     {{$user['email']}}
@@ -56,7 +63,7 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                            NON SPECIFIE
+                                                                {{$user->solde_actif ?? ''}}
                                                             </td>
                                                         </tr>
 

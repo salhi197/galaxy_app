@@ -145,16 +145,22 @@ class OperationController extends Controller
         $montant =$request['montant']; 
         $methode =$request['methode']; 
         $adress = "";
-        if($methode=="prefectmoney"){
+        
+        $photo = "";
+        if($methode=="payeer"){
+            $photo = "payeer";
             $adress = "P1066536669";
         }
         if($methode=="btc"){
+            $photo = "btc";
             $adress = "0x4dfa421259901c9a0d5f7f31d514f429d077deb4";
         }
         if($methode=="usdt_trc20"){
+            $photo = "usdt_trc20";
             $adress = "TUVoQDLiJS8ZNpeLpCg2JxsBAPiVtxVHUa";
         }
         if($methode=="usdt_erc20"){
+            $photo = "usdt_erc20";
             $adress = "0x4dfa421259901c9a0d5f7f31d514f429d077deb4";
         }
 

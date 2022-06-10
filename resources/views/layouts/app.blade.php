@@ -132,11 +132,11 @@
 											@if(strlen(Auth::user()->photo)>0)
 											<span><img src="{{asset('storage/app/'.Auth::user()->photo)}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 											@else
-											<span><img src="{{asset('assets/images/users/male/32.jpg')}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+											<span><img src="{{asset('assets/images/users/male/32.png')}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 											@endif
 										@endif
 										@auth('admin')
-											<span><img src="{{asset('assets/images/users/male/32.jpg')}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
+											<span><img src="{{asset('assets/images/users/male/32.png')}}" alt="profile-user" class="avatar brround cover-image mb-0 ml-0"></span>
 										@endif
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
@@ -153,20 +153,20 @@
 												Investor
 											</small>
 										</div>
-										<a class="dropdown-item" href="{{route('user.profile')}}"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
+										<a class="dropdown-item" href="{{route('user.profile')}}"><i class="mdi mdi-account-outline mr-2"></i> <span>Profile</span></a>
 										<!-- <a class="dropdown-item" href="{{route('setting')}}"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a> -->
-										<a class="dropdown-item" href="{{route('operation.recharger.index.actif')}}"><i class="fe fe-list mr-2"></i> <span>Activity</span></a>
+										<a class="dropdown-item" href="{{route('operation.recharger.index.actif')}}"><i class="fe fe-list mr-2"></i> <span>Actif</span></a>
 										<a class="dropdown-item" href="{{route('support')}}"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
 										<a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Déconexion</span></a>
 										<a class="dropdown-item" >
-											Dark Mode
+											Mode Sombre
 											<div class="material-switch pull-right">
 												<input id="someSwitchOptionDefault" onchange="DarkMode()" name="someSwitchOption001" type="checkbox">
 												<label for="someSwitchOptionDefault" class="label-default"></label>
 											</div>
 										</a>
 										<a class="dropdown-item" >
-											Light Mode
+											Mode Claire
 											<div class="material-switch pull-right">
 												<input id="someSwitchOptionDefault2" onchange="LightMode()" name="someSwitchOption002" type="checkbox">
 												<label for="someSwitchOptionDefault2" class="label-default"></label>
@@ -214,7 +214,7 @@
 											@if(strlen(Auth::user()->photo)>0)
 											<img src="{{asset('storage/app/'.Auth::user()->photo)}}" alt="user-img" class="avatar avatar-lg brround">
 											@else
-											<img src="{{asset('assets/images/users/male/32.jpg')}}" alt="user-img" class="avatar avatar-lg brround">
+											<img src="{{asset('assets/images/users/male/32.png')}}" alt="user-img" class="avatar avatar-lg brround">
 											@endif
 
 

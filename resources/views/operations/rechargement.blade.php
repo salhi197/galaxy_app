@@ -3,8 +3,8 @@
 @section('content')
 
 
-<div class="page-header">
-						<h4 class="page-title">{{trans('recharger_comtpe')}}</h4>
+                    <div class="page-header">
+						<h4 class="page-title">{{trans('Recharger Comtpe')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>
@@ -26,6 +26,7 @@
 
     									<div class="row">
                                             <div class="col-md-12 text-center" >
+                                                
                                                 <img src="{{asset('img/qr.png')}}" />
                                             </div>
 	    								</div>
