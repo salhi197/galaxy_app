@@ -287,7 +287,7 @@
 													</td>
 													<td class="text-center">{{$partenaire->solde_actif}} $ </td>
 													<td>
-														{{$partenaire->created_at->format('m')-date('m')}}<br>	
+														{{$partenaire->created_at->format('m')}}<br>	
 													</td>													
 												</tr>                                            
 												@endforeach
