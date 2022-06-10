@@ -42,8 +42,8 @@ class HomeController extends Controller
   
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
-        $solde = $user->solde;
-        $usersSumSolde =User::where('refered_user',Auth::user()->id)->get()->sum('solde');
+        $solde = $user->solde_actif;
+        $usersSumSolde =User::where('refered_user',Auth::user()->id)->get()->sum('solde_actif');
         $soldeTotal = $solde+$usersSumSolde;
         $partenaires = DB::select("select pays, count(*) as nbr from users u where refered_user=$user_id group by pays");  
         $operations = Operation::where('etat',1)->where('type',1)->where('user',Auth::user()->id)->get();
