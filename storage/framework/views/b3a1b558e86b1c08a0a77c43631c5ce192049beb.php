@@ -347,12 +347,15 @@ var options = {
   },
   options: {
   	scales: {
-		scales: {
-            y: {
-                suggestedMin: 50,
+		y: {
+                suggestedMin: 0,
                 suggestedMax: 100
-            }
-        }
+        },
+		yAxes: [{
+             ticks: {
+                 beginAtZero:true
+             }
+         }]
     }
   }
 }

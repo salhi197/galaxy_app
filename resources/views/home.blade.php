@@ -346,13 +346,17 @@ var options = {
 		]
   },
   options: {
-	scales: {
+  	scales: {
+		y: {
+                suggestedMin: 0,
+                suggestedMax: 100
+        },
 		yAxes: [{
-		ticks: {
-			stepSize: 1
-		}
-		}]
-	}	  
+             ticks: {
+                 beginAtZero:true
+             }
+         }]
+    }
   }
 }
 
