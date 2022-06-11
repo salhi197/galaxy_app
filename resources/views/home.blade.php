@@ -347,11 +347,9 @@ var options = {
   },
   options: {
   	scales: {
-		scales: {
-            y: {
-                suggestedMin: 50,
-                suggestedMax: 100
-            }
+		y: {
+			suggestedMin: 50,
+			suggestedMax: 100
         }
     }
   }
