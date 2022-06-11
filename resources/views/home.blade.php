@@ -347,20 +347,14 @@ var options = {
   },
   options: {
     scales: {
-      xAxes: [{
-        display: true,
-        scaleLabel: {
-          display: true,
-          labelString: 'Month'
-        }
-      }],
-      yAxes: [{
-        display: true,
-        scaleLabel: {
-          display: true,
-          labelString: 'Value'
-        }
-      }]
+	yAxes: [{
+		ticks: {
+			beginAtZero: true,
+			callback: function (value) { if (Number.isInteger(value)) { return value; } },
+			stepSize: 1
+		}
+	}]
+
     }
   }
 }
