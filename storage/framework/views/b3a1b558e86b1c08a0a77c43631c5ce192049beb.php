@@ -346,14 +346,12 @@ var options = {
 		]
   },
   options: {
-  	scales: {
-    	yAxes: [{
-			yAxisKey: 'net'
-      	}],
-    	xAxes: [{
-			xAxisKey: 'net',
-      	}]
-    }
+	scales: {
+            y: {
+                suggestedMin: 0,
+                suggestedMax: 20
+            }
+        }	  
   }
 }
 
