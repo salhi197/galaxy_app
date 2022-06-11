@@ -346,6 +346,7 @@ var options = {
 		]
   },
   options: {
+	animation :true,
   	scales: {
 		y: {
                 suggestedMin: 0,
