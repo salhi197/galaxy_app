@@ -18,7 +18,7 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">RETIRER DE COMPTE ACTIF : (<?php echo e(Auth::user()->solde_actif); ?> $ ) </h3>
+									<h3 class="card-title">RETIRER DE COMPTE ACTIF : (<?php echo e(Auth::user()->solde_retrait); ?> $ ) </h3>
 								</div>
 								<div class="card-body">
 									<?php if($countOperations>0): ?>
@@ -32,18 +32,18 @@
 
 
 									<?php endif; ?>
-									<?php if(Auth::user()->solde_actif == 0): ?>
+									<?php if(Auth::user()->solde_retrait == 0): ?>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="alert alert-success" role="alert">
 												<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-												Vous ne pouvez pas effectuer cette action avec votre Solde . 
+												Vous ne pouvez pas effectuer cette action avec votre Solde de retrait . 
 											</div>
 											
 										</div>
 									</div>
 									<?php endif; ?>
-									<?php if(Auth::user()->solde_actif > 0 and $countOperations==0): ?>
+									<?php if(Auth::user()->solde_retrait > 0 and $countOperations==0): ?>
 
                                     <form action="<?php echo e(route('operation.retirer.action')); ?>" method="post">
     									<div class="row">
@@ -58,10 +58,10 @@
                                                 <div class="form-group overflow-hidden">
                                                     <label>Entrez la méthode de recharge:</label>
                                                         <select name="methode" class="form-control select2 w-100" >
-                                                        <option value="btc">BTC</option>
-                                                        <option value="prefectmoney">Perfect Money</option>
+                                                        <!-- <option value="btc">BTC</option> -->
+                                                        <!-- <option value="prefectmoney">Perfect Money</option> -->
                                                         <option value="usdt_trc20">USDT TRC20</option>
-                                                        <option value="usdt_erc20">USDT ERC20</option>
+                                                        <!-- <option value="usdt_erc20">USDT ERC20</option> -->
 														<option value="usdt_erc20">Transfert Banquaire</option>
 														
                                                     </select>

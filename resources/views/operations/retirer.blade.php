@@ -45,7 +45,7 @@
 										</div>
 									</div>
 									@endif
-									@if(Auth::user()->solde_retrait > 0 or $countOperations==0)
+									@if(Auth::user()->solde_retrait > 0 and $countOperations==0)
 
                                     <form action="{{route('operation.retirer.action')}}" method="post">
     									<div class="row">
