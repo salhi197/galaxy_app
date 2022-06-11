@@ -25,7 +25,6 @@
 												<th>User</th>
 												<th>Montant</th>
 												<th>Méthode</th>
-												<th>Etat</th>
 												<th>Crée le </th>
 												@auth('admin')
 												<th>Action</th>
@@ -36,7 +35,19 @@
 										<tbody>
                                             @foreach($operations as $operation)
 											<tr>
-												<td>{{$operation->id}}</td>
+												<td>
+													{{$operation->id}}
+														@if($operation->etat == 1)
+															Confirmé
+														@endif
+														@if($operation->etat == -1)
+															Annulé
+														@endif
+														@if($operation->etat == 0)
+															Non Confirmé (en attente)
+														@endif
+
+												</td>
 												<td>
 													<a href="{{route('user.detail',['user'=>$operation->user()['id']])}}">
 														{{$operation->user()['name']}}
@@ -44,21 +55,6 @@
 												</td>
                                                 <td>{{$operation->montant}}</td>
                                                 <td>{{$operation->methode}}</td>
-												@if($operation->etat == 1)
-                                                <td class="badge badge-success">
-													<span class="">Confirmé</span>
-												</td>
-												@endif
-												@if($operation->etat == -1)
-                                                <td >
-													<span class="badge badge-anger">Annulé</span>
-												</td>
-												@endif
-												@if($operation->etat == 0)
-                                                <td >
-													<span class="badge badge-anger">Non Confirmé (en attente)</span>
-												</td>
-												@endif
                                                 <td>{{$operation->created_at}}</td>
 
 												@auth('admin')
