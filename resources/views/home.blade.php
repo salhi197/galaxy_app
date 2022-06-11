@@ -346,17 +346,13 @@ var options = {
 		]
   },
   options: {
-    scales: {
-		yAxes: [
-        {
-          ticks: {
-			beginAtZero: true,
-			callback: function(value) {if (value % 1 === 0) {return value;}}
-          },
-        },
-      ],
-
-    }
+	scales: {
+		yAxes: [{
+		ticks: {
+			stepSize: 1
+		}
+		}]
+	}	  
   }
 }
 
