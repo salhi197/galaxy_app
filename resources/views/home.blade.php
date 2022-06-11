@@ -346,15 +346,21 @@ var options = {
 		]
   },
   options: {
-  	scales: {
-		y: {
-			suggestedMin: 50,
-			suggestedMax: 100
-        },
-		ticks: {
-					reverse: false
+    scales: {
+      xAxes: [{
+        display: true,
+        scaleLabel: {
+          display: true,
+          labelString: 'Month'
         }
-
+      }],
+      yAxes: [{
+        display: true,
+        scaleLabel: {
+          display: true,
+          labelString: 'Value'
+        }
+      }]
     }
   }
 }
