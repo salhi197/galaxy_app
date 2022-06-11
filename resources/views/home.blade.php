@@ -347,13 +347,13 @@ var options = {
   },
   options: {
     scales: {
-	yAxes: [{
-		ticks: {
-			beginAtZero: true,
-			callback: function (value) { if (Number.isInteger(value)) { return value; } },
-			stepSize: 1
-		}
-	}]
+		yAxes: [
+        {
+          ticks: {
+            precision: 0,
+          },
+        },
+      ],
 
     }
   }
