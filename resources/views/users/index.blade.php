@@ -95,5 +95,4 @@
 <script src="{{asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
-
 @endsection

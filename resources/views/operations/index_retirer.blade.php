@@ -18,7 +18,7 @@
 									<h3 class="card-title">Liste</h3>
 								</div>
 								<div class="table-responsive">
-									<table class="table card-table table-vcenter text-nowrap">
+									<table id="datable-1" class="table card-table table-vcenter text-nowrap">
 										<thead >
 											<tr>
 												<th>ID</th>
@@ -86,4 +86,13 @@
 					<!-- ROW-1 CLOSED -->
 
 
+@endsection
+
+@section('styles')
+<link href="{{asset('assets/plugins/datatable/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
+@endsection
+@section('scripts')
+<script src="{{asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
+<script src="{{asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
 @endsection
