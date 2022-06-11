@@ -105,20 +105,20 @@ class PaymentController extends Controller
             $solde_retrait =$user->solde_retrait;
             if($i==1){
                 // $rang = $user->rang();
-                $solde_retrait = $user->solde*0.03;
+                $solde_retrait = $user->solde_actif*0.03;
                 $prct = 0.03;
             }
             if($i==2){
                 $rang = $user->rang();
                 if($rang>1){
-                    $solde_retrait = $user->solde*0.02;
+                    $solde_retrait = $user->solde_actif*0.02;
                     $prct = 0.02;
                 }
             }
             if($i==3){
                 $rang = $user->rang();
                 if($rang>2){
-                    $solde_retrait = $user->solde*0.01;
+                    $solde_retrait = $user->solde_actif*0.01;
                     $prct = 0.01;
                 }
             }

@@ -113,8 +113,6 @@
 												<label>Choisissez une période d'accumulation:</label>
 												<select class="form-control select2 w-100" id="duree" >
 													<option value="1" selected="selected">1 Mois</option>
-													<option value="3">3 Mois</option>
-													<option value="6">6 Mois</option>
 													<option value="12">12 Mois</option>
 												</select>
 											</div>
@@ -350,7 +348,7 @@ var options = {
   	scales: {
 		y: {
                 suggestedMin: 0,
-                suggestedMax: 100
+                suggestedMax: 20
         },
 		yAxes: [{
              ticks: {
