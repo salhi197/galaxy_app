@@ -352,13 +352,7 @@ var options = {
                 suggestedMin: 50,
                 suggestedMax: 100
             }
-        },		  
-    	yAxes: [{
-			yAxisKey: 'net'
-      	}],
-    	xAxes: [{
-			xAxisKey: 'net',
-      	}]
+        }
     }
   }
 }
