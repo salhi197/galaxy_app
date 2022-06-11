@@ -256,10 +256,10 @@ class OperationController extends Controller
             'code'=>$code
         ];
 
-        // Mail::send('confirmation_transfert', ['data' => $data], function ($message) use ($data) {
-        //     $message->to($data['email'])
-        //         ->subject('Confirmation de Transfert');
-        // });                
+        Mail::send('confirmation_transfert', ['data' => $data], function ($message) use ($data) {
+            $message->to($data['email'])
+                ->subject('Confirmation de Transfert');
+        });                
 
         return redirect()->route('operation.confirmer',['operation'=>$operation->id])->with('success', 'Inséré avec succés ');        
     }    
