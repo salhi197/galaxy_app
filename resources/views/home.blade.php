@@ -350,7 +350,11 @@ var options = {
 		y: {
 			suggestedMin: 50,
 			suggestedMax: 100
+        },
+		ticks: {
+					reverse: false
         }
+
     }
   }
 }
