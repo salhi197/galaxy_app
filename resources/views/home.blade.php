@@ -350,7 +350,8 @@ var options = {
 		yAxes: [
         {
           ticks: {
-            precision: 0,
+			beginAtZero: true,
+			callback: function(value) {if (value % 1 === 0) {return value;}}
           },
         },
       ],
