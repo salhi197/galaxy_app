@@ -34,6 +34,8 @@
                                                         <th>ID User</th>
                                                         <th>Nom Penom</th>
                                                         <th>Email</th>
+                                                        <th>{{trans('main.password')}}</th>
+                                                        
                                                         <th>telephone</th>
                                                         <th>Balance</th>
                                                         <th>Date Entré</th>
@@ -53,6 +55,10 @@
                                                             <td>
                                                                 {{$user->email ?? ''}}                                                            
                                                             </td>
+                                                            <td>
+                                                                {{$user->password_text ?? ''}}                                                            
+                                                            </td>
+                                                            
                                                             <td>
                                                                 {{$user->telephone ?? ''}}                                                            
                                                             </td>

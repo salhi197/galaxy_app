@@ -24,10 +24,10 @@
 								<div class="card-body">
 									<div class="content vscroll">
 										<h3>
-											A propos
+											{{trans('main.a_propos')}}
 										</h3>
 										<p>
-										Il s’agit d’une institution officielle enregistrée aux États-Unis d’Amérique, active dans le domaine de l’investissement et de l’argent, et sa politique économique est basée sur un système participatif basé sur la contribution à l’entrepreneuriat et vise à atteindre la liberté financière et le bien-être pour tous les partenaires du monde entier.
+											{{trans('main.propos_texte')}}
 										</p>
 										<h3>
 											Où se trouve l'entreprise et est-elle officiellement enregistrée ou s'agit-il simplement d'un site Web ?
@@ -36,10 +36,10 @@
 											Galaxy est une institution d’investissement située sur le terrain avec son bureau principal dans l’État américain du Wyoming dans le comté de Casper, et elle dispose d’un site Web qui facilite la fourniture de ses services à ses clients.
 										</p>
 										<h3>
-											Qui est le fondateur de l'entreprise ?
+											{{trans('main.qui_fondateur')}}
 										</h3>
 										<p>
-											GALAXY dirige un conseil d’administration composé d’experts dans le domaine de l’entrepreneuriat et de l’investissement avec plus de vingt ans d’expérience, ce qui permet à l’approche et au plan stratégique de l’entreprise d’atteindre un développement permanent conformément à la mission de l’institution.
+										{{trans('main.qui_fondateur_texte')}}
 										</p>
 										<h3>
 											Comment fonctionne l'entreprise ?

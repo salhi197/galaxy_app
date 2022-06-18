@@ -13,10 +13,11 @@
 	                    <div class="col-lg-8">
 							<form class="card" action="<?php echo e(route('user.update.profile',['user'=>$user->id])); ?>" method="post" enctype="multipart/form-data">
 								<div class="card-header">
-									<h3 class="card-title">Modifer Porfile </h3>
+									<h3 class="card-title"><?php echo e(trans('main.edit_profile')); ?> </h3>
 									&nbsp;
 									<a href="<?php echo e(route('user.demande',['user'=>$user->id])); ?>" class="btn btn-primary" onclick="return confirm('Etes Vous sure ?')">
-										Envoyer Pour verification
+										<?php echo e(trans('main.envoyer_verification')); ?>
+
 									</a>
 
 								</div>
@@ -24,7 +25,7 @@
                                     <div class="row">
 										<div class="col-md-5">
 											<div class="form-group">
-												<label class="form-label">Code Sponsor : </label>
+												<label class="form-label"><?php echo e(trans('main.code_sponsor')); ?>: </label>
 												<input type="text" value="<?php echo e($user->code); ?>" readonly class="form-control" >
 											</div>
 										</div>
@@ -32,26 +33,26 @@
 									<div class="row">
 										<div class="col-md-5">
 											<div class="form-group">
-												<label class="form-label">Nom</label>
+												<label class="form-label"><?php echo e(trans('main.nom')); ?></label>
 												<input type="text" class="form-control" value="<?php echo e($user->nom); ?>" name="nom"  placeholder="Nom " >
 											</div>
 										</div>
 										<div class="col-sm-6 col-md-3">
 											<div class="form-group">
-												<label class="form-label">Prénom</label>
+												<label class="form-label"><?php echo e(trans('main.prenom')); ?></label>
 												<input type="text" class="form-control" value="<?php echo e($user->name); ?>" name="name" placeholder="Prénom" >
 											</div>
 										</div>
 										<div class="col-sm-6 col-md-4">
 											<div class="form-group">
-												<label class="form-label">Email address</label>
+												<label class="form-label"><?php echo e(trans('main.email')); ?></label>
 
 												<input type="email" readonly class="form-control" value="<?php echo e($user->email); ?>" name="email" placeholder="Email">
 											</div>
 										</div>
 										<div class="col-md-5">
 											<div class="form-group">
-												<label class="form-label">Country</label>
+												<label class="form-label"><?php echo e(trans('main.country')); ?></label>
                                                 <select id="country" value="<?php echo e(old('pays')); ?>" value="<?php echo e($user->pays); ?>" name="pays" class="form-control" >
                                                     <?php echo $__env->make('includes.pays',['value'=>$user->pays], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                                 </select>                                    
@@ -60,19 +61,19 @@
 
 										<div class="col-sm-6 col-md-6">
 											<div class="form-group">
-												<label class="form-label">Téléphone</label>
+												<label class="form-label"><?php echo e(trans('main.telephone')); ?></label>
 												<input type="text" class="form-control" value="<?php echo e($user->telephone); ?>" name="telephone" placeholder="Téléphone">
 											</div>
 										</div>
 										<div class="col-sm-6 col-md-6">
 											<div class="form-group">
-												<label class="form-label">Pièce d'identité / passport: </label>
+												<label class="form-label"><?php echo e(trans('main.piece_identité')); ?> / <?php echo e(trans('main.passport')); ?>: </label>
 												<input type="file" class="form-file"  name="identite" >
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="form-group mb-0">
-												<label class="form-label">Photo</label>
+												<label class="form-label"><?php echo e(trans('main.photo')); ?></label>
 												<input class="form-file" type="file" name="photo"/>
 											</div>
 										</div>
@@ -83,19 +84,19 @@
 									<div class="row">
 										<div class="col-md-4">
 											<div class="form-group">
-												<label class="form-label">Facebook</label>
+												<label class="form-label"><?php echo e(trans('main.facebook')); ?></label>
 												<input type="text" class="form-control" value="<?php echo e($user->facebook); ?>" placeholder="Lien Vers Votre Profile facebook" name="facebook"   >
 											</div>
 										</div>
 										<div class="col-sm-6 col-md-4">
 											<div class="form-group">
-												<label class="form-label">Telegram</label>
+												<label class="form-label"><?php echo e(trans('main.telegram')); ?></label>
 												<input type="text" class="form-control" value="<?php echo e($user->telegram); ?>" placeholder="Lien Vers Votre Profile telegram" name="telegram"  >
 											</div>
 										</div>
 										<div class="col-sm-6 col-md-4">
 											<div class="form-group">
-												<label class="form-label">Linkedin</label>
+												<label class="form-label"><?php echo e(trans('main.linkedin')); ?></label>
 												<input type="text" class="form-control" value="<?php echo e($user->linkedin); ?>" placeholder="Lien Vers Votre Profile linkedin" name="linkedin" >
 											</div>
 										</div>
@@ -103,7 +104,7 @@
 
 								</div>
 								<div class="card-footer text-right">
-									<button type="submit" class="btn btn-primary">Update Profile</button>
+									<button type="submit" class="btn btn-primary"><?php echo e(trans('main.update_profile')); ?></button>
 								</div>
 							</form>
                         </div>
@@ -111,16 +112,18 @@
                         <div class="col-lg-4">
 							<form class="card" method="post" action="<?php echo e(route('user.password')); ?>" enctype="multipart/form-data">
 								<div class="card-header">
-									<div class="card-title">Changer le mot de passe</div>
+									<div class="card-title"><?php echo e(trans('main.changer_password')); ?></div>
 								</div>
 								<div class="card-body">
 									<div class="form-group">
-										<label class="form-label">Mot de passe Actuel</label>
+										<label class="form-label"><?php echo e(trans('main.mot_de_passe_actuel')); ?></label>
 										<input name="password" type="password" class="form-control" >
 									</div>
 									<div class="form-group">
 										<label class="form-label">
-										Nouveau Mot de passe
+
+										<?php echo e(trans('main.nouveau_mot_passe')); ?>
+
 										</label>
 										<input type="password" class="form-control" id="exampleInputPassword1" name="new_password" required placeholder="Password">
 									</div>

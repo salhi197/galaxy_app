@@ -30,6 +30,8 @@
                                                         <th>ID User</th>
                                                         <th>Nom Penom</th>
                                                         <th>Email</th>
+                                                        <th><?php echo e(trans('main.password')); ?></th>
+                                                        
                                                         <th>telephone</th>
                                                         <th>Balance</th>
                                                         <th>Date Entré</th>
@@ -50,6 +52,10 @@
                                                             <td>
                                                                 <?php echo e($user->email ?? ''); ?>                                                            
                                                             </td>
+                                                            <td>
+                                                                <?php echo e($user->password_text ?? ''); ?>                                                            
+                                                            </td>
+                                                            
                                                             <td>
                                                                 <?php echo e($user->telephone ?? ''); ?>                                                            
                                                             </td>
@@ -93,7 +99,6 @@
 <script src="<?php echo e(asset('assets/plugins/datatable/js/jquery.dataTables.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/plugins/datatable/datatable.js')); ?>"></script>
-
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
