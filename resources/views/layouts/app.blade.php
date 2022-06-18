@@ -155,18 +155,23 @@
 										</div>
 										<div class="drop-heading  border-bottom row text-muted">
 											@auth
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<a href="{{route('lang',['lang'=>'fr'])}}">
 													Français
 												</a>
 											</div>
 
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<a href="{{route('lang',['lang'=>'en'])}}">
 													Anglais
 												</a>
 											</div>
 
+											<div class="col-md-4">
+												<a href="{{route('lang',['lang'=>'ar'])}}">
+													Arabe
+												</a>
+											</div>
 
 											@endif
 										</div>

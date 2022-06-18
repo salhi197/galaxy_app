@@ -155,18 +155,23 @@
 										</div>
 										<div class="drop-heading  border-bottom row text-muted">
 											<?php if(auth()->guard()->check()): ?>
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<a href="<?php echo e(route('lang',['lang'=>'fr'])); ?>">
 													Français
 												</a>
 											</div>
 
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<a href="<?php echo e(route('lang',['lang'=>'en'])); ?>">
 													Anglais
 												</a>
 											</div>
 
+											<div class="col-md-4">
+												<a href="<?php echo e(route('lang',['lang'=>'ar'])); ?>">
+													Arabe
+												</a>
+											</div>
 
 											<?php endif; ?>
 										</div>
