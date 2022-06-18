@@ -12,7 +12,8 @@
                     <div class="row">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    <i class="fa fa-plus"></i> Ajouter methode De paiment
+                                    <i class="fa fa-plus"></i> <?php echo e(trans('main.ajouter_methode')); ?>
+
                                 </button>
                             </div>
 
@@ -23,8 +24,8 @@
                                                 <thead class=" text-primary">
                                                     <tr>
                                                         <th>ID </th>
-                                                        <th>Méthode</th>
-                                                        <th>Adress</th>
+                                                        <th><?php echo e(trans('main.methode')); ?></th>
+                                                        <th><?php echo e(trans('main.adress')); ?></th>
                                                         <th>actions</th>
                                                     </tr>
                                                 </thead>

@@ -4,7 +4,7 @@
 
 
                     <div class="page-header">
-						<h4 class="page-title">{{trans('Liste Rechargement')}}</h4>
+						<h4 class="page-title">{{trans('main.liste_rechargement')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>
@@ -23,16 +23,14 @@
 											<thead >
 												<tr>
 													<th>ID</th>
-													<th>User</th>
-													<th>Montant</th>
-													
-													<th>Etat</th>
-													<th>Crée le </th>
-													<th>Certificat</th>
+													<th>{{trans('main.user')}}</th>
+													<th>{{trans('main.montant')}}</th>
+													<th>{{trans('main.etat')}}</th>													
+													<th>{{trans('main.created_at')}}</th>
+													<th>{{trans('main.certificat')}}</th>
 													@auth('admin')
 													<th>Action</th>
 													@endif
-
 												</tr>
 											</thead>
 											<tbody>

@@ -1,5 +1,46 @@
 <?php 
 return [
-    'welcome'=>'welcome',
-    'Salles'=>'Salles',
+    'dashboard'=>'Dashboard',
+    'finance'=>'Finance',
+    'partenaires'=>'Partners',
+    'actif'=>'Asset',
+    'profile'=>'profile',
+    'academie'=>'Academy',
+    'faq'=>'Faqs',
+    'support'=>'Support',
+    'votre_actif'=>'Your Asset',
+    'benefice_total'=>'Total profit',
+    'votre_balance'=>'Your Libra',
+    'votre_partenaires'=>'Your partners',
+    'ordinateur_de_profit'=>'Profit Computer',
+    'periode_accumulation'=>'Choose an accumulation period',
+    'montant_dinnvestissement'=>'Enter the investment amount',
+    'montant_transfert'=>'Enter the Transfer amount',
+    'calculer'=>'calculate',
+    'rentabilite'=>'Profitability',
+    'reference'=>'Reference Link',
+    'copier'=>'copy text',
+    'partenaire_par_region'=>'Partner by region',
+    'votre_rang'=>'Your Rank',
+    'liste_partenaires'=>'List of Partners',
+    'reste'=>'You still have',
+    'date_entrer'=>'Entry Date',
+    'solde_actif'=>'Active Balance',
+    'recharger_comtpe'=>'Reload Account',
+    'montant_recharge'=>'Enter the top-up amount',
+    'methode_recharge'=>'Enter the recharge method',
+    'continuer'=>'Continue',
+    'email_confirm_msg'=>'You must Confirm Your Email, click on the link sent to your mailbox.',
+    'retirer_comtpe'=>'withdraw from an account',
+    'retirer_de_compte_actif'=>'withdraw from active account',
+    'solde_zero'=>'You cannot perform this action with your Withdrawal Balance.',
+    'liste_sommes_investes'=>'list of all sums invested',
+    'entrer_methode'=>'Enter the recharge method',
+    'transferer_comtpe'=>'transfer an amount to another account',
+    'compte_compte'=>'account to account transfer',
+    'max_autorise'=>'The maximum allowed'
+    
+
+
+
 ];

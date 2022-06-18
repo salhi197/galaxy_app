@@ -153,6 +153,25 @@
 												Investor
 											</small>
 										</div>
+										<div class="drop-heading  border-bottom row text-muted">
+											@auth
+											<div class="col-md-6">
+												<a href="{{route('lang',['lang'=>'fr'])}}">
+													Français
+												</a>
+											</div>
+
+											<div class="col-md-6">
+												<a href="{{route('lang',['lang'=>'en'])}}">
+													Anglais
+												</a>
+											</div>
+
+
+											@endif
+										</div>
+										
+
 										<a class="dropdown-item" href="{{route('user.profile')}}"><i class="mdi mdi-account-outline mr-2"></i> <span>Profile</span></a>
 										<!-- <a class="dropdown-item" href="{{route('setting')}}"><i class="mdi mdi-settings mr-2"></i> <span>Settings</span></a> -->
 										<a class="dropdown-item" href="{{route('operation.recharger.index.actif')}}"><i class="fe fe-list mr-2"></i> <span>Actif</span></a>
@@ -336,7 +355,7 @@
 
 						@auth
 						<li>
-							<a class="side-menu__item" href="{{route('home')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('Tableau de bord')}}</span></a>
+							<a class="side-menu__item" href="{{route('home')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('main.dashboard')}}</span></a>
 						</li>
 						<li class="slide">
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('Finance')}}</span><i class="angle fa fa-angle-right"></i></a>
@@ -426,7 +445,7 @@
 							<div class="col-md-12">
 								<div class="alert alert-success" role="alert">
 									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-									Vous devez Confirmer Votre Email , on cliquant sur le lien envoyé à votre boite .
+									{{trans('main.email_confirm_msg')}}
 								</div>
 							</div>
 						</div>

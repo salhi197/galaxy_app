@@ -16,7 +16,7 @@
                     <div class="row">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    <i class="fa fa-plus"></i> Ajouter methode De paiment
+                                    <i class="fa fa-plus"></i> {{trans('main.ajouter_methode')}}
                                 </button>
                             </div>
 
@@ -27,8 +27,8 @@
                                                 <thead class=" text-primary">
                                                     <tr>
                                                         <th>ID </th>
-                                                        <th>Méthode</th>
-                                                        <th>Adress</th>
+                                                        <th>{{trans('main.methode')}}</th>
+                                                        <th>{{trans('main.adress')}}</th>
                                                         <th>actions</th>
                                                     </tr>
                                                 </thead>

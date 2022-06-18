@@ -4,7 +4,7 @@
 
 
                     <div class="page-header">
-						<h4 class="page-title">{{trans('liste de tout les sommes investé')}}</h4>
+						<h4 class="page-title">{{trans('main.liste_sommes_investes')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>
@@ -18,7 +18,7 @@
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Basic Table</h3>
+									<h3 class="card-title">{{trans('main.liste_sommes_investes')}}</h3>
 								</div>
 								<div class="card-body">
 								<div class="table-responsive">
@@ -26,13 +26,12 @@
 										<thead >
 											<tr>
 												<th>ID</th>
-												<th>Type Opétation</th>
-												<th>Actionnaire</th>
-												<th>Récepteur</th>
-												
-												<th>Montant</th>
-												<th>Méthode</th>
-												<th>Etat</th>
+												<th>{{trans('main.type_opration')}}</th>
+												<th>{{trans('main.actionnaire')}}</th>
+												<th>{{trans('main.recepteur')}}</th>
+												<th>{{trans('main.montant')}}</th>
+												<th>{{trans('main.methode')}}</th>
+												<th>{{trans('main.etat')}}</th>												
 											</tr>
 										</thead>
 										<tbody>

@@ -2,7 +2,7 @@
 
 
 <div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('transferer_comtpe')); ?></h4>
+						<h4 class="page-title"><?php echo e(trans('main.transferer_comtpe')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('dashboard')); ?></li>
@@ -18,7 +18,7 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">transfert de compte à compte</h3>
+									<h3 class="card-title"><?php echo e(trans('main.compte_compte')); ?></h3>
 								</div>
 								<div class="card-body">
 
@@ -47,7 +47,7 @@
 										<div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group overflow-hidden">
-                                                    <label> Idéntifiant (Email):</label>
+                                                    <label>Email:</label>
                                                     <input  required name="email_or_telephone" class="form-control" id="identifiant" min="0"/>
                                                 </div>
                                             </div>
@@ -79,12 +79,12 @@
     									<div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group overflow-hidden">
-                                                    <label>Entrez le montant :
+                                                    <label><?php echo e(trans('main.montant_transfert')); ?> :
 													</label>
 													<i class="fa fa-cash"></i>
                                                     <input  type="number" required name="montant" class="form-control" min="0" placeholder="000.000" id="montant" min="0"/>
 													<span>
-														Le Maximum Autorisé est : <?php echo e(Auth::user()->solde); ?> $ 
+														<?php echo e(trans('main.max_autorise')); ?> : <?php echo e(Auth::user()->solde); ?> $ 
 													</span>
                                                 </div>
                                             </div>

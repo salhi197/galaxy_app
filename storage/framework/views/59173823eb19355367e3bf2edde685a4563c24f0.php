@@ -2,7 +2,7 @@
 
 
                     <div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('liste de tout les sommes investé')); ?></h4>
+						<h4 class="page-title"><?php echo e(trans('main.liste_sommes_investes')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('dashboard')); ?></li>
@@ -16,7 +16,7 @@
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Basic Table</h3>
+									<h3 class="card-title"><?php echo e(trans('main.liste_sommes_investes')); ?></h3>
 								</div>
 								<div class="card-body">
 								<div class="table-responsive">
@@ -24,13 +24,12 @@
 										<thead >
 											<tr>
 												<th>ID</th>
-												<th>Type Opétation</th>
-												<th>Actionnaire</th>
-												<th>Récepteur</th>
-												
-												<th>Montant</th>
-												<th>Méthode</th>
-												<th>Etat</th>
+												<th><?php echo e(trans('main.type_opration')); ?></th>
+												<th><?php echo e(trans('main.actionnaire')); ?></th>
+												<th><?php echo e(trans('main.recepteur')); ?></th>
+												<th><?php echo e(trans('main.montant')); ?></th>
+												<th><?php echo e(trans('main.methode')); ?></th>
+												<th><?php echo e(trans('main.etat')); ?></th>												
 											</tr>
 										</thead>
 										<tbody>
@@ -92,7 +91,7 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('styles'); ?>
 <link href="<?php echo e(asset('assets/plugins/datatable/responsive.bootstrap4.min.css')); ?>" rel="stylesheet" />
-@endsecion
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('scripts'); ?>
 <script src="<?php echo e(asset('assets/plugins/datatable/js/jquery.dataTables.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')); ?>"></script>

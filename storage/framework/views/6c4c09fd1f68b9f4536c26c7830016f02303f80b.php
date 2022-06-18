@@ -2,15 +2,12 @@
 
 
                     <div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('Liste Rechargement')); ?></h4>
+						<h4 class="page-title"><?php echo e(trans('main.liste_rechargement')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('dashboard')); ?></li>
 						</ol>
 					</div>
-					<!-- PAGE-HEADER END -->
-
-					<!-- ROW-1 -->
 
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
@@ -24,16 +21,14 @@
 											<thead >
 												<tr>
 													<th>ID</th>
-													<th>User</th>
-													<th>Montant</th>
-													
-													<th>Etat</th>
-													<th>Crée le </th>
-													<th>Certificat</th>
+													<th><?php echo e(trans('main.user')); ?></th>
+													<th><?php echo e(trans('main.montant')); ?></th>
+													<th><?php echo e(trans('main.etat')); ?></th>													
+													<th><?php echo e(trans('main.created_at')); ?></th>
+													<th><?php echo e(trans('main.certificat')); ?></th>
 													<?php if(auth()->guard('admin')->check()): ?>
 													<th>Action</th>
 													<?php endif; ?>
-
 												</tr>
 											</thead>
 											<tbody>

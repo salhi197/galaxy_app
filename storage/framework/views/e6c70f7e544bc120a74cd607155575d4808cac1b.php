@@ -2,7 +2,7 @@
 
 
 					<div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('retirer_comtpe')); ?></h4>
+						<h4 class="page-title"><?php echo e(trans('main.retirer_comtpe')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('dashboard')); ?></li>
@@ -18,14 +18,15 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">RETIRER DE COMPTE ACTIF : (<?php echo e(Auth::user()->solde_retrait); ?> $ ) </h3>
+									<h3 class="card-title"><?php echo e(trans('main.retirer_de_compte_actif')); ?> : (<?php echo e(Auth::user()->solde_retrait); ?> $ ) </h3>
 								</div>
 								<div class="card-body">
 									<?php if($countOperations>0): ?>
 									<div class="row">
 										<div class="col-md-12">
 											<h4>
-												Vous avez Déja une demande de retrait , vous devriez attendre jusqu'à sa validation
+												<?php echo e(trans('main.demande_retrair_envoyer')); ?>
+
 											</h4>
 										</div>
 									</div>
@@ -37,7 +38,8 @@
 										<div class="col-md-12">
 											<div class="alert alert-success" role="alert">
 												<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-												Vous ne pouvez pas effectuer cette action avec votre Solde de retrait . 
+												<?php echo e(trans('main.solde_zero')); ?>
+
 											</div>
 											
 										</div>
@@ -56,7 +58,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group overflow-hidden">
-                                                    <label>Entrez la méthode de recharge:</label>
+                                                    <label><?php echo e(trans('main.entrer_methode')); ?>:</label>
                                                         <select name="methode" class="form-control select2 w-100" >
                                                         <!-- <option value="btc">BTC</option> -->
                                                         <!-- <option value="prefectmoney">Perfect Money</option> -->
@@ -69,7 +71,8 @@
                                             </div>
 	    								</div>
                                         <button class="btn btn-primary btn-lg" type="submit">
-                                            Continuer
+                                            <?php echo e(trans('main.continuer')); ?>
+
                                         </button>
 
                                     </form>

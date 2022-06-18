@@ -44,15 +44,13 @@ Route::get('/admin', 'AdminController@admin')->name('admin');
 Route::view('/comingsoon', 'comingsoon')->name('comingsoon');
 
 Auth::routes();
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth','lang']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', function () {
         return redirect()->route("login")->with('success', 'Valider Avec succés ');        
-
     });
 
-    Route::get('/lang/{lang}', 'LangController@setLang');
-
+    Route::get('/lang/{lang}', 'LangController@setLang')->name('lang');
     Route::get('/home/inscription', 'InscriptionController@index');
     Route::post('/home/inscriptions/ajouter','InscriptionController@ajouter');
      
@@ -61,7 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-Route::group(['prefix' => 'user', 'as' => 'user'], function () {
+Route::group(['prefix' => 'user','middleware' =>'lang', 'as' => 'user'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'UserController@index']);
     Route::get('/pending', ['as' => '.pending', 'uses' => 'UserController@pending']);
     Route::get('/partenaire', ['as' => '.partenaire', 'uses' => 'UserController@partenaire']);
@@ -91,7 +89,7 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function () {
 
 
 
-Route::group(['prefix' => 'payment', 'as' => 'payment'], function () {
+Route::group(['prefix' => 'payment','middleware' =>'lang', 'as' => 'payment'], function () {
     Route::get('/rechargements', ['as' => '.rechargements', 'uses' => 'PaymentController@rechargements']);
     Route::get('/rechargements/month', ['as' => '.rechargements.month', 'uses' => 'PaymentController@RechargementsMonth']);
     Route::get('/rechargements/paye', ['as' => '.rechargements.paye', 'uses' => 'PaymentController@RechargementsPaye']);
@@ -101,7 +99,7 @@ Route::group(['prefix' => 'payment', 'as' => 'payment'], function () {
 });
 
 
-Route::group(['prefix' => 'operation', 'as' => 'operation'], function () {
+Route::group(['prefix' => 'operation','middleware' =>'lang', 'as' => 'operation'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'OperationController@index']);
     Route::get('/certificat/{operation}',['as'=>'.certificat', 'uses' => 'OperationController@certificat']);
 
@@ -140,7 +138,7 @@ Route::group(['prefix' => 'operation', 'as' => 'operation'], function () {
 
 
 
-Route::group(['prefix' => 'partenaire', 'as' => 'partenaire'], function () {
+Route::group(['prefix' => 'partenaire','middleware' =>'lang', 'as' => 'partenaire'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'PartenaireController@index']);
     Route::get('/rechercher',['as'=>'.rechercher', 'uses' => 'PartenaireController@rechercher']);
     Route::post('/create', ['as' => '.store', 'uses' => 'PartenaireController@store']);
@@ -169,7 +167,7 @@ Route::post('/forget/password', ['as' => 'forget.password.action', 'uses' => 'Ho
 
 Route::get('/fichier/download/{fichier}', ['as' => 'fichier.download', 'uses' => 'HomeController@downloadFile']);
 
-Route::group(['prefix' => 'methode', 'as' => 'methode'], function () {
+Route::group(['prefix' => 'methode','middleware' =>'lang', 'as' => 'methode'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'MethodeController@index']);
     Route::get('/show/create',['as'=>'.show.create', 'uses' => 'MethodeController@create']);
     Route::post('/create', ['as' => '.create', 'uses' => 'MethodeController@store']);
@@ -177,7 +175,7 @@ Route::group(['prefix' => 'methode', 'as' => 'methode'], function () {
     Route::get('/destroy/{id_methode}', ['as' => '.destroy', 'uses' => 'MethodeController@destroy']);
     Route::get('/edit/{id_methode}', ['as' => '.edit', 'uses' => 'MethodeController@edit']);
 });
-Route::group(['prefix' => 'notification', 'as' => 'notification'], function () {
+Route::group(['prefix' => 'notification','middleware' =>'lang', 'as' => 'notification'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'NotificationController@index']);
     Route::get('/show/create',['as'=>'.show.create', 'uses' => 'NotificationController@create']);
     Route::post('/create', ['as' => '.create', 'uses' => 'NotificationController@store']);

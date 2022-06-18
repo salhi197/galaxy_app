@@ -4,7 +4,7 @@
 
 
 					<div class="page-header">
-						<h4 class="page-title">{{trans('Mon Espace')}}</h4>
+						<h4 class="page-title">{{trans('main.dashboard')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">GalaxyApp</a></li>
 							<li class="breadcrumb-item active" aria-current="page">Acceuil</li>
@@ -21,7 +21,7 @@
 									<div class="col-xl-3 col-lg-6 col-sm-6 border-right">
 										<div class="card-body text-center">
 											<h6 class="mb-3"> 
-												Votre actif
+											{{trans('main.votre_actif')}}
 											</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f5334f">
 												<div class="chart-circle-value text-center ">
@@ -39,7 +39,9 @@
 									
 									<div class="col-xl-3 col-lg-6 col-sm-6 border-right">
 										<div class="card-body text-center">
-											<h6 class="mb-3">Bénéfice total</h6>
+											<h6 class="mb-3">
+											{{trans('main.benefice_total')}}
+											</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#564ec1">
 												<div class="chart-circle-value text-center "><h6 class="mb-0">
 													<i class="fa fa-money" style="font-size:20px;">
@@ -66,7 +68,9 @@
 									</div> -->
 									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
 										<div class="card-body text-center">
-											<h6 class="mb-3">Votre Balance </h6>
+											<h6 class="mb-3">
+											{{trans('main.votre_balance')}}												
+											</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
 												<div class="chart-circle-value text-center "><h6 class="mb-0">
 													<i class="fa fa-tasks" style="font-size:20px;"></i>													
@@ -79,7 +83,7 @@
 									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
 										<div class="card-body text-center">
 											<h6 class="mb-3">
-											Vos partenaires
+											{{trans('main.votre_partenaires')}}
 											</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#04cad0">
 												<div class="chart-circle-value text-center "><h6 class="mb-0">
@@ -104,13 +108,15 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Ordinateur de profit</h3>
+									<h3 class="card-title">
+										{{trans('main.ordinateur_de_profit')}}
+									</h3>
 								</div>
 								<div class="card-body">
 									<div class="row">
 										<div class="col-md-8">
                                             <div class="form-group overflow-hidden">
-												<label>Choisissez une période d'accumulation:</label>
+												<label>{{trans('main.periode_accumulation')}}:</label>
 												<select class="form-control select2 w-100" id="duree" >
 													<option value="1" selected="selected">1 Mois</option>
 													<option value="12">12 Mois</option>
@@ -124,12 +130,12 @@
 									<div class="row">
 										<div class="col-md-8">
                                             <div class="form-group overflow-hidden">
-												<label>Entrez le montant de l'investissement:</label>
+												<label>{{trans('main.montant_dinnvestissement')}} : </label>
 												<input name="montant" class="form-control" min="500" id="montant" min="0"/>
 											</div>                                              
 										</div>
 									</div>
-									<button class="btn btn-primary">Calculer</button>
+									<button class="btn btn-primary">{{trans('main.calculer')}}</button>
 
 								</div>
 							</div>
@@ -137,7 +143,9 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Rentabilité</h3>
+									<h3 class="card-title">
+									{{trans('main.rentabilite')}}
+									</h3>
 								</div>
 								<div class="card-body">
                                     <ul class="list-group list-group-flush">
@@ -184,7 +192,7 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Analytics De Partenaire Par Region</div>
+									<div class="card-title">{{trans('main.partenaire_par_region')}}</div>
 								</div>
 								<div class="card-body">
 									<div class="row">
@@ -236,17 +244,17 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Votre Rang</h3>
+									<h3 class="card-title">{{trans('main.votre_rang')}}</h3>
 								</div>
 								<div class="card-body">
-									<h6 class="mb-3 text-center">Votre rang {{Auth::user()->rang() ?? "" }} </h6>
+									<h6 class="mb-3 text-center">{{trans('main.votre_rang')}} {{Auth::user()->rang() ?? "" }} </h6>
 									<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
 										<div class="chart-circle-value text-center "><h6 class="mb-0">
 											<i class="fa fa-tasks" style="font-size:20px;"></i>													
 										</h6></div>
 									</div>
 									<h2 class="text-center mb-1 mt-3  display-4 font-weight-semibold text-dark">{{$soldeTotal*100/10000}}%</h2>
-									<p class="text-center mb-3 text-muted"> Il Vous reste : {{10000-$soldeTotal}}$</p>
+									<p class="text-center mb-3 text-muted"> {{trans('main.reste')}} : {{10000-$soldeTotal}}$</p>
 									
 								</div>
 							</div>
@@ -260,23 +268,25 @@
 						<div class="col-md-12 col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Liste Des Partenarie : </h3>
+									<h3 class="card-title">{{trans('main.liste_partenaires')}} : </h3>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
 										<table id="datable-1" class="table  card-table table-striped table-bordered text-nowrap w-100">
 											<thead >
 												<tr>
-													<th>ID User</th>
-													<th>Utilisateur</th>
-													<th>Date Entré</th>
-													<th>Solde Actif</th>
+													<th>ID {{trans('main.user')}}</th>
+													<th>{{trans('main.user')}}</th>
+													<th>{{trans('main.date_entrer')}}</th>
+													<th>{{trans('main.solde_actif')}}</th>
 												</tr>
 											</thead>
 											<tbody>
 												@foreach($mesPartenaires as $partenaire)
 												<tr>
-													<td>{{$partenaire->id}}</td>
+													<td>
+														{{$partenaire->id}}
+													</td>
 													<td>
 													{{$partenaire->name}} 
 													 

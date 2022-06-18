@@ -4,7 +4,7 @@
 
 
 					<div class="page-header">
-						<h4 class="page-title">{{trans('retirer_comtpe')}}</h4>
+						<h4 class="page-title">{{trans('main.retirer_comtpe')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>
@@ -20,14 +20,14 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">RETIRER DE COMPTE ACTIF : ({{Auth::user()->solde_retrait}} $ ) </h3>
+									<h3 class="card-title">{{trans('main.retirer_de_compte_actif')}} : ({{Auth::user()->solde_retrait}} $ ) </h3>
 								</div>
 								<div class="card-body">
 									@if($countOperations>0)
 									<div class="row">
 										<div class="col-md-12">
 											<h4>
-												Vous avez Déja une demande de retrait , vous devriez attendre jusqu'à sa validation
+												{{trans('main.demande_retrair_envoyer')}}
 											</h4>
 										</div>
 									</div>
@@ -39,7 +39,7 @@
 										<div class="col-md-12">
 											<div class="alert alert-success" role="alert">
 												<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-												Vous ne pouvez pas effectuer cette action avec votre Solde de retrait . 
+												{{trans('main.solde_zero')}}
 											</div>
 											
 										</div>
@@ -58,7 +58,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group overflow-hidden">
-                                                    <label>Entrez la méthode de recharge:</label>
+                                                    <label>{{trans('main.entrer_methode')}}:</label>
                                                         <select name="methode" class="form-control select2 w-100" >
                                                         <!-- <option value="btc">BTC</option> -->
                                                         <!-- <option value="prefectmoney">Perfect Money</option> -->
@@ -71,7 +71,7 @@
                                             </div>
 	    								</div>
                                         <button class="btn btn-primary btn-lg" type="submit">
-                                            Continuer
+                                            {{trans('main.continuer')}}
                                         </button>
 
                                     </form>
