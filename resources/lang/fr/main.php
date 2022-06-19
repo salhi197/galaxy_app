@@ -74,6 +74,21 @@ return [
     'propos_texte'=>'Il s\’agit d\’une institution officielle enregistrée aux États-Unis d\’Amérique, active dans le domaine de l\’investissement et de l\’argent, et sa politique économique est basée sur un système participatif basé sur la contribution à l\’entrepreneuriat et vise à atteindre la liberté financière et le bien-être pour tous les partenaires du monde entier.',
     'a_propos'=>'A propos',
     'qui_fondateur'=>'Qui est le fondateur de l\'entreprise ?',
-    'qui_fondateur_texte'=>'GALAXY dirige un conseil d’administration composé d’experts dans le domaine de l’entrepreneuriat et de l’investissement avec plus de vingt ans d’expérience, ce qui permet à l’approche et au plan stratégique de l’entreprise d’atteindre un développement permanent conformément à la mission de l’institution.    '
+    'qui_fondateur_texte'=>'GALAXY dirige un conseil d’administration composé d’experts dans le domaine de l’entrepreneuriat et de l’investissement avec plus de vingt ans d’expérience, ce qui permet à l’approche et au plan stratégique de l’entreprise d’atteindre un développement permanent conformément à la mission de l’institution.    ',
+    'methodes'=>'Méthodes De Paiament',
 
+    'where'=>'Où se trouve l\'entreprise et est-elle officiellement enregistrée , ou s\'agit-il simplement d\'un site Web ?',
+    'where_text'=>'Galaxy est une institution d’investissement située sur le terrain avec son bureau principal dans l’État américain du Wyoming dans le comté de Casper, et elle dispose d’un site Web qui facilite la fourniture de ses services à ses clients.',
+
+    'comment'=>'Comment fonctionne l\'entreprise ?',
+    'comment_text'=>'Galaxy investit son argent dans plusieurs domaines d’investissement conformément à la stratégie de diversification des sources de revenus.Il est principalement actif sur le marché de la crypto et de la crypto-monnaie, du forex halal et des actions dans diverses bourses internationales en tant que contribution à de grandes entreprises.',
+
+    'retirer'=>'Retirer',
+    'rechargements'=>'rechargements',
+    'actif'=>'Actif',
+    'recharger'=>'Recharger',
+    'transferer'=>'transférer',
+    'operations'=>'Opérations',
+    'methode_paiment'=>'methode_paiment',
+    'rechargements'=>'Rechargements',
 ];

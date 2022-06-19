@@ -5,7 +5,7 @@
 @section('content')
 
 					<div class="page-header">
-						<h4 class="page-title">{{trans('liste partenaires')}}</h4>
+						<h4 class="page-title">{{trans('main.liste_partenaires')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('partenaire')}}</li>

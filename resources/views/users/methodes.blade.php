@@ -5,7 +5,7 @@
 @section('content')
 
 					<div class="page-header">
-						<h4 class="page-title">{{trans('methodes')}}</h4>
+						<h4 class="page-title">{{trans('main.methodes')}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('dashboard')}}</li>

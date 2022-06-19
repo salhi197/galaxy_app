@@ -306,34 +306,34 @@
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('main.finance')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="{{route('operation.recharger.index')}}" class="slide-item">{{trans('Rechargements')}} </a>
+									<a href="{{route('operation.recharger.index')}}" class="slide-item">{{trans('main.rechargements')}} </a>
 								</li>
 								<li>
-									<a href="{{route('operation.actif.index')}}" class="slide-item">{{trans('Actif')}} </a>
+									<a href="{{route('operation.actif.index')}}" class="slide-item">{{trans('main.actif')}} </a>
 								</li>
 
 								<li>
-									<a href="{{route('operation.retrait.index')}}" class="slide-item">{{trans('Retrait')}} </a>
+									<a href="{{route('operation.retrait.index')}}" class="slide-item">{{trans('main.retrait')}} </a>
 								</li>
 								<li>
-									<a href="{{route('operation.index')}}" class="slide-item">{{trans('Operations')}} </a>
+									<a href="{{route('operation.index')}}" class="slide-item">{{trans('main.operations')}} </a>
 								</li>
 
 
 							</ul>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label">{{trans('Payment')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label">{{trans('main.payment')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="{{route('payment.rechargements.month')}}" class="slide-item">{{trans('Payments De Ce Mois')}} </a>
+									<a href="{{route('payment.rechargements.month')}}" class="slide-item">{{trans('main.payments_ce_mois')}} </a>
 								</li>
 
 								<li>
-									<a href="{{route('payment.rechargements')}}" class="slide-item">{{trans('Prochain Payments')}} </a>
+									<a href="{{route('payment.rechargements')}}" class="slide-item">{{trans('main.prochain_payments')}} </a>
 								</li>
 								<li>
-									<a href="{{route('payment.rechargements.paye')}}" class="slide-item">{{trans('Payments Reglés')}} </a>
+									<a href="{{route('payment.rechargements.paye')}}" class="slide-item">{{trans('main.payments_regles')}} </a>
 								</li>
 							</ul>
 						</li>
@@ -346,7 +346,7 @@
 						</li>
 
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label">{{trans('setting')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label">{{trans('main.setting')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="{{route('methode.index')}}" class="slide-item">{{trans('methode de paiment')}} </a>
@@ -366,28 +366,28 @@
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('main.finance')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="{{route('operation.recharger.show')}}" class="slide-item">{{trans('Recharger')}} </a>
+									<a href="{{route('operation.recharger.show')}}" class="slide-item">{{trans('main.recharger')}} </a>
 								</li>
 								<li>
-									<a href="{{route('operation.retirer.show')}}" class="slide-item">{{trans('Retirer')}} </a>
-								</li>
-
-								<li>
-									<a href="{{route('operation.activer.show')}}" class="slide-item">{{trans('Actif')}} </a>
+									<a href="{{route('operation.retirer.show')}}" class="slide-item">{{trans('main.retirer')}} </a>
 								</li>
 
 								<li>
-									<a href="{{route('operation.transferer.show')}}" class="slide-item">{{trans('Transférer')}} </a>
+									<a href="{{route('operation.activer.show')}}" class="slide-item">{{trans('main.actif')}} </a>
+								</li>
+
+								<li>
+									<a href="{{route('operation.transferer.show')}}" class="slide-item">{{trans('main.transferer')}} </a>
 								</li>
 								<li>
-									<a href="{{route('operation.index')}}" class="slide-item">{{trans('Opérations')}} </a>
+									<a href="{{route('operation.index')}}" class="slide-item">{{trans('main.operations')}} </a>
 								</li>
 								<li>
-									<a href="{{route('operation.recharger.index')}}" class="slide-item">{{trans('Rechargements')}} </a>
+									<a href="{{route('operation.recharger.index')}}" class="slide-item">{{trans('main.rechargements')}} </a>
 								</li>
 								
 								<li>
-									<a href="{{route('user.methodes')}}" class="slide-item">{{trans('Méthode de Paiment')}} </a>
+									<a href="{{route('user.methodes')}}" class="slide-item">{{trans('main.methode_paiment')}} </a>
 								</li>
 							</ul>
 						</li>

@@ -1,5 +1,16 @@
 <?php 
 return [
+    'retirer'=>'Withdraw',
+    'actif'=>'Asset',
+    'recharger'=>'Deposit',
+    'transferer'=>'Transfer',
+    'operations'=>'Operations',
+    'liste_partenaires'=>'Parteners List',
+    'methode_paiment'=>'Payment Method',
+    'recharge'=>'Refills',
+    'rechargements'=>'Reloads',
+    'methodes'=>'Payments Methodes',
+
     'dashboard'=>'Dashboard',
     'finance'=>'Finance',
     'partenaires'=>'Partners',
@@ -75,6 +86,13 @@ return [
     'ajouter_methode'=>'Add payment method',
     'propos_texte'=>'It is an official institution registered in the United States of America, active in the field of investment and money, and its economic policy is based on a participatory system based on contribution to entrepreneurship and aims to achieve financial freedom and well-being for all partners around the world.',
     'a_propos'=>'About',
+    'where'=>'Where is the business located and is it officially registered, or is it just a website?',
+    'where_text'=>'Galaxy is a hands-on investment institution with its main office in the US state of Wyoming in Casper County, and it has a website that makes it easy to provide its services to its clients.',
+
+    'comment'=>'How does the business work?',
+    'comment_text'=>'Galaxy invests its money in several areas of investment in accordance with the strategy of diversifying income sources.It is mainly active in the crypto and cryptocurrency market, halal forex and stocks in various international exchanges as that contribution to large companies.',
+
+    
     'qui_fondateur'=>'Who is the founder of the company?',
     'qui_fondateur_texte'=>'GALAXY leads a board of directors made up of experts in the field of entrepreneurship and investment with more than twenty years of experience, which allows the company\'s approach and strategic plan to achieve permanent development in accordance with the mission of the institution. '
 

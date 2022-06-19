@@ -308,34 +308,34 @@
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('main.finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('Rechargements')); ?> </a>
+									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('main.rechargements')); ?> </a>
 								</li>
 								<li>
-									<a href="<?php echo e(route('operation.actif.index')); ?>" class="slide-item"><?php echo e(trans('Actif')); ?> </a>
+									<a href="<?php echo e(route('operation.actif.index')); ?>" class="slide-item"><?php echo e(trans('main.actif')); ?> </a>
 								</li>
 
 								<li>
-									<a href="<?php echo e(route('operation.retrait.index')); ?>" class="slide-item"><?php echo e(trans('Retrait')); ?> </a>
+									<a href="<?php echo e(route('operation.retrait.index')); ?>" class="slide-item"><?php echo e(trans('main.retrait')); ?> </a>
 								</li>
 								<li>
-									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('Operations')); ?> </a>
+									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('main.operations')); ?> </a>
 								</li>
 
 
 							</ul>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label"><?php echo e(trans('Payment')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label"><?php echo e(trans('main.payment')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="<?php echo e(route('payment.rechargements.month')); ?>" class="slide-item"><?php echo e(trans('Payments De Ce Mois')); ?> </a>
+									<a href="<?php echo e(route('payment.rechargements.month')); ?>" class="slide-item"><?php echo e(trans('main.payments_ce_mois')); ?> </a>
 								</li>
 
 								<li>
-									<a href="<?php echo e(route('payment.rechargements')); ?>" class="slide-item"><?php echo e(trans('Prochain Payments')); ?> </a>
+									<a href="<?php echo e(route('payment.rechargements')); ?>" class="slide-item"><?php echo e(trans('main.prochain_payments')); ?> </a>
 								</li>
 								<li>
-									<a href="<?php echo e(route('payment.rechargements.paye')); ?>" class="slide-item"><?php echo e(trans('Payments Reglés')); ?> </a>
+									<a href="<?php echo e(route('payment.rechargements.paye')); ?>" class="slide-item"><?php echo e(trans('main.payments_regles')); ?> </a>
 								</li>
 							</ul>
 						</li>
@@ -348,7 +348,7 @@
 						</li>
 
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('setting')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('main.setting')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="<?php echo e(route('methode.index')); ?>" class="slide-item"><?php echo e(trans('methode de paiment')); ?> </a>
@@ -368,28 +368,28 @@
 							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('main.finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="<?php echo e(route('operation.recharger.show')); ?>" class="slide-item"><?php echo e(trans('Recharger')); ?> </a>
+									<a href="<?php echo e(route('operation.recharger.show')); ?>" class="slide-item"><?php echo e(trans('main.recharger')); ?> </a>
 								</li>
 								<li>
-									<a href="<?php echo e(route('operation.retirer.show')); ?>" class="slide-item"><?php echo e(trans('Retirer')); ?> </a>
-								</li>
-
-								<li>
-									<a href="<?php echo e(route('operation.activer.show')); ?>" class="slide-item"><?php echo e(trans('Actif')); ?> </a>
+									<a href="<?php echo e(route('operation.retirer.show')); ?>" class="slide-item"><?php echo e(trans('main.retirer')); ?> </a>
 								</li>
 
 								<li>
-									<a href="<?php echo e(route('operation.transferer.show')); ?>" class="slide-item"><?php echo e(trans('Transférer')); ?> </a>
+									<a href="<?php echo e(route('operation.activer.show')); ?>" class="slide-item"><?php echo e(trans('main.actif')); ?> </a>
+								</li>
+
+								<li>
+									<a href="<?php echo e(route('operation.transferer.show')); ?>" class="slide-item"><?php echo e(trans('main.transferer')); ?> </a>
 								</li>
 								<li>
-									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('Opérations')); ?> </a>
+									<a href="<?php echo e(route('operation.index')); ?>" class="slide-item"><?php echo e(trans('main.operations')); ?> </a>
 								</li>
 								<li>
-									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('Rechargements')); ?> </a>
+									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('main.rechargements')); ?> </a>
 								</li>
 								
 								<li>
-									<a href="<?php echo e(route('user.methodes')); ?>" class="slide-item"><?php echo e(trans('Méthode de Paiment')); ?> </a>
+									<a href="<?php echo e(route('user.methodes')); ?>" class="slide-item"><?php echo e(trans('main.methode_paiment')); ?> </a>
 								</li>
 							</ul>
 						</li>

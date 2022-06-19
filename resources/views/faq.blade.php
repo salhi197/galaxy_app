@@ -30,10 +30,10 @@
 											{{trans('main.propos_texte')}}
 										</p>
 										<h3>
-											Où se trouve l'entreprise et est-elle officiellement enregistrée ou s'agit-il simplement d'un site Web ?
+											{{trans('main.where')}}
 										</h3>
 										<p>
-											Galaxy est une institution d’investissement située sur le terrain avec son bureau principal dans l’État américain du Wyoming dans le comté de Casper, et elle dispose d’un site Web qui facilite la fourniture de ses services à ses clients.
+										{{trans('main.where_text')}}
 										</p>
 										<h3>
 											{{trans('main.qui_fondateur')}}
@@ -42,10 +42,11 @@
 										{{trans('main.qui_fondateur_texte')}}
 										</p>
 										<h3>
-											Comment fonctionne l'entreprise ?
+											{{trans('main.comment')}}
 										</h3>
 										<p>
-											Galaxy investit son argent dans plusieurs domaines d’investissement conformément à la stratégie de diversification des sources de revenus.Il est principalement actif sur le marché de la crypto et de la crypto-monnaie, du forex halal et des actions dans diverses bourses internationales en tant que contribution à de grandes entreprises.
+										{{trans('main.comment_texte')}}
+											
 										</p>
 										<h3>
 											L'entreprise a-t-elle d'autres projets ?
