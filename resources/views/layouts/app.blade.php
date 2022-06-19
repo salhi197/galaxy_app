@@ -70,7 +70,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									@auth
-									<h4 class="alert alert-priamry text-center" role="alert">Balance: {{Auth::user()->solde ?? ''}}$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert">{{trans('main.balance')}}: {{Auth::user()->solde ?? ''}}$</h4>
 									@endif	
 									</a>
 								</div>
@@ -78,7 +78,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									@auth
-									<h4 class="alert alert-priamry text-center" role="alert">Solde Actif : {{Auth::user()->solde_actif ?? ''}}$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert">{{trans('main.solde_actif')}} : {{Auth::user()->solde_actif ?? ''}}$</h4>
 									@endif	
 									</a>
 								</div>								
@@ -87,7 +87,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									@auth
-									<h4 class="alert alert-priamry text-center" role="alert">Revenus Mensuel : {{Auth::user()->solde_retrait ?? ''}}$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert">{{trans('main.monthly_revenue')}} : {{Auth::user()->solde_retrait ?? ''}}$</h4>
 									@endif	
 									</a>
 								</div>								
@@ -183,14 +183,14 @@
 										<a class="dropdown-item" href="{{route('support')}}"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
 										<a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Déconexion</span></a>
 										<a class="dropdown-item" >
-											Mode Sombre
+											{{trans('main.mode_sombre')}}
 											<div class="material-switch pull-right">
 												<input id="someSwitchOptionDefault" onchange="DarkMode()" name="someSwitchOption001" type="checkbox">
 												<label for="someSwitchOptionDefault" class="label-default"></label>
 											</div>
 										</a>
 										<a class="dropdown-item" >
-											Mode Claire
+											{{trans('main.mode_claire')}}
 											<div class="material-switch pull-right">
 												<input id="someSwitchOptionDefault2" onchange="LightMode()" name="someSwitchOption002" type="checkbox">
 												<label for="someSwitchOptionDefault2" class="label-default"></label>
@@ -303,7 +303,7 @@
 						</li>
 
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('Finance')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('main.finance')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="{{route('operation.recharger.index')}}" class="slide-item">{{trans('Rechargements')}} </a>
@@ -363,7 +363,7 @@
 							<a class="side-menu__item" href="{{route('home')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('main.dashboard')}}</span></a>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('Finance')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label">{{trans('main.finance')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="{{route('operation.recharger.show')}}" class="slide-item">{{trans('Recharger')}} </a>
@@ -394,45 +394,45 @@
 
 
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-users"></i><span class="side-menu__label">{{trans('Partenaires')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-users"></i><span class="side-menu__label">{{trans('main.partenaires')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="{{route('user.partenaire')}}" class="slide-item">{{trans('Partenaires')}} </a>
+									<a href="{{route('user.partenaire')}}" class="slide-item">{{trans('main.partenaires')}} </a>
 								</li>	
 							</ul>
 						</li>
 
 
 						<li>
-							<a class="side-menu__item" href="{{route('operation.actif.index')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('Actif')}}</span></a>
+							<a class="side-menu__item" href="{{route('operation.actif.index')}}"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">{{trans('main.actif')}}</span></a>
 						</li>
 						<li>
-							<a class="side-menu__item" href="{{route('user.profile')}}"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label">{{trans('Profile')}}</span></a>
+							<a class="side-menu__item" href="{{route('user.profile')}}"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label">{{trans('main.profile')}}</span></a>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label">{{trans('Acedémie')}}</span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label">{{trans('main.acedemie')}}</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="{{route('comingsoon')}}" class="slide-item">{{trans('video')}} </a>
+									<a href="{{route('comingsoon')}}" class="slide-item">{{trans('main.video')}} </a>
 								</li>	
 								<li>
-									<a href="{{route('comingsoon')}}" class="slide-item">{{trans('livre')}} </a>
+									<a href="{{route('comingsoon')}}" class="slide-item">{{trans('main.livre')}} </a>
 								</li>	
 								<li>
-									<a href="{{route('comingsoon')}}" class="slide-item">{{trans('documentation')}} </a>
+									<a href="{{route('comingsoon')}}" class="slide-item">{{trans('main.documentation')}} </a>
 								</li>	
 							</ul>
 						</li>
 						<li>
-							<a class="side-menu__item" href="{{route('faq')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('Faq')}}</span></a>
+							<a class="side-menu__item" href="{{route('faq')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">{{trans('main.faq')}}</span></a>
 						</li>
 						<li>
-							<a class="side-menu__item" href="{{route('support')}}"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label">{{trans('Support')}}</span></a>
+							<a class="side-menu__item" href="{{route('support')}}"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label">{{trans('main.support')}}</span></a>
 						</li>
 						@endif
 
 						<li>
-							<a class="side-menu__item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door"></i><span class="side-menu__label">{{trans('Déconnexion')}}</span></a>
+							<a class="side-menu__item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door"></i><span class="side-menu__label">{{trans('main.deconnexion')}}</span></a>
 						</li>
 
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

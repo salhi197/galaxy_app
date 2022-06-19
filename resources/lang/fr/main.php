@@ -51,9 +51,10 @@ return [
     'instgram'=>'instgram',
     'telegram'=>'telegram',
     'mot_de_passe_actuel'=>'Mot de passe Actuel',
-    
     'prenom'=>'Prenom',
-    
+    'mode_sombre'=>'Mode Sombre',
+    'mode_claire'=>'Mode Claire',
+    'deconnexion'=>'déconnexion',
     'telephone'=>'Telephone',
     'piece_identité'=>'Piece d\'identité',
     'type_opration'=>'Type Opration',

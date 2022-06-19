@@ -32,7 +32,7 @@ Route::get('/cleareverything', function () {
 });
 
 Route::get('/faq', function () {return view('faq');})->name('faq')->middleware('lang');
-Route::get('/support', function () {return view('support');})->name('support');
+Route::get('/support', function () {return view('support');})->name('support')->middleware('lang') ;
 
 
 Route::get('/recharger-compte', function () {

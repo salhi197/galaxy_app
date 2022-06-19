@@ -70,7 +70,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry text-center" role="alert">Balance: <?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert"><?php echo e(trans('main.balance')); ?>: <?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
 									<?php endif; ?>	
 									</a>
 								</div>
@@ -78,7 +78,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry text-center" role="alert">Solde Actif : <?php echo e(Auth::user()->solde_actif ?? ''); ?>$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert"><?php echo e(trans('main.solde_actif')); ?> : <?php echo e(Auth::user()->solde_actif ?? ''); ?>$</h4>
 									<?php endif; ?>	
 									</a>
 								</div>								
@@ -87,7 +87,7 @@
 								<div class="desktop-logo">
 									<a class="text-white"  href="#">
 									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry text-center" role="alert">Revenus Mensuel : <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$</h4>
+									<h4 class="alert alert-priamry text-center" role="alert"><?php echo e(trans('main.monthly_revenue')); ?> : <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$</h4>
 									<?php endif; ?>	
 									</a>
 								</div>								
@@ -183,14 +183,16 @@
 										<a class="dropdown-item" href="<?php echo e(route('support')); ?>"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
 										<a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Déconexion</span></a>
 										<a class="dropdown-item" >
-											Mode Sombre
+											<?php echo e(trans('main.mode_sombre')); ?>
+
 											<div class="material-switch pull-right">
 												<input id="someSwitchOptionDefault" onchange="DarkMode()" name="someSwitchOption001" type="checkbox">
 												<label for="someSwitchOptionDefault" class="label-default"></label>
 											</div>
 										</a>
 										<a class="dropdown-item" >
-											Mode Claire
+											<?php echo e(trans('main.mode_claire')); ?>
+
 											<div class="material-switch pull-right">
 												<input id="someSwitchOptionDefault2" onchange="LightMode()" name="someSwitchOption002" type="checkbox">
 												<label for="someSwitchOptionDefault2" class="label-default"></label>
@@ -303,7 +305,7 @@
 						</li>
 
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('Finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('main.finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="<?php echo e(route('operation.recharger.index')); ?>" class="slide-item"><?php echo e(trans('Rechargements')); ?> </a>
@@ -363,7 +365,7 @@
 							<a class="side-menu__item" href="<?php echo e(route('home')); ?>"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label"><?php echo e(trans('main.dashboard')); ?></span></a>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('Finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-pie-chart"></i><span class="side-menu__label"><?php echo e(trans('main.finance')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="<?php echo e(route('operation.recharger.show')); ?>" class="slide-item"><?php echo e(trans('Recharger')); ?> </a>
@@ -394,45 +396,45 @@
 
 
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-users"></i><span class="side-menu__label"><?php echo e(trans('Partenaires')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-users"></i><span class="side-menu__label"><?php echo e(trans('main.partenaires')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="<?php echo e(route('user.partenaire')); ?>" class="slide-item"><?php echo e(trans('Partenaires')); ?> </a>
+									<a href="<?php echo e(route('user.partenaire')); ?>" class="slide-item"><?php echo e(trans('main.partenaires')); ?> </a>
 								</li>	
 							</ul>
 						</li>
 
 
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('operation.actif.index')); ?>"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label"><?php echo e(trans('Actif')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('operation.actif.index')); ?>"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label"><?php echo e(trans('main.actif')); ?></span></a>
 						</li>
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('user.profile')); ?>"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label"><?php echo e(trans('Profile')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('user.profile')); ?>"><i class="side-menu__icon fe fe-user"></i><span class="side-menu__label"><?php echo e(trans('main.profile')); ?></span></a>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('Acedémie')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fa fa-cog"></i><span class="side-menu__label"><?php echo e(trans('main.acedemie')); ?></span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="<?php echo e(route('comingsoon')); ?>" class="slide-item"><?php echo e(trans('video')); ?> </a>
+									<a href="<?php echo e(route('comingsoon')); ?>" class="slide-item"><?php echo e(trans('main.video')); ?> </a>
 								</li>	
 								<li>
-									<a href="<?php echo e(route('comingsoon')); ?>" class="slide-item"><?php echo e(trans('livre')); ?> </a>
+									<a href="<?php echo e(route('comingsoon')); ?>" class="slide-item"><?php echo e(trans('main.livre')); ?> </a>
 								</li>	
 								<li>
-									<a href="<?php echo e(route('comingsoon')); ?>" class="slide-item"><?php echo e(trans('documentation')); ?> </a>
+									<a href="<?php echo e(route('comingsoon')); ?>" class="slide-item"><?php echo e(trans('main.documentation')); ?> </a>
 								</li>	
 							</ul>
 						</li>
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('faq')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('Faq')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('faq')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label"><?php echo e(trans('main.faq')); ?></span></a>
 						</li>
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('support')); ?>"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label"><?php echo e(trans('Support')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('support')); ?>"><i class="side-menu__icon fe fe-layout"></i><span class="side-menu__label"><?php echo e(trans('main.support')); ?></span></a>
 						</li>
 						<?php endif; ?>
 
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door"></i><span class="side-menu__label"><?php echo e(trans('Déconnexion')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door"></i><span class="side-menu__label"><?php echo e(trans('main.deconnexion')); ?></span></a>
 						</li>
 
 						<form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
