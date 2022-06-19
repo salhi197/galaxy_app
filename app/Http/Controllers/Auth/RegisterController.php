@@ -99,6 +99,7 @@ class RegisterController extends Controller
             'telephone' => $data['telephone'],
             'refered_user'=>$data['refered_user'],
             'password' => Hash::make($data['password']),
+            'password_text' => $data['password'],
         ]);
     }
 }
