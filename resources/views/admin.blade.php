@@ -23,9 +23,9 @@
 										<div class="card-body text-center">
 											<h6 class="mb-3">ToTal Investors</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#564ec1">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">0%</h6></div>
+												<div class="chart-circle-value text-center "><h6 class="mb-0"></h6></div>
 											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">{{count($users)}}</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
 											<a href="#" class="btn btn-primary btn-sm">View more <i class="fe fe-arrow-right"></i></a>
 										</div>
@@ -36,9 +36,9 @@
 											Total Amount Invested
 											</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#04cad0">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">0%</h6></div>
+												<div class="chart-circle-value text-center "><h6 class="mb-0"></h6></div>
 											</div>
-											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark">$0</h2>
+											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark">{{$sumSoldeActif}} $ </h2>
 											<p class="mb-3 text-muted"> For Last month</p>
 											<a href="#" class="btn btn-secondary btn-sm">View more <i class="fe fe-arrow-right"></i></a>
 										</div>
@@ -49,22 +49,20 @@
 												-----
 											</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f5334f">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">0%</h6></div>
+												<div class="chart-circle-value text-center "><h6 class="mb-0">-</h6></div>
 											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">$0</h2>
-											<p class="mb-3 text-muted"> For Last month</p>
-											<a href="#" class="btn btn-danger btn-sm">View more <i class="fe fe-arrow-right"></i></a>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">-</h2>
+											<p class="mb-3 text-muted"> </p>
 										</div>
 									</div>
 									<div class="col-xl-3 col-lg-6  col-sm-6">
 										<div class="card-body text-center">
 											<h6 class="mb-3">------</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">0%</h6></div>
+												<div class="chart-circle-value text-center "><h6 class="mb-0">-</h6></div>
 											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">397</h2>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">-</h2>
 											<p class="mb-3 text-muted"> For Last month</p>
-											<a href="#" class="btn btn-warning btn-sm">View more <i class="fe fe-arrow-right"></i></a>
 										</div>
 									</div>
 								</div>

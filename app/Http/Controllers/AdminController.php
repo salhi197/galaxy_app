@@ -16,9 +16,7 @@ use App\Camion;
 use App\Remorque;
 use App\Sms;
 use App\Attachement;
-
-
-
+use App\Operation;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -50,7 +48,8 @@ class AdminController extends Controller
             }
         }
         // dd($userArr);
-        return view('admin',compact('userArr'));
+        $sumSoldeActif = Operation::whereMonth('created_at',date('M'))->sum('montant');
+        return view('admin',compact('userArr','users','sumSoldeActif'));
     }
 
     public function saisir_frais(Request $request)
