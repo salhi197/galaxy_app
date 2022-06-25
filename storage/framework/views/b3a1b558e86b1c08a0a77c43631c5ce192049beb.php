@@ -94,7 +94,7 @@
 
 												</h6></div>
 											</div>
-											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark"> 0 </h2>
+											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark"> <?php echo e(count(Auth::user()->partenaires())); ?> </h2>
 											<p class="mb-3 text-muted"> </p>
 										</div>
 									</div>

@@ -25,6 +25,24 @@
 								<div class="card-body">
 
                                     <form action="{{route('operation.activer.action')}}" method="post">
+
+    									<div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group overflow-hidden">
+													<label>{{trans('main.periode_accumulation')}}:</label>
+													<select class="form-control select2 w-100" id="duree" >
+														<option value="1" selected="selected">1 Mois</option>
+														<option value="3">3 Mois</option>
+														<option value="6">6 Mois</option>
+														<option value="12">12 Mois</option>
+													</select>
+													
+                                                </div>
+                                            </div>
+	    								</div>
+
+
+
     									<div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group overflow-hidden">

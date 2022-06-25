@@ -93,7 +93,7 @@
 
 												</h6></div>
 											</div>
-											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark"> 0 </h2>
+											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark"> {{count(Auth::user()->partenaires())}} </h2>
 											<p class="mb-3 text-muted"> </p>
 										</div>
 									</div>
@@ -119,6 +119,8 @@
 												<label>{{trans('main.periode_accumulation')}}:</label>
 												<select class="form-control select2 w-100" id="duree" >
 													<option value="1" selected="selected">1 Mois</option>
+													<option value="3">3 Mois</option>
+													<option value="6">6 Mois</option>
 													<option value="12">12 Mois</option>
 												</select>
 											</div>

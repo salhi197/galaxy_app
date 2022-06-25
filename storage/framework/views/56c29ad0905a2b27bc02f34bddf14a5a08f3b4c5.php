@@ -15,10 +15,12 @@
 								<div class="card-header">
 									<h3 class="card-title"><?php echo e(trans('main.edit_profile')); ?> </h3>
 									&nbsp;
-									<a href="<?php echo e(route('user.demande',['user'=>$user->id])); ?>" class="btn btn-primary" onclick="return confirm('Etes Vous sure ?')">
-										<?php echo e(trans('main.envoyer_verification')); ?>
+									<?php if($user->verified == 1): ?>
+										<a href="<?php echo e(route('user.demande',['user'=>$user->id])); ?>" class="btn btn-primary" onclick="return confirm('Etes Vous sure ?')">
+											<?php echo e(trans('main.envoyer_verification')); ?>
 
-									</a>
+										</a>
+									<?php endif; ?>
 
 								</div>
 								<div class="card-body">

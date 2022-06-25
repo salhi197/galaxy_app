@@ -17,9 +17,11 @@
 								<div class="card-header">
 									<h3 class="card-title">{{trans('main.edit_profile')}} </h3>
 									&nbsp;
-									<a href="{{route('user.demande',['user'=>$user->id])}}" class="btn btn-primary" onclick="return confirm('Etes Vous sure ?')">
-										{{trans('main.envoyer_verification')}}
-									</a>
+									@if($user->verified == 1)
+										<a href="{{route('user.demande',['user'=>$user->id])}}" class="btn btn-primary" onclick="return confirm('Etes Vous sure ?')">
+											{{trans('main.envoyer_verification')}}
+										</a>
+									@endif
 
 								</div>
 								<div class="card-body">

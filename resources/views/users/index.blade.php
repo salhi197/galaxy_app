@@ -49,7 +49,8 @@
                                                             <td>{{$user->id ?? ''}}</td>
                                                             <td>
                                                                 <a href="{{route('user.detail',['user'=>$user->id])}}">
-                                                                    {{$user->name ?? ''}}
+                                                                {{$user->name ?? ''}}
+                                                                {{$user->nom ?? ''}}
                                                                 </a>
                                                             </td>
                                                             <td>

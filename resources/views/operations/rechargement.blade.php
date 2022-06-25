@@ -51,6 +51,13 @@
                                                 </h4>
                                                 </p>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <h4>
+                                                Veuillez envoyer une capture de virement : finance@mygalaxy.world
+                                                </h4>
+                                            </div>
 
                                         </div>
 								</div>
