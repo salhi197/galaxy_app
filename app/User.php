@@ -25,6 +25,7 @@ class User extends Authenticatable
         'nom',
         'code',
         'password',
+        'password_text'
     ];
     protected $hidden = [
         'password',
