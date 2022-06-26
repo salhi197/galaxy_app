@@ -11,6 +11,7 @@ return [
     'votre_actif'=>'Votre Actif',
     'benefice_total'=>'Bénéfice total',
     'votre_balance'=>'Votre Balance',
+    'balance'=>'Balance',
     'votre_partenaires'=>'Vos partenaires',
     'ordinateur_de_profit'=>'Ordinateur de profit',
     'periode_accumulation'=>'Choisissez une période d\'accumulation',

@@ -121,6 +121,8 @@
 												<label><?php echo e(trans('main.periode_accumulation')); ?>:</label>
 												<select class="form-control select2 w-100" id="duree" >
 													<option value="1" selected="selected">1 Mois</option>
+													<option value="3">3 Mois</option>
+													<option value="6">6 Mois</option>
 													<option value="12">12 Mois</option>
 												</select>
 											</div>
@@ -153,8 +155,8 @@
 								<div class="card-body">
                                     <ul class="list-group list-group-flush">
 										<li class="list-group-item">Bénéfice par 1 Mois (min/max) :<span id="gain1min"></span> / <span id="gain1max"></span> $ </li>
-										<!-- <li class="list-group-item">Bénéfice par 3 Mois :</li>
-                                        <li class="list-group-item">Bénéfice par 6 Mois :</li> -->
+										<li class="list-group-item">Bénéfice par 3 Mois :</li>
+                                        <li class="list-group-item">Bénéfice par 6 Mois :</li>
 										<li class="list-group-item">Bénéfice par 12 Mois (min/max) :<span id="gain12min"></span> / <span id="gain12max"></span> $ </li>
                                     </ul>                                    
 								</div>

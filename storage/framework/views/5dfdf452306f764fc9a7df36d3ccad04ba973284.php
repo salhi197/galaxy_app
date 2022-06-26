@@ -58,7 +58,7 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 						   <a class="header-brand" href="<?php echo e(route('home')); ?>">
-								<img src="<?php echo e(asset('img/logos/logo.png')); ?>" class="" width="220px"/>
+								<img src="<?php echo e(asset('img/logos/logo.png')); ?>" class="header-brand-img" width="220px"/>
 							   <img src="<?php echo e(asset('img/logos/logo2.png')); ?>" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
 							</a>
 							
@@ -67,34 +67,54 @@
 							    <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"></a>
 								<div class="header-brand-img desktop-logo">
 								</div>
-								<div class="desktop-logo">
-									<a class="text-white"  href="#">
-									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry text-center" role="alert"><?php echo e(trans('main.balance')); ?>: <?php echo e(Auth::user()->solde ?? ''); ?>$</h4>
-									<?php endif; ?>	
+
+								<div class="dropdown d-md-flex message">
+									<a class="nav-link icon text-center" data-toggle="dropdown">
+										<i class="fa fa-usd"></i>
 									</a>
+									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+										<div class="drop-heading">
+											<div class="d-flex">
+												<h5 class="mb-0 text-white">
+												<?php echo e(trans('main.balance')); ?>: <?php echo e(Auth::user()->solde ?? ''); ?>$												</h5>
+											</div>
+										</div>
+									</div>
 								</div>
 
-								<div class="desktop-logo">
-									<a class="text-white"  href="#">
-									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry text-center" role="alert"><?php echo e(trans('main.solde_actif')); ?> : <?php echo e(Auth::user()->solde_actif ?? ''); ?>$</h4>
-									<?php endif; ?>	
-									</a>
-								</div>								
 
-								
-								<div class="desktop-logo">
-									<a class="text-white"  href="#">
-									<?php if(auth()->guard()->check()): ?>
-									<h4 class="alert alert-priamry text-center" role="alert"><?php echo e(trans('main.monthly_revenue')); ?> : <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$</h4>
-									<?php endif; ?>	
+								<div class="dropdown d-md-flex message">
+									<a class="nav-link icon text-center" data-toggle="dropdown">
+										<i class="fa fa-money"></i>
 									</a>
-								</div>								
-								<!-- SEARCH -->
+									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+										<div class="drop-heading">
+											<div class="d-flex">
+												<h5 class="mb-0 text-white">
+												<?php echo e(trans('main.solde_actif')); ?> : <?php echo e(Auth::user()->solde_actif ?? ''); ?>$
+												</h5>
+											</div>
+										</div>
+									</div>
+								</div>
 
+								<div class="dropdown d-md-flex message">
+									<a class="nav-link icon text-center" data-toggle="dropdown">
+										<i class="fe fe-pie-chart "></i>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+										<div class="drop-heading">
+											<div class="d-flex">
+												<h5 class="mb-0 text-white">
+												<?php echo e(trans('main.monthly_revenue')); ?> : <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$												</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							
 								<div class="dropdown d-md-flex">
-								</div><!-- FULL-SCREEN -->
+								</div>
 								<?php if(auth()->guard()->check()): ?>
 								<div class="dropdown d-md-flex notifications">
 									<a class="nav-link icon" data-toggle="dropdown">
@@ -461,6 +481,7 @@
 						<?php endif; ?>
 
 					<?php endif; ?>
+					<br>
 
                     <?php echo $__env->yieldContent('content'); ?>
 					<!-- PAGE-HEADER -->
