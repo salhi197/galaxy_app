@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Operation;
+use Carbon\Carbon;
 use Auth;
 use App\MethodeUser;
 use App\Methode;
@@ -91,12 +93,33 @@ class UserController extends Controller
     }
 
 
-    public function index()
+    public function actif()
     {
-
         $users =User::all();
-        return view('users.index',compact('users'));
+        return view('users.actifs',compact('users'));
     }
+
+    public function activer(Request $request , $user_id)
+    {
+        $operation = new Operation();
+        $user = User::find($user_id);
+        $operation->montant =$request['montant']; 
+        $operation->type=3;
+        $operation->etat=1;
+        $operation->user=$user_id;
+        // $newSolde = $user->solde-$operation->montant;
+        $newSoldeActif = $user->solde_actif+$operation->montant;
+        $operation->validated_date = Carbon::now();
+        $operation->next_payment_date = Carbon::now()->addMonths(1)->addDays(1);
+        // $user->solde = $newSolde;
+        $user->solde_actif = $newSoldeActif;
+        $user->save();
+        $operation->save();
+
+        return redirect()->route('user.actif')->with('success', 'Valider Avec succés ');        
+
+    }
+
 
     public function getId(Request $request)
     {

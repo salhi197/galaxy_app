@@ -75,7 +75,7 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading">
 											<div class="d-flex">
-												<h5 class="mb-0 text-white">
+												<h5 class="mb-0 ">
 												<?php echo e(trans('main.balance')); ?>: <?php echo e(Auth::user()->solde ?? ''); ?>$												</h5>
 											</div>
 										</div>
@@ -90,7 +90,7 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading">
 											<div class="d-flex">
-												<h5 class="mb-0 text-white">
+												<h5 class="mb-0 ">
 												<?php echo e(trans('main.solde_actif')); ?> : <?php echo e(Auth::user()->solde_actif ?? ''); ?>$
 												</h5>
 											</div>
@@ -105,7 +105,7 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading">
 											<div class="d-flex">
-												<h5 class="mb-0 text-white">
+												<h5 class="mb-0 ">
 												<?php echo e(trans('main.monthly_revenue')); ?> : <?php echo e(Auth::user()->solde_retrait ?? ''); ?>$												</h5>
 											</div>
 										</div>
@@ -317,6 +317,12 @@
 								<li>
 									<a href="<?php echo e(route('user.index')); ?>" class="slide-item"><?php echo e(trans('Tous les utilisateur')); ?> </a>
 								</li>
+
+								<li>
+									<a href="<?php echo e(route('user.actif')); ?>" class="slide-item"><?php echo e(trans('Comptes')); ?> </a>
+								</li>
+
+								
 								<li>
 									<a href="<?php echo e(route('user.pending')); ?>" class="slide-item"><?php echo e(trans('En Attente de vérification')); ?> </a>
 								</li>
@@ -454,7 +460,7 @@
 						<?php endif; ?>
 
 						<li>
-							<a class="side-menu__item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door"></i><span class="side-menu__label"><?php echo e(trans('main.deconnexion')); ?></span></a>
+							<a class="side-menu__item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-lock"></i><span class="side-menu__label"><?php echo e(trans('main.deconnexion')); ?></span></a>
 						</li>
 
 						<form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">

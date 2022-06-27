@@ -61,6 +61,8 @@ Route::group(['middleware' => ['auth','lang']], function () {
 
 Route::group(['prefix' => 'user','middleware' =>'lang', 'as' => 'user'], function () {
     Route::get('/', ['as' => '.index', 'uses' => 'UserController@index']);
+    Route::get('/actif', ['as' => '.actif', 'uses' => 'UserController@actif']);
+    Route::post('/activer/{user}', ['as' => '.activer', 'uses' => 'UserController@activer']);
     Route::get('/pending', ['as' => '.pending', 'uses' => 'UserController@pending']);
     Route::get('/partenaire', ['as' => '.partenaire', 'uses' => 'UserController@partenaire']);
     Route::get('/profile', ['as' => '.profile', 'uses' => 'UserController@profile']);

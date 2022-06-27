@@ -23,7 +23,7 @@ return [
     'copier'=>'copier le texte',
     'partenaire_par_region'=>'Partenaire par region',
     'votre_rang'=>'Votre Rang',
-    'liste_partenaires'=>'Liste Des Partenarie',
+    'liste_partenaires'=>'Liste Des Partenaires',
     'reste'=>'Il Vous reste',
     'date_entrer'=>'Date D\'entré',
     'solde_actif'=>'Solde Actif',

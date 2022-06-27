@@ -75,7 +75,7 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading">
 											<div class="d-flex">
-												<h5 class="mb-0 text-white">
+												<h5 class="mb-0 ">
 												{{trans('main.balance')}}: {{Auth::user()->solde ?? ''}}$												</h5>
 											</div>
 										</div>
@@ -90,7 +90,7 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading">
 											<div class="d-flex">
-												<h5 class="mb-0 text-white">
+												<h5 class="mb-0 ">
 												{{trans('main.solde_actif')}} : {{Auth::user()->solde_actif ?? ''}}$
 												</h5>
 											</div>
@@ -105,7 +105,7 @@
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<div class="drop-heading">
 											<div class="d-flex">
-												<h5 class="mb-0 text-white">
+												<h5 class="mb-0 ">
 												{{trans('main.monthly_revenue')}} : {{Auth::user()->solde_retrait ?? ''}}$												</h5>
 											</div>
 										</div>
@@ -315,6 +315,12 @@
 								<li>
 									<a href="{{route('user.index')}}" class="slide-item">{{trans('Tous les utilisateur')}} </a>
 								</li>
+
+								<li>
+									<a href="{{route('user.actif')}}" class="slide-item">{{trans('Comptes')}} </a>
+								</li>
+
+								
 								<li>
 									<a href="{{route('user.pending')}}" class="slide-item">{{trans('En Attente de vérification')}} </a>
 								</li>
@@ -452,7 +458,7 @@
 						@endif
 
 						<li>
-							<a class="side-menu__item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-door"></i><span class="side-menu__label">{{trans('main.deconnexion')}}</span></a>
+							<a class="side-menu__item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="side-menu__icon fe fe-lock"></i><span class="side-menu__label">{{trans('main.deconnexion')}}</span></a>
 						</li>
 
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

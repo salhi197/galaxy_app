@@ -35,7 +35,7 @@
                                                         <th>telephone</th>
                                                         <th>Balance</th>
                                                         <th>Date Entré</th>
-                                                        <th>Action</th>
+                                                        <th>Actions</th>
                                                         
                                                     </tr>
                                                 </thead>
@@ -72,6 +72,65 @@
 
                                                             <td >
                                                                 <div class="table-action">  
+                                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo e($user->id); ?>">
+                                                                        ajouter de l'argent dans actifs
+                                                                    </button>
+
+                                                                    
+                                                                    <div class="modal fade" id="exampleModal<?php echo e($user->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">ajouter de l'argent dans actifs</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+
+                                                                                <form action="<?php echo e(route('user.activer',['user'=>$user->id])); ?>" method="post">
+
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="form-group overflow-hidden">
+                                                                                                <label><?php echo e(trans('main.periode_accumulation')); ?>:</label>
+                                                                                                <select class="form-control select2 w-100" id="duree" >
+                                                                                                    <option value="1" selected="selected">1 Mois</option>
+                                                                                                    <option value="3">3 Mois</option>
+                                                                                                    <option value="6">6 Mois</option>
+                                                                                                    <option value="12">12 Mois</option>
+                                                                                                </select>
+                                                                                                
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="form-group overflow-hidden">
+                                                                                                <label><?php echo e(trans('main.montant_dinnvestissement')); ?> :</label>
+                                                                                                <input  required name="montant" class="form-control" min="500" id="montant" max="" min="0"/>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <button class="btn btn-primary btn-lg" type="submit">
+                                                                                        <?php echo e(trans('main.continuer')); ?>
+
+                                                                                    </button>
+
+                                                                                </form>
+
+                                                                            
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
 
 
                                                                 </div>
