@@ -190,7 +190,7 @@
 
 												<div class="col-4">
 													<a href="{{route('lang',['lang'=>'ar'])}}">
-														<img src="{{asset('assets/images/flags/dz.svg')}}" class="w-5 h-5  d-block"/>
+														<img src="{{asset('assets/images/flags/sa.svg')}}" class="w-5 h-5  d-block"/>
 													</a>
 												</div>
 											</div>

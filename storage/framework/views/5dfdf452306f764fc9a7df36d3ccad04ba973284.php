@@ -190,7 +190,7 @@
 
 												<div class="col-4">
 													<a href="<?php echo e(route('lang',['lang'=>'ar'])); ?>">
-														<img src="<?php echo e(asset('assets/images/flags/dz.svg')); ?>" class="w-5 h-5  d-block"/>
+														<img src="<?php echo e(asset('assets/images/flags/sa.svg')); ?>" class="w-5 h-5  d-block"/>
 													</a>
 												</div>
 											</div>
