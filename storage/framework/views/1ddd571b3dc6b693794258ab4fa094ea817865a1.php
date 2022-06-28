@@ -16,14 +16,13 @@
 									<h3 class="card-title">Liste</h3>
 								</div>
 								<div class="table-responsive">
-									<table class="table card-table table-vcenter text-nowrap">
+									<table id="datable-1" class="table card-table table-vcenter text-nowrap">
 										<thead >
 											<tr>
 												<th>ID</th>
 												<th>User</th>
 												<th>Montant</th>
 												<th>Méthode</th>
-												<th>Etat</th>
 												<th>Crée le </th>
 												<?php if(auth()->guard('admin')->check()): ?>
 												<th>Action</th>
@@ -34,7 +33,20 @@
 										<tbody>
                                             <?php $__currentLoopData = $operations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $operation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 											<tr>
-												<td><?php echo e($operation->id); ?></td>
+												<td>
+													<?php echo e($operation->id); ?>
+
+														<?php if($operation->etat == 1): ?>
+															Confirmé
+														<?php endif; ?>
+														<?php if($operation->etat == -1): ?>
+															Annulé
+														<?php endif; ?>
+														<?php if($operation->etat == 0): ?>
+															Non Confirmé (en attente)
+														<?php endif; ?>
+
+												</td>
 												<td>
 													<a href="<?php echo e(route('user.detail',['user'=>$operation->user()['id']])); ?>">
 														<?php echo e($operation->user()['name']); ?>
@@ -43,35 +55,18 @@
 												</td>
                                                 <td><?php echo e($operation->montant); ?></td>
                                                 <td><?php echo e($operation->methode); ?></td>
-												<?php if($operation->etat == 1): ?>
-                                                <td class="badge badge-success">
-													<span class="">Confirmé</span>
-												</td>
-												<?php endif; ?>
-												<?php if($operation->etat == -1): ?>
-                                                <td >
-													<span class="badge badge-anger">Annulé</span>
-												</td>
-												<?php endif; ?>
-												<?php if($operation->etat == 0): ?>
-                                                <td >
-													<span class="badge badge-anger">Non Confirmé (en attente)</span>
-												</td>
-												<?php endif; ?>
                                                 <td><?php echo e($operation->created_at); ?></td>
 
 												<?php if(auth()->guard('admin')->check()): ?>
+													<?php if($operation->confirmed == 0 and $operation->etat == 0): ?>
                                                             <td >
                                                                 <div class="table-action">  
-                                                                        <a class="btn btn-outline btn-danger px-3 mb-0" 
-                                                                        href="<?php echo e(route('operation.retirer.valider',['operation'=>$operation->id])); ?>"
-                                                                        onclick="return confirm('etes vous sure  ?')" >
-                                                                            <i class="fe fe-check"></i>
-                                                                            
+                                                                        <a class="btn btn-outline btn-danger px-3 mb-0"  href="<?php echo e(route('operation.retirer.valider',['operation'=>$operation->id])); ?>" onclick="return confirm('etes vous sure  ?')" >
+                                                                            <i class="fe fe-check"></i>           
                                                                         </a>
                                                                 </div>
                                                             </td>
-
+													<?php endif; ?>
 												<?php endif; ?>
 
 
@@ -88,4 +83,14 @@
 
 
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('styles'); ?>
+<link href="<?php echo e(asset('assets/plugins/datatable/responsive.bootstrap4.min.css')); ?>" rel="stylesheet" />
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+<script src="<?php echo e(asset('assets/plugins/datatable/js/jquery.dataTables.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/plugins/datatable/datatable.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -352,17 +352,17 @@
 							</ul>
 						</li>
 						<li class="slide">
-							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label"><?php echo e(trans('main.payment')); ?></span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item  slide-show" href="#"><i class="side-menu__icon fe fe-list"></i><span class="side-menu__label">Payment</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
-									<a href="<?php echo e(route('payment.rechargements.month')); ?>" class="slide-item"><?php echo e(trans('main.payments_ce_mois')); ?> </a>
+									<a href="<?php echo e(route('payment.rechargements.month')); ?>" class="slide-item">Payments Ce Mois </a>
 								</li>
 
 								<li>
-									<a href="<?php echo e(route('payment.rechargements')); ?>" class="slide-item"><?php echo e(trans('main.prochain_payments')); ?> </a>
+									<a href="<?php echo e(route('payment.rechargements')); ?>" class="slide-item">Paiment Prochain Payments </a>
 								</li>
 								<li>
-									<a href="<?php echo e(route('payment.rechargements.paye')); ?>" class="slide-item"><?php echo e(trans('main.payments_regles')); ?> </a>
+									<a href="<?php echo e(route('payment.rechargements.paye')); ?>" class="slide-item">Paiments </a>
 								</li>
 							</ul>
 						</li>
@@ -428,6 +428,11 @@
 								<li>
 									<a href="<?php echo e(route('user.partenaire')); ?>" class="slide-item"><?php echo e(trans('main.partenaires')); ?> </a>
 								</li>	
+
+								<li>
+									<a href="<?php echo e(route('user.parrain')); ?>" class="slide-item"><?php echo e(trans('main.parrains')); ?> </a>
+								</li>	
+								
 							</ul>
 						</li>
 

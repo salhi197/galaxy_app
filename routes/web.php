@@ -65,6 +65,7 @@ Route::group(['prefix' => 'user','middleware' =>'lang', 'as' => 'user'], functio
     Route::post('/activer/{user}', ['as' => '.activer', 'uses' => 'UserController@activer']);
     Route::get('/pending', ['as' => '.pending', 'uses' => 'UserController@pending']);
     Route::get('/partenaire', ['as' => '.partenaire', 'uses' => 'UserController@partenaire']);
+    Route::get('/parrain', ['as' => '.parrain', 'uses' => 'UserController@parrain']);
     Route::get('/profile', ['as' => '.profile', 'uses' => 'UserController@profile']);
     Route::post('/profile/update/{user_id}', ['as' => '.update.profile', 'uses' => 'UserController@profileUpdate']);
     

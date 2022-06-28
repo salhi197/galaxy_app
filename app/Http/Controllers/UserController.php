@@ -166,6 +166,12 @@ class UserController extends Controller
         return view('users.partenaires',compact('users'));
     }
 
+    public function parrain()
+    {
+        $users =User::where('refered_user',Auth::user()->id)->get();
+        return view('users.parrain',compact('users'));
+    }    
+
     public function store(Request $request)
     {
         $user = new User();

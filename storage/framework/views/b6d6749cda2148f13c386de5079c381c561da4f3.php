@@ -1,7 +1,8 @@
 <?php $__env->startSection('content'); ?>
 
 					<div class="page-header">
-						<h4 class="page-title"><?php echo e(trans('main.liste_partenaires')); ?></h4>
+                        <h4 class="page-title"><?php echo e(trans('main.liste_partenaires')); ?></h4>
+                        <h4 class="page-title">Mon Parrain : <?php echo e(Auth::user()->parrain()); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('partenaire')); ?></li>
