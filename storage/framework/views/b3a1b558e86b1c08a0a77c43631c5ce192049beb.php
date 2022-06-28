@@ -389,14 +389,30 @@ $('#duree ,#montant').on('change',function(){
 		console.log("sa")
 		if(selectedValue==1) {
 			var gain1max = 0.2*montant 						
-			var gain1min = 0.16*montant  						
+			var gain1min = 0.16*montant
+
+			var gain3max = gain1max*3 						
+			var gain3min = gain1min*3
+
+			var gain6max = gain1max*6 						
+			var gain6min = gain1min*6
+
+
 			var gain12max = 2.4*montant 						
 			var gain12min  = 1.92*montant
 		}
 
 		if(selectedValue==3){
-				var gain1max = 0.2*montant 						
-				var gain1min = 0.16*montant  						
+			var gain1max = 0.2*montant 						
+			var gain1min = 0.16*montant  						
+			
+			var gain3max = gain1max*3 						
+			var gain3min = gain1min*3
+
+			var gain6max = gain1max*6 						
+			var gain6min = gain1min*6
+
+			
 			var gain12max = 2.4*montant 						
 			var gain12min  = 1.92*montant
 			console.log(gain1max,gain1min,gain12max,gain12min)
@@ -405,18 +421,41 @@ $('#duree ,#montant').on('change',function(){
 
 		if(selectedValue==6){
 			var gain1max = 0.2*montant 						
-			var gain1min = 0.16*montant  						
+			var gain1min = 0.16*montant  	
+
+			var gain3max = gain1max*3 						
+			var gain3min = gain1min*3
+
+			var gain6max = gain1max*6 						
+			var gain6min = gain1min*6
+			
 			var gain12max = 2.4*montant 						
 			var gain12min  = 1.92*montant
 		}
 		if(selectedValue==12){
 			var gain1max = 0.2*montant 						
-			var gain1min = 0.16*montant  						
+			var gain1min = 0.16*montant  	
+			
+
+			var gain3max = gain1max*3 						
+			var gain3min = gain1min*3
+
+			var gain6max = gain1max*6 						
+			var gain6min = gain1min*6
+			
+
 			var gain12max = 2.4*montant 						
 			var gain12min  = 1.92*montant
 		}
 		$('#gain1min').html(gain1min)
 		$('#gain1max').html(gain1max)		
+
+		$('#gain3min').html(gain3min)
+		$('#gain3max').html(gain3max)		
+
+		$('#gain6min').html(gain6min)
+		$('#gain6max').html(gain6max)		
+
 		$('#gain12min').html(gain12min)
 		$('#gain12max').html(gain12max)
 

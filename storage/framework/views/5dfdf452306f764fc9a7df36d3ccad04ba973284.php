@@ -58,8 +58,8 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 						   <a class="header-brand" href="<?php echo e(route('home')); ?>">
-								<img src="<?php echo e(asset('img/logos/logo.png')); ?>" class="header-brand-img" width="220px"/>
-							   <img src="<?php echo e(asset('img/logos/logo2.png')); ?>" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
+								<img src="<?php echo e(asset('img/logos/logo.png')); ?>" class="header-brand-img desktop-logo" />
+							   <img src="<?php echo e(asset('img/logos/logo2.png')); ?>" class="header-brand-img mobile-view-logo" height="100px" alt="Galaxy logo">							   
 							</a>
 							
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
@@ -173,26 +173,27 @@
 												Investor
 											</small>
 										</div>
-										<div class="drop-heading  border-bottom row text-muted">
+										<div class="drop-heading  border-bottom row text-muted row">
 											<?php if(auth()->guard()->check()): ?>
-											<div class="col-md-4">
-												<a href="<?php echo e(route('lang',['lang'=>'fr'])); ?>">
-													Français
-												</a>
-											</div>
+											<div class="row align-center">
+												<div class="col-4">
+													<a href="<?php echo e(route('lang',['lang'=>'fr'])); ?>">
+														<img src="<?php echo e(asset('assets/images/flags/fr.svg')); ?>" class="w-5 h-5  d-block"/>
+													</a>
+												</div>
 
-											<div class="col-md-4">
-												<a href="<?php echo e(route('lang',['lang'=>'en'])); ?>">
-													Anglais
-												</a>
-											</div>
+												<div class="col-4">
+													<a href="<?php echo e(route('lang',['lang'=>'en'])); ?>">
+														<img src="<?php echo e(asset('assets/images/flags/us.svg')); ?>" class="w-5 h-5 d-block"/>
+													</a>
+												</div>
 
-											<div class="col-md-4">
-												<a href="<?php echo e(route('lang',['lang'=>'ar'])); ?>">
-													Arabe
-												</a>
+												<div class="col-4">
+													<a href="<?php echo e(route('lang',['lang'=>'ar'])); ?>">
+														<img src="<?php echo e(asset('assets/images/flags/dz.svg')); ?>" class="w-5 h-5  d-block"/>
+													</a>
+												</div>
 											</div>
-
 											<?php endif; ?>
 										</div>
 										

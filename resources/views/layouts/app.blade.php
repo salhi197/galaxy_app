@@ -58,8 +58,8 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 						   <a class="header-brand" href="{{route('home')}}">
-								<img src="{{asset('img/logos/logo.png')}}" class="header-brand-img" width="220px"/>
-							   <img src="{{asset('img/logos/logo2.png')}}" class="header-brand-img mobile-view-logo" alt="Solic logo">							   
+								<img src="{{asset('img/logos/logo.png')}}" class="header-brand-img desktop-logo" />
+							   <img src="{{asset('img/logos/logo2.png')}}" class="header-brand-img mobile-view-logo" height="100px" alt="Galaxy logo">							   
 							</a>
 							
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
@@ -173,26 +173,27 @@
 												Investor
 											</small>
 										</div>
-										<div class="drop-heading  border-bottom row text-muted">
+										<div class="drop-heading  border-bottom row text-muted row">
 											@auth
-											<div class="col-md-4">
-												<a href="{{route('lang',['lang'=>'fr'])}}">
-													Français
-												</a>
-											</div>
+											<div class="row align-center">
+												<div class="col-4">
+													<a href="{{route('lang',['lang'=>'fr'])}}">
+														<img src="{{asset('assets/images/flags/fr.svg')}}" class="w-5 h-5  d-block"/>
+													</a>
+												</div>
 
-											<div class="col-md-4">
-												<a href="{{route('lang',['lang'=>'en'])}}">
-													Anglais
-												</a>
-											</div>
+												<div class="col-4">
+													<a href="{{route('lang',['lang'=>'en'])}}">
+														<img src="{{asset('assets/images/flags/us.svg')}}" class="w-5 h-5 d-block"/>
+													</a>
+												</div>
 
-											<div class="col-md-4">
-												<a href="{{route('lang',['lang'=>'ar'])}}">
-													Arabe
-												</a>
+												<div class="col-4">
+													<a href="{{route('lang',['lang'=>'ar'])}}">
+														<img src="{{asset('assets/images/flags/dz.svg')}}" class="w-5 h-5  d-block"/>
+													</a>
+												</div>
 											</div>
-
 											@endif
 										</div>
 										
