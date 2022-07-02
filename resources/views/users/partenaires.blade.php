@@ -112,9 +112,25 @@
                                                                 <li>
                                                                     {{$partenaire->solde_actif ?? ''}}
                                                                 </li>
-                                                                <li>
-                                                                    {{$partenaire->partenaires()}}
-                                                                </li>
+                                                                <ul>
+                                                                    @foreach($partenaire->partenaires() as $partenaire2)
+                                                                        <li>
+                                                                            <a href="#">
+                                                                                {{$partenaire2['name']}} {{$partenaire2['nom']}}                                                                        
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            {{$partenaire2['email']}}
+                                                                        </li>
+                                                                        <li>
+                                                                            {{$partenaire2->created_at ?? ''}}
+                                                                        </li>
+                                                                        <li>
+                                                                            {{$partenaire2->solde_actif ?? ''}}
+                                                                        </li>                                                                   
+                                                                    @endforeach
+                                                                </ul>
+
                                                             @endforeach
                                                         </ul>
                                                     </div>
