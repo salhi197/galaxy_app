@@ -96,6 +96,8 @@
                                                 </div>
                                                 <div id="collapseFive{{$user->id}}" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
                                                     <div class="panel-body">
+                                                        <h4 class="page-title">Liste des Partenaires Niveau 1 : </h4>
+                                                            
                                                         <ul>
                                                             @foreach($user->partenaires() as $partenaire)
                                                                 <li>
