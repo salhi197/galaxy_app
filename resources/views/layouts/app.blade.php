@@ -426,10 +426,6 @@
 								<li>
 									<a href="{{route('user.partenaire')}}" class="slide-item">{{trans('main.partenaires')}} </a>
 								</li>	
-
-								<li>
-									<a href="{{route('user.parrain')}}" class="slide-item">{{trans('main.parrains')}} </a>
-								</li>	
 								
 							</ul>
 						</li>

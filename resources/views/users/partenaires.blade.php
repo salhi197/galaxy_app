@@ -14,7 +14,7 @@
 					</div>
 
 
-                    <div class="row">
+                    <!-- <div class="row">
 
                             <div class="card mb-4">
                                     <div class="card-body">
@@ -75,9 +75,58 @@
                                     </div>
                                 </div>
 
-                    </div>
+                    </div> -->
 
 
+                    <div class="row">
+						<div class="col-lg-12">
+							
+							<div class="card">
+								<div class="card-header">
+                                    <h4 class="page-title">{{trans('main.liste_partenaires')}}   : </h4>
+								</div>
+								<div class="card-body"> 
+									<div class="panel-group1" id="accordion1">
+                                        @foreach($users as $user)
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading1">
+                                                    <h4 class="panel-title1">
+                                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">{{$user->nom}} {{$user->name}}</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                                    <div class="panel-body">
+                                                        <ul>
+                                                            @foreach($user->partenaires() as $partenaire)
+                                                                <li>
+                                                                    <a href="#">
+                                                                        {{$partenaire['name']}} {{$partenaire['nom']}}                                                                        
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    {{$partenaire['email']}}
+                                                                </li>
+                                                                <li>
+                                                                    {{$partenaire->created_at ?? ''}}
+                                                                </li>
+                                                                <li>
+                                                                    {{$partenaire->solde_actif ?? ''}}
+                                                                </li>
+                                                                <li>
+                                                                    {{$partenaire->partenaires()}}
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        @endforeach
+									</div>
+								</div>
+							</div>
+						</div><!-- COL-END -->
+					</div>
 
 
 

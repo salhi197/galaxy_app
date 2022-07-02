@@ -428,10 +428,6 @@
 								<li>
 									<a href="<?php echo e(route('user.partenaire')); ?>" class="slide-item"><?php echo e(trans('main.partenaires')); ?> </a>
 								</li>	
-
-								<li>
-									<a href="<?php echo e(route('user.parrain')); ?>" class="slide-item"><?php echo e(trans('main.parrains')); ?> </a>
-								</li>	
 								
 							</ul>
 						</li>
