@@ -107,10 +107,10 @@
                                                                     {{$partenaire['email']}}
                                                                 </li>
                                                                 <li>
-                                                                    {{$partenaire->created_at ?? ''}}
+                                                                    Inscrit le : {{$partenaire->created_at ?? ''}}
                                                                 </li>
                                                                 <li>
-                                                                    {{$partenaire->solde_actif ?? ''}}
+                                                                    Solde Actif : {{$partenaire->solde_actif ?? ''}} $ 
                                                                 </li>
                                                                 <ul>
                                                                     @foreach($partenaire->partenaires() as $partenaire2)
@@ -123,10 +123,10 @@
                                                                             {{$partenaire2['email']}}
                                                                         </li>
                                                                         <li>
-                                                                            {{$partenaire2->created_at ?? ''}}
+                                                                        Inscrit le :{{$partenaire2->created_at ?? ''}}
                                                                         </li>
                                                                         <li>
-                                                                            {{$partenaire2->solde_actif ?? ''}}
+                                                                            Solde Actif : {{$partenaire2->solde_actif ?? ''}}
                                                                         </li>                                                                   
                                                                     @endforeach
                                                                 </ul>
