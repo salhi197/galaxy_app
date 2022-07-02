@@ -91,10 +91,10 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading1">
                                                     <h4 class="panel-title1">
-                                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false">{{$user->nom}} {{$user->name}}</a>
+                                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive{{$user->id}}" aria-expanded="false">{{$user->nom}} {{$user->name}}</a>
                                                     </h4>
                                                 </div>
-                                                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                                <div id="collapseFive{{$user->id}}" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
                                                     <div class="panel-body">
                                                         <ul>
                                                             @foreach($user->partenaires() as $partenaire)
