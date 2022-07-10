@@ -6,6 +6,8 @@ return [
     'piece_identité'=>'بطاقة التعريف',
     'type_opration'=>'نوع العملية',
     'actionnaire'=>'شريك',
+    'documentation'=>'دليل الاستخدام',
+    
     'passport'=>'جواز سفر',
     'update_profile'=>'للتسجيل' ,
     'changer_password'=>'غير كلمة السر:',

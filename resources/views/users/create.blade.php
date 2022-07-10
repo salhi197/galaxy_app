@@ -13,9 +13,9 @@
 
                     <div class="row">
                     <div class="col-lg-12">
-							<form class="card" action="{{route('user.store')}}">
+							<form class="card" action="{{route('user.store')}}" method="post">
 								<div class="card-header">
-									<h3 class="card-title">Modifer Porfile :</h3>
+									<h3 class="card-title">Ajouter Utilisateur :</h3>
 								</div>
 								<div class="card-body">
                                     <div class="row">
@@ -30,13 +30,13 @@
 										<div class="col-md-5">
 											<div class="form-group">
 												<label class="form-label">Nom</label>
-												<input type="text" class="form-control"  placeholder="Company" >
+												<input type="text" class="form-control" placeholder="Nom" >
 											</div>
 										</div>
 										<div class="col-sm-6 col-md-3">
 											<div class="form-group">
 												<label class="form-label">Prénom</label>
-												<input type="text" class="form-control" placeholder="Username" >
+												<input type="text" class="form-control" placeholder="Prénom" >
 											</div>
 										</div>
 										<div class="col-sm-6 col-md-4">
@@ -143,7 +143,7 @@
 									</div>
 								</div>
 								<div class="card-footer text-right">
-									<button type="submit" class="btn btn-primary">Update Profile</button>
+									<button type="submit" class="btn btn-primary">Enregistrer</button>
 								</div>
 							</form>
                         </div>

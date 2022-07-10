@@ -11,9 +11,9 @@
 
                     <div class="row">
                     <div class="col-lg-12">
-							<form class="card" action="<?php echo e(route('user.store')); ?>">
+							<form class="card" action="<?php echo e(route('user.store')); ?>" method="post">
 								<div class="card-header">
-									<h3 class="card-title">Modifer Porfile :</h3>
+									<h3 class="card-title">Ajouter Utilisateur :</h3>
 								</div>
 								<div class="card-body">
                                     <div class="row">
@@ -141,7 +141,7 @@
 									</div>
 								</div>
 								<div class="card-footer text-right">
-									<button type="submit" class="btn btn-primary">Update Profile</button>
+									<button type="submit" class="btn btn-primary">Enregistrer</button>
 								</div>
 							</form>
                         </div>

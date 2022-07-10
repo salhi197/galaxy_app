@@ -55,26 +55,26 @@ class User extends Authenticatable
         //     $solde = $solde+$user->solde;
         //     $id = $user->refered_user;
         // }
-        if ($solde>500 and $solde<9999) {
+        if ($solde>500+5000 and $solde<9999+5000) {
             return 1;
         }
-        if ($solde>10000 and $solde<24999) {
+        if ($solde>10000+5000 and $solde<24999+5000) {
             return 2;
         }
-        if ($solde>25000 and $solde<49999) {
+        if ($solde>25000+5000 and $solde<49999+5000) {
             return 3;
         }
 
-        if ($solde>50000 and $solde<99999) {
+        if ($solde>50000+5000 and $solde<99999+5000) {
             return 4;
         }
-        if ($solde>99999 and $solde<249999) {
+        if ($solde>99999+5000 and $solde<249999+5000) {
             return 5;
         }
-        if ($solde>250000 and $solde<499999) {
+        if ($solde>250000+5000 and $solde<499999+5000) {
             return 6;
         }
-        if ($solde>500000 and $solde<999999) {
+        if ($solde>500000+5000 and $solde<999999+5000) {
             return 7;
         }
         /////////////////////////////////////////////// 

@@ -23,6 +23,8 @@ return [
     'rentabilite'=>'Rentabilité',
     'reference'=>'Lien De Réference',
     'payment'=>'paiments',
+    'documentation'=>'documentation',
+    'monthly_revenue'=>'Revenue Mensuel ',
     
     'copier'=>'copier le texte',
     'partenaire_par_region'=>'Partenaire par region',

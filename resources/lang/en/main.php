@@ -91,6 +91,7 @@ return [
 
     'comment'=>'How does the business work?',
     'comment_text'=>'Galaxy invests its money in several areas of investment in accordance with the strategy of diversifying income sources.It is mainly active in the crypto and cryptocurrency market, halal forex and stocks in various international exchanges as that contribution to large companies.',
+    'documentation'=>'documentation',
 
     
     'qui_fondateur'=>'Who is the founder of the company?',
