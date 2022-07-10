@@ -170,7 +170,7 @@
 
 											
 											<small class="text-muted">
-												Investor
+												{{Auth::user()->rangName()}}
 											</small>
 										</div>
 										<div class="drop-heading  border-bottom row text-muted row">
