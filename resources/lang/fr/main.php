@@ -101,6 +101,6 @@ return [
     'recharger'=>'Recharger',
     'transferer'=>'transférer',
     'operations'=>'Opérations',
-    'methode_paiment'=>'methode_paiment',
+    'methode_paiment'=>'Méthode de Paiment',
     'rechargements'=>'Rechargements',
 ];
