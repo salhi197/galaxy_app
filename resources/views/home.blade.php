@@ -214,7 +214,7 @@
 													<tbody>
 														@foreach($partenaires as $partenaire)
 															<tr>
-																<td><img src="{{asset('assets/images/flags/'.$partenaire->pays.'.svg')}}" class="w-5 h-5 text-center mx-auto d-block border p-0" alt=""></td>
+																<td><img src="{{asset('assets/images/flags/'.strtolower($partenaire->pays).'.svg')}}" class="w-5 h-5 text-center mx-auto d-block border p-0" alt=""></td>
 																<td>{{$partenaire->pays}}</td>
 																<td>{{$partenaire->nbr}}</td>
 															</tr>
