@@ -139,7 +139,7 @@ class HomeController extends Controller
 
         Mail::send('email_confirmation', ['dataEmail' => $dataEmail], function ($message) use ($dataEmail) {
             $message->to($dataEmail['email'])
-                ->subject('Vérification Par Mail');
+                ->subject('Galaxy App | Comtpe Vérification');
         });                
     }
 
