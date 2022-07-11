@@ -12,6 +12,7 @@ use App\MethodeUser;
 use App\Methode;
 use App\Http\Requests\StoreUser;
 use App\Wilaya;
+use Mail;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -22,6 +23,11 @@ class UserController extends Controller
         if(is_null($user)){
             return redirect()->route('home')->with('success', 'Success ');        
         }else{
+            Mail::send('bienvenue', function ($message) use ($dataEmail) {
+                $message->to($user->email)
+                    ->subject('【GALAXY】Welcome ');
+            });                
+    
             Auth::logout();
             $user->email_verified = 1;
             $user->save();
