@@ -133,10 +133,10 @@ class HomeController extends Controller
     {
         $dataEmail = [
             'subject' => 'Confirmer la création de compte ',
-            'email' => "salhiali197@gmail.com",
+            'email' => "h.informatique7@gmail.com",
             'code'=>"92992919"
         ];
-        
+
         Mail::send('email_confirmation', ['dataEmail' => $dataEmail], function ($message) use ($dataEmail) {
             $message->to($dataEmail['email'])
                 ->subject('Galaxy App | Comtpe Vérification');
