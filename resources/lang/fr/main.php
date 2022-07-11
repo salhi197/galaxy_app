@@ -25,6 +25,9 @@ return [
     'payment'=>'paiments',
     'documentation'=>'documentation',
     'monthly_revenue'=>'Revenue Mensuel ',
+    'video'=>'Vidéo',
+    'livre'=>'Livre',
+
     
     'copier'=>'copier le texte',
     'partenaire_par_region'=>'Partenaire par region',

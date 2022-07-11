@@ -42,6 +42,8 @@ return [
     'acedemie'=>'الأكاديمية',
     'faq'=>'أسئلة وأجوبة',
     'monthly_revenue'=>'الإيرادات الشهرية',
+    'video'=>'الفيديو',
+    'livre'=>'الكتاب',
     'support'=>'الدعم',
     'votre_actif'=>'أصولك' ,
     'benefice_total'=>'اجمالي الربح',

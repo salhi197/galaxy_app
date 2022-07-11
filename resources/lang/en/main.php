@@ -19,6 +19,8 @@ return [
     'acedemie'=>'Academy',
     'faq'=>'Faqs',
     'monthly_revenue'=>'Monthly Revenue',
+    'video'=>'Video',
+    'livre'=>'Book',
     'support'=>'Support',
     'votre_actif'=>'Your Asset',
     'benefice_total'=>'Total profit',
