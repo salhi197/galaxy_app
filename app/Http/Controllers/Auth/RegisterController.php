@@ -83,11 +83,11 @@ class RegisterController extends Controller
             'code'=>$random
         ];
         $email_code = substr(md5(mt_rand()), 0, 7);
-
         Mail::send('email_confirmation', ['dataEmail' => $dataEmail], function ($message) use ($dataEmail) {
             $message->to($dataEmail['email'])
-                ->subject('Vérification Par Mail');
+                ->subject('Galaxy App | Comtpe Vérification');
         });                
+
 
         return User::create([
             'code_email'=>$random,
