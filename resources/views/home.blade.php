@@ -251,16 +251,13 @@
 								<div class="card-body" width="200" height="250">
 									
 									<h6 class="mb-3 text-center">{{trans('main.votre_rang')}} {{Auth::user()->rang() ?? "" }} </h6>
-									<!-- <canvas id="Donut" width="100px"></canvas>										 -->
-										<canvas id="Donut" width="200" height="250"  ></canvas>	
-
-									<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
-										<!-- <div class="chart-circle-value text-center ">
+									<div class="chart-circle chart-circle-md" data-value="{{($soldeTotal*100/10000)/100}}" data-thickness="10" data-color="#04cad0">
+										<div class="chart-circle-value text-center ">
 											<h6 class="mb-0"><i class="fa fa-tasks" style="font-size:20px;"></i></h6>
-										</div> -->
+										</div>
 									</div>
-									<!-- <h2 class="text-center mb-1 mt-3  display-4 font-weight-semibold text-dark">{{$soldeTotal*100/10000}}%</h2>
-									<p  class="text-center mb-3 text-muted"> {{trans('main.reste')}} : {{10000-$soldeTotal}}$</p> -->
+									<h2 class="text-center mb-1 mt-3  display-4 font-weight-semibold text-dark">{{$soldeTotal*100/10000}}%</h2>
+									<p  class="text-center mb-3 text-muted"> {{trans('main.reste')}} : {{10000-$soldeTotal}}$</p>
 									
 								</div>
 							</div>
@@ -324,7 +321,7 @@
 <link rel="stylesheet" href="{{asset('css/leaflet.css')}}"  />
 <script src="{{asset('js/leaflet.js')}}"></script>
 <style>#map { height: 480px; }	</style>
-<link href="../../assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+<!-- <link href="../../assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" /> -->
 
 @endsection
 
@@ -365,12 +362,7 @@ var options = {
 		y: {
                 suggestedMin: 0,
                 suggestedMax: 20
-        },
-		yAxes: [{
-             ticks: {
-                 beginAtZero:true
-             }
-         }]
+        }
     }
   }
 }
@@ -473,29 +465,6 @@ function myFunction() {
 
 
 
-const data = {
-  labels: [
-    'Red',
-    'Yellow'
-  ],
-  datasets: [{
-    label: 'My First Dataset',
-    data: [300, 100],
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
-  }]
-};
-
-const config = {
-  type: 'pie',
-  data: data,
-};
-var ctx = document.getElementById('Donut').getContext('2d');
-new Chart(ctx, config);
 
 </script>
 @endsection

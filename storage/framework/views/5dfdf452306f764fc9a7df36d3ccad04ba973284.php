@@ -25,7 +25,6 @@
 		<!-- LEFT-MENU CSS -->
 		<link href="<?php echo e(asset('assets/css/sidemenu/closed-sidemenu.css')); ?>" rel="stylesheet">
 		<!--C3.JS CHARTS PLUGIN -->
-		<link href="<?php echo e(asset('assets/plugins/charts-c3/c3-chart.css')); ?>" rel="stylesheet"/>
 
 		<!-- TABS CSS -->
 		<link href="<?php echo e(asset('assets/plugins/tabs/style-2.css')); ?>" rel="stylesheet" type="text/css">
@@ -541,6 +540,10 @@
 		<!-- SELECT2 JS -->
 		<!-- <script src="<?php echo e(asset('assets/plugins/select2/select2.full.min.js')); ?>"></script> -->
 		<!-- <script src="<?php echo e(asset('assets/js/select2.js')); ?>"></script> -->
+
+		<script src="../../assets/plugins/charts-c3/d3.v5.min.js"></script>
+		<script src="../../assets/plugins/charts-c3/c3-chart.js"></script>
+
 
 		<!-- CHARTJS CHART -->
 
