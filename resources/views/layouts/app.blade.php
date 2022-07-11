@@ -581,7 +581,6 @@
 		$(document).ready(function() {
 
 			var theme = localStorage.getItem('theme');
-			console.log(theme)
 			if(theme==null){
 				localStorage.setItem('theme', 'dark');
 			}
@@ -592,7 +591,6 @@
 				$("body").addClass("dark-mode");
 			}
 			if(theme=="light"){
-				console.log("zzzzzzzzzzzzz")
 
 				$('#someSwitchOptionDefault2').prop( "checked", true );
 				$('#someSwitchOptionDefault').prop( "checked", false );

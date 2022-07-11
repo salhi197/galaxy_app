@@ -218,7 +218,7 @@
 													<tbody>
 														<?php $__currentLoopData = $partenaires; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partenaire): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 															<tr>
-																<td><img src="<?php echo e(asset('assets/images/flags/'.$partenaire->pays.'.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block border p-0" alt=""></td>
+																<td><img src="<?php echo e(asset('assets/images/flags/'.strtolower($partenaire->pays).'.svg')); ?>" class="w-5 h-5 text-center mx-auto d-block border p-0" alt=""></td>
 																<td><?php echo e($partenaire->pays); ?></td>
 																<td><?php echo e($partenaire->nbr); ?></td>
 															</tr>
@@ -252,15 +252,19 @@
 								<div class="card-header">
 									<h3 class="card-title"><?php echo e(trans('main.votre_rang')); ?></h3>
 								</div>
-								<div class="card-body">
+								<div class="card-body" width="200" height="250">
+									
 									<h6 class="mb-3 text-center"><?php echo e(trans('main.votre_rang')); ?> <?php echo e(Auth::user()->rang() ?? ""); ?> </h6>
+									<!-- <canvas id="Donut" width="100px"></canvas>										 -->
+										<canvas id="Donut" width="200" height="250"  ></canvas>	
+
 									<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f7b731">
-										<div class="chart-circle-value text-center "><h6 class="mb-0">
-											<i class="fa fa-tasks" style="font-size:20px;"></i>													
-										</h6></div>
+										<!-- <div class="chart-circle-value text-center ">
+											<h6 class="mb-0"><i class="fa fa-tasks" style="font-size:20px;"></i></h6>
+										</div> -->
 									</div>
-									<h2 class="text-center mb-1 mt-3  display-4 font-weight-semibold text-dark"><?php echo e($soldeTotal*100/10000); ?>%</h2>
-									<p class="text-center mb-3 text-muted"> <?php echo e(trans('main.reste')); ?> : <?php echo e(10000-$soldeTotal); ?>$</p>
+									<!-- <h2 class="text-center mb-1 mt-3  display-4 font-weight-semibold text-dark"><?php echo e($soldeTotal*100/10000); ?>%</h2>
+									<p  class="text-center mb-3 text-muted"> <?php echo e(trans('main.reste')); ?> : <?php echo e(10000-$soldeTotal); ?>$</p> -->
 									
 								</div>
 							</div>
@@ -472,6 +476,33 @@ function myFunction() {
   /* Alert the copied text */
   toastr.success('Lien Copié')
 }
+
+
+
+const data = {
+  labels: [
+    'Red',
+    'Yellow'
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [300, 100],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+};
+
+const config = {
+  type: 'pie',
+  data: data,
+};
+var ctx = document.getElementById('Donut').getContext('2d');
+new Chart(ctx, config);
+
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
