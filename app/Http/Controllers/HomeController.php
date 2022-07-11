@@ -131,6 +131,16 @@ class HomeController extends Controller
 
     public function email()
     {
+        $dataEmail = [
+            'subject' => 'Confirmer la création de compte ',
+            'email' => "h.informatique7@gmail.com",
+            'code'=>"92992919"
+        ];
+
+        Mail::send('email_confirmation', ['dataEmail' => $dataEmail], function ($message) use ($dataEmail) {
+            $message->to($dataEmail['email'])
+                ->subject('Vérification Par Mail');
+        });                
     }
 
     //
