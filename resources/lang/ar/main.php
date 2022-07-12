@@ -45,6 +45,8 @@ return [
     'video'=>'الفيديو',
     'livre'=>'الكتاب',
     'support'=>'الدعم',
+    'setting'=>'الاعدادات',
+
     'votre_actif'=>'أصولك' ,
     'benefice_total'=>'اجمالي الربح',
     'votre_balance'=>'الميزان الخاص بك' ,

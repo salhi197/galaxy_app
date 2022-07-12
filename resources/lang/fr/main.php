@@ -58,6 +58,8 @@ return [
     'nom'=>'Nom',
     'email'=>'Email',
     'photo'=>'Photo',
+    'setting'=>'Paramètres',
+    
     'facebook'=>'facebook',
     'linkedin'=>'linkedin',
     'instgram'=>'instgram',

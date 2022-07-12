@@ -169,8 +169,10 @@
 
 											
 											<small class="text-muted">
+												<?php if(auth()->guard()->check()): ?>
 													<?php echo e(Auth::user()->rangName()); ?>
 
+												<?php endif; ?>
 											</small>
 										</div>
 										<div class="drop-heading  border-bottom row text-muted row">
