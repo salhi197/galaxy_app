@@ -218,7 +218,6 @@
 																<td>{{$partenaire->pays}}</td>
 																<td>{{$partenaire->nbr}}</td>
 															</tr>
-														
 														@endforeach
 													</tbody>
 												</table>
@@ -248,8 +247,7 @@
 								<div class="card-header">
 									<h3 class="card-title">{{trans('main.votre_rang')}}</h3>
 								</div>
-								<div class="card-body" width="200" height="250">
-									
+								<div class="card-body" width="200" height="250">									
 									<h6 class="mb-3 text-center">{{trans('main.votre_rang')}} {{Auth::user()->rang() ?? "" }} </h6>
 									<div class="chart-circle chart-circle-md" data-value="{{($soldeTotal*100/10000)/100}}" data-thickness="10" data-color="#04cad0">
 										<div class="chart-circle-value text-center ">

@@ -27,6 +27,10 @@ class AdminController extends Controller
     
     public function admin()
     { 
+        if(!Auth::guard('admin')->check()){
+            return redirect()->route('login.admin');
+        }
+
         $users = User::select('id', 'created_at')
         ->get()
         ->groupBy(function($date) {
