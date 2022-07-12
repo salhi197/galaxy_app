@@ -168,8 +168,10 @@
 											@endif
 
 											
-											<small class="text-muted">
-												{{Auth::user()->rangName()}}
+											<small class="text-muted">											@auth('admin')
+												@auth
+													{{Auth::user()->rangName()}}
+												@endif
 											</small>
 										</div>
 										<div class="drop-heading  border-bottom row text-muted row">
