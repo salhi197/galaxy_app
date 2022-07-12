@@ -169,7 +169,7 @@
 
 											
 											<small class="text-muted">
-												<?php echo e(Auth::user()->rangName()); ?>
+													<?php echo e(Auth::user()->rangName()); ?>
 
 											</small>
 										</div>

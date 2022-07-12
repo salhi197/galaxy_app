@@ -168,7 +168,7 @@
 											@endif
 
 											
-											<small class="text-muted">											@auth('admin')
+											<small class="text-muted">
 												@auth
 													{{Auth::user()->rangName()}}
 												@endif
