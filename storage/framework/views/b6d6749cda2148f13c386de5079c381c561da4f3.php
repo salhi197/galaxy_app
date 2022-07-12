@@ -2,7 +2,7 @@
 
 					<div class="page-header">
                         <h4 class="page-title"><?php echo e(trans('main.liste_partenaires')); ?></h4>
-                        <h4 class="page-title">Mon Parrain : <?php echo e(Auth::user()->parrain()); ?></h4>
+                        <h4 class="page-title">Mon Parrain : <?php echo e(Auth::user()->parrain()['nom'] ?? ""); ?> <?php echo e(Auth::user()->parrain()['name'] ?? ""); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('partenaire')); ?></li>
@@ -91,11 +91,13 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading1">
                                                     <h4 class="panel-title1">
-                                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"><?php echo e($user->nom); ?> <?php echo e($user->name); ?></a>
+                                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive<?php echo e($user->id); ?>" aria-expanded="false"><?php echo e($user->nom); ?> <?php echo e($user->name); ?></a>
                                                     </h4>
                                                 </div>
-                                                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                                <div id="collapseFive<?php echo e($user->id); ?>" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
                                                     <div class="panel-body">
+                                                        <h4 class="page-title">Liste des Partenaires Niveau 1 : </h4>
+                                                            
                                                         <ul>
                                                             <?php $__currentLoopData = $user->partenaires(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partenaire): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <li>
@@ -108,13 +110,34 @@
 
                                                                 </li>
                                                                 <li>
-                                                                    <?php echo e($partenaire->created_at ?? ''); ?>
+                                                                    Inscrit le : <?php echo e($partenaire->created_at ?? ''); ?>
 
                                                                 </li>
                                                                 <li>
-                                                                    <?php echo e($partenaire->solde_actif ?? ''); ?>
-
+                                                                    Solde Actif : <?php echo e($partenaire->solde_actif ?? ''); ?> $ 
                                                                 </li>
+                                                                <ul>
+                                                                    <?php $__currentLoopData = $partenaire->partenaires(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partenaire2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                        <li>
+                                                                            <a href="#">
+                                                                                <?php echo e($partenaire2['name']); ?> <?php echo e($partenaire2['nom']); ?>                                                                        
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <?php echo e($partenaire2['email']); ?>
+
+                                                                        </li>
+                                                                        <li>
+                                                                        Inscrit le :<?php echo e($partenaire2->created_at ?? ''); ?>
+
+                                                                        </li>
+                                                                        <li>
+                                                                            Solde Actif : <?php echo e($partenaire2->solde_actif ?? ''); ?>
+
+                                                                        </li>                                                                   
+                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                </ul>
+
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </ul>
                                                     </div>

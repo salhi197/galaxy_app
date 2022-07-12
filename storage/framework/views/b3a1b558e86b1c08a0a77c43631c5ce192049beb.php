@@ -222,7 +222,6 @@
 																<td><?php echo e($partenaire->pays); ?></td>
 																<td><?php echo e($partenaire->nbr); ?></td>
 															</tr>
-														
 														<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 													</tbody>
 												</table>
@@ -252,8 +251,7 @@
 								<div class="card-header">
 									<h3 class="card-title"><?php echo e(trans('main.votre_rang')); ?></h3>
 								</div>
-								<div class="card-body" width="200" height="250">
-									
+								<div class="card-body" width="200" height="250">									
 									<h6 class="mb-3 text-center"><?php echo e(trans('main.votre_rang')); ?> <?php echo e(Auth::user()->rang() ?? ""); ?> </h6>
 									<div class="chart-circle chart-circle-md" data-value="<?php echo e(($soldeTotal*100/10000)/100); ?>" data-thickness="10" data-color="#04cad0">
 										<div class="chart-circle-value text-center ">
