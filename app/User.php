@@ -124,4 +124,40 @@ class User extends Authenticatable
         return $user;
     }
 
+
+    public function NextRang()
+    {
+        $solde = $this->solde_actif;
+        $partenaires = $this->partenaires();
+        if(count($partenaires)>0){
+            foreach($partenaires as $partenaire){
+                $solde = $solde + $partenaire->solde_actif;
+            }
+        }
+        if ($solde>500+5000 and $solde<9999+5000) {
+            return 9999+5000;
+        }
+        if ($solde>10000+5000 and $solde<24999+5000) {
+            return 24999+5000;
+        }
+        if ($solde>25000+5000 and $solde<49999+5000) {
+            return 49999+5000;
+        }
+
+        if ($solde>50000+5000 and $solde<99999+5000) {
+            return 99999+5000;
+        }
+        if ($solde>99999+5000 and $solde<249999+5000) {
+            return 249999+5000;
+        }
+        if ($solde>250000+5000 and $solde<499999+5000) {
+            return 499999+5000;
+        }
+        if ($solde>500000+5000 and $solde<999999+5000) {
+            return 999999+5000;
+        }
+        /////////////////////////////////////////////// 
+        return 0;
+    }
+
 }

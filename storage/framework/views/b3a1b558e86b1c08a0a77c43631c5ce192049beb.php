@@ -259,7 +259,7 @@
 										</div>
 									</div>
 									<h2 class="text-center mb-1 mt-3  display-4 font-weight-semibold text-dark"><?php echo e($soldeTotal*100/10000); ?>%</h2>
-									<p  class="text-center mb-3 text-muted"> <?php echo e(trans('main.reste')); ?> : <?php echo e(10000-$soldeTotal); ?>$</p>
+									<p  class="text-center mb-3 text-muted"> <?php echo e(trans('main.reste')); ?> : <?php echo e((int)Auth::user()->NextRang()-(int)$soldeTotal); ?>$</p>
 									
 								</div>
 							</div>

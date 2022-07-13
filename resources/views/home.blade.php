@@ -255,7 +255,7 @@
 										</div>
 									</div>
 									<h2 class="text-center mb-1 mt-3  display-4 font-weight-semibold text-dark">{{$soldeTotal*100/10000}}%</h2>
-									<p  class="text-center mb-3 text-muted"> {{trans('main.reste')}} : {{10000-$soldeTotal}}$</p>
+									<p  class="text-center mb-3 text-muted"> {{trans('main.reste')}} : {{(int)Auth::user()->NextRang()-(int)$soldeTotal}}$</p>
 									
 								</div>
 							</div>
