@@ -18,7 +18,7 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title"><?php echo e(trans('main.retirer_de_compte_actif')); ?> : (<?php echo e(Auth::user()->solde_retrait); ?> $ ) </h3>
+									<h3 class="card-title"><?php echo e(trans('main.retirer_de_compte_retrait')); ?> : (<?php echo e(Auth::user()->solde_retrait); ?> $ ) </h3>
 								</div>
 								<div class="card-body">
 									<?php if($countOperations>0): ?>

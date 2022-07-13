@@ -44,6 +44,8 @@ return [
     'email_confirm_msg'=>'Vous devez Confirmer Votre Email , on cliquant sur le lien envoyé à votre boite .',
     'retirer_comtpe'=>'retirer depuis un Comtpe',
     'retirer_de_compte_actif'=>'retirer de compte actif',
+    'retirer_de_compte_retrait'=>'retirer de compte de retrait',
+    
     'retrait'=>'retrait',
     'solde_zero'=>'Vous ne pouvez pas effectuer cette action avec votre Solde de retrait.',
     'liste_sommes_investes'=>'liste de tout les sommes investé',
@@ -57,7 +59,7 @@ return [
     'code_sponsor'=>'Code Sponsor',
     'nom'=>'Nom',
     'email'=>'Email',
-    'photo'=>'Photo',
+    'photo'=>'Photo',   
     'setting'=>'Paramètres',
     
     'facebook'=>'facebook',

@@ -22,6 +22,7 @@ return [
     'video'=>'Video',
     'livre'=>'Book',
     'setting'=>'setting',
+    'retirer_de_compte_retrait'=>'retirer de compte de retrait',
     'support'=>'Support',
     'votre_actif'=>'Your Asset',
     'benefice_total'=>'Total profit',
