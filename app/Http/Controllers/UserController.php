@@ -25,8 +25,8 @@ class UserController extends Controller
         }else{
             $data = [
                 'subject' => 'Demande Du Support',
-                'nom'=>$user->nom,
-                'prenom'=>$user->name,
+                'name'=>$user->nom,
+                'nom'=>$user->name,
                 'email'=>$user->email
             ];
     
