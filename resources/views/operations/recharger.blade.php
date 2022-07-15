@@ -59,7 +59,9 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Instruction :</h3>
+									<h3 class="card-title">
+										{{trans('main.instruction')}} :
+									</h3>
 								</div>
 							</div>
 						</div>

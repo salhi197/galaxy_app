@@ -73,6 +73,9 @@
 
                                                             <td >
                                                                 <div class="table-action">  
+                                                                    <a class="btn btn-primary text-white" href="{{route('user.edit',['user'=>$user->id])}}">
+                                                                        Edit
+                                                                    </a>
 
 
                                                                 </div>

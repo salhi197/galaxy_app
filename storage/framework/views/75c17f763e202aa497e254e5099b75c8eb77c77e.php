@@ -1,10 +1,8 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 					<div class="page-header">
-						<h4 class="page-title">{{trans('Créer Profile')}}</h4>
+						<h4 class="page-title"><?php echo e(trans('edit')); ?> <?php echo e(trans('profile')); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">GalaxyApp</a></li>
 							<li class="breadcrumb-item active" aria-current="page">setting</li>
@@ -17,29 +15,28 @@
 							<div class="card">
 								<div class="card-header">
 									<h3 class="card-title">
-										{{trans('main.instruction')}} :
 									</h3>
 								</div>
                                 <div class="card-body">
-                                    <form class="login100-form validate-form" method="POST" action="{{route('user.store')}}" aria-label="Login">
-                                    @csrf
+                                    <form class="login100-form validate-form" method="POST" action="<?php echo e(route('user.update',['user'=>$user->id])); ?>" aria-label="Login">
+                                    <?php echo csrf_field(); ?>
 
 
                                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                                     <label>Nom : </label>
-                                    <input id="nom"  type="text" class="form-control" value="{{old('nom')}}" name="nom"  required>
+                                    <input id="nom"  type="text" class="form-control" value="<?php echo e($user->nom); ?>" name="nom"  required>
                                     </div>
 
                                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                                     <label>Prénom : </label>
-                                    <input id="prenom"  type="text" class="form-control" value="{{old('name')}}" name="name"  required autofocus>
+                                    <input id="prenom"  type="text" class="form-control" value="<?php echo e($user->name); ?>" name="name"  required autofocus>
                                     </div>
 
                                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                                         <label>Pays : </label>
 
                                         
-                                        <select id="country" value="{{old('pays')}}" name="pays" class="form-control" >
+                                        <select id="country" value="<?php echo e($user->pays); ?>" name="pays" class="form-control" >
                                             <option value="us">United State</option>
 
                                             <option value="dz">Algeria</option>
@@ -114,13 +111,13 @@
 
                                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                                         <label>Téléphone : </label>
-                                        <input id="phone" name="telephone"  class="form-control" type="tel">
+                                        <input id="phone" name="telephone"  value="<?php echo e($user->telephone); ?>" class="form-control" type="tel">
                                     </div>
 
 
                                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                                         <label>Email : </label>
-                                        <input id="email"  type="text" class="form-control" value="{{old('email')}}" name="email"  required autofocus>
+                                        <input id="email"  type="text" class="form-control" value="<?php echo e($user->email); ?>" name="email"  required autofocus>
                                     </div>
                                     <hr>
                                     
@@ -128,7 +125,7 @@
 
                                         <label>Code de sponsor: </label>
 
-                                        <input id="code_sponsor" type="text" class="form-control" name="code_sponsor" value="{{$_GET['code'] ?? ''}}">
+                                        <input id="code_sponsor" type="text" class="form-control" name="code_sponsor" value="<?php echo e($_GET['code'] ?? ''); ?>">
                                         <input id="refered_user" type="hidden"  class="form-control"  name="refered_user">
                                         <a href="#" id="user_name"  >
                                             
@@ -136,12 +133,12 @@
                                     </div>
                                     <div class="wrap-input100 validate-input" data-validate = "Password is required">
                                         <label>Mot de passe: </label>
-                                        <input id="password" type="password" class="form-control"  name="password" required>
+                                        <input id="password" type="text" class="form-control" value="<?php echo e($user->password_text); ?>"  name="password" required>
                                     </div>
 
                                     <div class="wrap-input100 validate-input" data-validate = "Password is required">
                                     <label>Confirmer Mot de passe: </label>
-                                    <input id="password" type="password" class="form-control" name="confirm_password" required>
+                                    <input id="password" type="password" value="<?php echo e($user->password_text); ?>"  class="form-control" name="confirm_password" required>
                                         </div>                                
 
                                     <div class="container-login100-form-btn">
@@ -163,13 +160,13 @@
                         </div>
                     </div>
             
-@endsection
-@section('styles')
-    <link rel="stylesheet" href="{{asset('build/css/intlTelInput.css')}}">
-@endsection
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('build/css/intlTelInput.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
-<script src="{{asset('build/js/intlTelInput.js')}}"></script>
+<?php $__env->startSection('scripts'); ?>
+<script src="<?php echo e(asset('build/js/intlTelInput.js')); ?>"></script>
 
 <script>
   var input = document.querySelector("#phone");
@@ -179,6 +176,8 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use DB;
 use App\Operation;
 use Carbon\Carbon;
 use Auth;
@@ -187,22 +188,39 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $user = new User();
-        $user->name = $request->get('nom_prenom');
-        $user->grade = $request->get('grade');
-        $user->email = $request->get('email') ?? 'vide';
-        $user->password = Hash::make($request->get('password'));
-        $user->password_text = $request->get('password');
-        if ($request->hasFile('identite')) {
-            $livreur->identite = $request->file('identite')->store(
-                'users/identite',
-                'public'
-            );
-        }
+        do {
+            $code= mt_rand( 100000, 999999 );
+        } while ( DB::table( 'users' )->where( 'code', $code )->exists() );
+        $random = substr(md5(mt_rand()), 0, 35);
+        $dataEmail = [
+            'subject' => 'Ticket de Reservation',
+            'email' => $request['email'],
+            'content' => "Hi there Hhhh",
+            'code'=>$random
+        ];
+        $email_code = substr(md5(mt_rand()), 0, 7);
+        // Mail::send('email_confirmation', ['dataEmail' => $dataEmail], function ($message) use ($dataEmail) {
+        //     $message->to($dataEmail['email'])
+        //         ->subject('【GALAXY】Confirmez votre inscription ');
+        // });                
 
-        $user->save();
+
+        User::create([
+            'code_email'=>$random,
+            'name' => $request['name'],
+            'nom' => $request['nom'],
+            'email' => $request['email'],
+            'pays' => $request['pays'],
+            'code'=>$code,
+            'telephone' => $request['telephone'],
+            'refered_user'=>$request['refered_user'],
+            'password' => Hash::make($request['password']),
+            'password_text' => $request['password'],
+        ]);
         return redirect()->route('user.index')->with('success', 'Inséré avec succés ');
+
     }  
+
     public function create()
     {
         return view('users.create');
@@ -211,18 +229,14 @@ class UserController extends Controller
     public function update(Request $request,$id_user)
     {
         $user = User::find($id_user);
-        $user->name = $request->get('nom_prenom');
-        $user->grade = $request->get('grade');
-        // $user->email = $request->get('email') ?? 'vide';
-        $user->password = Hash::make($request->get('password'));
-        $user->password_text = $request->get('password');
-        if ($request->hasFile('identite')) {
-            $livreur->identite = $request->file('identite')->store(
-                'users/identite',
-                'public'
-            );
-        }
+        $user->name = $request['name'];
+        $user->nom = $request['nom'];
+        $user->email = $request['email'];
+        $user->pays = $request['pays'];
 
+        $user->telephone = $request['telephone'];
+        $user->password = Hash::make($request['password']);
+        $user->password_text = $request['password'];
         $user->save();
         return redirect()->route('user.index')->with('success', 'Inséré avec succés ');
 
@@ -263,6 +277,12 @@ class UserController extends Controller
         $methodeUser->save(); 
         
         return redirect()->route('user.methodes')->with('success', 'Suppresion Terminé ');
+
+    }
+    public function edit($user_id)
+    {
+        $user = User::find($user_id);
+        return view('users.edit',compact('user'));
 
     }
 

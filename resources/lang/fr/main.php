@@ -74,6 +74,7 @@ return [
     'telegram'=>'telegram',
     'mot_de_passe_actuel'=>'Mot de passe Actuel',
     'prenom'=>'Prenom',
+    'edit'=>'Modifier',
     'mode_sombre'=>'Mode Sombre',
     'mode_claire'=>'Mode Claire',
     'deconnexion'=>'Déconnexion',

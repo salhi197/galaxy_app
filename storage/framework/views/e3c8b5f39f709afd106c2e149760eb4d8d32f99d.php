@@ -72,6 +72,9 @@
 
                                                             <td >
                                                                 <div class="table-action">  
+                                                                    <a class="btn btn-primary text-white" href="<?php echo e(route('user.edit',['user'=>$user->id])); ?>">
+                                                                        Edit
+                                                                    </a>
 
 
                                                                 </div>

@@ -52,8 +52,9 @@ class AdminController extends Controller
             }
         }
         // dd($userArr);
-        $sumSoldeActif = Operation::whereMonth('created_at',date('M'))->sum('montant');
-        return view('admin',compact('userArr','users','sumSoldeActif'));
+        $sumSoldeActif = Operation::whereMonth('created_at',date('M'))->where('type',1)->sum('montant');
+        $sumSoldeRet = Operation::whereMonth('created_at',date('M'))->where('type',-1)->sum('montant');
+        return view('admin',compact('userArr','users','sumSoldeActif','sumSoldeRet'));
     }
 
     public function saisir_frais(Request $request)

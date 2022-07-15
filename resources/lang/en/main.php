@@ -28,6 +28,8 @@ return [
     'benefice_total'=>'Total profit',
     'benefice_par'=>'Benefit For ',
     'mois'=>'Month',    
+    'edit'=>'Edit',
+    'instruction'=>'Instructions',
     'graphe_partenaires'=>'Parteners Chart',
     'reference_link'=>'Reference Link',
     'votre_balance'=>'Your Balance',

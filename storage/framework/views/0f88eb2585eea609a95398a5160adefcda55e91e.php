@@ -25,7 +25,6 @@
 											</div>
 											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark"><?php echo e(count($users)); ?></h2>
 											<p class="mb-3 text-muted"> For Last month</p>
-											<a href="#" class="btn btn-primary btn-sm">View more <i class="fe fe-arrow-right"></i></a>
 										</div>
 									</div>
 									<div class="col-xl-3 col-lg-6  col-sm-6 border-right">
@@ -38,18 +37,17 @@
 											</div>
 											<h2 class="mb-1 mt-3 display-4 font-weight-semibold text-dark"><?php echo e($sumSoldeActif); ?> $ </h2>
 											<p class="mb-3 text-muted"> For Last month</p>
-											<a href="#" class="btn btn-secondary btn-sm">View more <i class="fe fe-arrow-right"></i></a>
 										</div>
 									</div>
 									<div class="col-xl-3 col-lg-6 col-sm-6 border-right">
 										<div class="card-body text-center">
 											<h6 class="mb-3"> 
-												-----
+												Nombre De Retrait Ce Moi
 											</h6>
 											<div class="chart-circle chart-circle-md" data-value="100" data-thickness="10" data-color="#f5334f">
-												<div class="chart-circle-value text-center "><h6 class="mb-0">-</h6></div>
+												<div class="chart-circle-value text-center "><h6 class="mb-0"></h6></div>
 											</div>
-											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark">-</h2>
+											<h2 class="mb-1 mt-3  display-4 font-weight-semibold text-dark"><?php echo e($sumSoldeRet); ?> $ </h2>
 											<p class="mb-3 text-muted"> </p>
 										</div>
 									</div>
