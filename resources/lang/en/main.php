@@ -28,7 +28,7 @@ return [
     'benefice_total'=>'Total profit',
     'benefice_par'=>'Benefit For ',
     'mois'=>'Month',    
-    'graphe_partenaires'=>'Partene Chart',
+    'graphe_partenaires'=>'Parteners Chart',
     'reference_link'=>'Reference Link',
     'votre_balance'=>'Your Balance',
     'votre_partenaires'=>'Your partners',

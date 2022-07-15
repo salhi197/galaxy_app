@@ -117,9 +117,9 @@
 												<label>{{trans('main.periode_accumulation')}}:</label>
 												<select class="form-control select2 w-100" id="duree" >
 													<option value="1" selected="selected">1 {{trans('main.mois')}}</option>
-													<option value="3">3 {{trans('main.mois')}}</option>
-													<option value="6">6 {{trans('main.mois')}}</option>
-													<option value="12">12 {{trans('main.mois')}}</option>
+													<option value="3">3 {{trans('main.mois')}}s</option>
+													<option value="6">6 {{trans('main.mois')}}s</option>
+													<option value="12">12 {{trans('main.mois')}}s</option>
 												</select>
 											</div>
 										</div>
