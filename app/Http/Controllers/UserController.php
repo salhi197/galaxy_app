@@ -20,7 +20,6 @@ class UserController extends Controller
     public function verifyEmail($code_email)
     {
         $user = User::where('code_email',$code_email)->first();
-        dd($user);
         if(is_null($user)){
             return redirect()->route('home')->with('success', 'Success ');        
         }else{
@@ -29,6 +28,8 @@ class UserController extends Controller
                 'nom'=>$user->nom,
                 'prenom'=>$user->name
             ];
+            $email = $user->email;
+            dd($email);
     
             Mail::send('bienvenue', ['data' => $data], function ($message) use ($data) {
                 $message->to($user->email)
