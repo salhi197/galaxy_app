@@ -110,7 +110,7 @@ return [
     'rechargements'=>'rechargements',
     'actif'=>'Actif',
     'recharger'=>'Recharger',
-    'transferer'=>'transférer',
+    'transferer'=>'Transférer',
     'operations'=>'Opérations',
     'methode_paiment'=>'Méthode de Paiment',
     'rechargements'=>'Rechargements',
