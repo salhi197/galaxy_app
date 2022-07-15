@@ -23,7 +23,13 @@ class UserController extends Controller
         if(is_null($user)){
             return redirect()->route('home')->with('success', 'Success ');        
         }else{
-            Mail::send('bienvenue', function ($message)  {
+            $data = [
+                'subject' => 'Demande Du Support',
+                'nom'=>$user->nom,
+                'prenom'=>$user->name
+            ];
+    
+            Mail::send('bienvenue', ['data' => $data], function ($message) use ($data) {
                 $message->to($user->email)
                     ->subject('【GALAXY】Welcome ');
             });                
