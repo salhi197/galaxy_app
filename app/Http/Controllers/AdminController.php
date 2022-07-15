@@ -30,7 +30,8 @@ class AdminController extends Controller
         if(!Auth::guard('admin')->check()){
             return redirect()->route('login.admin');
         }
-
+        $usersOfThisMonth = User::whereMonth('created_at',date('M'))->get();
+        $countUsersOfThisMonth = count($usersOfThisMonth);
         $users = User::select('id', 'created_at')
         ->get()
         ->groupBy(function($date) {
@@ -54,7 +55,7 @@ class AdminController extends Controller
         // dd($userArr);
         $sumSoldeActif = Operation::whereMonth('created_at',date('M'))->where('type',1)->sum('montant');
         $sumSoldeRet = Operation::whereMonth('created_at',date('M'))->where('type',-1)->sum('montant');
-        return view('admin',compact('userArr','users','sumSoldeActif','sumSoldeRet'));
+        return view('admin',compact('userArr','users','sumSoldeActif','sumSoldeRet','countUsersOfThisMonth'));
     }
 
     public function saisir_frais(Request $request)
