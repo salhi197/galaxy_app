@@ -2,7 +2,7 @@
 
 					<div class="page-header">
                         <h4 class="page-title"><?php echo e(trans('main.liste_partenaires')); ?></h4>
-                        <h4 class="page-title">Mon Parrain : <?php echo e(Auth::user()->parrain()['nom'] ?? ""); ?> <?php echo e(Auth::user()->parrain()['name'] ?? ""); ?></h4>
+                        <h4 class="page-title"><?php echo e(trans('main.sponsor')); ?> : <?php echo e(Auth::user()->parrain()['nom'] ?? ""); ?> <?php echo e(Auth::user()->parrain()['name'] ?? ""); ?></h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo e(trans('partenaire')); ?></li>
@@ -96,7 +96,8 @@
                                                 </div>
                                                 <div id="collapseFive<?php echo e($user->id); ?>" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
                                                     <div class="panel-body">
-                                                        <h4 class="page-title">Liste des Partenaires Niveau 1 : </h4>
+                                                        <h4 class="page-title">
+                                                        <?php echo e(trans('main.partenaires_niveau')); ?> <?php echo e($user->id); ?> : </h4>
                                                             
                                                         <ul>
                                                             <?php $__currentLoopData = $user->partenaires(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partenaire): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

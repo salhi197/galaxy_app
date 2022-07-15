@@ -4,8 +4,6 @@
 					<div class="page-header">
 						<h4 class="page-title"><?php echo e(trans('main.dashboard')); ?></h4>
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="#">GalaxyApp</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Acceuil</li>
 						</ol>
 					</div>
 					<!-- PAGE-HEADER END -->
@@ -120,10 +118,10 @@
                                             <div class="form-group overflow-hidden">
 												<label><?php echo e(trans('main.periode_accumulation')); ?>:</label>
 												<select class="form-control select2 w-100" id="duree" >
-													<option value="1" selected="selected">1 Mois</option>
-													<option value="3">3 Mois</option>
-													<option value="6">6 Mois</option>
-													<option value="12">12 Mois</option>
+													<option value="1" selected="selected">1 <?php echo e(trans('main.mois')); ?></option>
+													<option value="3">3 <?php echo e(trans('main.mois')); ?></option>
+													<option value="6">6 <?php echo e(trans('main.mois')); ?></option>
+													<option value="12">12 <?php echo e(trans('main.mois')); ?></option>
 												</select>
 											</div>
 										</div>
@@ -154,16 +152,16 @@
 								</div>
 								<div class="card-body">
                                     <ul class="list-group list-group-flush">
-										<li class="list-group-item">Bénéfice par 1 Mois (min/max) :<span id="gain1min"></span> / <span id="gain1max"></span> $ </li>
-										<li class="list-group-item">Bénéfice par 3 Mois (min/max) :<span id="gain3min"></span> / <span id="gain3max"></span> $ </li>
-                                        <li class="list-group-item">Bénéfice par 6 Mois (min/max) :<span id="gain6min"></span> / <span id="gain6max"></span> $ </li>
-										<li class="list-group-item">Bénéfice par 12 Mois (min/max) :<span id="gain12min"></span> / <span id="gain12max"></span> $ </li>
+										<li class="list-group-item"><?php echo e(trans('main.benefice_par')); ?> 1 <?php echo e(trans('main.mois')); ?> (min/max) :<span id="gain1min"></span> / <span id="gain1max"></span> $ </li>
+										<li class="list-group-item"><?php echo e(trans('main.benefice_par')); ?> 3 <?php echo e(trans('main.mois')); ?> (min/max) :<span id="gain3min"></span> / <span id="gain3max"></span> $ </li>
+                                        <li class="list-group-item"><?php echo e(trans('main.benefice_par')); ?> 6 <?php echo e(trans('main.mois')); ?> (min/max) :<span id="gain6min"></span> / <span id="gain6max"></span> $ </li>
+										<li class="list-group-item"><?php echo e(trans('main.benefice_par')); ?> 12 <?php echo e(trans('main.mois')); ?> (min/max) :<span id="gain12min"></span> / <span id="gain12max"></span> $ </li>
                                     </ul>                                    
 								</div>
 							</div>
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Lien De Réference</h3>
+									<h3 class="card-title"><?php echo e(trans('main.reference_link')); ?></h3>
 								</div>
 								<div class="card-body">
 									<a href="#" id="mylink">
@@ -238,7 +236,10 @@
 						<div class="col-xl-6 col-md-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Graphe des Partenaires</h3>
+									<h3 class="card-title">
+										<?php echo e(trans('main.graphe_partenaires')); ?>
+
+									</h3>
 								</div>
 								<div class="card-body">
 									<canvas id="myChart" width="600" height="250"  ></canvas>	
@@ -280,7 +281,7 @@
 										<table id="datable-1" class="table  card-table table-striped table-bordered text-nowrap w-100">
 											<thead >
 												<tr>
-													<th>ID <?php echo e(trans('main.user')); ?></th>
+													<th><?php echo e(trans('main.user_id')); ?></th>
 													<th><?php echo e(trans('main.user')); ?></th>
 													<th><?php echo e(trans('main.date_entrer')); ?></th>
 													<th><?php echo e(trans('main.solde_actif')); ?></th>

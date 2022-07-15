@@ -6,7 +6,7 @@
 
 					<div class="page-header">
                         <h4 class="page-title">{{trans('main.liste_partenaires')}}</h4>
-                        <h4 class="page-title">Mon Parrain : {{Auth::user()->parrain()['nom'] ?? ""}} {{Auth::user()->parrain()['name'] ?? ""}}</h4>
+                        <h4 class="page-title">{{trans('main.sponsor')}} : {{Auth::user()->parrain()['nom'] ?? ""}} {{Auth::user()->parrain()['name'] ?? ""}}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">{{trans('partenaire')}}</li>
@@ -96,7 +96,8 @@
                                                 </div>
                                                 <div id="collapseFive{{$user->id}}" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
                                                     <div class="panel-body">
-                                                        <h4 class="page-title">Liste des Partenaires Niveau 1 : </h4>
+                                                        <h4 class="page-title">
+                                                        {{trans('main.partenaires_niveau')}} {{$user->id}} : </h4>
                                                             
                                                         <ul>
                                                             @foreach($user->partenaires() as $partenaire)

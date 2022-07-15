@@ -17,7 +17,7 @@ Conseils de sécurité :<br>
 * Ajoutez https://app.mygalaxy.world à vos favoris et utilisez https://www.mygalaxy.world notre site officiel pour toute information. <br>
 Si vous ne reconnaissez pas cette activité, veuillez contacter immédiatement notre service client à l'adresse : https://app.mygalaxy.world/support . 
 <br>
-Équipe Galaxy 
+Équipe Galaxy <br>
 Ceci est un message automatisé, veuillez ne pas répondre.
 
 
