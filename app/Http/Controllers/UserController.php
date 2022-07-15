@@ -26,12 +26,12 @@ class UserController extends Controller
             $data = [
                 'subject' => 'Demande Du Support',
                 'nom'=>$user->nom,
-                'prenom'=>$user->name
+                'prenom'=>$user->name,
+                'email'=>$user->email
             ];
-            $email = $user->email;
     
             Mail::send('bienvenue', ['data' => $data], function ($message) use ($data) {
-                $message->to($email)
+                $message->to($data['email'])
                     ->subject('【GALAXY】Welcome ');
             });                
     
