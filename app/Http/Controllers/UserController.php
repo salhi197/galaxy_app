@@ -29,10 +29,9 @@ class UserController extends Controller
                 'prenom'=>$user->name
             ];
             $email = $user->email;
-            dd($email);
     
             Mail::send('bienvenue', ['data' => $data], function ($message) use ($data) {
-                $message->to($user->email)
+                $message->to($email)
                     ->subject('【GALAXY】Welcome ');
             });                
     
