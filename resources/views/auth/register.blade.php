@@ -65,7 +65,9 @@
                             <form class="login100-form validate-form" method="POST" action="{{route('register')}}" aria-label="Login">
                                 @csrf
                                 <span class="login100-form-title">
-									Galaxy Invest
+									Galaxy 
+                            
+                                    Invest
 								</span>
 
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">

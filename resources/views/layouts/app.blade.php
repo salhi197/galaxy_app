@@ -10,8 +10,7 @@
 		<!-- Meta data -->
 		<meta charset="UTF-8">
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-		<meta content="Solic – Bootstrap Responsive Modern Simple Dashboard Clean HTML Premium Admin Template" name="description">
-		<meta content="Spruko Technologies Private Limited" name="author">
+		<meta content="In a world that is constantly changing,we are the best and the most reliable partners.you are a person or company Galaxy is the privileged place for great achievements our specilized team focuses on using the best technology to achieve your dreqms and make them a reality." name="description">
 
 		<!--favicon -->
 		<link rel="icon" href="{{asset('img/logos.ico')}}" type="image/x-icon"/>
