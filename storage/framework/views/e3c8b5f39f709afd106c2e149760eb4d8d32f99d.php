@@ -84,10 +84,18 @@
                                                                 <a class="btn btn-primary text-white" href="<?php echo e(route('user.edit',['user'=>$user->id])); ?>">
                                                                         Edit
                                                                     </a>
+
+                                                            <?php if($user->type == 0): ?>
+                                                                    <a class="btn btn-success text-white" href="<?php echo e(route('user.ActiverDesactiver',['user'=>$user->id])); ?>">
+                                                                        Activer
+                                                                    </a>
+                                                            <?php else: ?>
                                                                     <a class="btn btn-danger text-white" href="<?php echo e(route('user.ActiverDesactiver',['user'=>$user->id])); ?>">
-                                                                        Changer l'etat
+                                                                        Désactiver
                                                                     </a>
 
+                                                            <?php endif; ?>
+                                                                    
 
                                                                 </div>
                                                             </td>

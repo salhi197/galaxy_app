@@ -84,10 +84,18 @@
                                                                 <a class="btn btn-primary text-white" href="{{route('user.edit',['user'=>$user->id])}}">
                                                                         Edit
                                                                     </a>
+
+                                                            @if($user->type == 0)
+                                                                    <a class="btn btn-success text-white" href="{{route('user.ActiverDesactiver',['user'=>$user->id])}}">
+                                                                        Activer
+                                                                    </a>
+                                                            @else
                                                                     <a class="btn btn-danger text-white" href="{{route('user.ActiverDesactiver',['user'=>$user->id])}}">
-                                                                        Changer l'etat
+                                                                        Désactiver
                                                                     </a>
 
+                                                            @endif
+                                                                    
 
                                                                 </div>
                                                             </td>
