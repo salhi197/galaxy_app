@@ -46,7 +46,15 @@
                                                 <tbody>
                                                     @foreach($users as $user)
                                                         <tr>
-                                                            <td>{{$user->id ?? ''}}</td>
+                                                            <td>
+                                                            {{$user->id ?? ''}}
+                                                            @if($user->type == 0)
+                                                                <span class="badge badge-danger">Déactivé</span>
+                                                            @else
+                                                                <span class="badge badge-primary">Activé</span>
+                                                            @endif
+
+                                                            </td>
                                                             <td>
                                                                 <a href="{{route('user.detail',['user'=>$user->id])}}">
                                                                 {{$user->name ?? ''}}
@@ -73,8 +81,11 @@
 
                                                             <td >
                                                                 <div class="table-action">  
-                                                                    <a class="btn btn-primary text-white" href="{{route('user.edit',['user'=>$user->id])}}">
+                                                                <a class="btn btn-primary text-white" href="{{route('user.edit',['user'=>$user->id])}}">
                                                                         Edit
+                                                                    </a>
+                                                                    <a class="btn btn-danger text-white" href="{{route('user.ActiverDesactiver',['user'=>$user->id])}}">
+                                                                        Changer l'etat
                                                                     </a>
 
 

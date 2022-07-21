@@ -109,6 +109,10 @@ class UserController extends Controller
 
     public function index()
     {
+        if(!Auth::guard('admin')->check()){
+            return redirect()->route('login.admin');
+        }
+
         $users =User::all();
         return view('users.index',compact('users'));
     }
@@ -292,5 +296,15 @@ class UserController extends Controller
         $methodeUser->delete();    
         return redirect()->route('user.methodes')->with('success', 'Suppresion Terminé ');
     }
+
+
+    public function ActiverDesactiver($user_id)
+    {
+        $user = User::find($user_id);
+        $user->type = !$user->type;
+        $user->save();
+        return redirect()->route('user.index')->with('success', 'Changementr d\'état');
+    }
+    
 
 }

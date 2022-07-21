@@ -88,6 +88,8 @@ Route::group(['prefix' => 'user','middleware' =>'lang', 'as' => 'user'], functio
     Route::get('/methode/destroy/{methode_user}', ['as' => '.methode.destroy', 'uses' => 'UserController@destroyUserMethode']);
     Route::get('/demande/{user}', ['as' => '.demande', 'uses' => 'UserController@demande']);
     Route::get('/email/{code_email}', ['as' => '.user.code.email', 'uses' => 'UserController@verifyEmail']);    
+    Route::get('/ActiverDesactiver/{user_id}', ['as' => '.ActiverDesactiver', 'uses' => 'UserController@ActiverDesactiver']);    
+        
 });
 
 

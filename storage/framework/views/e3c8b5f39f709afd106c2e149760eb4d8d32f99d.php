@@ -42,7 +42,16 @@
                                                 <tbody>
                                                     <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                         <tr>
-                                                            <td><?php echo e($user->id ?? ''); ?></td>
+                                                            <td>
+                                                            <?php echo e($user->id ?? ''); ?>
+
+                                                            <?php if($user->type == 0): ?>
+                                                                <span class="badge badge-danger">Déactivé</span>
+                                                            <?php else: ?>
+                                                                <span class="badge badge-primary">Activé</span>
+                                                            <?php endif; ?>
+
+                                                            </td>
                                                             <td>
                                                                 <a href="<?php echo e(route('user.detail',['user'=>$user->id])); ?>">
                                                                 <?php echo e($user->name ?? ''); ?>
@@ -72,8 +81,11 @@
 
                                                             <td >
                                                                 <div class="table-action">  
-                                                                    <a class="btn btn-primary text-white" href="<?php echo e(route('user.edit',['user'=>$user->id])); ?>">
+                                                                <a class="btn btn-primary text-white" href="<?php echo e(route('user.edit',['user'=>$user->id])); ?>">
                                                                         Edit
+                                                                    </a>
+                                                                    <a class="btn btn-danger text-white" href="<?php echo e(route('user.ActiverDesactiver',['user'=>$user->id])); ?>">
+                                                                        Changer l'etat
                                                                     </a>
 
 
